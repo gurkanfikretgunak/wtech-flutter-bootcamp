@@ -1,1 +1,3 @@
-// my first line
+void main(List<String> args) {
+  print("wtech");
+}
