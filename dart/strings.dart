@@ -18,8 +18,11 @@ void main(List<String> args) {
   
   
   ''';// buraya gelen her enter \n olmadan alt satıra gecer
-  
+  String s7 =r'raw string';
+  String s8 = 'ulas' 'ulas ' 'ulas';
+
 
   print("$s0   $s1   $s2    $s4    $s5   ");
   print(s6);
+  print("$s7  $s8");
 }
