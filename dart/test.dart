@@ -1,2 +1,3 @@
-//my first line
-//my second line @gurkanfikretgunak
+void main(List<String>args) {
+  print("wtech");
+}
