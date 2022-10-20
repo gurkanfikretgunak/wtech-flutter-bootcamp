@@ -1,1 +1,3 @@
-//My first commit
+void main(List<String> args) {
+  print("Hello Wtech");
+}
