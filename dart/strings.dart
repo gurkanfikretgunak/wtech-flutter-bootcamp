@@ -13,5 +13,7 @@ void main(List<String> args) {
 
 //String = List (Array Object)
   String s6 = 'Batuhan' 'Akdemir';
-  print('$s0 $s1 $s2 $s3 $s4 $s5 $s6');
+
+  String s7 = r'Raw type';
+  print('$s0 $s1 $s2 $s3 $s4 $s5 $s6 $s7');
 }
