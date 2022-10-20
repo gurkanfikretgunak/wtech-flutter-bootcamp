@@ -17,4 +17,5 @@ void main(List<String> args) {
   List l4 = [1, "String", 1.2, []];
 
   print('$l1,  $l2, $l3, $l4');
+  print(l3[0]);
 }
