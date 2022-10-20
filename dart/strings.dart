@@ -15,5 +15,7 @@ void main(List<String> args) {
 
   String s6= 'Aslınaz' 'Dayı' 'İstanbul';
 
-  print('$s0,$s1,$s2,$s3,$s4,$s5,$s6');
+  String s7 = r'Raw String'; //ne ollduğuna bak
+
+  print('$s0,$s1,$s2,$s3,$s4,$s5,$s6,$s7');
 }
