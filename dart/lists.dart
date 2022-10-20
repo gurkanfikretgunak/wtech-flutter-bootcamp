@@ -9,4 +9,5 @@ void main(List<String> args) {
   List bbb = <String>["a","b","c","d"];
 
   print("$aaa   $bbb");
+  print(aaa[3]);//index
 }
