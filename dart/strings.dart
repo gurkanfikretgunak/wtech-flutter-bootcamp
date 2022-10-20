@@ -14,6 +14,8 @@ void main(List<String> args) {
   4 
   
   ''';
+  // String = List(Array Object)
+  String s6 = 'Gürkan' 'Fikret' 'Günak';
 
-  print('$s0,$s1,$s2,$s3,$s4,$s5');
+  print('$s0,$s1,$s2,$s3,$s4,$s5,$s6');
 }
