@@ -17,5 +17,7 @@ void main(List<String> args) {
 
   String s6 = 'Ahmet' 'Can' 'Tanrıkulu';
 
+  print('');
+
   //String=List(array)
 }
