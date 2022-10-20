@@ -15,5 +15,6 @@ void main(List<String> args) {
 
   //String = List(Array Object)
   String s6 = 'Gürkan' 'Fikret' 'Günak';
-  print('$s0 $s1 $s2 $s3, $s4 $s5 $s6');
+  String s7 = r'Raw String';
+  print('$s0 $s1 $s2 $s3, $s4 $s5 $s6 $s7');
 }
