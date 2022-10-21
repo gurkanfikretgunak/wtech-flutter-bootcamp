@@ -10,12 +10,12 @@ void main(List<String> args) {
   m4["Key3"] = "Value";
 
   Map<String, dynamic> m5 = {
-    "sID": 1546544,
+    "sID": 1546544,//Single Object
     "access-token": "53465312asdsd5asd5a5fad",
     "userName": "ardanutyali",
     "emailVerify": true,
     "oldUserData": false,
-    "last-access-point": [132, 24, 59],
+    "last-access-point": [132, 24, 59],//Multi Object
     "documents": {
       "documentID": 1213565,
       "bucketLink": "https://file.sample.com/userID/1213565",
