@@ -1,5 +1,0 @@
-void main() {
-  String s1 = 'Antalya\'da';
-
-  print('$s1');
-}
