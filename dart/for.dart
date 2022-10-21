@@ -3,14 +3,14 @@ main() {
     print(i);
   }
 
-  var collection = [37, 75, 57];
-  for (var x in collection) {
+  var liste = [37, 75, 57];
+  for (var x in liste) {
     print(x);
   }
 
-  var callbacks = [];
+  var list = [];
   for (var i = 7; i < 34; i++) {
-    callbacks.add(() => print(i));
+    list.add(() => print(i));
   }
-  callbacks.forEach((c) => c()); // invoke each callback
+  list.forEach((c) => c()); // invoke each callback
 }
