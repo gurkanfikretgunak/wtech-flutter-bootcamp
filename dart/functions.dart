@@ -44,4 +44,5 @@ signInWithEmailAndPassword({String email="defaultVal",String password="defaultPa
 
 void main(List<String> args) {
   
+  signInWithEmailAndPassword(email: "aaaa",password: "bbbbbbb");
 }
