@@ -1,5 +1,5 @@
-void main() {
-  var list = [elma, süt, çay];
+main() {
+  var list = [1, 2, 3];
 
   print(list);
 }
