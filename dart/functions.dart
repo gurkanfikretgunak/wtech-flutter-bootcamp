@@ -41,11 +41,27 @@ void deleteUserfromDB(){
 
    signInWithEmailAndPasswordNew({required String? email,String? password}){
 
-    
 
   }
 
   void main(List<String> args) {
   signInWithEmailAndPassword("ahmt@gmail.com", "1234");
   signInWithEmailAndPasswordNew(email: "");
+
+  print(playerName("ahmet"));
+   print(playerName(null));
+    print(playerName2("ahmet"));
+}
+
+
+// Slightly longer version uses ?: operator.
+String playerName(String? name) => name != null ? name : 'Guest';
+
+// Very long version uses if-else statement.
+String playerName2(String? name) {
+  if (name != null) {
+    return name;
+  } else {
+    return 'Guest';
+  }
 }
