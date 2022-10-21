@@ -2,7 +2,7 @@ void main(List<String> args) {
   int i1 = 1;
   int i2 = -2;
   int i3 = 0;
-  int i4 = 0xADEADBEEF;
+  int i4 = 0xADBEEFDE;
   double d1 = 1.0;
   double d2 = 1.35;
   double d3 = 1.14e5;
