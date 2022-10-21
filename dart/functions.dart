@@ -28,6 +28,19 @@ emailService(){
 String signInWithGithub() => "string dönmek zorundasın moruk";  //böyle de kullanılabilir
 
 
+void deleteUserFromDB(){}
+
+
+
+signInWithEmailAndPassword({String email="defaultVal",String password="defaultPass"}){  //default değer tanımladık eğer data gelmezse default değerleri kullanacak
+  
+    email ="a";
+    password = "b";
+    
+  
+  }
+
+
 
 void main(List<String> args) {
   
