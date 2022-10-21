@@ -11,6 +11,8 @@ urlShorter(
   bool? withDot,
 }) {}
 
+String playerName(String? name) => name ?? 'Guest';
+
 signInWithEmailAndPassword({required String? email, String? password}) {}
 void main(List<String> args) {
   signInWithEmailAndPassword(email: "aysenur@gmail", password: "123");
