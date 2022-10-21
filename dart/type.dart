@@ -8,6 +8,9 @@ void main(List<String> args) {
   print(y);
   print(z);
 
+} 
+class DortIslem{
+  
 }
 
 
