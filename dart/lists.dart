@@ -1,5 +1,12 @@
 void main(List<String> args) {
-  var li = [1, 2, 3, 4, "", {}];
+  var li = [
+    1,
+    2,
+    3,
+    4,
+    "",
+    {"key": "value"}
+  ];
 
   List l2 = <int>[1, 2, 3, 4, 5];
 
