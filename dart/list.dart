@@ -14,7 +14,7 @@ void main(List<String> args) {
   List l2 = <int>[1, 2, 3, 4];
   List l3 = <String>['Batuhan', 'Ali'];
 
- 
+  List l4 = [1, 2, 3, ...l2];
 
   print('$l1 , $l2 , $l3');
 }
