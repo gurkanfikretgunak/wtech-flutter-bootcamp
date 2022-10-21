@@ -18,9 +18,14 @@ Map<String,dynamic> m5 = { // keyler string value dynamic olabilir diyor
   "username":"ulasfather",
   "isEmailVerify": true,
   "oldUserData":false,
-  "last-access-point" :[132,24,26]
+  "last-access-point" :[132,24,26],
+  "documents" :{
+    "aaa":1,
+    "bbb":2,
+    "ccc":3
+  }
 
-  
+
 };
 
       
