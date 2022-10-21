@@ -22,4 +22,27 @@ void main(List<String> args) {
     }
   }
 
+asign(){};
+bsign(){};
+csign(){};
+dsign(){};
+
+
+  signSelect(String command){
+
+    switch(command){
+      case 'a':
+      asign();
+      break;
+      case 'b': 
+      bsign();
+      break;
+      case 'c': 
+      csign();
+      break;
+      default: 
+      dsign();
+    }
+  }
+
 }
