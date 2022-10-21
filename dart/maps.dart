@@ -5,5 +5,5 @@ void main(List<String> args) {
   var m4 = Map<String, String>{};
 
 
-m4 {"Key1"}="Value1";
+m4 {"Key1"}={"Value1"};
 }
