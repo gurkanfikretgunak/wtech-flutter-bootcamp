@@ -9,3 +9,7 @@ void main(List<String> args) {
 
   print("$i1,$i2,$i3,$i4,$d1,$d2,$d3");
 }
+
+class Dort {
+  toplam() {}
+}

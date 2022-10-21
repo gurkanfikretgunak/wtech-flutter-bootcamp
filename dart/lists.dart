@@ -17,5 +17,5 @@ void main(List<String> args) {
 
   List l5 = [1, 2, 3, ...l4];
 
-  print('$l1,$l2,$l3,$l4');
+  print('$l1?[0],$l2,$l3,$l4');
 }
