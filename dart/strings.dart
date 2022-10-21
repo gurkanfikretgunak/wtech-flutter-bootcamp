@@ -12,5 +12,7 @@ void main(List<String> args) {
   4
 
   ''';
-  print('$s0 $s1 $s2 $s3, $s4 $s5');
+  //String = List(Array Object)
+  String s6 = 'Dilan' 'Acur';
+  print('$s0 $s1 $s2 $s3, $s4 $s5 $s6');
 }
