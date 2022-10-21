@@ -11,5 +11,6 @@ void main(List<String> args) {
   List l2 = [1, 2, 3, 4];
   List l3 = <String>["a", "b", "c"];
   List l4 = [];
+  List l5 = [1, 2, 3, ...l4];
   print('$l4,$l2,$l3,$l1');
 }
