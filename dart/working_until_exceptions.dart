@@ -23,7 +23,16 @@ void main(List<String> args) {
     },
   ];
 
+//for loops
   for (var i in list) {
     print(i);
+  }
+
+  //for loops classic version and use of operators
+  for (var i = 0; i < list.length; i++) {
+    if (list[i]["name"] == "Ahmet") {
+      print(list[0]["name"]);
+    }
+    ;
   }
 }
