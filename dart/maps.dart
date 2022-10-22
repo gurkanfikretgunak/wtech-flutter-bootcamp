@@ -2,8 +2,14 @@ void main(List<String> args) {
   var m1 = {"Key": "Value"};
   var m2 = {1: "Value"};
   var m3 = {"[]": "Value"};
-  var m4 = Map<String, String>{};
 
+  Map<String, int> notlarim = {
+    "İngilizce": 78,
+    "Matematik": 99,
+    "Beden Eğitimi": 100,
+  };
 
-m4 {"Key1"}={"Value1"};
+  print(notlarim);
+
+  print(notlarim["İngilizce"]);
 }
