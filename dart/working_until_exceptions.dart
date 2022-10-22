@@ -41,11 +41,24 @@ void main(List<String> args) {
   while (isProcess) {
     for (var i in listNumbers) {
       if (i % 2 == 0) {
-        print("$i sayısı çifttir ");
+        print("$i the number is even ");
       } else {
-        print("$i sayısı Tektir");
+        print("$i number is odd");
       }
     }
     isProcess = false;
+  }
+
+  //continue example
+  for (var i in list) {
+    if (i["name"] != "Ahmet") continue;
+    print("\nContinue Result: \n$i");
+  }
+
+  //break example
+  print("\nBreak Result:");
+  for (var i in list) {
+    print("$i");
+    if (i["name"] == "Gökhan") break;
   }
 }
