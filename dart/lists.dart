@@ -14,9 +14,23 @@ void main(List<String> args) {
   List l2 = <int>[1, 2, 3];
   List l3 = <String>["Gürkan", "Ayşe", "Elif"];
   List l4 = [1, "String", 1.2, []];
-  List l5 = [1, 2, 3, ...l4];
+  List l5 = [1, 2, 3, ...l4]; //Bir listeye başka listeyi eklemek
   List users;
   List usersAddress;
 
-  print('$l1,$l2$l3$l4');
+  //****** */ Listenin her elemanına karakter eklemek için kullanılabilir.
+  var listOfInts = [1, 2, 3];
+  var listOfStrings = ['#0', for (var i in listOfInts) '#$i'];
+
+  var list3 = [47, 3, 25];
+  try {
+    for (var item in list3) {
+      if (item < 10) {
+        list3.remove(item);
+        print(list3);
+      }
+    }
+  } catch (e) {
+    print('error');
+  }
 }
