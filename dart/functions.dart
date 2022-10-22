@@ -1,58 +1,41 @@
-
-
-
-  signInWithEmail(){
-   //TODO sign-in services E-mail sevices
-  }
-
-    signInWithPhone(){
-   //TODO sign-in services Phone sevices
-  }
-
-String signInWithGithub()=>"String return";
-
-void getGitHubUser(){
-    
+signInWithEmail() {
+  //TODO sign-in services E-mail sevices
 }
 
-void deleteUserfromDB(){
+signInWithPhone() {
+  //TODO sign-in services Phone sevices
+}
+
+String signInWithGithub() => "String return";
+
+void getGitHubUser() {}
+
+void deleteUserfromDB() {
   //return yapılan işlem
 }
- //Kurgu örneği
-  getEmail(){
+//Kurgu örneği
+getEmail() {}
 
-  }
+emailSender() {}
 
-  emailSender(){
-
-  }
-
-  emailServices(){
-    getEmail();
-    emailSender();
-  }
+emailServices() {
+  getEmail();
+  emailSender();
+}
 
 //parametre
-  signInWithEmailAndPassword(String email,String password){
+signInWithEmailAndPassword(String email, String password) {}
 
-    
+signInWithEmailAndPasswordNew({required String? email, String? password}) {}
 
-  }
-
-   signInWithEmailAndPasswordNew({required String? email,String? password}){
-
-
-  }
-
-  void main(List<String> args) {
+void main(List<String> args) {
   signInWithEmailAndPassword("ahmt@gmail.com", "1234");
   signInWithEmailAndPasswordNew(email: "");
 
   print(playerName("ahmet"));
-   print(playerName(null));
-    print(playerName2("ahmet"));
+  print(playerName(null));
+  print(playerName2("ahmet"));
 }
-
 
 // Slightly longer version uses ?: operator.
 String playerName(String? name) => name != null ? name : 'Guest';

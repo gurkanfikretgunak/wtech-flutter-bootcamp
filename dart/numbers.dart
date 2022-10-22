@@ -9,5 +9,4 @@ void main() {
 
   print("$i1,$i2,$i3,$i4,$d1,$d2,$d3");
   print(1.toString());
-
 }
