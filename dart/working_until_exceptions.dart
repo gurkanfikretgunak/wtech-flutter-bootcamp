@@ -61,4 +61,9 @@ void main(List<String> args) {
     print("$i");
     if (i["name"] == "Gökhan") break;
   }
+
+  //assert example
+  String name = "Ahmet";
+  assert(name != "Aydın");
+  print("\nInput is not correct");
 }
