@@ -6,7 +6,6 @@ void main(List<String> args) {
 }
 
 var dort = DortIslem();
-
 factorial(number) {
   if (number <= 0) {
     return 1;
