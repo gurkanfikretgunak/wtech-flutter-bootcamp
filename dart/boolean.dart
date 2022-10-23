@@ -1,4 +1,5 @@
 void main(List<String> args) {
-  bool uyuyor = true;
-  bool uyumuyor = false;
+  bool x = true;
+  bool y = false;
+  print('$x,$y');
 }
