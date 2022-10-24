@@ -17,3 +17,5 @@ factorial(number){
 
     }
 }
+print;
+
