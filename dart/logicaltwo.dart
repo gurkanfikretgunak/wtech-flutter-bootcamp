@@ -1,5 +1,5 @@
 void main() {
-  // ve operatörü ||
+  // ve operatörü  işareti ||
   bool a = true || true;
   bool b = true || false;
   bool c = false || true;
