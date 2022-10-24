@@ -5,7 +5,7 @@ void main(List<String> args) {
 switch(sayi) {
   case 0:
     print('zero!');
-    break; // The switch statement must be told to exit, or it will execute every case.
+    break;
   case 1:
     print('one!');
     break;
