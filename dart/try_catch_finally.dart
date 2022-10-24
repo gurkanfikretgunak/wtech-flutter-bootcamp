@@ -6,7 +6,7 @@ void main(List<String> args){
       } on FirebaseException catch(e) {
         print(e);
       }finally{
-        navigateToHome(int errorCode){}
+        navigateToLogin(int errorCode){}
       }
     }
   }
