@@ -37,7 +37,38 @@ class DatePickerConfig {
   }
 }
 
+class ImageUploader {
+  String? filePath;
+  String? storagePath;
+
+  ImageUploader(this.filePath, this.storagePath);
+
+  static imageSelector() {
+    
+
+    imagePathSelector() {
+      
+    }
+  }
+}
+
+abstract class BaseUrl {
+  BaseUrl(this.url);
+  String? url;
+  String get baseUrl => "https://example.com/api/";
+}
+
+class Auth extends BaseUrl {
+  Auth(super.url): super();
+  registerUser() {
+    
+  }
+}
+
 void main(List<String> args) {
+
+  var iu = ImageUploader("", "");
+
   var d = Developer();
   var dateTime = DatePickerConfig();
   print(Po().multiply().toString());
