@@ -1,5 +1,6 @@
 void main(List<String> args) {
+  var list= [1, 2, 3];
 
-var 
-var '11' ={1,2,3,4,"",1.2,};
+  print(list);
+  
 }
