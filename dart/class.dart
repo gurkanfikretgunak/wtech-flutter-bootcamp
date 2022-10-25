@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Person {
   String? name;
   String? surname;
@@ -42,6 +44,7 @@ class ImagePicker {
   }
 }
 
+//Constructor Sample------------------------
 class SumNum {
   SumNum(this.list);
 
@@ -56,11 +59,23 @@ class SumNum {
   }
 }
 
+//Get-Set Sample---------------------
+class FindHypotenuse {
+  double a;
+  double b;
+
+  FindHypotenuse(this.a, this.b);
+
+  double get sum => (a * a) + (b * b);
+  double get hypotenuse => sqrt(sum);
+}
+
 void main(List<String> args) {
   //Eşitlemeden direkt bu şekilde yazdırılabilir.
   print(Math().multy().toString());
   List<int> list = [1, 2, 3, 4];
   SumNum(list).increase();
+  print(FindHypotenuse(5, 12).hypotenuse);
   //var dateTime = Date();
   //var ip = ImagePicker("", "");
 }
