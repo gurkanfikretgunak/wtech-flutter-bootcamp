@@ -1,4 +1,13 @@
-/// Basic Class
+// Topics
+// 1- Basic Class Usage
+// 2- Inheritance
+//   2.1- Abstract Class
+//   2.2- Interface Class(almost)(using with implements)
+//   2.3- All Examples Together About Inheritance
+// 3- Static Class
+// 4- Enums
+
+/// 1- Basic Class
 class ClassUsage {
   // Class Variables
   String name;
@@ -13,8 +22,8 @@ class ClassUsage {
   }
 }
 
-// Inheritance Usage
-/// Abstract Class
+/// 2- Inheritance Usage
+/// 2.1- Abstract Class
 abstract class SuperClass {
   late String _name; // Private variable usage(It is invisible to other files)
 
@@ -30,7 +39,9 @@ abstract class SuperClass {
   String sayHi() => 'Hi';
 }
 
-/// Interface Class
+/// 2.2- Like Interface Class
+// Dart does not have interface but we can use implements keyword.
+// A class who implements this class must need to override that fields and methods.
 class InterfaceClass {
   String surname;
   InterfaceClass(this.surname);
@@ -38,7 +49,7 @@ class InterfaceClass {
   String greet() => surname;
 }
 
-/// Extends and Implements Usage
+// Extends and Implements Usage
 class SubClass extends SuperClass implements InterfaceClass {
   @override // It comes from InterfaceClass
   String surname = 'Coban';
@@ -51,14 +62,75 @@ class SubClass extends SuperClass implements InterfaceClass {
       : 'Error';
 }
 
-// Static Method Usage with Class
+//========================================
+/// 2.3- All Examples Together About Inheritance
+abstract class Person {
+  String name;
+  String surname;
+
+  Person(this.name, this.surname);
+
+  void live() {
+    print('I am live.');
+  }
+}
+
+/// Mixin (using with 'with keyword')
+// 'on' keyword can use between mixin
+mixin Walking {
+  void walk() {
+    print('I can walking');
+  }
+}
+
+mixin Breathing {
+  void breath() {
+    print('I need o2');
+  }
+}
+
+class HaveCar {
+  late String carName;
+  late String model;
+  late int wheelCount;
+
+  void drive() {
+    print('I am driving');
+  }
+}
+
+class Baby extends Person with Breathing {
+  Baby(super.name, super.surname);
+}
+
+class Adult extends Person with Breathing, Walking implements HaveCar {
+  Adult(super.name, super.surname, this.carName, this.model, this.wheelCount);
+
+  @override
+  String carName;
+
+  @override
+  String model;
+
+  @override
+  int wheelCount;
+
+  @override
+  void drive() {
+    // TODO: implement drive
+    print('I am adult and i have car so i can drive');
+  }
+}
+//========================================
+
+/// 3- Static Class
 class StaticMethodClass {
   static late String name;
 
   static String staticMethod() => name;
 }
 
-// Enums
+/// 4- Enums
 enum ThemeColors {
   DARK,
   LIGHT;
