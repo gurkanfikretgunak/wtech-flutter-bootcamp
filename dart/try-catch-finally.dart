@@ -9,7 +9,6 @@ void main(List<String> args) {
 
   }
 
-// SomeException  fonksiyon
   var name = '';
   try {
     displayName(name);
@@ -22,10 +21,11 @@ void main(List<String> args) {
     displayName(name);
   } on EmptyNameException {
     print('Given name is empty.');
+  } finally {
+    // özel durumdan bağımsız olarak gerçekleşen kod parçacığı
+
   }
 }
-
-class SomeException {}
 
 ///- ismin boş olmama durum fonksiyonu
 void displayName(String str) {
@@ -36,10 +36,12 @@ void displayName(String str) {
   }
 }
 
-// Belirli özel durumu işleyen   Try - Catch Bloğu
+// Belirli özel durumu işleyen   Try - Catch Class
 
 class EmptyNameException implements Exception {
   String cause;
 
   EmptyNameException(this.cause);
 }
+
+class SomeException {}
