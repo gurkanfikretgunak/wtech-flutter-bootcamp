@@ -9,15 +9,15 @@ void currentUser(String email,String userID){
     } on FirebaseException catch (e) {
       print(e);
     }finally {
-      navigateToHome(int errorCode){}
+      navigateToLogin(int errorCode){}
     }
 }
 }
 
 
+//userId-int
+//errorMsg-String
+//errorCode- int
+//responseStatus-String
 
-
-class FirebaseException{
-
-
-}
+class FirebaseException{}

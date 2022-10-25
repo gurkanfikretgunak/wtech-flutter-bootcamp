@@ -19,7 +19,7 @@ void deleteUserfromDB(){}
     bool? longShort,
   }) {}
 
-  playerName(String? name, int? age) {
+playerName(String? name, int? age) {
     if (name != null && age==18) 
      return print(name);
      else {
@@ -31,5 +31,5 @@ void main(List<String> args) {
 
   signInWithEmailAndPassword(email: "",password: "");
   urlShorter("www.google.com.tr",withDot: true,longShort: false);
-}
-playerName("Aslınaz",10)
+
+playerName("Aslınaz",10);}
