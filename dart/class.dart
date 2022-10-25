@@ -42,13 +42,25 @@ class ImagePicker {
   }
 }
 
-class getC {
-//double get
+class SumNum {
+  SumNum(this.list);
+
+  List<int> list;
+  int increase() {
+    int sum = 0;
+    for (int i = 0; i < list.length; i++) {
+      sum += list[i];
+    }
+    print("total : $sum");
+    return sum;
+  }
 }
 
 void main(List<String> args) {
   //Eşitlemeden direkt bu şekilde yazdırılabilir.
   print(Math().multy().toString());
-  var dateTime = Date();
-  var ip = ImagePicker("", "");
+  List<int> list = [1, 2, 3, 4];
+  SumNum(list).increase();
+  //var dateTime = Date();
+  //var ip = ImagePicker("", "");
 }
