@@ -70,12 +70,32 @@ class FindHypotenuse {
   double get hypotenuse => sqrt(sum);
 }
 
+//Abstract Sample--------------------
+abstract class HeyBy {
+  void hey();
+  void by();
+}
+
+class CafeLogo extends HeyBy {
+  @override
+  void by() {
+    print("işletmeye hoşgeldiniz");
+  }
+
+  @override
+  void hey() {
+    print("Elveda,Yine bekleriz");
+  }
+}
+
 void main(List<String> args) {
   //Eşitlemeden direkt bu şekilde yazdırılabilir.
   print(Math().multy().toString());
   List<int> list = [1, 2, 3, 4];
   SumNum(list).increase();
   print(FindHypotenuse(5, 12).hypotenuse);
+  CafeLogo().hey();
+
   //var dateTime = Date();
   //var ip = ImagePicker("", "");
 }
