@@ -70,7 +70,7 @@ class FindHypotenuse {
   double get hypotenuse => sqrt(sum);
 }
 
-//Abstract Sample--------------------
+//Abstract-Overriding Sample--------------------
 abstract class HeyBy {
   void hey();
   void by();
