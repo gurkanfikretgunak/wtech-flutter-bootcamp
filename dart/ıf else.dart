@@ -18,4 +18,3 @@ var monday = isAlive ? 'doctor' : null;
 print('monday appointment: $monday');
 {
   
-}
