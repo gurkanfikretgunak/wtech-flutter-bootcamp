@@ -14,23 +14,23 @@ void main(List<String> args) {
 }
 
 class Student {
-  var name;
+  String? name;
 }
 
 class Students {
-  var name1;
-  var percent;
+  String? name1;
+  int? percent;
 
   set success(int puan) {
     var score;
     if (score > 10)
-      var score = 10;
+      int? score = 10;
     else if (score < 0) score = 0;
 
     percent = score * 10;
   }
 
   int get success {
-    return percent;
+    return percent!;
   }
 }
