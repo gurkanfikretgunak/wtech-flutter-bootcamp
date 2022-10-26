@@ -35,7 +35,7 @@ extension HeroExtension on Heroes {
       case Heroes.batman:
         return "DC";
       default:
-        return "Kayıtlı olmayan kahraman";
+        return "Kayıtlı olmayan sinematik evreni";
     }
   }
 
