@@ -7,7 +7,7 @@ void main(List<String> args) {
   double d2 = 1.35;
   double d3 = 1.44e5;
 
-  int i5 = 35;
+  
   print(1.toString());
   print("$i1,$i2,$i3,$i4,$d1,$d2,$d3");
 }
