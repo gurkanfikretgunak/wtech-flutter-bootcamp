@@ -5,10 +5,14 @@ class Personel {
 }
 
 class DeveloperSkills {
+  List<String>? softwareSkills;
+}
+
+class EducationSkills {
   int? successScore;
 }
 
-class Developer extends Personel with DeveloperSkills {}
+class Developer extends Personel with DeveloperSkills, EducationSkills {}
 
 class Po {
   int x = 9;
@@ -31,6 +35,17 @@ class DatePickerConfig {
   }
 }
 
+class ImageUploader {
+  String? filePath;
+  String? storagePath;
+
+  ImageUploader(this.filePath, this.storagePath);
+
+  void imageSelecter() {
+    imagePathSelecter() {}
+  }
+}
+
 void main(List<String> args) {
   var d = Developer();
   var carpma = Po().multy();
@@ -40,4 +55,7 @@ void main(List<String> args) {
   print(dateTime);
 
   print(carpma);
+
+  var iu = ImageUploader("/home/pictures", "/firebase/data");
+  iu.filePath;
 }
