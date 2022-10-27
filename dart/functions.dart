@@ -27,6 +27,8 @@ playerName(String? name) {
   }
 }
 
+String playerName2(String? name) => name != null ? name : 'Guest';
+
 void main(List<String> args) {
   signInWithEmailAndPassword(email: "", password: "");
   signInWithEmailAndPasswordNew("", "");
