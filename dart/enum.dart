@@ -36,12 +36,12 @@ extension WeatherExt on Weather {
   String get about => weatherMap[this]!;
 }
 
-enum ImageEnum { image }
+// enum ImageEnum { image }
 
-extension ImageExtension on ImageEnum {
-  Image toImage(String imgName,
-          {required double? width, required double? height}) =>
-      Image.asset("assets/images/${imgName}.png", height: height, width: width);
-}
+// extension ImageExtension on ImageEnum {
+//   Image toImage(String imgName,
+//           {required double? width, required double? height}) =>
+//       Image.asset("assets/images/${imgName}.png", height: height, width: width);
+// }
 
-class Image {}
+// class Image {}
