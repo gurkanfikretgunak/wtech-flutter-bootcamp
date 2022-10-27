@@ -15,4 +15,10 @@ void main(List<String> args) {
   List l4 = [1, "String", 1.2, []];
 
   print('$l1 $l2 $l3 $l4');
+
+var sehirler=["A","B","C"];
+print(sehirler);
+sehirler.add("D");
+print(sehirler);
+
 }
