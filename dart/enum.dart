@@ -8,7 +8,7 @@ extension ApiResponseStatusStringDefinitonExtension on ApiResponseStatus {
   String get stringDefinition {
     switch (this) {
       case ApiResponseStatus.successful:
-        return "Istek başarılı";
+        return "başarılı";
       case ApiResponseStatus.unauthorized:
         return "Yetkiniz yok";
       case ApiResponseStatus.uninitialized:
