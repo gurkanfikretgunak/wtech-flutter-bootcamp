@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -8,11 +6,10 @@ class BottomAppBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  BottomAppBar(
-
-      // Floating action button ile bottom navigation bar arasındaki boşluk miktarını ayarlıyor. 
+    return BottomAppBar(
+      // Floating action button ile bottom navigation bar arasındaki boşluk miktarını ayarlıyor.
       notchMargin: 12,
-      
+
       child: Row(
         children: [
           IconButton(
