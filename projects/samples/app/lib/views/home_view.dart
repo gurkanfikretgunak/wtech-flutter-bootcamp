@@ -1,4 +1,5 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
+import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
 
@@ -7,11 +8,13 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      bottomNavigationBar: BottomAppBarWidget(),
+    return Scaffold(
+      appBar: const CustomAppBar(),
+      bottomNavigationBar: const BottomAppBarWidget(),
       //floatingActionButton: CustomWidgets.getFloatingActionButton(),
-      floatingActionButton: FloatingActionButtonWidget(),
+      floatingActionButton: const FloatingActionButtonWidget(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      body: Container(color: Colors.orange.shade200),
     );
   }
 }

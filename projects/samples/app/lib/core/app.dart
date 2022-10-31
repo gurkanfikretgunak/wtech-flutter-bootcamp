@@ -12,6 +12,7 @@ class App extends StatelessWidget {
       title: 'Wtech Project',
       home: HomeView(),
       theme: CustomThemeData.instance.themeData,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
