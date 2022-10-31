@@ -5,9 +5,13 @@ import 'package:flutter/material.dart';
 class CustomThemeData {
   CustomThemeData._() {
     _themeData = ThemeData(
-      useMaterial3: false,
-      primarySwatch: Colors.pink,
-    );
+        useMaterial3: false,
+        primarySwatch: Colors.pink,
+        bottomAppBarTheme: BottomAppBarTheme(
+          color: Colors.tealAccent.shade200,
+          elevation: 2,
+          shape: const CircularNotchedRectangle(),
+        ));
   }
   static CustomThemeData instance = CustomThemeData._();
 
