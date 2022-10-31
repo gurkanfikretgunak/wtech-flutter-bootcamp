@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 
@@ -41,7 +39,7 @@ class CustomWidgets{
 
     static Widget getBottomAppBar(){
       return BottomAppBar(
-        
+        color: Colors.blueGrey,
         notchMargin: 10,
         child: Row(
           children: [
@@ -66,6 +64,54 @@ class CustomWidgets{
         
       );
     
+    }
+    static PreferredSize getCustomAppBar(){
+      return PreferredSize(
+        // ignore: sort_child_properties_last
+        child: Container(
+          decoration: BoxDecoration(
+            color: Colors.yellow,borderRadius: BorderRadius.circular(10)
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.leaderboard)),
+              const Padding(padding: EdgeInsets.all(30.0)),
+              const Text("ulasozturk's app"),
+              const Padding(padding: EdgeInsets.all(30.0)),
+              IconButton(onPressed: (){}, icon: const Icon(Icons.accessibility))
+            ],
+          ),
+        ),
+        preferredSize: const Size.fromHeight(70)
+      );
+
+    }
+
+    static Widget getCustomAppBanner(){
+      return Padding(
+        
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          
+          children: [
+            const Text("selam!"),
+            Padding(padding:  const EdgeInsets.all(8.0),
+            child: MaterialBanner(
+              content:  const Text("data"),
+              leading:  IconButton(onPressed: () {}, icon:const Icon(Icons.av_timer_sharp)),
+              actions:[
+                ElevatedButton(onPressed: (){}, child:const Text("bu bir elevated buttondur")),
+                const Spacer(),
+                ElevatedButton(onPressed: (){}, child:const Text("bu da bir elevated buttondur")),
+              ]
+              
+              )
+            ),
+            
+          ],
+        ),
+      );
     }
 
 

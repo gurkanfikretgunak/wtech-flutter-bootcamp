@@ -10,6 +10,19 @@ class HomeView extends StatelessWidget {
       bottomNavigationBar: CustomWidgets.getBottomAppBar(),
       floatingActionButton: CustomWidgets.getFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      appBar: CustomWidgets.getCustomAppBar(),
+
+      body: Container(
+        color: Colors.white,
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          // ignore: prefer_const_literals_to_create_immutables
+          children: [
+            CustomWidgets.getCustomAppBanner(),
+            CustomWidgets.getCustomAppBanner()
+          ],
+        )
+      ),
     );
   }
 }
