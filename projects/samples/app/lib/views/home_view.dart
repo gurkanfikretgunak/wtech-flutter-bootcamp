@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:samples/widgets/custom_widget.dart';
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class HomeView extends StatelessWidget {
+  const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      bottomNavigationBar: CustomWidgets.getBottomAppBar(),
+      floatingActionButton: CustomWidgets.getFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 }

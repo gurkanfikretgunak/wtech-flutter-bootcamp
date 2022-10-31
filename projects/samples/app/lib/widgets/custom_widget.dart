@@ -1,9 +1,11 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 
 class CustomWidgets{
 
-    static Widget customBottomNavBar(){
+    static Widget getCustomBottomNavBar(){
       return BottomNavigationBar(
         backgroundColor: Colors.blue,
         selectedItemColor: Colors.white,
@@ -34,9 +36,37 @@ class CustomWidgets{
           ),
           
         ],
-      )
+      );
     }
 
+    static Widget getBottomAppBar(){
+      return BottomAppBar(
+        
+        notchMargin: 10,
+        child: Row(
+          children: [
+            IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_left_outlined)),
+            IconButton(onPressed: (){}, icon: const Icon(Icons.book)),
+            const Spacer(),
+            IconButton(onPressed: (){}, icon: const Icon(Icons.mode_edit_outline_rounded)),
+            IconButton(onPressed: (){}, icon: const Icon(Icons.arrow_right_sharp)),
+          ],
+        ),
+        
+
+
+      );
+
+      
+    }
+
+    static Widget getFloatingActionButton(){
+      return FloatingActionButton(onPressed: () {},
+      child: IconButton(onPressed: (){}, icon: const Icon(Icons.add_a_photo_outlined))
+        
+      );
+    
+    }
 
 
 }

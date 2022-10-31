@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/views/home_view.dart';
 
 
 
@@ -8,9 +9,11 @@ class App extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        home: const HomeView(),
-        title: 'Flutter Demo',
-        theme: CustomTheme.customThemeData());
+    return const MaterialApp(
+        home:  HomeView()
+        
+        
+        );
+        
   }
 }
