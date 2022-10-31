@@ -31,24 +31,25 @@ class HomeView extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Container(
+        color: Colors.pink,
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
                 children: [
-                  Icon(Icons.home),
-                  Spacer(),
+                  const Icon(Icons.home),
+                  const Spacer(),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "About",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                   TextButton(
                     onPressed: () {},
-                    child: Text(
+                    child: const Text(
                       "Details",
                       style: TextStyle(color: Colors.white),
                     ),
@@ -58,7 +59,6 @@ class HomeView extends StatelessWidget {
             )
           ],
         ),
-        color: Colors.pink,
       ),
     );
   }
