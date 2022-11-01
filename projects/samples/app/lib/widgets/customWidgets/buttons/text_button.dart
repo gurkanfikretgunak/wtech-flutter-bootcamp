@@ -7,7 +7,7 @@ class CustomTextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     const String okey = 'OK';
     return TextButton(
-      child: Text(okey, style: Theme.of(context).textTheme.headline6?.copyWith(color: Colors.blueAccent)),
+      child: const Text(okey),
       onPressed: () {},
     );
   }

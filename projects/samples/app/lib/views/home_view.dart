@@ -1,5 +1,6 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
+import 'package:app/widgets/customWidgets/buttons/icon_textbutton.dart';
 import 'package:app/widgets/customWidgets/buttons/text_button.dart';
 import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/custom_material_banner.dart';
@@ -37,13 +38,16 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: Column(
-        children: [
-          _customMaterialBanner(),
-          Row(
-            children: [CustomTextButton()],
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: Column(
+          children: [
+            _customMaterialBanner(),
+            Row(
+              children: const [CustomTextButton(), CustomIconTextButton()],
+            )
+          ],
+        ),
       ),
     );
   }

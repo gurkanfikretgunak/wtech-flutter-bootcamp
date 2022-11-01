@@ -12,6 +12,11 @@ class CustomThemeData {
         elevation: 2,
         shape: const CircularNotchedRectangle(),
       ),
+      textButtonTheme: TextButtonThemeData(
+          style: TextButton.styleFrom(
+        foregroundColor: Colors.blueAccent,
+        padding: const EdgeInsets.all(1),
+      )),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.purpleAccent,
