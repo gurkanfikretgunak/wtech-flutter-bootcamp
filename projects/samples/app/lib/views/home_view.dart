@@ -3,22 +3,34 @@ import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView({super.key});
-  bool appBar = false;
+class HomeView extends StatefulWidget {
+  const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  bool isAppBar = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: const CustomAppBar(),
-      appBar: appBar ? _appBar() : const CustomAppBar(),
+      appBar: isAppBar ? _appBar() : const CustomAppBar(),
       // Floating Action ksımındaki ovallik body'nin yerini aldı
       extendBody: true,
       // Arkada kalan ovallik body ile aynı rengi aldı
       extendBodyBehindAppBar: true,
       bottomNavigationBar: const BottomAppBarWidget(),
       //floatingActionButton: CustomWidgets.getFloatingActionButton(),
-      floatingActionButton: const FloatingActionButtonWidget(),
+      floatingActionButton: FloatingActionButtonWidget(
+        changeAppBar: (appBar) {
+          setState(() {
+            isAppBar = appBar;
+          });
+        },
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Container(color: Colors.orange.shade200),
     );
@@ -26,7 +38,7 @@ class HomeView extends StatelessWidget {
 
   AppBar _appBar() {
     return AppBar(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           bottom: Radius.circular(30),
         ),
