@@ -1,66 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'core/app.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const HomeView(),
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        useMaterial3: false,
-        primarySwatch: Colors.blueGrey,
-      ),
-    );
-  }
-}
-
-class HomeView extends StatelessWidget {
-  const HomeView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Icon(Icons.home),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "About",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Details",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-        color: Colors.pink,
-      ),
-    );
-  }
+  runApp(const App());
 }
