@@ -22,6 +22,12 @@ class CustomThemeData {
               shape: const StadiumBorder(side: BorderSide(style: BorderStyle.solid)),
               foregroundColor: Colors.purpleAccent,
               shadowColor: Colors.deepOrange)),
+      elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.deepPurpleAccent.shade700,
+              shadowColor: Colors.amber,
+              backgroundColor: Colors.yellow.shade300,
+              disabledBackgroundColor: Colors.red)),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.purpleAccent,
