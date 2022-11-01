@@ -12,6 +12,17 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView>{
   String _githubPhotoUrl = "https://avatars.githubusercontent.com/u/58955905?v=4";
   int defaultTabLength = 4;
+  ScrollController scrollController = ScrollController();
+  
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+    scrollController.addListener(() { 
+      print(scrollController.offset);
+    });
+  }
+
   @override 
   Widget build(BuildContext context){
     return Scaffold(
@@ -23,13 +34,7 @@ class _HomeViewState extends State<HomeView>{
             children: <Widget>[
               _containerAppBar,
               _tabbarItems,
-              Expanded(
-                child: ListView.builder(
-                  itemBuilder: (context,index){
-                    return Text("data");
-                  },
-                  ),
-              )
+              _expandedListView
               ],
           ),
         ),
@@ -71,6 +76,15 @@ class _HomeViewState extends State<HomeView>{
 
         ],
       );
+
+  Widget get _expandedListView => Expanded(child: _listview);
+
+  Widget get _listview => ListView.builder(
+    controller: scrollController,
+                  itemBuilder: (context,index){
+                    return Text("data");
+                  },
+                  );
 }
 
 // ignore: prefer_const_constructors
