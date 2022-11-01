@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         useMaterial3: false,
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.red,
       ),
     );
   }
@@ -58,7 +58,7 @@ class HomeView extends StatelessWidget {
             )
           ],
         ),
-        color: Colors.pink,
+        color: Colors.yellow,
       ),
     );
   }
