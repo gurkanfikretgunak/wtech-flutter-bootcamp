@@ -1,6 +1,7 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/custom_appbar.dart';
+import 'package:app/widgets/customWidgets/custom_material_banner.dart';
 import 'package:app/widgets/customWidgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
 
@@ -35,7 +36,18 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: Container(color: Colors.orange.shade200),
+      body: _customMaterialBanner(),
+    );
+  }
+
+  Container _customMaterialBanner() {
+    return Container(
+      color: Colors.orange.shade200,
+      child: const Center(
+          child: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: CustomMaterialBanner(),
+      )),
     );
   }
 
