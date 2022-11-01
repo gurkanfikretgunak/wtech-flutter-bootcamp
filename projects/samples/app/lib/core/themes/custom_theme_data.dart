@@ -5,13 +5,20 @@ import 'package:flutter/material.dart';
 class CustomThemeData {
   CustomThemeData._() {
     _themeData = ThemeData(
-        useMaterial3: false,
-        primarySwatch: Colors.pink,
-        bottomAppBarTheme: BottomAppBarTheme(
-          color: Colors.tealAccent.shade200,
-          elevation: 2,
-          shape: const CircularNotchedRectangle(),
-        ));
+      useMaterial3: false,
+      primarySwatch: Colors.pink,
+      bottomAppBarTheme: BottomAppBarTheme(
+        color: Colors.tealAccent.shade200,
+        elevation: 2,
+        shape: const CircularNotchedRectangle(),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.purpleAccent,
+          unselectedItemColor: Colors.brown,
+          selectedLabelStyle: TextStyle(fontSize: 16),
+          backgroundColor: Colors.tealAccent),
+    );
   }
   static CustomThemeData instance = CustomThemeData._();
 

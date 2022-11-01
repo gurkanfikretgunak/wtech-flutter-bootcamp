@@ -1,4 +1,5 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
+import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
@@ -22,8 +23,10 @@ class _HomeViewState extends State<HomeView> {
       extendBody: true,
       // Arkada kalan ovallik body ile aynı rengi aldı
       extendBodyBehindAppBar: true,
-      bottomNavigationBar: const BottomAppBarWidget(),
-      //floatingActionButton: CustomWidgets.getFloatingActionButton(),
+
+      bottomNavigationBar: const CustomButtonNavigationBar(),
+      //bottomNavigationBar: const BottomAppBarWidget(),
+
       floatingActionButton: FloatingActionButtonWidget(
         changeAppBar: (appBar) {
           setState(() {
