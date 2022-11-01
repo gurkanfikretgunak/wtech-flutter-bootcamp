@@ -6,7 +6,7 @@ class CustomThemeData {
   CustomThemeData._() {
     _themeData = ThemeData(
       useMaterial3: false,
-      primarySwatch: Colors.pink,
+      primarySwatch: Colors.orange,
       bottomAppBarTheme: BottomAppBarTheme(
         color: Colors.tealAccent.shade200,
         elevation: 2,
