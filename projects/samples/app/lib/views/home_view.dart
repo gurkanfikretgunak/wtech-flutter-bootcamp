@@ -1,6 +1,7 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/buttons/elevated_button.dart';
+import 'package:app/widgets/customWidgets/buttons/elevated_icon_button.dart';
 import 'package:app/widgets/customWidgets/buttons/icon_textbutton.dart';
 import 'package:app/widgets/customWidgets/buttons/outlined_button.dart';
 import 'package:app/widgets/customWidgets/buttons/outlined_icon_button.dart';
@@ -50,15 +51,23 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 _textButton(),
                 _outlinedButton(),
-                Row(
-                  children: [CustomElevatedButton()],
-                )
+                _elevatedButton()
               ],
             ),
           ],
         ),
       ),
     );
+  }
+
+  Row _elevatedButton() {
+    return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: const [
+                  CustomElevatedButton(),
+                  CustomElevatedIconButton(),
+                ],
+              );
   }
 
   Row _outlinedButton() {
