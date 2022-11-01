@@ -1,3 +1,4 @@
+import 'package:app/widgets/card.dart';
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/buttons/elevated_button.dart';
@@ -51,7 +52,8 @@ class _HomeViewState extends State<HomeView> {
               children: [
                 _textButton(),
                 _outlinedButton(),
-                _elevatedButton()
+                _elevatedButton(),
+                CardWidget(),
               ],
             ),
           ],
@@ -62,12 +64,12 @@ class _HomeViewState extends State<HomeView> {
 
   Row _elevatedButton() {
     return Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: const [
-                  CustomElevatedButton(),
-                  CustomElevatedIconButton(),
-                ],
-              );
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: const [
+        CustomElevatedButton(),
+        CustomElevatedIconButton(),
+      ],
+    );
   }
 
   Row _outlinedButton() {
