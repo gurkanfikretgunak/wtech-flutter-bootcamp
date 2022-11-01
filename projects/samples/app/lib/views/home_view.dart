@@ -1,6 +1,7 @@
 import 'package:app/widgets/customWidgets/bottom_app_bar.dart';
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/buttons/icon_textbutton.dart';
+import 'package:app/widgets/customWidgets/buttons/outlined_button.dart';
 import 'package:app/widgets/customWidgets/buttons/text_button.dart';
 import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/custom_material_banner.dart';
@@ -44,7 +45,11 @@ class _HomeViewState extends State<HomeView> {
           children: [
             _customMaterialBanner(),
             Row(
-              children: const [CustomTextButton(), CustomIconTextButton()],
+              children: const [
+                CustomTextButton(),
+                CustomIconTextButton(),
+                CustomOutlinedButton(),
+              ],
             )
           ],
         ),

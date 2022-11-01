@@ -17,6 +17,11 @@ class CustomThemeData {
         foregroundColor: Colors.blueAccent,
         padding: const EdgeInsets.all(1),
       )),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+          style: OutlinedButton.styleFrom(
+              shape: const StadiumBorder(side: BorderSide(style: BorderStyle.solid)),
+              foregroundColor: Colors.purpleAccent,
+              shadowColor: Colors.deepOrange)),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           type: BottomNavigationBarType.fixed,
           selectedItemColor: Colors.purpleAccent,
