@@ -8,27 +8,27 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool? customAppBar = true;
+    bool? customAppBar = false;
     return Scaffold(
         appBar: customAppBar
             ? CustomWidgets.customAppBar()
             : AppBar(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30),
-            ),
-          ),
-          leading: const Icon(Icons.menu),
-          title: const Text('Page title'),
-          actions: const [
-            Icon(Icons.favorite),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              child: Icon(Icons.search),
-            ),
-            Icon(Icons.more_vert),
-          ],
-        ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.circular(30),
+                  ),
+                ),
+                leading: const Icon(Icons.menu),
+                title: const Text('Wtech Bootcamp'),
+                actions: const [
+                  Icon(Icons.favorite),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    child: Icon(Icons.search),
+                  ),
+                  Icon(Icons.more_vert),
+                ],
+              ),
         extendBody: true,
         extendBodyBehindAppBar: true,
         floatingActionButton: CustomWidgets.getFloatingActionButton(),
