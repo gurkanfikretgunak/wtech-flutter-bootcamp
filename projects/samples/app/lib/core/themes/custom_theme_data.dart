@@ -3,21 +3,32 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static ThemeData customThemeData() => ThemeData(
         inputDecorationTheme: _buildInputDecorationTheme(),
+        floatingActionButtonTheme: _buildFloatingActionButtonThemeData(),
         drawerTheme: _buildDrawerTheme(),
         appBarTheme: _buildAppBarTheme(),
         bannerTheme: _buildBannerTheme(),
         scaffoldBackgroundColor: const Color(0xFFEAEBED),
         useMaterial3: false,
         primarySwatch: Colors.grey,
-        iconTheme: const IconThemeData(
-          color: Colors.black38,
-        ),
+        iconTheme: _buildIconThemeData(),
         bottomAppBarTheme: _buildBottomAppBarTheme(),
       );
 
+  static IconThemeData _buildIconThemeData() {
+    return const IconThemeData(
+      color: Colors.white,
+    );
+  }
+
+  static FloatingActionButtonThemeData _buildFloatingActionButtonThemeData() {
+    return const FloatingActionButtonThemeData(
+      backgroundColor: Color(0xFF00252D),
+    );
+  }
+
   static BottomAppBarTheme _buildBottomAppBarTheme() {
     return const BottomAppBarTheme(
-      color: Colors.grey,
+      color: Color(0xFF00252D),
       elevation: 2,
       shape: CircularNotchedRectangle(),
     );
