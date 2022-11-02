@@ -48,10 +48,15 @@ class CustomWidgets {
         textAlign: TextAlign.end,
       ),
       backgroundColor: Colors.red,
-      actions: const [
+      actions: [
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Icon(Icons.search),
+          child: IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.search,
+                color: Colors.white,
+              )),
         ),
       ],
     );
@@ -59,31 +64,67 @@ class CustomWidgets {
 
   static Widget customDrawer() {
     return Drawer(
-      child: ListView(
-        padding: EdgeInsets.only(top: 100),
-        children: const <Widget>[
-          ListTile(
-            leading: Icon(Icons.delivery_dining),
-            title: Text(
-              'Order Status',
-              style: TextStyle(color: Colors.red),
-            ),
+        backgroundColor: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 70),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              TextButton(
+                onPressed: () {},
+                child: Row(children: [
+                  Text(
+                    "Order Status",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.delivery_dining,
+                    color: Colors.red,
+                  )
+                ]),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Row(children: [
+                  Text(
+                    "Order History",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.history_rounded,
+                    color: Colors.red,
+                  )
+                ]),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Row(children: [
+                  Text(
+                    "Help & Support",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.support_agent,
+                    color: Colors.red,
+                  )
+                ]),
+              ),
+              TextButton(
+                onPressed: () {},
+                child: Row(children: [
+                  Text(
+                    "Settings",
+                    style: TextStyle(color: Colors.red),
+                  ),
+                  Icon(
+                    Icons.settings,
+                    color: Colors.red,
+                  )
+                ]),
+              ),
+            ],
           ),
-          ListTile(
-            leading: Icon(Icons.history_rounded),
-            title: Text('Order History'),
-          ),
-          ListTile(
-            leading: Icon(Icons.support_agent),
-            title: Text('Help & Support'),
-          ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-          ),
-        ],
-      ),
-    );
+        ));
   }
 
   static Widget getFloatingActionButton() {
@@ -111,7 +152,7 @@ class CustomWidgets {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(1.0),
             child: MaterialBanner(
               content: const Text(
                 'Would you like to order ?',
