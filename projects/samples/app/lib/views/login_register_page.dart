@@ -1,0 +1,178 @@
+import 'package:flutter/material.dart';
+
+
+class LoginRegisterPage extends StatefulWidget {
+  const LoginRegisterPage({super.key});
+
+  @override
+  State<LoginRegisterPage> createState() => LoginRegisterPageState();
+}
+
+class LoginRegisterPageState extends State<LoginRegisterPage> {
+  final int pageColor = 0xFFFEFEFE;
+  final int fontColor = 0xFF02A28F;
+  late TextEditingController _emailcontroller;
+  late TextEditingController _passwordcontroller;
+
+  
+
+  @override
+  void initState() { //oluştur
+    super.initState();
+    _emailcontroller = TextEditingController();
+    _passwordcontroller = TextEditingController();
+  }
+  @override
+  void dispose() {  //yok et
+    _passwordcontroller.dispose();
+    _emailcontroller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      
+      constraints: const BoxConstraints.expand(),
+      decoration:  const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("lib/assets/images/backgroundImage.png"),fit: BoxFit.cover,
+          opacity: 0.9,
+        )
+      ),
+      child:  Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Container(
+            
+            height: 400,
+            width: 300,
+            
+            decoration:  BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Color(pageColor),
+              boxShadow:  [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.63),
+                  blurRadius: 8,
+                  offset: const Offset(0,4)
+                )
+              ]
+            ),
+            child: Column(
+              children:  [
+                const Padding(padding: EdgeInsets.only(top: 8.0)),
+                Text(
+                  "Login",
+                  style: TextStyle(
+                    
+                    fontSize: 31,
+                    color: Color(fontColor),
+                    fontStyle: FontStyle.normal
+                  ),                
+                  ),
+                Container(
+                  padding: const EdgeInsets.only(left:12.0,right: 12.0),
+                  child:   TextField(
+                    controller: _emailcontroller,
+                    onChanged: (girilenText) {
+                      
+                    },
+                    keyboardType: TextInputType.emailAddress,
+                    
+                    decoration: const InputDecoration(
+                      labelText: "Email"
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: const EdgeInsets.only(left:12.0,right:12.0,top: 8.0),
+                  child:   TextField(
+                    controller: _passwordcontroller,
+                    keyboardType: TextInputType.emailAddress,
+                    
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      suffixIcon: TextButton(onPressed: (){}, child: Text("Forgot?",style: TextStyle(color:Color(fontColor)),),)
+                    ),
+                    
+                  ),
+                ),
+                const Divider(),
+                InkWell(  // BU BUTON DEĞİŞTİRİLECEK GİTHUBDA STARLADIM
+                  child:Container(
+                    decoration:BoxDecoration( borderRadius: BorderRadius.circular(4),color: Color(fontColor),),
+                    padding:const EdgeInsets.only(top: 1.0),
+                    height: 40,
+                    width: 277,
+
+                    child: const Center(child: Text("Log In"),),
+
+                    
+                ),
+                onTap: (){
+                  //burda textfielddan gelen veriyi tutucaz inş
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                      // Retrieve the text that the user has entered by using the
+                      // TextEditingController.
+                      content: Text(_emailcontroller.text),
+                  );
+                  },
+                );
+                },
+                ),
+                Row(
+                  children: [
+                    const Padding(padding: EdgeInsets.symmetric(horizontal: 18.0)),
+                    const Text("Don't have account?",style: TextStyle(fontSize: 14,color: Color(0xFF828282))),
+                    TextButton(
+                        onPressed: (){}, 
+                        child: 
+                            Text(" Create Now!",style: TextStyle(fontWeight: FontWeight.bold,color: Color(fontColor)),) 
+                        ),
+                  ],
+                ),
+                const Center(child: Text("or Continue with")),
+                const Divider(),
+                
+                
+                Row(
+                  children: [
+                    const Padding(padding: EdgeInsets.all(20.0)),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.withOpacity(0.6),),
+                        onPressed: (){},//onpressed verilecek
+                        child: Row(
+                        children: const[
+                          Icon(Icons.g_mobiledata),Text("Google")
+                        ],     
+                      )
+                      ),
+                    const Padding(padding: EdgeInsets.only(right:10.0)),
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.withOpacity(0.6),),
+                      onPressed: (){},//onpressed verilecek
+                      child: Row(
+                      
+                      children: const[
+                        
+                        Icon(Icons.facebook_rounded),Text("Facebook")
+                      ],     
+                    ),
+                    
+                    ),
+                  ],
+                )
+              ],
+            ),
+
+          ),
+        )
+
+      ),
+    );
+  }
+}
