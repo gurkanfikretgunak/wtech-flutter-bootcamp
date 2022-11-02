@@ -1,6 +1,6 @@
-import 'package:app/widgets/bottom_app_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:new_gradient_app_bar/new_gradient_app_bar.dart';
+
+import '../widgets/custom_widgets.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
@@ -10,12 +10,13 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: NewGradientAppBar(
-        title: Text('WTECH APP'),
-        gradient: LinearGradient(colors: [Colors.blue, Colors.purple, Colors.red]),
-      ),
-      body: Container(),
-      bottomNavigationBar: const ChangePages(),
-    );
+        appBar: CustomWidgets.customAppBar(),
+        body: const Center(
+          child: Text(
+            'Hello',
+            style: TextStyle(color: Colors.black),
+          ),
+        ),
+        bottomNavigationBar: CustomWidgets.customBottomNavBar());
   }
 }

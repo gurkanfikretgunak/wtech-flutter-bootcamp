@@ -30,7 +30,7 @@ class _ChangePagesState extends State<ChangePages> {
         child: _widgetOptions[selectedIndex],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.red,
         showUnselectedLabels: false,
         currentIndex: selectedIndex,
         selectedItemColor: Colors.white,

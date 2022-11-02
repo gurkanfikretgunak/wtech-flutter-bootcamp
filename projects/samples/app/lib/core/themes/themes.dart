@@ -4,7 +4,7 @@ class CustomTheme {
   static ThemeData customThemeData() => ThemeData(
       bannerTheme: const MaterialBannerThemeData(
           elevation: 4,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white70,
           leadingPadding: EdgeInsets.all(10),
           contentTextStyle: TextStyle(color: Colors.black, fontWeight: FontWeight.w500, fontSize: 20)),
       useMaterial3: false,
