@@ -15,7 +15,7 @@ class MyCustomWidgets{
             children: [
               IconButton(onPressed: () {}, icon: const Icon(Icons.accessibility_new_outlined)),
               const Padding(padding: EdgeInsets.all(30.0)),
-              const Text("sample app"),
+              const Text("sample appp"),
               const Padding(padding: EdgeInsets.all(30.0)),
               IconButton(onPressed: (){}, icon: const Icon(Icons.account_circle_sharp))
             ],
