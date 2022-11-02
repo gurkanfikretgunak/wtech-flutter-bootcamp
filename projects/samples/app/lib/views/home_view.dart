@@ -1,3 +1,4 @@
+import 'package:app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:app/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,20 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: CustomWidgets.customAppBar(),
       body: Container(
-          //TODO: Body will be updated
+        //TODO: This body side will be update.
+        color: Colors.pink,
+        child: const Center(
+          child: Text(
+            'Letgo Clone',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-      bottomNavigationBar: CustomWidgets.customBottomNavBar(),
+        ),
+      ),
+      bottomNavigationBar: const CustomBottomNavBar(),
       floatingActionButton: Container(
           decoration:
               const BoxDecoration(color: Colors.white, shape: BoxShape.circle),

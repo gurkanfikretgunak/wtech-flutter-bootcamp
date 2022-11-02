@@ -13,6 +13,9 @@ class CustomTheme {
         showUnselectedLabels: true,
         selectedLabelStyle: TextStyle(fontSize: 12),
       ),
+      inputDecorationTheme:
+          const InputDecorationTheme(iconColor: Colors.black54),
+      iconTheme: const IconThemeData(color: Colors.black54),
       floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Colors.redAccent),
     );
