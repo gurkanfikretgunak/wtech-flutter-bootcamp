@@ -7,6 +7,7 @@ import 'package:app/widgets/customWidgets/buttons/icon_textbutton.dart';
 import 'package:app/widgets/customWidgets/buttons/outlined_button.dart';
 import 'package:app/widgets/customWidgets/buttons/outlined_icon_button.dart';
 import 'package:app/widgets/customWidgets/buttons/text_button.dart';
+import 'package:app/widgets/customWidgets/chips.dart';
 import 'package:app/widgets/customWidgets/custom_appbar.dart';
 import 'package:app/widgets/customWidgets/custom_material_banner.dart';
 import 'package:app/widgets/customWidgets/floating_action_button.dart';
@@ -53,7 +54,8 @@ class _HomeViewState extends State<HomeView> {
                 _textButton(),
                 _outlinedButton(),
                 _elevatedButton(),
-                CardWidget(),
+                const CardWidget(),
+                const SingleChildScrollView(scrollDirection: Axis.horizontal, child: ChipWidget()),
               ],
             ),
           ],

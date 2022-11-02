@@ -38,7 +38,14 @@ class CustomThemeData {
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             elevation: 4,
             color: Colors.grey.shade100,
-            shadowColor: Colors.blueGrey));
+            shadowColor: Colors.blueGrey),
+        chipTheme: ChipThemeData(
+            elevation: 2,
+            padding: const EdgeInsets.all(5),
+            shadowColor: Colors.yellowAccent,
+            brightness: Brightness.light,
+            
+            backgroundColor: Colors.deepPurple.shade100));
   }
   static CustomThemeData instance = CustomThemeData._();
 
