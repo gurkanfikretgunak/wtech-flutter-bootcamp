@@ -15,6 +15,7 @@ class HomeView extends StatelessWidget {
             ? CustomWidgets.customAppBar()
             // ignore: dead_code
             : AppBar(
+                //
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     bottom: Radius.circular(30),
