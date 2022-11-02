@@ -38,7 +38,7 @@ class CardWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           const ListTile(
-            leading: Icon(Icons.album, size: 70),
+            leading: Icon(Icons.person, size: 70),
             title: Text('Ayşenur Perker', style: TextStyle(color: Colors.white)),
             subtitle: Text('Developer', style: TextStyle(color: Colors.white)),
           ),
