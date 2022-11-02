@@ -48,17 +48,7 @@ class LoginRegisterPageState extends State<LoginRegisterPage> {
             height: 400,
             width: 300,
             
-            decoration:  BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: Color(pageColor),
-              boxShadow:  [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.63),
-                  blurRadius: 8,
-                  offset: const Offset(0,4)
-                )
-              ]
-            ),
+            decoration:  myBoxDecoration(),
             child: Column(
               children:  [
                 const Padding(padding: EdgeInsets.only(top: 8.0)),
@@ -81,6 +71,20 @@ class LoginRegisterPageState extends State<LoginRegisterPage> {
 
       ),
     );
+  }
+
+  BoxDecoration myBoxDecoration() {
+    return BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: Color(pageColor),
+            boxShadow:  [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.63),
+                blurRadius: 8,
+                offset: const Offset(0,4)
+              )
+            ]
+          );
   }
 }
 
