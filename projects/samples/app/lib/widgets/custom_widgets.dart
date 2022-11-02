@@ -18,7 +18,10 @@ class CustomWidgets {
                   // ignore: prefer_const_constructors
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: const Text("Wtech App"),
+                    child: const Text(
+                      "Wtech App",
+                      style: TextStyle(color: Colors.white, fontSize: 25),
+                    ),
                   ),
                   IconButton(
                       onPressed: () {
@@ -26,7 +29,10 @@ class CustomWidgets {
                           print("Icon Right Button");
                         }
                       },
-                      icon: const Icon(Icons.face))
+                      icon: const Icon(
+                        Icons.settings,
+                        color: Colors.white,
+                      ))
                 ],
               ),
             ],
