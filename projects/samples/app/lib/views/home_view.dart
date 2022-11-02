@@ -8,7 +8,7 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool? customAppBar = true;
+    bool? customAppBar = false;
     return Scaffold(
         appBar: customAppBar
             ? CustomWidgets.customAppBar()
@@ -19,7 +19,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 leading: const Icon(Icons.menu),
-                title: const Text('Page title'),
+                title: const Text('Kitap Kurdu'),
                 actions: const [
                   Icon(Icons.favorite),
                   Padding(
@@ -34,7 +34,7 @@ class HomeView extends StatelessWidget {
         floatingActionButton: CustomWidgets.getFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         body: Container(
-          color: Colors.amber,
+          color: Colors.blue,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

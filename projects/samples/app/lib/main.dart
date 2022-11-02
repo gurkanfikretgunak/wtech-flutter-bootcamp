@@ -5,3 +5,4 @@ import 'core/app.dart';
 void main() {
   runApp(const App());
 }
+

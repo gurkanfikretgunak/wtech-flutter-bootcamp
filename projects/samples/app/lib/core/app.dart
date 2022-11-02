@@ -11,7 +11,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: const HomeView(),
-        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        title: 'Kitap Kurdu',
         theme: CustomTheme.customThemeData());
   }
 }
