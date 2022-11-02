@@ -11,4 +11,10 @@ class PrefUtils {
   static Future<void> saveTheme(int themeIndex) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setInt(_PREF_THEME, themeIndex);
+  }
+
+  static Future<int> getTheme() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_PREF_THEME) ?? 0;
+  }
 }
