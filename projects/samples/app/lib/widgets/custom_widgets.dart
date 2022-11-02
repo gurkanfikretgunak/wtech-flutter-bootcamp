@@ -35,6 +35,17 @@ class CustomWidgets {
       ],
     );
   }
+  Column(
+  children: const <Widget>[
+    Text('Deliver features faster'),
+    Text('Craft beautiful UIs'),
+    Expanded(
+      child: FittedBox(
+        child: FlutterLogo(),
+      ),
+    ),
+  ],
+)
 
   static Widget customAppBanner() {
     return Padding(
