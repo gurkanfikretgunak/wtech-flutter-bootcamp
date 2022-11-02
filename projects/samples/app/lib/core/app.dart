@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:samples/views/home_view.dart';
 
+import '../views/my_home_view.dart';
+
 
 
 class App extends StatelessWidget {
@@ -10,7 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        home:  HomeView()
+        home:  MyHomeView()
         
         
         );
