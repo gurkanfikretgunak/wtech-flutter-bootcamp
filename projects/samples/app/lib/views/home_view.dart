@@ -12,9 +12,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: CustomWidgets.customAppBar(),
       drawer: CustomWidgets.customDrawer(),
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        custom_theme_data(),
-      ]),
+      body: CustomWidgets.customContainer(),
       floatingActionButton: CustomWidgets.getFloatingActionButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: CustomWidgets.customBottomNavBar(),
