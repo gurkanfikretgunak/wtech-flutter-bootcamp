@@ -39,9 +39,9 @@ class CustomWidgets {
     return PreferredSize(
         preferredSize: const Size.fromHeight(40),
         child: Container(
-          decoration: BoxDecoration(
-            color: CustomTheme.customThemeData().primaryColor,
-            borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+          decoration: const BoxDecoration(
+            color: Colors.red,
+            borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.end,

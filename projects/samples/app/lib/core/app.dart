@@ -10,9 +10,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeView(isCustomAppBar: true, isNotched: true),
-      title: 'Flutter Demo',
-      theme: CustomTheme.customThemeData(),
+      home: const HomeView(isCustomAppBar: false, isNotched: true),
+      title: 'WORLD TIME',
+      theme: CustomTheme.lightTheme,
     );
   }
 }

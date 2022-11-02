@@ -1,3 +1,4 @@
+import 'package:app/widgets/custom_appbar.dart';
 import 'package:app/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -11,10 +12,10 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      floatingActionButton: CustomWidgets.getFloatingActionButtonWidget(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: isNotched ? CustomWidgets.getBottomAppBarWidget() : CustomWidgets.getBottomNavigationBar(),
-      appBar: isCustomAppBar ? CustomWidgets.getAppBarWidget() : AppBar(),
+      // floatingActionButton: CustomWidgets.getFloatingActionButtonWidget(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // bottomNavigationBar: isNotched ? CustomWidgets.getBottomAppBarWidget() : CustomWidgets.getBottomNavigationBar(),
+      appBar: const CustomAppBar(appBarHeight: 199),
       body: Container(
         color: Colors.amber,
         child: Column(

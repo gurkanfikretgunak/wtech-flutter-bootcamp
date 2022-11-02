@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 
 class CustomTheme {
-  static ThemeData customThemeData() => ThemeData(
-        useMaterial3: false,
-        primarySwatch: Colors.purple,
-        bottomNavigationBarTheme: const BottomNavigationBarThemeData(),
-        bottomAppBarTheme: const BottomAppBarTheme(
-          color: Colors.white,
-          elevation: 2,
-          shape: CircularNotchedRectangle(),
-        ),
-        bannerTheme: const MaterialBannerThemeData(
-          elevation: 4,
-          backgroundColor: Colors.white70,
-          leadingPadding: EdgeInsets.all(10),
-          contentTextStyle: TextStyle(
-            color: Colors.black,
-            fontSize: 16,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
-        textTheme: const TextTheme(),
-      );
+  static ThemeData get lightTheme {
+    return ThemeData(
+      primaryColor: const Color(0xFFE3EEFF),
+      scaffoldBackgroundColor: const Color(0xFFFAFCFF),
+      textTheme: const TextTheme(
+        headline1: TextStyle(color: Color(0xFF002359), fontSize: 32, fontWeight: FontWeight.w600),
+        headline2: TextStyle(color: Color(0xFF002359), fontSize: 15, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
+
+  static ThemeData get darkTheme {
+    return ThemeData(
+      primaryColor: const Color(0xFF02327D),
+      scaffoldBackgroundColor: const Color(0xFF002359),
+      textTheme: const TextTheme(
+        headline1: TextStyle(color: Color(0xFFFAFCFF), fontSize: 32, fontWeight: FontWeight.w600),
+        headline2: TextStyle(color: Color(0xFFFAFCFF), fontSize: 15, fontWeight: FontWeight.w600),
+      ),
+    );
+  }
 }
