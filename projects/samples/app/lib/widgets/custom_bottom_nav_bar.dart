@@ -14,7 +14,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
             child: IconButton(
               icon: const Icon(Icons.home_outlined),
               onPressed: () {},
-              iconSize: 30,
+              iconSize: 25,
             ),
           ),
           const Spacer(),
