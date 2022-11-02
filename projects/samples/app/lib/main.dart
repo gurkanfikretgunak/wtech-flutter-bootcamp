@@ -8,10 +8,7 @@ void main() {
 
 IconButton _buildPlayPauseButton() {
   return IconButton(
-    icon:
-    (widget.isPlaying)
-        ? Icon(Icons.pause)
-        : Icon(Icons.play_arrow),
+    icon: (widget.isPlaying) ? Icon(Icons.pause) : Icon(Icons.play_arrow),
     color: Colors.white,
     onPressed: () {
       if (widget.onPlayStateChanged != null) {
