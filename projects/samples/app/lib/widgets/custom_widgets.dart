@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CustomWidgets {
@@ -38,10 +37,10 @@ class CustomWidgets {
   static AppBar customAppBar() {
     return AppBar(
       title: const Text(
-        'BAKKAL',
-        style: TextStyle(color: Colors.red),
+        'Bakkal App',
+        style: TextStyle(color: Colors.white, fontSize: 24),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.red,
     );
   }
 }
