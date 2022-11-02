@@ -1,6 +1,6 @@
 import 'package:app/widgets/bottomAppBar.dart';
 import 'package:app/widgets/top_bar_with_avatar.dart';
-import 'package:app/widgets/travelCards.dart';
+import 'package:app/widgets/ticketCards.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -22,7 +22,7 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Yolculuklar",
+                      "Biletlerim",
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,
@@ -38,9 +38,9 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
               ),
-              TravelCards(),
-              TravelCards(),
-              TravelCards(),
+              TicketCards(),
+              TicketCards(),
+              TicketCards(),
               BotomAppBar(),
             ],
           ),

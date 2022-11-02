@@ -26,7 +26,7 @@ class TopBarWithAvatar extends StatelessWidget {
                     Spacer(),
                     Spacer(),
                     Text(
-                      "Hoş Geldin, Onur.",
+                      "Yolculuk nereye Onur?",
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white70,
