@@ -1,4 +1,9 @@
-import 'package:app/widgets/custom_widgets.dart';
+//import 'package:app/widgets/customAppBar.dart';
+import 'package:app/widgets/customAppBarWidget.dart';
+import 'package:app/widgets/customBottomAppBar.dart';
+import 'package:app/widgets/customDrawer.dart';
+import 'package:app/widgets/customFloatingActionButton.dart';
+import 'package:app/widgets/customListTile.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -10,17 +15,19 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     bool customAppBar = true;
     return Scaffold(
-      appBar: customAppBar ? CustomWidgets.getAppBarWidget() : AppBar(),
-      bottomNavigationBar: CustomWidgets.getBottomAppBarWidget(),
+      appBar: customAppBar ? const CustomAppBar() : AppBar(),
+      drawer: const CustomDrawer(),
       extendBody: true,
-      floatingActionButton: CustomWidgets.getFloatingActionButton(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: Container(
-        color: Colors.amber,
-        child: Column(
-          children: [CustomWidgets.getAppBanner()],
-        ),
+      body: Column(
+        children: const [
+          Divider(),
+          CustomListTile(),
+          CustomListTile(),
+        ],
       ),
+      floatingActionButton: const CustomFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }
