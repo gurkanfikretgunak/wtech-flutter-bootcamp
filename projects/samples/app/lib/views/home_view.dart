@@ -11,17 +11,12 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomWidgets.customAppBar(),
+      drawer: CustomWidgets.customDrawer(),
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         custom_theme_data(),
-        Text(
-          "L o a d i n g . . .",
-          style: TextStyle(
-            color: Colors.red,
-            fontSize: 24,
-            fontWeight: FontWeight.w900,
-          ),
-        ),
       ]),
+      floatingActionButton: CustomWidgets.getFloatingActionButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: CustomWidgets.customBottomNavBar(),
     );
   }
