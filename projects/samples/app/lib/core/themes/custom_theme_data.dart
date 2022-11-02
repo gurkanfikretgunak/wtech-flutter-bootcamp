@@ -2,18 +2,46 @@ import 'package:flutter/material.dart';
 
 class CustomTheme {
   static ThemeData customThemeData() => ThemeData(
+        inputDecorationTheme: _buildInputDecorationTheme(),
         drawerTheme: _buildDrawerTheme(),
         appBarTheme: _buildAppBarTheme(),
         bannerTheme: _buildBannerTheme(),
-        scaffoldBackgroundColor: Colors.grey.shade200,
+        scaffoldBackgroundColor: const Color(0xFFEAEBED),
         useMaterial3: false,
-        primarySwatch: Colors.pink,
-        bottomAppBarTheme: const BottomAppBarTheme(
-          color: Colors.black,
-          elevation: 2,
-          shape: CircularNotchedRectangle(),
+        primarySwatch: Colors.grey,
+        iconTheme: const IconThemeData(
+          color: Colors.black38,
         ),
+        bottomAppBarTheme: _buildBottomAppBarTheme(),
       );
+
+  static BottomAppBarTheme _buildBottomAppBarTheme() {
+    return const BottomAppBarTheme(
+      color: Colors.grey,
+      elevation: 2,
+      shape: CircularNotchedRectangle(),
+    );
+  }
+
+  static InputDecorationTheme _buildInputDecorationTheme() {
+    return InputDecorationTheme(
+      hoverColor: Colors.amber,
+      filled: true,
+      focusedBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white, width: 2.0),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      enabledBorder: OutlineInputBorder(
+        borderSide: const BorderSide(color: Colors.white, width: 2.0),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      suffixIconColor: Colors.black26,
+      fillColor: const Color(0xFFFFFFFF),
+      hintStyle: const TextStyle(
+        color: Colors.black26,
+      ),
+    );
+  }
 
   static MaterialBannerThemeData _buildBannerTheme() {
     return const MaterialBannerThemeData(
@@ -31,8 +59,8 @@ class CustomTheme {
   }
 
   static AppBarTheme _buildAppBarTheme() {
-    return AppBarTheme(
-      titleTextStyle: const TextStyle(
+    return const AppBarTheme(
+      titleTextStyle: TextStyle(
         fontSize: 20,
         color: Colors.black45,
         fontStyle: FontStyle.italic,
@@ -40,13 +68,12 @@ class CustomTheme {
       ),
       centerTitle: true,
       foregroundColor: Colors.black45,
-      iconTheme: const IconThemeData(
+      iconTheme: IconThemeData(
         color: Colors.black45,
       ),
-      shadowColor: Colors.grey.shade100,
       elevation: 0,
-      backgroundColor: Colors.grey.shade200,
-      actionsIconTheme: const IconThemeData(
+      backgroundColor: Color(0xFFEAEBED),
+      actionsIconTheme: IconThemeData(
         color: Colors.black45,
       ),
     );

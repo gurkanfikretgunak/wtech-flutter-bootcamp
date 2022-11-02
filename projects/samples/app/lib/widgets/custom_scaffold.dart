@@ -1,3 +1,5 @@
+import 'package:app/widgets/custom_bottom_nav_bar.dart';
+import 'package:app/widgets/custom_floating_action_button.dart';
 import 'package:app/widgets/drawer.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,9 @@ class CustomScaffold extends StatelessWidget {
         appBar: _buildAppBar(),
         extendBody: false,
         extendBodyBehindAppBar: false,
+        floatingActionButton: const CustomFloatingActionButton(),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: const CustomBottomNavigationBar(),
         body: body,
       ),
     );

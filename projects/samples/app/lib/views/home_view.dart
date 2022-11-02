@@ -1,5 +1,5 @@
-import 'package:app/widgets/custom_app_bar.dart';
 import 'package:app/widgets/custom_scaffold.dart';
+import 'package:app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,8 +11,13 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBarTitleText: "Search",
-      body: Column(
-        children: [],
+      body: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Column(
+          children: const [
+            CustomTextFormField(hintText: "Chair 1"),
+          ],
+        ),
       ),
     );
   }
