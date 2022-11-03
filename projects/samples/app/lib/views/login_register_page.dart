@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/logIn_page_widgets.dart';
+import '../widgets/login_page_widgets.dart';
 
 
 class LoginRegisterPage extends StatefulWidget {
@@ -33,46 +33,50 @@ class LoginRegisterPageState extends State<LoginRegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    return mainContainer();
+  }
+
+  Container mainContainer() {
     return Container(
-      
-      constraints: const BoxConstraints.expand(),
-      decoration:  const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("lib/assets/images/backgroundImage.png"),fit: BoxFit.cover,
-          opacity: 0.9,
-        )
-      ),
-      child:  Scaffold(
-        backgroundColor: Colors.transparent,
-        body: Center(
-          child: Container(
-            
-            height: 400,
-            width: 300,
-            
-            decoration:  myBoxDecoration(),
-            child: Column(
-              children:  [
-                const Padding(padding: EdgeInsets.only(top: 8.0)),
-                HeaderWidget(fontColor: fontColor),
-                EmailTextField(emailcontroller: _emailcontroller),
-                PasswordTextField(passwordcontroller: _passwordcontroller, fontColor: fontColor),
-                const Divider(),
-                LogInButton(fontColor: fontColor, emailcontroller: _emailcontroller),
-                CreateAccountWidget(fontColor: fontColor),
-                const Center(child: Text("or Continue with")),
-                const Divider(),
-                
-                
-                const BottomButtonWidget()
-              ],
-            ),
-
+    
+    constraints: const BoxConstraints.expand(),
+    decoration:  const BoxDecoration(
+      image: DecorationImage(
+        image: AssetImage("lib/assets/images/backgroundImage.png"),fit: BoxFit.cover,
+        opacity: 0.9,
+      )
+    ),
+    child:  Scaffold(
+      backgroundColor: Colors.transparent,
+      body: Center(
+        child: Container(
+          
+          height: 400,
+          width: 300,
+          
+          decoration:  myBoxDecoration(),
+          child: Column(
+            children:  [
+              const Padding(padding: EdgeInsets.only(top: 8.0)),
+              HeaderWidget(fontColor: fontColor),
+              EmailTextField(emailcontroller: _emailcontroller),
+              PasswordTextField(passwordcontroller: _passwordcontroller, fontColor: fontColor),
+              const Divider(),
+              LogInButton(fontColor: fontColor, emailcontroller: _emailcontroller),
+              CreateAccountWidget(fontColor: fontColor),
+              const Center(child: Text("or Continue with")),
+              const Divider(),
+              
+              
+              const BottomButtonWidget()
+            ],
           ),
-        )
 
-      ),
-    );
+        ),
+      )
+
+    ),
+  );
   }
 
 BoxDecoration myBoxDecoration() {
