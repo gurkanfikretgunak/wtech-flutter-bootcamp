@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/mostp_cards_widget.dart';
 import '../widgets/custom_widgets.dart';
+import '../widgets/popular_cards_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
@@ -39,7 +40,7 @@ class HomeView extends StatelessWidget {
                       child: _CategoriesWidget(
                           topicText: CustomTextConstants().topicPopular, viewText: CustomTextConstants().views),
                     ),
-                    const CustomProductCards(heighty: 0.14, widthx: 0.5),
+                    const CustomPopularProductCards(heighty: 0.14, widthx: 0.5),
                   ],
                 ),
               ),

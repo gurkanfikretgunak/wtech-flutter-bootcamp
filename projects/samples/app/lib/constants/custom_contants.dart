@@ -7,4 +7,5 @@ class CustomTextConstants {
   final String topicPopular = "Popular";
   final List<String> imagesPlant = ["assets/greenplant.jpg", "assets/glaucaplant.png"];
   final List<String> namesPlant = ["Green Plant", "Glauca Plant"];
+  final List<String> pricePlant = [r"$8.50", r"$9.50"];
 }
