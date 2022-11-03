@@ -1,5 +1,5 @@
 import 'package:app/widgets/custom_appbar.dart';
-import 'package:app/widgets/custom_widgets.dart';
+import 'package:app/widgets/custom_list_view_builder.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,6 +9,23 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> timezone = [
+      "Africa, Abidjan",
+      "Africa, Accra",
+      "Africa, Addis_Ababa",
+      "Africa, Algiers",
+      "Africa, Asmara",
+      "Africa, Bamako",
+      "Africa, Bangui",
+      "Africa, Banjul",
+      "Africa, Bissau",
+      "Africa, Blantyre",
+      "Africa, Brazzaville",
+      "Africa, Bujumbura",
+      "Africa, Cairo",
+      "Africa, Casablanca",
+      "Africa, Ceuta",
+    ];
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
@@ -17,12 +34,10 @@ class HomeView extends StatelessWidget {
       // bottomNavigationBar: isNotched ? CustomWidgets.getBottomAppBarWidget() : CustomWidgets.getBottomNavigationBar(),
       appBar: const CustomAppBar(appBarHeight: 199),
       body: Container(
-        color: Colors.amber,
+        color: Theme.of(context).scaffoldBackgroundColor,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CustomWidgets.getMaterialBanner(),
-          ],
+          children: [Expanded(child: CustomListViewBuilder(timezone: timezone))],
         ),
       ),
     );

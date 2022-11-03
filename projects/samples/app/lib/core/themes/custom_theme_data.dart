@@ -5,10 +5,13 @@ class CustomTheme {
     return ThemeData(
       primaryColor: const Color(0xFFE3EEFF),
       scaffoldBackgroundColor: const Color(0xFFFAFCFF),
+      iconTheme: const IconThemeData(color: Color(0xFF002359)),
       textTheme: const TextTheme(
         headline1: TextStyle(color: Color(0xFF002359), fontSize: 32, fontWeight: FontWeight.w600),
         headline2: TextStyle(color: Color(0xFF002359), fontSize: 15, fontWeight: FontWeight.w600),
+        bodyText1: TextStyle(color: Color(0xFF002359), fontSize: 15, fontWeight: FontWeight.w400),
       ),
+      brightness: Brightness.dark,
     );
   }
 
@@ -19,7 +22,9 @@ class CustomTheme {
       textTheme: const TextTheme(
         headline1: TextStyle(color: Color(0xFFFAFCFF), fontSize: 32, fontWeight: FontWeight.w600),
         headline2: TextStyle(color: Color(0xFFFAFCFF), fontSize: 15, fontWeight: FontWeight.w600),
+        bodyText1: TextStyle(color: Color(0xFFFAFCFF), fontSize: 15, fontWeight: FontWeight.w400),
       ),
+      brightness: Brightness.light,
     );
   }
 }
