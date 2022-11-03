@@ -33,7 +33,9 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                         )),
                     Expanded(
                       flex: 2,
-                      child: Container(),
+                      child: Container(
+                        color: Colors.black.withOpacity(0.9),
+                      ),
                     ),
                   ],
                 ),
