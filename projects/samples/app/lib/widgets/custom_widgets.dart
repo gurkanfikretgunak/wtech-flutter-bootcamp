@@ -1,4 +1,6 @@
-import 'package:flutter/foundation.dart';
+import 'package:app/constants/custom_contants.dart';
+import 'package:app/core/themes/themes.dart';
+import 'package:app/widgets/custom_search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomWidgets {
@@ -6,72 +8,61 @@ class CustomWidgets {
     return PreferredSize(
         // ignore: sort_child_properties_last
         child: Container(
-          decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft, end: Alignment.bottomRight, colors: <Color>[Colors.red, Colors.blue])),
+          height: 500,
+          color: Colors.grey[100],
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // ignore: prefer_const_constructors
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: const Text(
-                      "Wtech App",
-                      style: TextStyle(color: Colors.white, fontSize: 25),
+              Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        CircleAvatar(
+                          backgroundImage: AssetImage(CustomTextConstants().path),
+                          radius: 30,
+                        ),
+                        // ignore: prefer_const_constructors
+                        Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                CustomTextConstants().name,
+                                style: CustomTheme.customThemeData().textTheme.headline1?.copyWith(
+                                      color: Colors.black,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                              ),
+                              const SizedBox(height: 10),
+                              Text(
+                                CustomTextConstants().definition,
+                                style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(
+                                      color: Colors.grey.withOpacity(0.8),
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  IconButton(
-                      onPressed: () {
-                        if (kDebugMode) {
-                          print("Icon Right Button");
-                        }
-                      },
-                      icon: const Icon(
-                        Icons.settings,
-                        color: Colors.white,
-                      ))
-                ],
+                    const CircleAvatar(
+                      backgroundColor: Colors.white,
+                      child: Icon(Icons.notification_add_outlined),
+                    )
+                  ],
+                ),
               ),
+              const CustomSearch(),
             ],
           ),
         ),
-        preferredSize: const Size.fromHeight(70));
-  }
-
-  static Widget customBottomNavBar() {
-    return BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.red,
-      selectedItemColor: Colors.white,
-      unselectedItemColor: Colors.white.withOpacity(0.60),
-      selectedFontSize: 15,
-      unselectedFontSize: 10,
-      onTap: (value) {
-        // Respond to item press.
-      },
-      // ignore: prefer_const_literals_to_create_immutables
-      items: [
-        const BottomNavigationBarItem(
-          label: "FAV",
-          icon: Icon(Icons.favorite),
-        ),
-        // ignore: prefer_const_constructors
-        BottomNavigationBarItem(
-          label: "Music",
-          icon: const Icon(Icons.music_note),
-        ),
-        const BottomNavigationBarItem(
-          label: "Location",
-          icon: Icon(Icons.location_on),
-        ),
-        const BottomNavigationBarItem(
-          label: "Livbary Book",
-          icon: Icon(Icons.library_books),
-        ),
-      ],
-    );
+        preferredSize: const Size.fromHeight(200));
   }
 }
