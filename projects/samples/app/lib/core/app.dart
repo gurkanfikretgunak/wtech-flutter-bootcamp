@@ -3,6 +3,7 @@ import 'package:samples/views/home_view.dart';
 
 import '../views/login_register_page.dart';
 import '../views/my_home_view.dart';
+import '../views/register_page.dart';
 
 
 
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-        home:  LoginRegisterPage()
+        home:  RegisterPage()
         
         
         );
