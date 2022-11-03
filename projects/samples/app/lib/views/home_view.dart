@@ -40,11 +40,7 @@ class _HomeViewState extends State<HomeView> {
         padding: const EdgeInsets.symmetric(horizontal: 8),
         child: SafeArea(
           child: Column(
-            children: [
-              Row(
-                children: const [Text('Futbol'), CheckBoxWidget()],
-              )
-            ],
+            children: [CheckBoxListtileWidget()],
           ),
         ),
       ),

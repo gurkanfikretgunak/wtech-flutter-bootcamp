@@ -44,8 +44,10 @@ class CustomThemeData {
             padding: const EdgeInsets.all(5),
             shadowColor: Colors.yellowAccent,
             brightness: Brightness.light,
-            
-            backgroundColor: Colors.deepPurple.shade100));
+            backgroundColor: Colors.deepPurple.shade100),
+        checkboxTheme: CheckboxThemeData(
+            fillColor: MaterialStateProperty.all(Colors.purpleAccent.shade200),
+            checkColor: MaterialStateProperty.all(Colors.white)));
   }
   static CustomThemeData instance = CustomThemeData._();
 
