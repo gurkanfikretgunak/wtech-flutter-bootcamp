@@ -1,8 +1,8 @@
 import 'package:app/constants/custom_contants.dart';
-import 'package:app/widgets/custom_bottom_app_bar_widget.dart';
+import 'package:app/widgets/bottom_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_cards_widget.dart';
+import '../widgets/mostp_cards_widget.dart';
 import '../widgets/custom_widgets.dart';
 
 class HomeView extends StatelessWidget {

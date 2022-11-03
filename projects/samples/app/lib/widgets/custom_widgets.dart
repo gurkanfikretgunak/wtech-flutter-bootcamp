@@ -1,6 +1,6 @@
 import 'package:app/constants/custom_contants.dart';
 import 'package:app/core/themes/themes.dart';
-import 'package:app/widgets/custom_search_bar_widget.dart';
+import 'package:app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 class CustomWidgets {
