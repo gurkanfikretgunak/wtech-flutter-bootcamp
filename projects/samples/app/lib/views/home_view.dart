@@ -38,7 +38,7 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: Column(
-          children: const [CheckBoxListtileWidget(), RadioListTileWidget(), SwitchListtileWidget()],
+          children: const [CheckBoxListtileWidget(), RadioListTileWidget(), SwitchListtileWidget(), SliderWidget()],
         ),
       ),
     );

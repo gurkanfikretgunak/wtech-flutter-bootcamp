@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 // Tema singleton pattern'i kullanılarak oluşturuldu.
@@ -47,7 +49,12 @@ class CustomThemeData {
             backgroundColor: Colors.deepPurple.shade100),
         checkboxTheme: CheckboxThemeData(
             fillColor: MaterialStateProperty.all(Colors.purpleAccent.shade200),
-            checkColor: MaterialStateProperty.all(Colors.white)));
+            checkColor: MaterialStateProperty.all(Colors.white)),
+        sliderTheme: SliderThemeData(
+            inactiveTrackColor: Colors.tealAccent.shade100,
+            activeTrackColor: Colors.purpleAccent,
+            valueIndicatorColor: Colors.orangeAccent,
+            valueIndicatorTextStyle: const TextStyle(backgroundColor: Colors.orangeAccent, color: Colors.black)));
   }
   static CustomThemeData instance = CustomThemeData._();
 
