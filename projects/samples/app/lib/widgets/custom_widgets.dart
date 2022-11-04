@@ -66,7 +66,7 @@ class CustomWidgets {
 
   static PreferredSize customAppBar() {
     return PreferredSize(
-      // ignore: sort_child_properties_last
+        // ignore: sort_child_properties_last
         child: Container(
           decoration: BoxDecoration(
               color: Colors.pink, borderRadius: BorderRadius.circular(20)),
