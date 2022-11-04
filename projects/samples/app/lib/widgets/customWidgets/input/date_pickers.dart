@@ -33,7 +33,7 @@ class _DatePickerWidgetState extends State<DatePickerWidget> {
         // dont use BuildContext across asynchronous gaps
         // Asenkron işlemler yapılırken context'i kullanmadan önce işlemin tammalanacağından emin ol yoksa uygulama crash atabilir.
         //https://www.youtube.com/watch?v=bzWaMpD1LHY
-        if (mounted) return;
+        if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(backgroundColor: Theme.of(context).colorScheme.error, content: Text(selectedDate.toString())));
       },
