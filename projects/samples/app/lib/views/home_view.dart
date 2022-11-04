@@ -36,12 +36,9 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        child: SafeArea(
-          child: Column(
-            children: [CheckBoxListtileWidget()],
-          ),
+      body: SafeArea(
+        child: Column(
+          children: [CheckBoxListtileWidget(), Expanded(child: RadioListTileWidget())],
         ),
       ),
     );
