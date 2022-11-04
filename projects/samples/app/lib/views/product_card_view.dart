@@ -50,8 +50,8 @@ class ProductCardView extends StatelessWidget {
                       ),
                       Text(
                         price,
-                        style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
+                        style:
+                            Theme.of(context).textTheme.labelLarge?.copyWith(),
                       ),
                     ],
                   )
