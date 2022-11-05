@@ -10,9 +10,7 @@ main() {
     case 'green':
       print('green');
       break;
-    case 'purple':
-      print('purple');
-      break;
+
     default:
   }
 }
