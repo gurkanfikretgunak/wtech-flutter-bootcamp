@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:samples/widgets/login_page_widgets.dart';
 
+import '../widgets/register_page_widgets.dart';
+
+
+final int fontColor = 0xFF02A28F;
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -21,6 +25,12 @@ class RegisterPageState extends State<RegisterPage> {
           height: 600,
           width: 300,
           decoration: myBoxDecoration(),
+          child: Column(
+            children: [
+              const Padding(padding: EdgeInsets.only(top: 8.0)),
+              RegisterHeaderWidget(fontColor: fontColor)
+            ],
+          ),
         ),
       ),
     ),
@@ -36,3 +46,4 @@ class RegisterPageState extends State<RegisterPage> {
   );
   }
 }
+
