@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+String from = "IST";
+String to = "ANK";
+List<String> Destination = [
+  from,
+  to,
+];
+
 class TicketCards extends StatelessWidget {
   const TicketCards({
     Key? key,
@@ -23,7 +30,7 @@ class TicketCards extends StatelessWidget {
               width: 300,
               height: 95,
               padding: EdgeInsets.all(15),
-              child: Text('IST - ANK'),
+              child: Text("$from - $to"),
             ),
           ),
           SizedBox(

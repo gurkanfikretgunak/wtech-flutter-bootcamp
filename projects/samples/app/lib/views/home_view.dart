@@ -1,6 +1,6 @@
-import 'package:app/widgets/bottomAppBar.dart';
+import 'package:app/widgets/bottom_app_bar.dart';
 import 'package:app/widgets/top_bar_with_avatar.dart';
-import 'package:app/widgets/ticketCards.dart';
+import 'package:app/widgets/ticket_cards.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {

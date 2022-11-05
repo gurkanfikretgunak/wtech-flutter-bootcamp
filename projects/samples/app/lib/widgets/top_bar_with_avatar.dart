@@ -10,7 +10,7 @@ class TopBarWithAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(12.0),
+      padding: const EdgeInsets.all(0),
       child: Container(
         // Container Widget
         child: Column(
@@ -26,7 +26,7 @@ class TopBarWithAvatar extends StatelessWidget {
                     Spacer(),
                     Spacer(),
                     Text(
-                      "Yolculuk nereye Onur?",
+                      "Yolculuk nereye Pelin?",
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white70,
@@ -39,16 +39,11 @@ class TopBarWithAvatar extends StatelessWidget {
           ],
         ),
         //Container Style
-        height: 80,
+        height: 100,
+
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [
-              Colors.red.shade50,
-              Colors.red.shade300,
-              Colors.red.shade500,
-              Colors.red.shade700,
-              Colors.red.shade900
-            ],
+            colors: <Color>[Colors.red.shade50, Colors.red.shade900],
           ),
           borderRadius: BorderRadius.circular(25),
           color: Colors.black,
