@@ -20,56 +20,62 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
               child: Column(
                 children: [
-                  const CircleAvatar(),
-                  Expanded(
-                    child: Row(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        const Text(
-                          "İsim",
-                          style: TextStyle(
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const CircleAvatar(),
+                      IconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.menu,
                             color: Colors.white,
-                          ),
-                        ),
-                        const Text(
-                          " Soyisim",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                          ))
+                    ],
                   ),
-                  Expanded(
-                    child: Row(
-                      // ignore: prefer_const_literals_to_create_immutables
-                      children: [
-                        const Text(
-                          "TakipSayı",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const Text(
+                        "İsim",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
-                        const Text(
-                          " Takip",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                      ),
+                      const Text(
+                        " Soyisim",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
-                        const Text(
-                          " TakipçiSayı",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      const Text(
+                        "${'@kullanıcıAdı'}",
+                        style: TextStyle(
+                          color: Colors.white,
                         ),
-                        const Text(
-                          " Takipçi",
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    // ignore: prefer_const_literals_to_create_immutables
+                    children: [
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "${'sayı'} Takip edilen",
+                            style: TextStyle(color: Colors.white),
+                          )),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Text(
+                            "${'sayı'} Takipçi",
+                            style: TextStyle(color: Colors.white),
+                          )),
+                    ],
                   ),
                 ],
               )),
@@ -78,11 +84,23 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           const ListTile(
             leading: Icon(
+              Icons.person,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Profil',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const ListTile(
+            leading: Icon(
               Icons.message,
               color: Colors.white,
             ),
             title: Text(
-              'Messages',
+              'Konular',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -90,11 +108,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           const ListTile(
             leading: Icon(
-              Icons.account_circle,
+              Icons.bookmark,
               color: Colors.white,
             ),
             title: Text(
-              'Profile',
+              'Yer İşaretleri',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -102,11 +120,35 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           const ListTile(
             leading: Icon(
-              Icons.settings,
+              Icons.list_alt,
               color: Colors.white,
             ),
             title: Text(
-              'Settings',
+              'Listeler',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const ListTile(
+            leading: Icon(
+              Icons.follow_the_signs,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Twitter Çevresi',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+          const ListTile(
+            leading: Icon(
+              Icons.person_add,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Takipçi İstekleri',
               style: TextStyle(
                 color: Colors.white,
               ),
@@ -114,7 +156,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
           ),
           const Divider(
             color: Colors.white,
-          )
+            thickness: 0.6,
+          ),
         ],
       ),
     );
