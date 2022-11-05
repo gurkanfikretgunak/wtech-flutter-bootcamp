@@ -1,3 +1,4 @@
+import 'package:app/views/cascade_view.dart';
 import 'package:app/views/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wtech Project',
-      home: HomeView(),
+      home: const CascadeViews(),
       theme: CustomThemeData.instance.themeData,
       debugShowCheckedModeBanner: false,
     );
