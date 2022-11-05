@@ -56,3 +56,40 @@
 ## Organization
 
 - [@wtech](hhttps://www.wtechplatform.com)
+
+## Deployment and Using Source Control
+
+Signup [Github](https://github.com) then clone your repo form Github (if you have any permission).
+
+Managing Source control platform
+
+- git cli
+- gh cli
+- github desktop application
+- vscode extension
+
+Git clone
+
+```bash
+  git clone <your_github_repo_link>
+```
+
+```bash
+  git pull
+```
+
+If you have any change.You need commit from The Your Project
+
+```bash
+  git commit - m "Your commit MSG"
+```
+
+But you need checked already branch
+
+How you can check your branch ?
+
+```bash
+  git checkout <your_github_repo_branch>
+```
+
+Then commited.
