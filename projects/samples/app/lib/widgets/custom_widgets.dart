@@ -65,4 +65,20 @@ class CustomWidgets {
         ),
         preferredSize: const Size.fromHeight(200));
   }
+
+  static Padding backIcon(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(Icons.arrow_back_ios_new_outlined)),
+        ],
+      ),
+    );
+  }
 }
