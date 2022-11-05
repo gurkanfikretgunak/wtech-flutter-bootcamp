@@ -54,7 +54,10 @@ class CustomWidgets {
                     ),
                     const CircleAvatar(
                       backgroundColor: Colors.white,
-                      child: Icon(Icons.notification_add_outlined),
+                      child: Icon(
+                        Icons.notification_add_outlined,
+                        color: Colors.black,
+                      ),
                     )
                   ],
                 ),
