@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_basic/constants.dart';
-import 'package:flutter_application_basic/screens/home/components/home_screen.dart';
+import 'package:flutter_application_basic/screens/home/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
