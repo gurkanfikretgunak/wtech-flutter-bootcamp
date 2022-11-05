@@ -49,6 +49,12 @@
 
 ## Learned Processes - Dart
 
+- First init Application
+- Main Function
+- runApp Function
+- MaterialApp
+- Basic Widgets
+
 ## Authors
 
 - [@gurkanfikretgunak](https://www.github.com/gurkanfikretgunak)
@@ -63,8 +69,8 @@ Signup [Github](https://github.com) then clone your repo form Github (if you hav
 
 Managing Source control platform
 
-- git cli
-- gh cli
+- git CLI
+- gh CLI
 - github desktop application
 - vscode extension
 
@@ -93,3 +99,16 @@ How you can check your branch ?
 ```
 
 Then commited.
+
+## Sources
+
+- [@git](https://git-scm.com)
+- [@github](https://github.com)
+- [@flutter](https://flutter.dev)
+- [@dart_lang](https://dart.dev)
+- [@material](https://material.io)
+- [@design_examples](https://mobbin.com/browse/ios/apps)
+
+## Feedback
+
+If you have any feedback, please reach out to us at [gurkanfikretgunak@gmail.com](mailto:gurkanfikretgunak@gmail.com)
