@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
-    Key? key,
+    Key? key, 
   }) : super(key: key);
 
   @override
