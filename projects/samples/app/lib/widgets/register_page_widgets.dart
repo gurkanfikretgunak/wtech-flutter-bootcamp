@@ -22,3 +22,21 @@ class RegisterHeaderWidget extends StatelessWidget {
   }
 }
 final int fontColor = 0xFF02A28F;
+
+class RegisterUserNameTextField extends StatefulWidget {
+  const RegisterUserNameTextField({super.key});
+
+  @override
+  State<RegisterUserNameTextField> createState() => RegisterUserNameTextFieldState();
+}
+
+class RegisterUserNameTextFieldState extends State<RegisterUserNameTextField> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: TextField(
+        controller: _usernamecontroller,
+      ),
+    );
+  }
+}

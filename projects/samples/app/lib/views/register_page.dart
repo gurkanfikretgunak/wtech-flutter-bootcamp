@@ -13,6 +13,22 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
+
+  late TextEditingController _usernamecontroller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,7 +44,8 @@ class RegisterPageState extends State<RegisterPage> {
           child: Column(
             children: [
               const Padding(padding: EdgeInsets.only(top: 8.0)),
-              RegisterHeaderWidget(fontColor: fontColor)
+              RegisterHeaderWidget(fontColor: fontColor),
+              
             ],
           ),
         ),
