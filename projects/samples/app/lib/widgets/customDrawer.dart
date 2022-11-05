@@ -13,31 +13,108 @@ class _CustomDrawerState extends State<CustomDrawer> {
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
-        children: const <Widget>[
+        children: <Widget>[
           DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
+              decoration: const BoxDecoration(
+                color: Colors.black,
+              ),
+              child: Column(
+                children: [
+                  const CircleAvatar(),
+                  Expanded(
+                    child: Row(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const Text(
+                          "İsim",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Text(
+                          " Soyisim",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    child: Row(
+                      // ignore: prefer_const_literals_to_create_immutables
+                      children: [
+                        const Text(
+                          "TakipSayı",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Text(
+                          " Takip",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Text(
+                          " TakipçiSayı",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        const Text(
+                          " Takipçi",
+                          style: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              )),
+          const Divider(
+            color: Colors.white,
+          ),
+          const ListTile(
+            leading: Icon(
+              Icons.message,
+              color: Colors.white,
             ),
-            child: Text(
-              'Drawer Header',
+            title: Text(
+              'Messages',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 24,
               ),
             ),
           ),
-          ListTile(
-            leading: Icon(Icons.message),
-            title: Text('Messages'),
+          const ListTile(
+            leading: Icon(
+              Icons.account_circle,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Profile',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
-          ListTile(
-            leading: Icon(Icons.account_circle),
-            title: Text('Profile'),
+          const ListTile(
+            leading: Icon(
+              Icons.settings,
+              color: Colors.white,
+            ),
+            title: Text(
+              'Settings',
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
           ),
-          ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Settings'),
-          ),
+          const Divider(
+            color: Colors.white,
+          )
         ],
       ),
     );

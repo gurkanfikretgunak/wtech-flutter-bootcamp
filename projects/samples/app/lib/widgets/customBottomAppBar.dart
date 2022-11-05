@@ -19,7 +19,7 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
           ),
       child: Column(
         children: [
-          const Expanded(flex: 0, child: Divider()),
+          const Expanded(flex: 0, child: Divider(color: Colors.white,)),
           Expanded(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

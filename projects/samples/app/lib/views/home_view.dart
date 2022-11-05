@@ -20,7 +20,7 @@ class HomeView extends StatelessWidget {
       extendBody: true,
       body: Column(
         children: const [
-          Divider(),
+          Divider(color: Colors.white,),
           CustomListTile(),
           CustomListTile(),
         ],

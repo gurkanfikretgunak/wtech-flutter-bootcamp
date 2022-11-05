@@ -21,11 +21,18 @@ class _CustomListTileState extends State<CustomListTile> {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          title: const Text("İçerik Başlığı"),
-          subtitle: const Text("İçerik Açıklaması"),
+          title: Text(
+            "Kullanıcı Adı",
+            style: TextStyle(color: Colors.white),
+          ),
+          subtitle: const Text(
+            "İçerik ",
+            style: TextStyle(color: Colors.white),
+          ),
         ),
         const Divider(
           thickness: 1,
+          color: Colors.white,
         )
       ],
     );

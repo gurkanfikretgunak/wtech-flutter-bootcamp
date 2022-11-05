@@ -5,6 +5,9 @@ class CustomTheme {
       useMaterial3: false,
       primarySwatch: Colors.blue,
       backgroundColor: Colors.black,
-      scaffoldBackgroundColor: Colors.grey,
-      appBarTheme: const AppBarTheme(color: Colors.cyan));
+      scaffoldBackgroundColor: Colors.black,
+      appBarTheme: const AppBarTheme(color: Colors.cyan),
+      drawerTheme: const DrawerThemeData(
+        backgroundColor: Colors.black,
+      ));
 }
