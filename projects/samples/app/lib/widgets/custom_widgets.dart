@@ -1,7 +1,7 @@
 import 'package:app/constants/custom_contants.dart';
-import 'package:app/core/themes/themes.dart';
 import 'package:app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
+import '../core/themes/custom_themes.dart';
 
 class CustomWidgets {
   static PreferredSize customAppBar() {
