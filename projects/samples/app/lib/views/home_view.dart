@@ -19,13 +19,10 @@ class HomeView extends StatelessWidget {
           color: Colors.grey[50],
           child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 21.0, right: 21.0),
-                  child: _CategoriesWidget(
-                      topicText: CustomTextConstants().topicMost, viewText: CustomTextConstants().views),
-                ),
+              Padding(
+                padding: const EdgeInsets.only(left: 21.0, right: 21.0),
+                child: _CategoriesWidget(
+                    topicText: CustomTextConstants().topicMost, viewText: CustomTextConstants().views),
               ),
               const Expanded(
                 flex: 4,

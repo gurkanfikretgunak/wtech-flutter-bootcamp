@@ -1,6 +1,6 @@
 import 'package:app/core/themes/custom_themes.dart';
-import 'package:app/views/home_view.dart';
 import 'package:flutter/material.dart';
+import '../views/splash_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeView(),
+      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: CustomTheme.customThemeData(),
