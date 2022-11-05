@@ -1,4 +1,5 @@
 import 'package:app/constants/custom_contants.dart';
+import 'package:app/core/themes/custom_themes.dart';
 import 'package:app/views/product_detail_view.dart';
 import 'package:flutter/material.dart';
 
@@ -50,8 +51,7 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                       children: [
                         Expanded(
                           flex: 5,
-                          child: SizedBox(
-                            width: 300,
+                          child: Center(
                             child: Image.asset(
                               images[index].toString(),
                               fit: BoxFit.fill,
@@ -70,7 +70,13 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                                     child: Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text(names[index]),
+                                        Text(
+                                          names[index],
+                                          style: CustomTheme.customThemeData()
+                                              .textTheme
+                                              .headlineMedium
+                                              ?.copyWith(color: Colors.white),
+                                        ),
                                         const SizedBox(height: 5),
                                         Text(price[index],
                                             style: Theme.of(context).textTheme.subtitle1?.copyWith(

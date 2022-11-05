@@ -1,3 +1,4 @@
+import 'package:app/core/themes/custom_themes.dart';
 import 'package:flutter/material.dart';
 
 class CustomSearch extends StatefulWidget {
@@ -12,6 +13,7 @@ class _CustomSearchState extends State<CustomSearch> {
 
   @override
   Widget build(BuildContext context) {
+    var hintText2 = 'Search';
     return Container(
       alignment: Alignment.center,
       margin: const EdgeInsets.symmetric(horizontal: 20),
@@ -33,7 +35,7 @@ class _CustomSearchState extends State<CustomSearch> {
               : IconButton(
                   highlightColor: Colors.transparent,
                   splashColor: Colors.transparent,
-                  icon: Icon(Icons.clear, color: Theme.of(context).primaryColor.withOpacity(0.5)),
+                  icon: Icon(Icons.clear, color: CustomTheme.customThemeData().primaryColor.withOpacity(0.5)),
                   onPressed: () => setState(() {
                         searchTextController.clear();
                       })),
@@ -43,7 +45,7 @@ class _CustomSearchState extends State<CustomSearch> {
               textAlignVertical: TextAlignVertical.center,
               onChanged: (_) => setState(() {}),
               decoration: InputDecoration(
-                hintText: 'Search',
+                hintText: hintText2,
                 hintStyle: TextStyle(color: Theme.of(context).primaryColor.withOpacity(0.8)),
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
