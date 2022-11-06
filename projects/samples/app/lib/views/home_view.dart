@@ -1,5 +1,6 @@
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/listtile.dart';
+import 'package:app/widgets/customWidgets/scrools/gridviewbuilder_enum_color.dart';
 import 'package:app/widgets/data/listtile_data.dart';
 import 'package:app/widgets/model/listtile_model.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   bool isAppBar = false;
   late List<ListtileModel> model;
-
+  Color currentColor = Colors.grey;
   @override
   void initState() {
     super.initState();
@@ -48,13 +49,37 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
-          child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10) +
-                  const EdgeInsets.only(
-                    top: 10,
-                  ),
-              child: const GridViewWidget())),
+          child: GridView.builder(
+        itemCount: 40,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+        itemBuilder: (context, index) {
+          int colorIndex = index % GridviewColor.values.length;
+
+          _findGridviewContainerColor(colorIndex);
+          return Container(
+            color: currentColor,
+          );
+        },
+      )),
     );
+  }
+
+  void _findGridviewContainerColor(int colorIndex) {
+    switch (colorIndex) {
+      case 0:
+        currentColor = GridviewColor.blue.getColor();
+        break;
+      case 1:
+        currentColor = currentColor = GridviewColor.yellow.getColor();
+        break;
+      case 2:
+        currentColor = GridviewColor.purple.getColor();
+        break;
+      case 3:
+        currentColor = GridviewColor.green.getColor();
+        break;
+    }
   }
 }
 
