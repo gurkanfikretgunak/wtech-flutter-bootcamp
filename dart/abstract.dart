@@ -1,7 +1,4 @@
-void main(List<String> args) {
-  var effectiveDoer = new EffectiveDoer();
-  var result = effectiveDoer.doSomething();
-}
+void main(List<String> args) {}
 
 // abstract sınıflar runtime zamanında oluşan ve sonra silinen  sınıflardır.
 // içerisine gövedesiz metodlar yazılır . extend sınıfında gövde doldurulur
