@@ -1,4 +1,5 @@
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
+import 'package:app/widgets/customWidgets/listtile.dart';
 import 'package:flutter/material.dart';
 import '../widgets/customWidgets/floating_Action_button.dart';
 import '../widgets/customWidgets/input/input_widget.dart';
@@ -38,13 +39,14 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
         child: Column(
-          children: const [
-            CheckBoxListtileWidget(),
-            RadioListTileWidget(),
-            SwitchListtileWidget(),
-            SliderWidget(),
-            DatePickerWidget(),
-            DateTimePicker(),
+          children: [
+            Card(
+                margin: const EdgeInsets.symmetric(horizontal: 10) +
+                    const EdgeInsets.only(top: 10),
+                child: const ListTileWidget(
+                  name: 'Batuhan',
+                  telephoneNo: '123456',
+                )),
           ],
         ),
       ),

@@ -11,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wtech Project',
-      home: const CascadeViews(),
+      home: const HomeView(),
       theme: CustomThemeData.instance.themeData,
       debugShowCheckedModeBanner: false,
     );
