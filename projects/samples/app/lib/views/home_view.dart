@@ -48,16 +48,35 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
-          child: ListView.builder(
-        itemCount: model.length,
-        itemBuilder: (context, index) {
-          return Card(
-            margin: const EdgeInsets.symmetric(horizontal: 10) +
-                const EdgeInsets.only(top: 10),
-            child: ListTileWidget(model: model[index]),
-          );
-        },
-      )),
+          child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 10) +
+                  const EdgeInsets.only(
+                    top: 10,
+                  ),
+              child: const GridViewWidget())),
+    );
+  }
+}
+
+class _ListviewBuilderwithListtile extends StatelessWidget {
+  const _ListviewBuilderwithListtile({
+    Key? key,
+    required this.model,
+  }) : super(key: key);
+
+  final List<ListtileModel> model;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: model.length,
+      itemBuilder: (context, index) {
+        return Card(
+          margin: const EdgeInsets.symmetric(horizontal: 10) +
+              const EdgeInsets.only(top: 10),
+          child: ListTileWidget(model: model[index]),
+        );
+      },
     );
   }
 }
