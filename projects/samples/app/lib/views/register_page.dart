@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:samples/widgets/login_page_widgets.dart';
 import 'package:date_time_picker/date_time_picker.dart';
@@ -83,9 +84,13 @@ class RegisterPageState extends State<RegisterPage> {
                           lastDate: DateTime.now());
 
                       if (secilenTarih != null) {
-                        print(secilenTarih); 
+                        if (kDebugMode) {
+                          print(secilenTarih);
+                        } 
                         String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
-                        print( formattedDate); 
+                        if (kDebugMode) {
+                          print( formattedDate);
+                        } 
                         setState(() {
                           _datepickercontroller.text =formattedDate; 
                         });
