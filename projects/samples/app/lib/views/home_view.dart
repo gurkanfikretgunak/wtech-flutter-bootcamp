@@ -1,5 +1,6 @@
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/listtile.dart';
+import 'package:app/widgets/data/listtile_data.dart';
 import 'package:flutter/material.dart';
 import '../widgets/customWidgets/floating_Action_button.dart';
 import '../widgets/customWidgets/input/input_widget.dart';
@@ -13,6 +14,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isAppBar = false;
+  var model = ListtileData.listtileItem();
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +45,8 @@ class _HomeViewState extends State<HomeView> {
             Card(
                 margin: const EdgeInsets.symmetric(horizontal: 10) +
                     const EdgeInsets.only(top: 10),
-                child: const ListTileWidget(
-                  name: 'Batuhan',
-                  telephoneNo: '123456',
+                child: ListTileWidget(
+                  model: model[0],
                 )),
           ],
         ),
