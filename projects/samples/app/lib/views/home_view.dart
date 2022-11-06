@@ -40,9 +40,9 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: const SafeArea(
-        child: SingleChildScroolViewWidget(),
-      ),
+      body: SafeArea(
+          child: Container(
+              margin: const EdgeInsets.all(10), child: const ListViewWidget())),
     );
   }
 }
