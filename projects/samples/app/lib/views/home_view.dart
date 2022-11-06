@@ -4,6 +4,7 @@ import 'package:app/widgets/data/listtile_data.dart';
 import 'package:flutter/material.dart';
 import '../widgets/customWidgets/floating_Action_button.dart';
 import '../widgets/customWidgets/input/input_widget.dart';
+import '../widgets/customWidgets/scrools/scrools.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -39,17 +40,8 @@ class _HomeViewState extends State<HomeView> {
         },
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      body: SafeArea(
-        child: Column(
-          children: [
-            Card(
-                margin: const EdgeInsets.symmetric(horizontal: 10) +
-                    const EdgeInsets.only(top: 10),
-                child: ListTileWidget(
-                  model: model[0],
-                )),
-          ],
-        ),
+      body: const SafeArea(
+        child: SingleChildScroolViewWidget(),
       ),
     );
   }
