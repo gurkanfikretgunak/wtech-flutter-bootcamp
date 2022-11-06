@@ -1,6 +1,7 @@
 import 'package:app/widgets/customWidgets/bottom_navigation_bar.dart';
 import 'package:app/widgets/customWidgets/listtile.dart';
 import 'package:app/widgets/data/listtile_data.dart';
+import 'package:app/widgets/model/listtile_model.dart';
 import 'package:flutter/material.dart';
 import '../widgets/customWidgets/floating_Action_button.dart';
 import '../widgets/customWidgets/input/input_widget.dart';
@@ -15,7 +16,13 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   bool isAppBar = false;
-  var model = ListtileData.listtileItem();
+  late List<ListtileModel> model;
+
+  @override
+  void initState() {
+    super.initState();
+    model = ListtileData.listtileItem();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +48,16 @@ class _HomeViewState extends State<HomeView> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: SafeArea(
-          child: Container(
-              margin: const EdgeInsets.all(10), child: const ListViewWidget())),
+          child: ListView.builder(
+        itemCount: model.length,
+        itemBuilder: (context, index) {
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 10) +
+                const EdgeInsets.only(top: 10),
+            child: ListTileWidget(model: model[index]),
+          );
+        },
+      )),
     );
   }
 }

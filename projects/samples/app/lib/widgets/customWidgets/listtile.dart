@@ -29,7 +29,7 @@ class FirstCharacterofName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      child: Text(name[0]),
+      child: Text(name),
     );
   }
 }
