@@ -1,0 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:healty_food/core/app.dart';
+
+void main() {
+  runApp(const MyApp());
+}

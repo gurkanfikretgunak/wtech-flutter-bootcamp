@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/custom-widgets.dart';
+import '../widgets/custom_widgets.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({
