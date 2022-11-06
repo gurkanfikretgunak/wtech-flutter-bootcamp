@@ -5,6 +5,7 @@ import '../widgets/register_page_widgets.dart';
 
 
 final int fontColor = 0xFF02A28F;
+
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
@@ -15,25 +16,38 @@ class RegisterPage extends StatefulWidget {
 class RegisterPageState extends State<RegisterPage> {
 
   late TextEditingController _usernamecontroller;
+  late TextEditingController _registerpasswordcontroller;
+  late var passwordVisible = true;
 
+  togglePasswordView() {
+  
+    setState(
+      () {
+        passwordVisible = !passwordVisible;
+    }
+    );
+  
+}
+
+  
   @override
   void initState() {
-    // TODO: implement initState
+    _usernamecontroller = TextEditingController();
+    _registerpasswordcontroller = TextEditingController();
+    passwordVisible = false;
     super.initState();
   }
   @override
   void dispose() {
-    // TODO: implement dispose
+    _usernamecontroller.dispose();
+    _registerpasswordcontroller.dispose();
     super.dispose();
   }
-
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
     constraints: const BoxConstraints.expand(),
-    decoration:  RegisterBoxDecoration(),
+    decoration:  registerBoxDecoration(),
     child: Scaffold(
       backgroundColor: Colors.transparent,
       body: Center(
@@ -45,7 +59,8 @@ class RegisterPageState extends State<RegisterPage> {
             children: [
               const Padding(padding: EdgeInsets.only(top: 8.0)),
               RegisterHeaderWidget(fontColor: fontColor),
-              
+              RegisterUserNameTextField(usernamecontroller: _usernamecontroller),
+              registerPasswordTextField()
             ],
           ),
         ),
@@ -54,7 +69,28 @@ class RegisterPageState extends State<RegisterPage> {
     );
   }
 
-  BoxDecoration RegisterBoxDecoration() {
+  Container registerPasswordTextField() {
+    return Container(
+              padding: const EdgeInsets.only(left:12.0,right:12.0,top: 8.0),
+              child: TextField(
+                controller: _registerpasswordcontroller,
+                keyboardType: TextInputType.emailAddress,
+                obscureText: !passwordVisible,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  suffix:IconButton(onPressed: (){
+                    togglePasswordView();
+                  },
+                    icon: Icon(passwordVisible ?         /// CHeck Show & Hide.
+                   Icons.visibility_off :
+                   Icons.visibility,),
+                  )
+              ),
+            )
+          );
+  }
+
+  BoxDecoration registerBoxDecoration() {
     return const BoxDecoration(
     image: DecorationImage(
       image: AssetImage("lib/assets/images/backgroundImage.png"),fit: BoxFit.cover,
@@ -63,4 +99,5 @@ class RegisterPageState extends State<RegisterPage> {
   );
   }
 }
+
 

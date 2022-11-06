@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:samples/views/register_page.dart';
 
 class RegisterHeaderWidget extends StatelessWidget {
   const RegisterHeaderWidget({
@@ -23,19 +24,26 @@ class RegisterHeaderWidget extends StatelessWidget {
 }
 final int fontColor = 0xFF02A28F;
 
-class RegisterUserNameTextField extends StatefulWidget {
-  const RegisterUserNameTextField({super.key});
+class RegisterUserNameTextField extends StatelessWidget {
+  const RegisterUserNameTextField({
+    Key? key,
+    required TextEditingController usernamecontroller,
+  }) : _usernamecontroller = usernamecontroller, super(key: key);
 
-  @override
-  State<RegisterUserNameTextField> createState() => RegisterUserNameTextFieldState();
-}
+  final TextEditingController _usernamecontroller;
 
-class RegisterUserNameTextFieldState extends State<RegisterUserNameTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(left:12.0,right: 12.0),
       child: TextField(
         controller: _usernamecontroller,
+        onChanged: (girilenText) {
+          
+       },
+       decoration: const InputDecoration(
+          labelText: "İsim-Soyisim"
+        ),
       ),
     );
   }
