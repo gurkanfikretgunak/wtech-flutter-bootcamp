@@ -10,6 +10,7 @@ class WhatsappClone extends StatelessWidget {
         backgroundColor: Colors.grey[300],
         appBar: AppBar(
           backgroundColor: Color(0xff128C7E),
+          leadingWidth: 18,
           leading:
               IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_sharp)),
           title: Row(
@@ -20,18 +21,26 @@ class WhatsappClone extends StatelessWidget {
                     "https://cdn.pixabay.com/photo/2016/11/18/19/07/happy-1836445_960_720.jpg"),
               ),
               SizedBox(width: 5),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    "Muhammed",
-                    style: TextStyle(color: Colors.white, fontSize: 21),
-                  ),
-                  Text(
-                    "Çevrimiçi",
-                    style: TextStyle(color: Colors.white, fontSize: 13),
-                  )
-                ],
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Muhammed",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    Text(
+                      "Çevrimiçi",
+                      style: TextStyle(color: Colors.white, fontSize: 12),
+                    )
+                  ],
+                ),
               ),
             ],
           ),
@@ -58,32 +67,43 @@ class WhatsappClone extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: Row(
                   children: [
-                    Container(
-                      height: 40,
-                      width: 355,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(25),
-                      ),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          filled: true,
-                          border: InputBorder.none,
-                          hintText: "Mesaj",
-                          prefixIcon: IconButton(
-                            onPressed: () {},
-                            icon: Icon(
-                              Icons.tag_faces_rounded,
-                              color: Colors.grey[400],
-                            ),
-                          ),
-                          suffixIcon: IconButton(
-                              onPressed: () {},
-                              icon: Icon(
-                                Icons.attachment,
-                                color: Colors.grey[400],
-                              )),
+                    Expanded(
+                      child: Container(
+                        height: 40,
+                        width: 355,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                              filled: true,
+                              border: InputBorder.none,
+                              hintText: "Mesaj",
+                              prefixIcon: IconButton(
+                                onPressed: () {},
+                                icon: Icon(
+                                  Icons.tag_faces_rounded,
+                                  color: Colors.grey[400],
+                                ),
+                              ),
+                              suffixIcon: Container(
+                                  width: 100,
+                                  child: Row(children: [
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(Icons.attachment),
+                                      color: Colors.grey[400],
+                                    ),
+                                    IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.camera_alt,
+                                        color: Colors.grey[400],
+                                      ),
+                                    ),
+                                  ]))),
                         ),
                       ),
                     ),
