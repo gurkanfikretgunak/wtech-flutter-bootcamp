@@ -1,4 +1,5 @@
 import 'package:app/core/themes/custom_theme.dart';
+import 'package:app/views/widgets_examples.dart';
 import 'package:flutter/material.dart';
 
 import '../views/home_view.dart';
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeView(),
+      home: const SafeAreaExample(),
       title: 'Flutter Demo',
       theme: CustomTheme.customTheme(),
     );
