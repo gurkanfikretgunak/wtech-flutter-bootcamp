@@ -30,7 +30,7 @@ class _CustomSearchState extends State<CustomSearch> {
         children: [
           searchTextController.text.trim().isEmpty
               ? IconButton(
-                  icon: Icon(Icons.search_sharp, color: Theme.of(context).primaryColor.withOpacity(0.9)),
+                  icon: Icon(Icons.search_sharp, color: Theme.of(context).primaryColor.withOpacity(0.6)),
                   onPressed: null)
               : IconButton(
                   highlightColor: Colors.transparent,
@@ -46,7 +46,7 @@ class _CustomSearchState extends State<CustomSearch> {
               onChanged: (_) => setState(() {}),
               decoration: InputDecoration(
                 hintText: hintText2,
-                hintStyle: TextStyle(color: Theme.of(context).primaryColor.withOpacity(0.8)),
+                hintStyle: TextStyle(color: Theme.of(context).primaryColor.withOpacity(0.4)),
                 enabledBorder: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),

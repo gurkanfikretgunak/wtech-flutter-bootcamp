@@ -41,6 +41,9 @@ class _CustomPopularProductCardsState extends State<CustomPopularProductCards> {
                   ));
                 },
                 child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0),
+                  ),
                   color: Colors.white,
                   child: Padding(
                     padding: const EdgeInsets.only(left: 8.0),
