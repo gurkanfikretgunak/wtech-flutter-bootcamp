@@ -1,4 +1,5 @@
 import 'package:app/widgets/custom_appbar.dart';
+import 'package:app/widgets/custom_appbar_home.dart';
 import 'package:app/widgets/custom_list_view_builder.dart';
 import 'package:flutter/material.dart';
 
@@ -26,13 +27,14 @@ class HomeView extends StatelessWidget {
       "Africa, Casablanca",
       "Africa, Ceuta",
     ];
+
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
       // floatingActionButton: CustomWidgets.getFloatingActionButtonWidget(),
       // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       // bottomNavigationBar: isNotched ? CustomWidgets.getBottomAppBarWidget() : CustomWidgets.getBottomNavigationBar(),
-      appBar: const CustomAppBar(appBarHeight: 199),
+      appBar: const CustomAppBar(appBarHeight: 199, content: CustomAppBarHome()),
       body: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
         child: Column(

@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       home: const HomeView(isCustomAppBar: false, isNotched: true),
       // home: const CascadeExampleView(),
       title: 'WORLD TIME',
-      theme: CustomTheme.lightTheme,
+      theme: CustomTheme.darkTheme,
     );
   }
 }
