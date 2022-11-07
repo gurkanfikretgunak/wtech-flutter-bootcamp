@@ -121,11 +121,12 @@ class RegisterPageState extends State<RegisterPage> {
                 ),
                 Container(
                   padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                  height: 50,
                   
-
                   child: DropdownButton(
                     value: dropdownValue,
                     isExpanded: true,
+                    
                     elevation: 16,
                     items: const [
                        DropdownMenuItem(value:'choose your gender',child: Text('choose your gender')),
