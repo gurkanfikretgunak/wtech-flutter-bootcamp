@@ -69,25 +69,17 @@ class CustomWidgets {
         preferredSize: const Size.fromHeight(200));
   }
 
-  static Padding backIcon(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                icon: const Icon(
-                  Icons.arrow_back_ios_new_outlined,
-                  color: Colors.black,
-                )),
-          ),
-        ],
-      ),
+  static CircleAvatar backIcon(BuildContext context) {
+    return CircleAvatar(
+      backgroundColor: Colors.white,
+      child: IconButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          icon: const Icon(
+            Icons.arrow_back_ios_new_outlined,
+            color: Colors.black,
+          )),
     );
   }
 }

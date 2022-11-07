@@ -26,28 +26,28 @@ class _ProductDetailViewState extends State<ProductDetailView> {
     return Scaffold(
       body: Column(
         children: [
-          const Expanded(
-              flex: 1,
-              child: Padding(
-                padding: EdgeInsets.all(20.0),
-                child: DetailAppBarComponent(),
-              )),
+          const Padding(
+            padding: EdgeInsets.all(20.0),
+            child: DetailAppBarComponent(),
+          ),
           Expanded(
             flex: 3,
-            child: Stack(children: [
-              Center(
-                child: _aspectRatioImage(widget.image),
-              ),
-              const Positioned(
-                right: 20,
-                top: 50,
-                child: CustomColorSelection(),
-              ),
-            ]),
+            child: Container(
+              child: Stack(children: [
+                Center(
+                  child: _aspectRatioImage(widget.image),
+                ),
+                const Positioned(
+                  right: 20,
+                  top: 50,
+                  child: CustomColorSelection(),
+                ),
+              ]),
+            ),
           ),
           Expanded(
             flex: 2,
-            child: _detailsComponents(widget.name, widget.price, widget.description),
+            child: Container(child: _detailsComponents(widget.name, widget.price, widget.description)),
           ),
           Expanded(
             flex: 1,

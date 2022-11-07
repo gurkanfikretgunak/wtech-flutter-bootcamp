@@ -24,22 +24,19 @@ class HomeView extends StatelessWidget {
                 child: _CategoriesWidget(
                     topicText: CustomTextConstants().topicMost, viewText: CustomTextConstants().views),
               ),
-              const Expanded(
-                flex: 4,
-                child: CustomProductCards(heighty: 0.10, widthx: 0.5),
-              ),
               Expanded(
-                flex: 2,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 21.0, right: 21.0),
-                      child: _CategoriesWidget(
-                          topicText: CustomTextConstants().topicPopular, viewText: CustomTextConstants().views),
-                    ),
-                    const CustomPopularProductCards(heighty: 0.14, widthx: 0.5),
-                  ],
-                ),
+                flex: 4,
+                child: Container(child: const CustomProductCards(heighty: 0.10, widthx: 0.5)),
+              ),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 21.0, right: 21.0),
+                    child: _CategoriesWidget(
+                        topicText: CustomTextConstants().topicPopular, viewText: CustomTextConstants().views),
+                  ),
+                  const CustomPopularProductCards(heighty: 0.14, widthx: 0.5),
+                ],
               ),
             ],
           ),

@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:app/constants/custom_contants.dart';
 import 'package:app/core/themes/custom_themes.dart';
 import 'package:app/views/product_detail_view.dart';
@@ -51,10 +53,12 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                       children: [
                         Expanded(
                           flex: 5,
-                          child: Center(
-                            child: Image.asset(
-                              images[index].toString(),
-                              fit: BoxFit.fill,
+                          child: Container(
+                            child: Center(
+                              child: Image.asset(
+                                images[index].toString(),
+                                fit: BoxFit.fill,
+                              ),
                             ),
                           ),
                         ),
@@ -65,25 +69,27 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                             child: Row(
                               children: [
                                 Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(left: 8, top: 15),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          names[index],
-                                          style: CustomTheme.customThemeData()
-                                              .textTheme
-                                              .headlineMedium
-                                              ?.copyWith(color: Colors.white),
-                                        ),
-                                        const SizedBox(height: 5),
-                                        Text(price[index],
-                                            style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                                                  color: Colors.white,
-                                                  fontWeight: FontWeight.bold,
-                                                )),
-                                      ],
+                                  child: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(left: 8, top: 15),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            names[index],
+                                            style: CustomTheme.customThemeData()
+                                                .textTheme
+                                                .headlineMedium
+                                                ?.copyWith(color: Colors.white),
+                                          ),
+                                          const SizedBox(height: 5),
+                                          Text(price[index],
+                                              style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                                                    color: Colors.white,
+                                                    fontWeight: FontWeight.bold,
+                                                  )),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),

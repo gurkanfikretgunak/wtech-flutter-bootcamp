@@ -63,25 +63,23 @@ class _CustomPopularProductCardsState extends State<CustomPopularProductCards> {
                           flex: 5,
                           child: Container(
                             color: Colors.white,
-                            child: Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 8, top: 15),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(CustomTextConstants().namesPlant[index],
-                                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                                              color: Colors.grey[800],
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                    const SizedBox(height: 5),
-                                    Text(CustomTextConstants().pricePlant[index],
-                                        style: Theme.of(context).textTheme.subtitle1?.copyWith(
-                                              color: Colors.grey[900],
-                                              fontWeight: FontWeight.bold,
-                                            )),
-                                  ],
-                                ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 8, top: 15),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(CustomTextConstants().namesPlant[index],
+                                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                                            color: Colors.grey[800],
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                  const SizedBox(height: 5),
+                                  Text(CustomTextConstants().pricePlant[index],
+                                      style: Theme.of(context).textTheme.subtitle1?.copyWith(
+                                            color: Colors.grey[900],
+                                            fontWeight: FontWeight.bold,
+                                          )),
+                                ],
                               ),
                             ),
                           ),
