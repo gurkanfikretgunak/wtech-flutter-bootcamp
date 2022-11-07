@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_new
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:samples/widgets/login_page_widgets.dart';
@@ -68,43 +70,91 @@ class RegisterPageState extends State<RegisterPage> {
                     usernamecontroller: _usernamecontroller),
                 registerPasswordTextField(),
                 verifyPasswordTextField(),
-                Container(
-                  padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                  child: TextField(
-                    controller: _datepickercontroller,
-                    decoration: const InputDecoration(
-                        suffixIcon: Icon(Icons.calendar_today),
-                        labelText: "Doğum Tarihi"),
-                    readOnly: true,
-                    onTap: () async {
-                      DateTime? secilenTarih = await showDatePicker(
-                          context: context,
-                          initialDate: DateTime.now(),
-                          firstDate: DateTime(1950),
-                          lastDate: DateTime.now());
+                
+                FutureBuilder(
+                  builder: (BuildContext context, AsyncSnapshot snapshot){
+                    if(snapshot.hasData){
+                      // return Widget
+                      return Container(
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                child: TextField(
+                  controller: _datepickercontroller,
+                  decoration: const InputDecoration(
+                      suffixIcon: Icon(Icons.calendar_today),
+                      labelText: "Doğum Tarihi"),
+                  readOnly: true,
+                  onTap: () async {
+                    DateTime? secilenTarih = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime.now());
 
-                      if (secilenTarih != null) {
-                        if (kDebugMode) {
-                          print(secilenTarih);
-                        } 
-                        String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
-                        if (kDebugMode) {
-                          print( formattedDate);
-                        } 
-                        setState(() {
-                          _datepickercontroller.text =formattedDate; 
-                        });
-                      } else {}
-                      
-                    },
-                  ),
-                )
+                    if (secilenTarih != null) {
+                      if (kDebugMode) {
+                        print(secilenTarih);
+                      } 
+                      String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
+                      if (kDebugMode) {
+                        print( formattedDate);
+                      } 
+                      setState(() {
+                        _datepickercontroller.text =formattedDate; 
+                      });
+                    } else {}
+                    // !!!! async oldugu icin extract edemiyorum
+                  },
+                ),
+              );
+                    }                   
+                    else{
+                      // return fail Widget
+                      return const circularProgressIndicator();
+                    }
+                  },
+                  future: birthDatePickerWidget(context),
+                ),
+                
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  Future<Container> birthDatePickerWidget(BuildContext context) async {
+    return Container(
+                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                child: TextField(
+                  controller: _datepickercontroller,
+                  decoration: const InputDecoration(
+                      suffixIcon: Icon(Icons.calendar_today),
+                      labelText: "Doğum Tarihi"),
+                  readOnly: true,
+                  onTap: () async {
+                    DateTime? secilenTarih = await showDatePicker(
+                        context: context,
+                        initialDate: DateTime.now(),
+                        firstDate: DateTime(1950),
+                        lastDate: DateTime.now());
+
+                    if (secilenTarih != null) {
+                      if (kDebugMode) {
+                        print(secilenTarih);
+                      } 
+                      String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
+                      if (kDebugMode) {
+                        print( formattedDate);
+                      } 
+                      setState(() {
+                        _datepickercontroller.text =formattedDate; 
+                      });
+                    } else {}
+                    // !!!! async oldugu icin extract edemiyorum
+                  },
+                ),
+              );
   }
 
   Container verifyPasswordTextField() {
@@ -164,5 +214,16 @@ class RegisterPageState extends State<RegisterPage> {
       fit: BoxFit.cover,
       opacity: 0.9,
     ));
+  }
+}
+
+class circularProgressIndicator extends StatelessWidget {
+  const circularProgressIndicator({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return const CircularProgressIndicator();
   }
 }
