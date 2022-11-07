@@ -45,16 +45,20 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               ),
             ]),
           ),
-          Expanded(flex: 2, child: _detailsComponents(widget.name, widget.price, widget.description)),
           Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.white,
-                child: const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: CustomAddCartButton(data: data),
-                ),
-              ))
+            flex: 2,
+            child: _detailsComponents(widget.name, widget.price, widget.description),
+          ),
+          Expanded(
+            flex: 1,
+            child: Container(
+              color: Colors.white,
+              child: const Padding(
+                padding: EdgeInsets.all(20.0),
+                child: CustomAddCartButton(data: data),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -234,6 +238,17 @@ SingleChildScrollView _detailsComponents(names, price, description) {
           ),
           const SizedBox(
             height: 20,
+          ),
+          Container(
+            decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(20)),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: const [
+                Icon(Icons.wind_power_outlined),
+                Icon(Icons.water_drop_outlined),
+                Icon(Icons.forest_outlined),
+              ]),
+            ),
           ),
         ],
       ),
