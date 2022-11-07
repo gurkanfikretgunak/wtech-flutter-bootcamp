@@ -19,6 +19,7 @@ class CustomTheme {
     return ThemeData(
       primaryColor: const Color(0xFF02327D),
       scaffoldBackgroundColor: const Color(0xFF002359),
+      iconTheme: const IconThemeData(color: Colors.white),
       textTheme: const TextTheme(
         headline1: TextStyle(color: Color(0xFFFAFCFF), fontSize: 32, fontWeight: FontWeight.w600),
         headline2: TextStyle(color: Color(0xFFFAFCFF), fontSize: 15, fontWeight: FontWeight.w600),
