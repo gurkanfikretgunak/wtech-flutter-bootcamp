@@ -119,22 +119,27 @@ class RegisterPageState extends State<RegisterPage> {
                   },
                   future: birthDatePickerWidget(context),
                 ),
-                DropdownButton(
-                  value: dropdownValue,
+                Container(
+                  padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                   
-                  elevation: 16,
-                  items: const [
-                     DropdownMenuItem(value:'choose your gender',child: Text('choose your gender')),
-                     DropdownMenuItem(value: 'male', child: Text('male')),
-                     DropdownMenuItem(value: 'female',child: Text('female'),)
-                  ],
-                  onChanged: (String? value) {
-                    // This is called when the user selects an item.
-                    setState(() {
-                      dropdownValue = value!;
-                    });
-                  }
-                  )
+
+                  child: DropdownButton(
+                    value: dropdownValue,
+                    isExpanded: true,
+                    elevation: 16,
+                    items: const [
+                       DropdownMenuItem(value:'choose your gender',child: Text('choose your gender')),
+                       DropdownMenuItem(value: 'male', child: Text('male')),
+                       DropdownMenuItem(value: 'female',child: Text('female'),)
+                    ],
+                    onChanged: (String? value) {
+                      // This is called when the user selects an item.
+                      setState(() {
+                        dropdownValue = value!;
+                      });
+                    }
+                    ),
+                )
                 
               ],
             ),
