@@ -37,7 +37,9 @@ class ProductCardView extends StatelessWidget {
                   Text(
                     title,
                     style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                        color: Colors.black87, fontWeight: FontWeight.bold),
+                          color: Colors.black87,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   const Spacer(),
                   Row(

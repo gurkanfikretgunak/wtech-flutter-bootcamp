@@ -1,6 +1,7 @@
 import 'package:app/core/themes/custom_theme_data.dart';
-import 'package:app/views/home_view.dart';
 import 'package:flutter/material.dart';
+
+import '../views/abstract_cascade_enum_example_view.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -10,7 +11,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const HomeView(),
+      home: const CascaseExamples(),
       title: 'Flutter Demo',
       theme: CustomTheme.customThemeData(),
     );
