@@ -23,6 +23,11 @@ class RegisterPageState extends State<RegisterPage> {
   late TextEditingController _verifypasswordcontroller;
   late TextEditingController _datepickercontroller;
   late var passwordVisible = true;
+  List<String> sex = [
+    "male",
+    "female"
+  ];
+  String dropdownValue = 'choose your gender';
 
   togglePasswordView() {
     setState(() {
@@ -103,9 +108,9 @@ class RegisterPageState extends State<RegisterPage> {
                       });
                     } else {}
                     // !!!! async oldugu icin extract edemiyorum
-                  },
-                ),
-              );
+                   },
+                  ),
+                  );
                     }                   
                     else{
                       // return fail Widget
@@ -114,6 +119,22 @@ class RegisterPageState extends State<RegisterPage> {
                   },
                   future: birthDatePickerWidget(context),
                 ),
+                DropdownButton(
+                  value: dropdownValue,
+                  
+                  elevation: 16,
+                  items: const [
+                     DropdownMenuItem(value:'choose your gender',child: Text('choose your gender')),
+                     DropdownMenuItem(value: 'male', child: Text('male')),
+                     DropdownMenuItem(value: 'female',child: Text('female'),)
+                  ],
+                  onChanged: (String? value) {
+                    // This is called when the user selects an item.
+                    setState(() {
+                      dropdownValue = value!;
+                    });
+                  }
+                  )
                 
               ],
             ),
