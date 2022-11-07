@@ -50,43 +50,57 @@ class _ProductDetailViewState extends State<ProductDetailView> {
               flex: 1,
               child: Container(
                 color: Colors.white,
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(10),
-                        child: Container(
-                            width: 55,
-                            height: 55,
-                            color: Colors.grey[300],
-                            child: IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border_outlined))),
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: 280,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all(Colors.grey[900]),
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15.0),
-                                ),
-                              )),
-                          child: Text(
-                            data,
-                            style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
+                child: const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: CustomAddCartButton(data: data),
                 ),
               ))
         ],
       ),
+    );
+  }
+}
+
+class CustomAddCartButton extends StatelessWidget {
+  const CustomAddCartButton({
+    Key? key,
+    required this.data,
+  }) : super(key: key);
+
+  final String data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Container(
+              width: 55,
+              height: 55,
+              color: Colors.grey[300],
+              child: IconButton(onPressed: () {}, icon: const Icon(Icons.favorite_border_outlined))),
+        ),
+        SizedBox(
+          height: 50,
+          width: 280,
+          child: ElevatedButton(
+            onPressed: () {},
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.grey[900]),
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15.0),
+                  ),
+                )),
+            child: Text(
+              data,
+              style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
@@ -192,12 +206,17 @@ SingleChildScrollView _detailsComponents(names, price, description) {
               ),
               Row(
                 children: [
-                  SizedBox(
-                    child: Padding(
-                      padding: const EdgeInsets.only(bottom: 15.0),
-                      child: Text(
-                        price,
-                        style: CustomTheme.customThemeData().textTheme.headline2,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      width: 80,
+                      height: 40,
+                      color: Colors.grey[300],
+                      child: Center(
+                        child: Text(
+                          price,
+                          style: CustomTheme.customThemeData().textTheme.headline2,
+                        ),
                       ),
                     ),
                   ),
