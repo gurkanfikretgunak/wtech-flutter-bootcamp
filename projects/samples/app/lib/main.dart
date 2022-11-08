@@ -18,22 +18,21 @@ class MyApp extends StatelessWidget {
           title: Text('Baslik'), 
         ),
         body: Container(
-         /*  alignment: Alignment.topCenter,
-          width: 200,
-          height: 300,
-          */ 
           color: Colors.yellow,
-         /*  child: Text(
+          width:200,
+          height: 200,
+          child: Text(
             'Busra',
             textAlign: TextAlign.center,
-            ), */
-            constraints:BoxConstraints(
+            ), 
+            margin: EdgeInsets.fromLTRB(50,12,12,50),
+            padding:EdgeInsets.all(20) ,
+            /* constraints:BoxConstraints(
               minHeight:100,
                minWidth: 100,
                maxHeight: 200,
                maxWidth: 200
-                ) ,
-
+                ), */ 
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
