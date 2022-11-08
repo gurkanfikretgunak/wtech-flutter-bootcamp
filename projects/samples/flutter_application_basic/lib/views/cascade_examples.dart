@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_basic/core/colors/container_base_color.dart';
+import 'package:flutter_application_basic/widgets/enum_widgets.dart';
 
 class CascadeExamples extends StatelessWidget {
   const CascadeExamples({super.key});
@@ -7,9 +9,12 @@ class CascadeExamples extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          Text(ScreenStateWithValue.desktop.value),
+          getMyCurrentState2(ScreenState.desktop),
+          Container(
+            child: ScreenStatement.getMyCurrentState(ScreenState.desktop),
+          ),
           Text(
             "Cascade Text",
             style: TextStyle(
@@ -23,8 +28,15 @@ class CascadeExamples extends StatelessWidget {
               //backgroundColor: Colors.black,
             ),
           ),
-        ],
-      )),
+          Text(ContainerBaseColor().colorNamed()),
+          Container(
+              height: 200,
+              width: 200,
+              decoration: BoxDecoration(
+                gradient: ContainerBaseColor().gradient(),
+              )),
+        ]),
+      ),
     );
   }
 }
