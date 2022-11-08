@@ -11,9 +11,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const HomeView(isCustomAppBar: false, isNotched: true),
+      // home: const PlantView(),
       // home: const CascadeExampleView(),
       title: 'WORLD TIME',
-      theme: CustomTheme.darkTheme,
+      theme: CustomTheme.lightTheme,
     );
   }
 }

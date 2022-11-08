@@ -8,6 +8,7 @@ class CustomListViewBuilder extends StatelessWidget {
   Widget build(BuildContext context) {
     debugPrint(MediaQuery.of(context).size.width.toString());
     return ListView.builder(
+      physics: const BouncingScrollPhysics(),
       itemCount: timezone.length,
       itemBuilder: (context, index) {
         return Padding(

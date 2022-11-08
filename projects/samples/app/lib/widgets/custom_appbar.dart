@@ -21,12 +21,30 @@ class _CustomAppBarState extends State<CustomAppBar> {
         statusBarColor: Colors.transparent,
         statusBarIconBrightness: Theme.of(context).brightness,
       ),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColor,
-          borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
-        ),
-        child: widget.content,
+      child: Stack(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+              borderRadius: const BorderRadius.vertical(bottom: Radius.circular(30)),
+            ),
+            child: widget.content,
+          ),
+          Positioned(
+            top: 170,
+            left: 0,
+            height: 40,
+            child: Container(
+              margin: const EdgeInsets.symmetric(horizontal: 33),
+              width: MediaQuery.of(context).size.width * 0.9,
+              // height: 40,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
