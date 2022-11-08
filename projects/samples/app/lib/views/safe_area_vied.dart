@@ -45,6 +45,14 @@ class SafeAreaView extends StatelessWidget {
               width: double.infinity,
               color: Colors.white,
               ),
+              FittedBox(
+                fit: BoxFit.contain,
+                child: Container(
+                  height: 20,
+                  width: 40,
+                  color: Colors.grey,
+                ),
+              )
             ],
           ), 
         

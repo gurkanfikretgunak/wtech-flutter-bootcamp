@@ -1,12 +1,9 @@
-// ignore_for_file: unnecessary_new
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:samples/widgets/login_page_widgets.dart';
 import 'package:date_time_picker/date_time_picker.dart';
 import '../widgets/register_page_widgets.dart';
 import 'package:intl/intl.dart';
-
 
 final int fontColor = 0xFF02A28F;
 
@@ -18,16 +15,17 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
+  late TextEditingController _universitycontroller;
   late TextEditingController _usernamecontroller;
   late TextEditingController _registerpasswordcontroller;
   late TextEditingController _verifypasswordcontroller;
   late TextEditingController _datepickercontroller;
+  late TextEditingController _bolumcontroller;
   late var passwordVisible = true;
-  List<String> sex = [
-    "male",
-    "female"
-  ];
+  List<String> sex = ["male", "female"];
   String dropdownValue = 'choose your gender';
+  bool isChecked = false;
+  bool isOkey = false;
 
   togglePasswordView() {
     setState(() {
@@ -43,6 +41,10 @@ class RegisterPageState extends State<RegisterPage> {
     _datepickercontroller = TextEditingController();
     _datepickercontroller.text = "";
     passwordVisible = false;
+    _universitycontroller = TextEditingController();
+    _bolumcontroller = TextEditingController();
+    isChecked = false;
+    isOkey = false;
     super.initState();
   }
 
@@ -52,6 +54,8 @@ class RegisterPageState extends State<RegisterPage> {
     _registerpasswordcontroller.dispose();
     _verifypasswordcontroller.dispose();
     _datepickercontroller.dispose();
+    _universitycontroller.dispose();
+    _bolumcontroller.dispose();
     super.dispose();
   }
 
@@ -61,10 +65,11 @@ class RegisterPageState extends State<RegisterPage> {
       constraints: const BoxConstraints.expand(),
       decoration: registerBoxDecoration(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Center(
           child: Container(
-            height: 600,
+            height: 590,
             width: 300,
             decoration: myBoxDecoration(),
             child: Column(
@@ -75,44 +80,43 @@ class RegisterPageState extends State<RegisterPage> {
                     usernamecontroller: _usernamecontroller),
                 registerPasswordTextField(),
                 verifyPasswordTextField(),
-                
                 FutureBuilder(
-                  builder: (BuildContext context, AsyncSnapshot snapshot){
-                    if(snapshot.hasData){
+                  builder: (BuildContext context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData) {
                       // return Widget
                       return Container(
-                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                child: TextField(
-                  controller: _datepickercontroller,
-                  decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.calendar_today),
-                      labelText: "Doğum Tarihi"),
-                  readOnly: true,
-                  onTap: () async {
-                    DateTime? secilenTarih = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(1950),
-                        lastDate: DateTime.now());
+                        padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+                        child: TextField(
+                          controller: _datepickercontroller,
+                          decoration: const InputDecoration(
+                              suffixIcon: Icon(Icons.calendar_today),
+                              labelText: "Doğum Tarihi"),
+                          readOnly: true,
+                          onTap: () async {
+                            DateTime? secilenTarih = await showDatePicker(
+                                context: context,
+                                initialDate: DateTime.now(),
+                                firstDate: DateTime(1950),
+                                lastDate: DateTime.now());
 
-                    if (secilenTarih != null) {
-                      if (kDebugMode) {
-                        print(secilenTarih);
-                      } 
-                      String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
-                      if (kDebugMode) {
-                        print( formattedDate);
-                      } 
-                      setState(() {
-                        _datepickercontroller.text =formattedDate; 
-                      });
-                    } else {}
-                    // !!!! async oldugu icin extract edemiyorum
-                   },
-                  ),
-                  );
-                    }                   
-                    else{
+                            if (secilenTarih != null) {
+                              if (kDebugMode) {
+                                print(secilenTarih);
+                              }
+                              String formattedDate =
+                                  DateFormat('dd-MM-yyyy').format(secilenTarih);
+                              if (kDebugMode) {
+                                print(formattedDate);
+                              }
+                              setState(() {
+                                _datepickercontroller.text = formattedDate;
+                              });
+                            } else {}
+                            // !!!! async oldugu icin extract edemiyorum
+                          },
+                        ),
+                      );
+                    } else {
                       // return fail Widget
                       return const circularProgressIndicator();
                     }
@@ -122,26 +126,95 @@ class RegisterPageState extends State<RegisterPage> {
                 Container(
                   padding: const EdgeInsets.only(left: 12.0, right: 12.0),
                   height: 50,
-                  
                   child: DropdownButton(
-                    value: dropdownValue,
-                    isExpanded: true,
+                      value: dropdownValue,
+                      isExpanded: true,
+                      elevation: 16,
+                      items: const [
+                        DropdownMenuItem(
+                            value: 'choose your gender',
+                            child: Text('choose your gender')),
+                        DropdownMenuItem(value: 'male', child: Text('male')),
+                        DropdownMenuItem(
+                          value: 'female',
+                          child: Text('female'),
+                        )
+                      ],
+                      onChanged: (String? value) {
+                        // This is called when the user selects an item.
+                        setState(() {
+                          dropdownValue = value!;
+                        });
+                      }),
+                ),
+                universityChangeTextField(
+                    universitycontroller: _universitycontroller),
+                facultyTextField(bolumcontroller: _bolumcontroller),
+                Row(
+                  children: [
+                    Checkbox(
+                        value: isChecked,
+                        onChanged: ((value) {
+                          setState(() {
+                            isChecked = value!;
+                          });
+                        })),
+                    TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          " Kullanıcı Sözleşmesi'ni",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Color(fontColor)),
+                        )),
+                    const Text("onaylıyorum",
+                        style:
+                            TextStyle(fontSize: 14, color: Color(0xFF828282))),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Checkbox(
+                        value: isOkey,
+                        onChanged: ((value) {
+                          setState(() {
+                            isOkey = value!;
+                          });
+                        })),
                     
-                    elevation: 16,
-                    items: const [
-                       DropdownMenuItem(value:'choose your gender',child: Text('choose your gender')),
-                       DropdownMenuItem(value: 'male', child: Text('male')),
-                       DropdownMenuItem(value: 'female',child: Text('female'),)
-                    ],
-                    onChanged: (String? value) {
-                      // This is called when the user selects an item.
-                      setState(() {
-                        dropdownValue = value!;
-                      });
-                    }
+                    const Text("Gelişmeler hakkında mail almak istiyorum",
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xFF828282))),
+                  ],
+                ),
+                InkWell(
+                  // BU BUTON DEĞİŞTİRİLECEK GİTHUBDA STARLADIM
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(4),
+                      color: Color(fontColor),
                     ),
+                    padding: const EdgeInsets.only(top: 1.0),
+                    height: 40,
+                    width: 277,
+                    child: const Center(
+                      child: Text("Hesap Oluştur"),
+                    ),
+                  ),
+                  onTap: () {
+                    //burda textfielddan gelen veriyi tutucaz inş
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          // Retrieve the text that the user has entered by using the
+                          // TextEditingController.
+                          content: Text(_bolumcontroller.text),
+                        );
+                      },
+                    );
+                  },
                 )
-                
               ],
             ),
           ),
@@ -152,36 +225,36 @@ class RegisterPageState extends State<RegisterPage> {
 
   Future<Container> birthDatePickerWidget(BuildContext context) async {
     return Container(
-                padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-                child: TextField(
-                  controller: _datepickercontroller,
-                  decoration: const InputDecoration(
-                      suffixIcon: Icon(Icons.calendar_today),
-                      labelText: "Doğum Tarihi"),
-                  readOnly: true,
-                  onTap: () async {
-                    DateTime? secilenTarih = await showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(),
-                        firstDate: DateTime(1950),
-                        lastDate: DateTime.now());
+      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+      child: TextField(
+        controller: _datepickercontroller,
+        decoration: const InputDecoration(
+            suffixIcon: Icon(Icons.calendar_today), labelText: "Doğum Tarihi"),
+        readOnly: true,
+        onTap: () async {
+          DateTime? secilenTarih = await showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime(1950),
+              lastDate: DateTime.now());
 
-                    if (secilenTarih != null) {
-                      if (kDebugMode) {
-                        print(secilenTarih);
-                      } 
-                      String formattedDate =DateFormat('dd-MM-yyyy').format(secilenTarih);
-                      if (kDebugMode) {
-                        print( formattedDate);
-                      } 
-                      setState(() {
-                        _datepickercontroller.text =formattedDate; 
-                      });
-                    } else {}
-                    // !!!! async oldugu icin extract edemiyorum
-                  },
-                ),
-              );
+          if (secilenTarih != null) {
+            if (kDebugMode) {
+              print(secilenTarih);
+            }
+            String formattedDate =
+                DateFormat('dd-MM-yyyy').format(secilenTarih);
+            if (kDebugMode) {
+              print(formattedDate);
+            }
+            setState(() {
+              _datepickercontroller.text = formattedDate;
+            });
+          } else {}
+          // !!!! async oldugu icin extract edemiyorum
+        },
+      ),
+    );
   }
 
   Container verifyPasswordTextField() {
@@ -241,6 +314,50 @@ class RegisterPageState extends State<RegisterPage> {
       fit: BoxFit.cover,
       opacity: 0.9,
     ));
+  }
+}
+
+class facultyTextField extends StatelessWidget {
+  const facultyTextField({
+    Key? key,
+    required TextEditingController bolumcontroller,
+  })  : _bolumcontroller = bolumcontroller,
+        super(key: key);
+
+  final TextEditingController _bolumcontroller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+      child: TextField(
+        controller: _bolumcontroller,
+        onChanged: (universityText) {},
+        decoration: const InputDecoration(labelText: "Bölüm:"),
+      ),
+    );
+  }
+}
+
+class universityChangeTextField extends StatelessWidget {
+  const universityChangeTextField({
+    Key? key,
+    required TextEditingController universitycontroller,
+  })  : _universitycontroller = universitycontroller,
+        super(key: key);
+
+  final TextEditingController _universitycontroller;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
+      child: TextField(
+        controller: _universitycontroller,
+        onChanged: (universityText) {},
+        decoration: const InputDecoration(labelText: "Üniversite:"),
+      ),
+    );
   }
 }
 
