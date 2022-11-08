@@ -93,23 +93,27 @@ class _CustomDropDownMenuState extends State<CustomDropDownMenu> {
     'Osmaniye',
     'Düzce'
   ];
+
   @override
   Widget build(BuildContext context) {
-    return DropdownButton(
-      underline: const SizedBox(), // To remove underline
-      value: dropdownvalue,
-      icon: const Icon(Icons.keyboard_arrow_down),
-      items: items.map((String items) {
-        return DropdownMenuItem(
-          value: items,
-          child: Text(items),
-        );
-      }).toList(),
-      onChanged: (String? newValue) {
-        setState(() {
-          dropdownvalue = newValue!;
-        });
-      },
-    );
+    return ButtonTheme(
+        alignedDropdown: true,
+        child: DropdownButton(
+          isDense: true,
+          underline: const SizedBox(),
+          value: dropdownvalue,
+          icon: const Icon(Icons.keyboard_arrow_down),
+          items: items.map((String items) {
+            return DropdownMenuItem(
+              value: items,
+              child: Text(items),
+            );
+          }).toList(),
+          onChanged: (String? newValue) {
+            setState(() {
+              dropdownvalue = newValue!;
+            });
+          },
+        ));
   }
 }
