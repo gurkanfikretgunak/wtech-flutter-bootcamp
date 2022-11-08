@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:screendesign/view/chat_view.dart';
 
 class WhatsappClone extends StatelessWidget {
   const WhatsappClone({Key? key}) : super(key: key);
@@ -11,8 +12,14 @@ class WhatsappClone extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Color(0xff128C7E),
           leadingWidth: 18,
-          leading:
-              IconButton(onPressed: () {}, icon: Icon(Icons.arrow_back_sharp)),
+          leading: IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Chatscreen()));
+              },
+              icon: Icon(Icons.arrow_back_sharp)),
           title: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

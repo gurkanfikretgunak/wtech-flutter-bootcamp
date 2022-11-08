@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:screendesign/view/home_view.dart';
+import 'package:screendesign/view/message_view.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
