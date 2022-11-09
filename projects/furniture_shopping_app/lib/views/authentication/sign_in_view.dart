@@ -15,9 +15,9 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     ConstantsClass constants = ConstantsClass.instance;
     return CustomScaffold(
-      body: Padding(
-        padding: context.paddingMedium,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: context.paddingMedium,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [

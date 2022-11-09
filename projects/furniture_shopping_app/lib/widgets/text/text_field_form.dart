@@ -86,6 +86,7 @@ class CustomTextFormField extends StatelessWidget {
         keyboardType: keyboardType ?? constants.textFieldFormKeyboardType,
         maxLength: maxLength == null ? null : constants.textFieldFormMaxLength,
         decoration: InputDecoration(
+          contentPadding: EdgeInsets.zero,
           filled: filled ?? constants.textFieldFormFilled,
           fillColor: fillColor ?? constants.textFieldFormFilledColor,
           hintText: hintText ?? constants.textFieldFormHintText,
