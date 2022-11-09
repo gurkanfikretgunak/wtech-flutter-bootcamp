@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_unnecessary_containers
 
 import 'package:app/constants/custom_contants.dart';
-import 'package:app/widgets/bottom_app_bar_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/mostp_cards_widget.dart';
@@ -16,34 +15,34 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomWidgets.customAppBar(),
-        body: Container(
-          color: Colors.grey[50],
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 21.0, right: 21.0),
-                child: _CategoriesWidget(
-                    topicText: CustomTextConstants().topicMost, viewText: CustomTextConstants().views),
-              ),
-              Expanded(
-                flex: 4,
-                child: Container(child: const CustomProductCards(heighty: 0.10, widthx: 0.5)),
-              ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 21.0, right: 21.0),
-                    child: _CategoriesWidget(
-                        topicText: CustomTextConstants().topicPopular, viewText: CustomTextConstants().views),
-                  ),
-                  const CustomPopularProductCards(heighty: 0.14, widthx: 0.5),
-                ],
-              ),
-            ],
-          ),
+      appBar: CustomWidgets.customAppBar(),
+      body: Container(
+        color: Colors.grey[50],
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 21.0, right: 21.0),
+              child:
+                  _CategoriesWidget(topicText: CustomTextConstants().topicMost, viewText: CustomTextConstants().views),
+            ),
+            Expanded(
+              flex: 4,
+              child: Container(child: const CustomProductCards(heighty: 0.10, widthx: 0.5)),
+            ),
+            Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 21.0, right: 21.0),
+                  child: _CategoriesWidget(
+                      topicText: CustomTextConstants().topicPopular, viewText: CustomTextConstants().views),
+                ),
+                const CustomPopularProductCards(heighty: 0.14, widthx: 0.5),
+              ],
+            ),
+          ],
         ),
-        bottomNavigationBar: const CustomBottomAppBar());
+      ),
+    );
   }
 }
 

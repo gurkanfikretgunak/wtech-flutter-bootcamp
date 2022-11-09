@@ -1,8 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers
 
-import 'package:app/constants/custom_contants.dart';
+import 'package:app/core/add_product_managment.dart';
 import 'package:app/core/themes/custom_themes.dart';
-import 'package:app/views/cart_detail_view.dart';
 import 'package:app/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -106,14 +105,7 @@ class CustomAddCartButton extends StatelessWidget {
           width: 280,
           child: ElevatedButton(
             onPressed: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                    builder: (context) => CartView(
-                          image: image,
-                          name: name,
-                          price: price,
-                        )),
-              );
+              AddProduct().addProductCart(name, price, image);
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[900]),

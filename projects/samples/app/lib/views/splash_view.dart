@@ -1,9 +1,10 @@
-import 'package:app/views/home_view.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:page_transition/page_transition.dart';
 
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+
+import '../widgets/bottom_app_bar_widget.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class SplashScreen extends StatelessWidget {
         child: AnimatedSplashScreen(
           backgroundColor: Colors.transparent,
           splash: _imageTextPath,
-          nextScreen: const HomeView(),
+          nextScreen: const CustomBottomAppBar(),
           pageTransitionType: PageTransitionType.topToBottom,
           duration: 800,
           animationDuration: const Duration(seconds: 3),
