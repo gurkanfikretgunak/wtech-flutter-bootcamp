@@ -10,6 +10,8 @@ class ConstantsClass {
 
   Color appBlack = const Color.fromRGBO(0, 0, 0, 1);
   Color appGrey = const Color(0xFF606060);
+  Color appBlue = const Color(0xFF2354CC);
+  Color appWhite = const Color(0xFFFFFFFF);
 
   //TextFormField
   int textFieldFormMaxLines = 1;

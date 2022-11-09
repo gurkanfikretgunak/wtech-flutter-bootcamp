@@ -1,5 +1,5 @@
 import 'package:coursera/core/themes/custom_theme_data.dart';
-import 'package:coursera/views/welcome_view.dart';
+import 'package:coursera/views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
