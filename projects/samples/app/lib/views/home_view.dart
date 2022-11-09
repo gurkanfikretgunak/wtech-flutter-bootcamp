@@ -99,7 +99,7 @@ class _ListviewBuilderwithListtile extends StatelessWidget {
         return Card(
           margin: const EdgeInsets.symmetric(horizontal: 10) +
               const EdgeInsets.only(top: 10),
-          child: ListTileWidget(model: model[index]),
+          child: ListTileWidget(model: model[index]), 
         );
       },
     );
