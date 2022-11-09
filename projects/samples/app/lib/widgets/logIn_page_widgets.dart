@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../views/register_page.dart';
+
 
 class CreateAccountWidget extends StatelessWidget {
   const CreateAccountWidget({
@@ -17,7 +19,12 @@ class CreateAccountWidget extends StatelessWidget {
         const Padding(padding: EdgeInsets.symmetric(horizontal: 18.0)),
         const Text("Don't have account?",style: TextStyle(fontSize: 14,color: Color(0xFF828282))),
         TextButton(
-            onPressed: (){}, 
+            onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: ((context) => RegisterPage()))
+                );
+            }, 
             child: 
                 Text(" Create Now!",style: TextStyle(fontWeight: FontWeight.bold,color: Color(fontColor)),) 
             ),
