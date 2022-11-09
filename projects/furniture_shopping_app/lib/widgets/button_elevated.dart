@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shopping_app/core/extension/context_extension.dart';
 import 'package:furniture_shopping_app/widgets/text.dart';
+import 'package:kartal/kartal.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({
