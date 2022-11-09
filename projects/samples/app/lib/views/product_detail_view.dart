@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_unnecessary_containers
+
 import 'package:app/constants/custom_contants.dart';
 import 'package:app/core/themes/custom_themes.dart';
+import 'package:app/views/cart_detail_view.dart';
 import 'package:app/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -22,44 +25,51 @@ class ProductDetailView extends StatefulWidget {
 class _ProductDetailViewState extends State<ProductDetailView> {
   @override
   Widget build(BuildContext context) {
-    const data = "Add To Cart";
+    const addCartText = "Add To Cart";
     return Scaffold(
-      body: Column(
-        children: [
-          const Padding(
-            padding: EdgeInsets.all(20.0),
-            child: DetailAppBarComponent(),
-          ),
-          Expanded(
-            flex: 3,
-            child: Container(
-              child: Stack(children: [
-                Center(
-                  child: _aspectRatioImage(widget.image),
-                ),
-                const Positioned(
-                  right: 20,
-                  top: 50,
-                  child: CustomColorSelection(),
-                ),
-              ]),
+      body: SafeArea(
+        child: Column(
+          children: [
+            const Padding(
+              padding: EdgeInsets.all(20.0),
+              child: DetailAppBarComponent(topicText: "Plant Details"),
             ),
-          ),
-          Expanded(
-            flex: 2,
-            child: Container(child: _detailsComponents(widget.name, widget.price, widget.description)),
-          ),
-          Expanded(
-            flex: 1,
-            child: Container(
-              color: Colors.white,
-              child: const Padding(
-                padding: EdgeInsets.all(20.0),
-                child: CustomAddCartButton(data: data),
+            Expanded(
+              flex: 3,
+              child: Container(
+                child: Stack(children: [
+                  Center(
+                    child: _aspectRatioImage(widget.image),
+                  ),
+                  const Positioned(
+                    right: 20,
+                    top: 50,
+                    child: CustomColorSelection(),
+                  ),
+                ]),
               ),
             ),
-          ),
-        ],
+            Expanded(
+              flex: 2,
+              child: Container(child: _detailsComponents(widget.name, widget.price, widget.description)),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: CustomAddCartButton(
+                    data: addCartText,
+                    image: widget.image,
+                    name: widget.name,
+                    price: widget.price,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -69,10 +79,15 @@ class CustomAddCartButton extends StatelessWidget {
   const CustomAddCartButton({
     Key? key,
     required this.data,
+    required this.name,
+    required this.price,
+    required this.image,
   }) : super(key: key);
 
   final String data;
-
+  final String name;
+  final String price;
+  final String image;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -90,7 +105,16 @@ class CustomAddCartButton extends StatelessWidget {
           height: 50,
           width: 280,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                    builder: (context) => CartView(
+                          image: image,
+                          name: name,
+                          price: price,
+                        )),
+              );
+            },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[900]),
                 shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -143,8 +167,9 @@ class CustomColorSelection extends StatelessWidget {
 class DetailAppBarComponent extends StatelessWidget {
   const DetailAppBarComponent({
     Key? key,
+    required this.topicText,
   }) : super(key: key);
-
+  final String topicText;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -154,7 +179,7 @@ class DetailAppBarComponent extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(top: 8.0),
           child: Text(
-            CustomTextConstants().plantDetails,
+            topicText,
             style: Theme.of(context).textTheme.caption,
           ),
         ),
