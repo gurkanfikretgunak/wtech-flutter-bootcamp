@@ -1,9 +1,10 @@
 // ignore_for_file: avoid_unnecessary_containers
 
-import 'package:app/core/add_product_managment.dart';
+import 'package:app/core/repository/add_product_repository.dart';
 import 'package:app/core/themes/custom_themes.dart';
 import 'package:app/widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class ProductDetailView extends StatefulWidget {
   const ProductDetailView({
@@ -74,7 +75,7 @@ class _ProductDetailViewState extends State<ProductDetailView> {
   }
 }
 
-class CustomAddCartButton extends StatelessWidget {
+class CustomAddCartButton extends ConsumerWidget {
   const CustomAddCartButton({
     Key? key,
     required this.data,
@@ -88,7 +89,7 @@ class CustomAddCartButton extends StatelessWidget {
   final String price;
   final String image;
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -105,7 +106,7 @@ class CustomAddCartButton extends StatelessWidget {
           width: 280,
           child: ElevatedButton(
             onPressed: () {
-              AddProduct().addProductCart(name, price, image);
+              ref.read(addProvider).addProductCart(name, price, image);
             },
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(Colors.grey[900]),
