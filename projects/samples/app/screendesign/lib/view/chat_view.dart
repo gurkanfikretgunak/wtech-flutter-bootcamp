@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
 
-class Chatscreen extends StatelessWidget {
-  const Chatscreen({super.key});
+import 'chat_tile.dart';
 
+class ChatScreen extends StatefulWidget {
+  static const String id = 'Chatscreen';
+
+  @override
+  State<ChatScreen> createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 4,
         child: Scaffold(
+          backgroundColor: Colors.white,
           floatingActionButton: FloatingActionButton(
             onPressed: () {},
-            backgroundColor: Colors.green,
+            backgroundColor: Color(0xff25d366),
             child: Icon(Icons.message),
           ),
           appBar: AppBar(
@@ -56,8 +64,22 @@ class Chatscreen extends StatelessWidget {
               labelColor: Colors.white,
             ),
           ),
-          body: Column(
-            children: [],
+          body: ListView.builder(
+            itemCount: 8,
+            itemBuilder: (context, index) {
+              return const Card(
+                elevation: 0.40,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: NetworkImage(
+                        "https://images.pexels.com/photos/39866/entrepreneur-startup-start-up-man-39866.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                  ),
+                  title: Text('Muhammed'),
+                  subtitle: Text('Nasılsın'),
+                  trailing: Text("15.37"),
+                ),
+              );
+            },
           ),
         ));
   }
