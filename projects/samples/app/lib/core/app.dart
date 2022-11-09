@@ -1,5 +1,6 @@
 import 'package:app/views/cascade_view.dart';
 import 'package:app/views/home_view.dart';
+import 'package:app/views/most_used_widgets_view.dart';
 import 'package:flutter/material.dart';
 
 import 'themes/custom_theme_data.dart';
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Wtech Project',
-      home: const HomeView(),
+      home: const MostUsedWidgetView(),
       theme: CustomThemeData.instance.themeData,
       debugShowCheckedModeBanner: false,
     );
