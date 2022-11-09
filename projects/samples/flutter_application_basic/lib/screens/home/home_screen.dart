@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_basic/components/body.dart';
+import 'package:flutter_application_basic/constants.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'package:flutter_application_basic/core/themes/app.dart';
+import 'package:flutter_application_basic/screens/home/home_screen.dart';
+
+void main1() {
+  runApp(const App());
+}
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: buildAppBar(),
-      body: Body(),
-    );
-  }
-
-  AppBar buildAppBar() {
-    return AppBar(
-      elevation: 0,
-      leading: IconButton(
-        icon: SvgPicture.asset("assets/icons/menu.svg"),
-        onPressed: () {},
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Plant App',
+      theme: ThemeData(
+        scaffoldBackgroundColor: kBackgroundColor,
+        primaryColor: kPrimaryColor,
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: kTextColor),
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: HomeScreen(),
     );
   }
 }
 
-class SvgPicture {
-  static asset(String s) {}
-}
+// ignore: non_constant_identifier_names
+HomeScreen() {}
