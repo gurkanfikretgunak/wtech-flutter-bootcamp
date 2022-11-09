@@ -1,31 +1,50 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
- 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-       
-        primarySwatch: Colors.blue,
+          primaryColor: Colors.white38,  accentColor: Colors.purpleAccent),
+      home: Scaffold(
+        backgroundColor: Colors.green,
+        appBar: AppBar(
+          title: Text('Baslik'),
+        ),
+        body: Container(
+          color: Colors.yellow,
+          width: 200,
+          height: 200,
+          child: const Text(
+            'Busra',
+            textAlign: TextAlign.center,
+            
+          ),
+          margin: const EdgeInsets.fromLTRB(50, 12, 12, 50),
+          padding: const EdgeInsets.all(20),
+          /* constraints:BoxConstraints(
+              minHeight:100,
+               minWidth: 100,
+               maxHeight: 200,
+               maxWidth: 200
+                ), */
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            debugPrint('Tıklandı');
+          },
+          child: Icon(
+            Icons.headphones,
+            color: Colors.black,
+          ),
+          backgroundColor: Colors.pink,
+        ),
       ),
-      home: const MyWidget()
     );
-  }
-}
-
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
