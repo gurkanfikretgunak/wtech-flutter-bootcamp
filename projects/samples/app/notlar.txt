@@ -1,0 +1,12 @@
+
+
+postman test için
+
+mockapi oluştur 
+
+http paket kullanarak çağır
+
+// parse ile parçaladım ilgili url yi
+// get ile çağırdıktan sonra decode edip body eklemem lazım
+
+
