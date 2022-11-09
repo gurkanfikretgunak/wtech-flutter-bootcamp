@@ -23,7 +23,15 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           appBar: AppBar(
             actions: [
-              InkWell(child: const Icon(Icons.search), onTap: () {}),
+              Row(
+                children: [
+                  InkWell(child: const Icon(Icons.camera_alt), onTap: () {}),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  InkWell(child: const Icon(Icons.search), onTap: () {}),
+                ],
+              ),
               PopupMenuButton(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20),
