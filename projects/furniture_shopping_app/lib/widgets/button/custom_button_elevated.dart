@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:furniture_shopping_app/widgets/text.dart';
+import 'package:furniture_shopping_app/widgets/text/custom_auto_size_text.dart';
 import 'package:kartal/kartal.dart';
 
 class CustomElevatedButton extends StatelessWidget {

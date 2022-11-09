@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:furniture_shopping_app/core/constants/constants.dart';
 
 class CustomText extends StatelessWidget {
   const CustomText({
@@ -40,7 +41,7 @@ class CustomText extends StatelessWidget {
       minFontSize: (fontSize ?? 14 - 2),
       style: TextStyle(
         height: height ?? 1.2,
-        color: color ?? const Color(0xFF606060),
+        color: color ?? ConstantsClass.instance.appGrey,
         fontWeight: fontWeight ?? FontWeight.w300,
         decoration: decoration ?? TextDecoration.none,
         fontStyle: fontStyle ?? FontStyle.normal,

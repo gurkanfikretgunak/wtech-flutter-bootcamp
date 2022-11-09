@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:furniture_shopping_app/core/constants/constants.dart';
-import 'package:furniture_shopping_app/views/sign_in_view.dart';
-//import 'package:furniture_shopping_app/core/extension/context_extension.dart';
-import 'package:furniture_shopping_app/widgets/button_elevated.dart';
+import 'package:furniture_shopping_app/views/authentication/sign_in_view.dart';
+import 'package:furniture_shopping_app/widgets/button/custom_button_elevated.dart';
 import 'package:furniture_shopping_app/widgets/custom_scaffold.dart';
-import 'package:furniture_shopping_app/widgets/text.dart';
+import 'package:furniture_shopping_app/widgets/text/custom_auto_size_text.dart';
 import 'package:kartal/kartal.dart';
 
 class WelcomeView extends StatelessWidget {
