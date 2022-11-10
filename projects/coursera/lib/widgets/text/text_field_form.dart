@@ -2,7 +2,6 @@ import 'package:coursera/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
     Key? key,
@@ -103,19 +102,21 @@ class CustomTextFormField extends StatelessWidget {
             color: labelTextColor ?? constants.textFieldFormLabelTextColor,
           ),
           enabledBorder: enabledBorder ??
-              UnderlineInputBorder(
-                  borderSide: BorderSide(
-                width: 1.5,
-                color:
-                    borderSideColor ?? constants.textFieldFormBorderSideColor,
-              )),
+              OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 1.5,
+                  color:
+                      borderSideColor ?? constants.textFieldFormBorderSideColor,
+                ),
+              ),
           focusedBorder: enabledBorder ??
-              UnderlineInputBorder(
-                  borderSide: BorderSide(
-                width: 1.5,
-                color:
-                    borderSideColor ?? constants.textFieldFormBorderSideColor,
-              )),
+              OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 1.5,
+                  color:
+                      borderSideColor ?? constants.textFieldFormBorderSideColor,
+                ),
+              ),
           suffixIcon: suffixIcon == null
               ? null
               : Icon(

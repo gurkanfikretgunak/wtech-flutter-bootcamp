@@ -1,4 +1,5 @@
 import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/views/authentication/sign_up_view.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_text_button.dart';
 import 'package:coursera/widgets/custom_scaffold.dart';
@@ -88,7 +89,14 @@ class SignInView extends StatelessWidget {
           ),
           context.emptySizedWidthBoxLow,
           CustomTextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SignUpView(),
+                ),
+              );
+            },
             text: "Create Account",
             padding: EdgeInsets.zero,
             fontWeight: FontWeight.w600,
