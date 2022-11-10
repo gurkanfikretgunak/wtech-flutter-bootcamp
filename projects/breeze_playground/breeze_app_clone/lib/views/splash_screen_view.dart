@@ -36,29 +36,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-/*
-
-class SplashScreen extends StatelessWidget {
-  const SplashScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double screenHeight = MediaQuery.of(context).size.height;
-
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color.fromARGB(255, 239, 240, 251),
-        body: Center(
-          child: SizedBox(
-            width: screenWidth / 2,
-            child: Image.asset("images/happycloud.png"),
-            ),
-        ),
-      ),
-    );
-  }
-}
-
-*/
