@@ -1,12 +1,23 @@
-import 'package:flutter/cupertino.dart';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
+
+import 'package:flutter/material.dart';
+import 'package:starbucks_playground/views/home_page/home_page.dart';
+import 'package:page_transition/page_transition.dart';
 
 class CustomSplashScreen {
   static Widget customSplashScreen() {
-    return Container(
-      color: const Color.fromRGBO(77, 179, 124, 8),
-      child: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return AnimatedSplashScreen(
+      // icondaki taşmayı engeller 
+      splashIconSize: 250,
+      duration: 4000,
+      // İcona  animasyonlu gelişi 
+      splashTransition: SplashTransition.scaleTransition,
+      backgroundColor:Colors.green.shade300,
+      pageTransitionType: PageTransitionType.rightToLeftWithFade,
+      animationDuration: Duration(seconds: 2),
+
+      splash: Column(
+       
         children: [
           ClipOval(
             child: Image.asset(
@@ -14,11 +25,10 @@ class CustomSplashScreen {
               height: 130,
             ),
           ),
-          const SizedBox(
-            height: 15,
-          )
+        
         ],
-      )),
+      ),
+      nextScreen: const HomePage(),
     );
   }
 }

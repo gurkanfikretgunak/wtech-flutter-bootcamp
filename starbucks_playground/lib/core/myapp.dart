@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:starbucks_playground/views/splash/splash_screen.dart';
+import 'package:starbucks_playground/views/splash/custom_splash_screen.dart';
 import 'custom_themes.dart';
 
 class MyApp extends StatelessWidget {
