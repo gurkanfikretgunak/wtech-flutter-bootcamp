@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_in_view.dart';
 import 'package:coursera/widgets/custom_scaffold.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
+import 'package:coursera/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatefulWidget {
@@ -22,7 +22,7 @@ class _WelcomeViewState extends State<WelcomeView> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const SignInView(),
+          builder: (context) => SignInView(),
         ),
       ),
     );
@@ -32,14 +32,12 @@ class _WelcomeViewState extends State<WelcomeView> {
   Widget build(BuildContext context) {
     ConstantsClass constants = ConstantsClass.instance;
     return CustomScaffold(
-        backgroundColor: constants.appBlue,
-        body: Center(
-          child: CustomText(
-            text: "coursera",
-            color: constants.appWhite,
-            fontSize: 40,
-            fontWeight: FontWeight.bold,
-          ),
-        ));
+      backgroundColor: constants.appBlue,
+      body: Center(
+        child: Logo(
+          color: constants.appWhite,
+        ),
+      ),
+    );
   }
 }

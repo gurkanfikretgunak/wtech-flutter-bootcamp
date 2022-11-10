@@ -32,17 +32,18 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ConstantsClass constants = ConstantsClass.instance;
     return AutoSizeText(
       text,
       maxLines: maxLines ?? 1,
-      textAlign: textAlign ?? TextAlign.start,
+      textAlign: textAlign ?? TextAlign.center,
       overflow: overflow ?? TextOverflow.ellipsis,
       maxFontSize: fontSize ?? 14,
       minFontSize: (fontSize ?? 14 - 2),
       style: TextStyle(
         height: height ?? 1.2,
-        color: color ?? ConstantsClass.instance.appGrey,
-        fontWeight: fontWeight ?? FontWeight.w300,
+        color: color ?? constants.textColor,
+        fontWeight: fontWeight ?? FontWeight.w400,
         decoration: decoration ?? TextDecoration.none,
         fontStyle: fontStyle ?? FontStyle.normal,
       ),

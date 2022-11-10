@@ -9,7 +9,7 @@ class ConstantsClass {
   ConstantsClass._init();
 
   Color appBlack = const Color.fromRGBO(0, 0, 0, 1);
-  Color appGrey = const Color(0xFF606060);
+  Color appGrey = Color.fromARGB(255, 206, 102, 102);
   Color appBlue = const Color(0xFF2354CC);
   Color appWhite = const Color(0xFFFFFFFF);
 
@@ -38,8 +38,26 @@ class ConstantsClass {
 
   //TextButton
   Color buttonTextForegroundColor = const Color(0xFFFFFFFF);
-  Color buttonTextTextColor = const Color.fromRGBO(0, 0, 0, 1);
+  Color buttonTextTextColor = const Color(0xFF2354CC);
   double buttonTextFontSize = 14;
-  FontWeight buttonTextFontWeight = FontWeight.w300;
+  FontWeight buttonTextFontWeight = FontWeight.w400;
   FontStyle buttonTextFontStyle = FontStyle.normal;
+
+  //Text
+  Color textColor = const Color(0xFF424242);
+
+  //ElevatedButton
+  Color buttonElevatedBackgroundColor = const Color(0xFF2354CC);
+  BorderRadiusGeometry buttonElevatedBorderRadius = BorderRadius.circular(5);
+  Color buttonElevatedBorderSideColor = Colors.transparent;
+  Color buttonElevatedTextColor = const Color(0xFFFFFFFF);
+  Color buttonElevatedShadowColor = const Color(0xFF2354CC);
+  Color buttonElevatedIconColor = const Color(0xFF000000);
+  Color buttonElevatedIconCircleAvatarBackgroundColor = Colors.white12;
+  double buttonElevatedTextFontSize = 15;
+  FontWeight buttonElevatedTextFontWeight = FontWeight.bold;
+  double buttonElevatedHeight = 0.06;
+  double buttonElevatedWidth = 1;
+  double buttonElevatedIconSize = 28;
+  Color buttonElevatediconCircleAvatarBackgroundColor = Colors.transparent;
 }
