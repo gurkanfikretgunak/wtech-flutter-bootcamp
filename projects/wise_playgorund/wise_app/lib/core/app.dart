@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wise_app/pages/splash_page.dart';
 import '../pages/home_page.dart';
 
 class App extends StatelessWidget {
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: const SplashPage(),
     );
   }
 }
