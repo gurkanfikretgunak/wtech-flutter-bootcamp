@@ -1,4 +1,4 @@
-import 'dart:js_util';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 
 class Persona {
   String? gender;
@@ -28,7 +28,7 @@ class Po {
 }
 
 class DatePickerConfig {
-  String? pickerUser;
+  late final String? pickerUser;
   final DateTime currentDate = DateTime.now();
 
   DateTime viewCurrentTime(DateTime currentDate) {
@@ -41,19 +41,23 @@ class ImageUploader {
   String? filePath;
   String? stroagePath;
 
-  ImageUploader(this filePath, this stroagePath);
+  ImageUploader({
+    this.filePath,
+    this.stroagePath,
+  });
+}
 
-
- static  ImageSelecter(){
-   imagePathSelecter();
-  }
+void imageSelecter() {
+  imagePathSelector() {}
 }
 
 void main(List<String> args) {
-  
-  var iu = ImageUploader("filePath", "stroagePath");
-
   var d = Developer();
-  var datetime = DatePickerConfig();
-  print(Po().multy().toString());
+
+  print(Po().multy());
+  DatePickerConfig datetime = DatePickerConfig();
+  datetime.viewCurrentTime(new DateTime.now());
+
+  var iu = ImageUploader(filePath: '', stroagePath: '');
 }
+
