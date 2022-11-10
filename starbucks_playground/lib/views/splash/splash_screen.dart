@@ -25,6 +25,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body:  CustomSplashScreen.customSplashScreen(),
+      
     );
   }
 }
