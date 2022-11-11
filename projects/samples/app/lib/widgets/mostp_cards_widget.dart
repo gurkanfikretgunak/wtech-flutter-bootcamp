@@ -4,19 +4,17 @@ import 'package:app/constants/custom_contants.dart';
 import 'package:app/core/themes/custom_themes.dart';
 import 'package:app/views/product_detail_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class CustomProductCards extends StatefulWidget {
+import '../core/repository/add_product_repository.dart';
+
+class CustomProductCards extends ConsumerWidget {
   const CustomProductCards({Key? key, required this.heighty, required this.widthx}) : super(key: key);
   final double heighty;
   final double widthx;
 
   @override
-  State<CustomProductCards> createState() => _CustomProductCardsState();
-}
-
-class _CustomProductCardsState extends State<CustomProductCards> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final List<String> images = CustomTextConstants().imagesPlant;
     final List<String> names = CustomTextConstants().namesPlant;
     final List<String> price = CustomTextConstants().pricePlant;
@@ -24,13 +22,13 @@ class _CustomProductCardsState extends State<CustomProductCards> {
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 5.0),
-      height: MediaQuery.of(context).size.height * widget.heighty,
+      height: MediaQuery.of(context).size.height * heighty,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: images.length,
           itemBuilder: (context, index) {
             return SizedBox(
-              width: MediaQuery.of(context).size.width * widget.widthx,
+              width: MediaQuery.of(context).size.width * widthx,
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
@@ -94,7 +92,9 @@ class _CustomProductCardsState extends State<CustomProductCards> {
                                   ),
                                 ),
                                 IconButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    ref.read(addProvider).addProductCart(names[index], price[index], images[index]);
+                                  },
                                   icon: const Icon(Icons.add_box_rounded),
                                   color: Colors.white,
                                   iconSize: 45,

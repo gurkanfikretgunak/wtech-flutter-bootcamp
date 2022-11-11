@@ -1,4 +1,5 @@
 import 'package:app/constants/custom_contants.dart';
+import 'package:app/widgets/bottom_app_bar_widget.dart';
 import 'package:app/widgets/search_bar_widget.dart';
 import 'package:flutter/material.dart';
 import '../core/themes/custom_themes.dart';
@@ -74,7 +75,9 @@ class CustomWidgets {
       backgroundColor: Colors.white,
       child: IconButton(
           onPressed: () {
-            Navigator.of(context).pop();
+            Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const CustomBottomAppBar(),
+            ));
           },
           icon: const Icon(
             Icons.arrow_back_ios_new_outlined,
