@@ -26,7 +26,7 @@ class _SignInViewState extends State<SignInView> {
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
-                icon: Icon(Icons.arrow_back_ios)),
+                icon: const Icon(Icons.arrow_back_ios)),
             Text(
               "Sign Up",
               style: CustomTheme.customThemeData().textTheme.headline1,
@@ -54,11 +54,15 @@ class _SignInViewState extends State<SignInView> {
                   "YOUR PASSWORD",
                   style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
                 ),
-                const CustomInputDecoration(labelText: "Password"),
+                const CustomInputDecoration(
+                  labelText: "Password",
+                  inputIcon: Icons.visibility_rounded,
+                  unInputIcon: Icons.visibility_off_rounded,
+                ),
                 CustomElevatedButton(
                   buttonTexts: CustomTextConstants().buttonTextEmail,
                   buttonColors: Colors.red,
-                  widName: SignInView(),
+                  widName: const SignInView(),
                 ),
               ],
             ),

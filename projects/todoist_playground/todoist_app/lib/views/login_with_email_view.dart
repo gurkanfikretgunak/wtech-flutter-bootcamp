@@ -53,7 +53,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
               CustomElevatedButton(
                 buttonTexts: CustomTextConstants().buttonTextEmail,
                 buttonColors: Colors.red,
-                widName: SignInView(),
+                widName: const SignInView(),
               ),
             ],
           ),
@@ -63,20 +63,35 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   }
 }
 
-class CustomInputDecoration extends StatelessWidget {
+class CustomInputDecoration extends StatefulWidget {
   const CustomInputDecoration({
     Key? key,
     required this.labelText,
+    this.inputIcon,
+    this.unInputIcon,
   }) : super(key: key);
   final String labelText;
+  final IconData? inputIcon;
+  final IconData? unInputIcon;
+
+  @override
+  State<CustomInputDecoration> createState() => _CustomInputDecorationState();
+}
+
+class _CustomInputDecorationState extends State<CustomInputDecoration> {
+  bool obscureText = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       height: 45,
       child: TextField(
+        obscureText: obscureText,
+        autofocus: true,
+        // keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
-          labelText: labelText,
+          labelText: widget.labelText,
           labelStyle: TextStyle(
             color: Colors.grey[350],
             fontSize: 14,
@@ -84,10 +99,24 @@ class CustomInputDecoration extends StatelessWidget {
           enabledBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
           focusedBorder: const OutlineInputBorder(
-              borderSide: BorderSide(
-            width: 2,
-            color: Colors.red,
-          )),
+            borderSide: BorderSide(
+              width: 2,
+              color: Colors.red,
+            ),
+          ),
+          suffixIcon: GestureDetector(
+            onTap: () {
+              setState(() {
+                obscureText = !obscureText;
+              });
+            },
+            child: obscureText
+                ? Icon(
+                    widget.unInputIcon,
+                    color: Colors.grey,
+                  )
+                : Icon(widget.inputIcon),
+          ),
         ),
       ),
     );

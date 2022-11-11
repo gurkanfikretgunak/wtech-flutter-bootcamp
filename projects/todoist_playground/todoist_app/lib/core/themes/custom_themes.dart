@@ -25,7 +25,6 @@ class CustomTheme {
             ),
             subtitle1: TextStyle(
               color: Colors.grey[600],
-              fontWeight: FontWeight.bold,
               fontSize: 15,
             )),
       );
