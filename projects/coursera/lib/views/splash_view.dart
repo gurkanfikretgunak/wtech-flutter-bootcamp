@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_in_view.dart';
-import 'package:coursera/widgets/logo.dart';
+import 'package:coursera/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 
 class WelcomeView extends StatefulWidget {

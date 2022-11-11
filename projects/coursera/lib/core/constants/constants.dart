@@ -9,7 +9,8 @@ class ConstantsClass {
   ConstantsClass._init();
 
   Color appBlack = const Color.fromRGBO(0, 0, 0, 1);
-  Color appGrey = const Color(0xFFe5e5e5);
+  Color appGreyLight = const Color(0xFFe5e5e5);
+  Color appGreyDark = Color.fromARGB(255, 118, 117, 117);
   Color appBlue = const Color(0xFF2354CC);
   Color appWhite = const Color(0xFFFFFFFF);
 
@@ -62,7 +63,7 @@ class ConstantsClass {
   Color buttonElevatediconCircleAvatarBackgroundColor = Colors.transparent;
 
   //IconButton
-  Color buttonIconColor = const Color(0xFFFFC542);
+  Color buttonIconColor = const Color(0xFF2354CC);
   Color buttonIconSplashColor = Colors.white30;
   Color buttonIconHighlightColor = Colors.white30;
   double buttonIconSize = 18;

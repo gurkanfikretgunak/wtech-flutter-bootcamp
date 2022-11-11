@@ -1,5 +1,5 @@
-import 'package:coursera/core/themes/custom_theme_data.dart';
-import 'package:coursera/provider/p_bottom_nav_bar.dart';
+import 'package:coursera/core/themes/custom_theme.dart';
+import 'package:coursera/provider/bottom_nav_bar_state.dart';
 import 'package:coursera/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,7 +13,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (context) => ColorState(),
+          create: (context) => BottomNavigationBarState(),
         ),
       ],
       child: MaterialApp(

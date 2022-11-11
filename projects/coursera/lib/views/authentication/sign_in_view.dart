@@ -1,10 +1,11 @@
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_up_view.dart';
-import 'package:coursera/views/bottom_nav_bar_control.dart';
+import 'package:coursera/views/authentication/terms_text.dart';
+import 'package:coursera/views/home_view.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/logo.dart';
+import 'package:coursera/widgets/custom_logo.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -18,7 +19,16 @@ class SignInView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar.customAppBar(titleText: ""),
+        appBar: CustomAppBar.customAppBar(
+          context: context,
+          leading: Align(
+            alignment: Alignment.centerLeft,
+            child: CustomTextButton(
+              onPressed: () {},
+              text: "Sign Up Later",
+            ),
+          ),
+        ),
         body: Padding(
           padding: context.paddingMedium,
           child: Column(
@@ -40,8 +50,8 @@ class SignInView extends StatelessWidget {
               Expanded(
                 child: _buildCreateAccountTextButton(context),
               ),
-              Expanded(
-                child: _buildTermsText(),
+              const Expanded(
+                child: TermsText(),
               )
             ],
           ),
@@ -50,38 +60,7 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  RichText _buildTermsText() {
-    return RichText(
-      text: TextSpan(
-        text: 'By signing up to create an account I accept Courseras',
-        style: TextStyle(
-          color: constant.appBlack,
-          decorationStyle: TextDecorationStyle.dashed,
-        ),
-        children: <TextSpan>[
-          TextSpan(
-            text: 'Terms of Service, Privacy Policy',
-            style: TextStyle(
-              height: 1.5,
-              color: constant.appBlue,
-            ),
-          ),
-          const TextSpan(
-            text: 'and',
-          ),
-          TextSpan(
-            text: 'Honor Code',
-            style: TextStyle(
-              height: 1.5,
-              color: constant.appBlue,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  _buildCreateAccountTextButton(BuildContext context) {
+  Align _buildCreateAccountTextButton(BuildContext context) {
     return Align(
       alignment: Alignment.center,
       child: Wrap(
@@ -122,10 +101,12 @@ class SignInView extends StatelessWidget {
           onPressed: () {},
         ),
         CustomElevatedButton(
-          borderSideColor: constant.appGrey,
+          borderSideColor: constant.appGreyDark,
           primary: constant.appWhite,
-          textColor: constant.appGrey,
+          textColor: constant.appGreyDark,
           icon: FontAwesomeIcons.google,
+          iconsize: 18,
+          iconColor: Colors.amber,
           text: "Continue with Google",
           onPressed: () {},
         ),
@@ -134,6 +115,8 @@ class SignInView extends StatelessWidget {
           primary: constant.appWhite,
           textColor: constant.appBlue,
           icon: FontAwesomeIcons.facebook,
+          iconsize: 20,
+          iconColor: constant.appBlue,
           text: "Continue with Facebook",
           onPressed: () {},
         ),
@@ -143,7 +126,7 @@ class SignInView extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => HomeView(),
+                builder: (context) => const HomeView(),
               ),
             );
           },

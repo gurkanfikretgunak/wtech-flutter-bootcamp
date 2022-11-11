@@ -5,6 +5,8 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text("Denemeekdfjllk");
+    return Scaffold(
+      appBar: AppBar(title: const Text("hjfkl")),
+    );
   }
 }
