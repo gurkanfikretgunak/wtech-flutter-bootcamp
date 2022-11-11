@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:todoist_app/views/login_with_email_view.dart';
+
 class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton(
-      {Key? key, required this.buttonTexts, required this.buttonColors, required this.buttonIcons})
+  const CustomElevatedButton({Key? key, required this.buttonTexts, required this.buttonColors, this.buttonIcons})
       : super(key: key);
   final String buttonTexts;
   final Color? buttonColors;
@@ -19,7 +20,9 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       height: 50,
       width: 350,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          _settingModalBottomSheet(context);
+        },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(widget.buttonColors),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -43,4 +46,28 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       ),
     );
   }
+}
+
+void _settingModalBottomSheet(context) {
+  showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      backgroundColor: Colors.grey[50],
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadiusDirectional.only(
+          topEnd: Radius.circular(25),
+          topStart: Radius.circular(25),
+        ),
+      ),
+      builder: (context) => Container(
+          padding: const EdgeInsetsDirectional.only(
+            start: 20,
+            end: 20,
+            bottom: 30,
+            top: 8,
+          ),
+          child: const SizedBox(
+            height: 600,
+            child: LoginWithEmail(),
+          )));
 }

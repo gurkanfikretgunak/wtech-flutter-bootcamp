@@ -26,7 +26,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                     SizedBox(
                       width: 40,
                       height: 40,
-                      child: Image.asset(CustomTextConstants().appIconPath),
+                      child: Image.asset(CustomImagePathConstants().appIconPath),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 15.0),
@@ -45,19 +45,19 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Image.asset(
-                          CustomTextConstants().welcomeIconPath,
+                          CustomImagePathConstants().welcomeIconPath,
                           height: 250,
                         ),
                       ),
-                      const CustomElevatedButton(
+                      CustomElevatedButton(
                         buttonIcons: Icons.email_rounded,
-                        buttonTexts: "Continue with Email",
+                        buttonTexts: CustomTextConstants().buttonTextEmail,
                         buttonColors: Colors.red,
                       ),
-                      const CustomElevatedButton(
+                      CustomElevatedButton(
                         buttonIcons: Icons.apple_outlined,
                         buttonColors: Colors.black,
-                        buttonTexts: "Continue with Apple ",
+                        buttonTexts: CustomTextConstants().buttonTextApple,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -69,7 +69,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                               onPressed: () {},
                               child: Center(
                                 child: Image.asset(
-                                  "assets/images/png/google_icon.png",
+                                  CustomImagePathConstants().googleIconPath,
                                   width: 30,
                                 ),
                               ),
@@ -82,7 +82,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                                 onPressed: () {},
                                 child: Center(
                                     child: Image.asset(
-                                  "assets/images/png/facebook_icon.png",
+                                  CustomImagePathConstants().facbookIconPath,
                                   width: 20,
                                 ))),
                           )
@@ -91,7 +91,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 20.0, left: 30, right: 30),
                         child: Text(
-                          "By continuing you agree to Todoist's Terms of Service and Privacy Policy.",
+                          CustomTextConstants().agreeText,
                           style: CustomTheme.customThemeData().textTheme.subtitle1,
                           textAlign: TextAlign.center,
                         ),
