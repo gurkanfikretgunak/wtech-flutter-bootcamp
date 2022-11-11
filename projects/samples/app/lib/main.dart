@@ -11,55 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const HomeView(),
-      title: 'Flutter',
+      
+      title: 'LifeSum',
       theme: ThemeData(
         useMaterial3: false,
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.blue,
       ),
+      home: Container(),
     );
   }
 }
 
-class HomeView extends StatelessWidget {
-  const HomeView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: Container(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                children: [
-                  Icon(Icons.home),
-                  Spacer(),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "About",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text(
-                      "Details",
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  )
-                ],
-              ),
-            )
-          ],
-        ),
-        color: Colors.pink,
-      ),
-    );
-  }
-}
