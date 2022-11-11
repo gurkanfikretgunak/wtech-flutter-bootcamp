@@ -44,7 +44,10 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(top: 8.0),
-                        child: Image.asset(CustomTextConstants().welcomeIconPath),
+                        child: Image.asset(
+                          CustomTextConstants().welcomeIconPath,
+                          height: 250,
+                        ),
                       ),
                       const CustomElevatedButton(
                         buttonIcons: Icons.email_rounded,
