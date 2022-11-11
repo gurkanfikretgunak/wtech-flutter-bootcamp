@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinhood_playground/views/onboarding_stock_views.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -6,9 +7,8 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: appName,
-      debugShowCheckedModeBanner: false,
-      home: const Scaffold(),
-    );
+        title: appName,
+        debugShowCheckedModeBanner: false,
+        home: const OnBoardingStock());
   }
 }
