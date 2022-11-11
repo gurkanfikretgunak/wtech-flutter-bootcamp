@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:todoist_app/core/themes/custom_themes.dart';
+import 'package:todoist_app/widgets/custom_elevated_button.dart';
+
+import '../constants/custom_constants.dart';
 
 class WelcomeToApp extends StatefulWidget {
   const WelcomeToApp({Key? key}) : super(key: key);
@@ -12,6 +14,93 @@ class WelcomeToApp extends StatefulWidget {
 class _WelcomeToAppState extends State<WelcomeToApp> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20.0),
+            child: Column(
+              children: [
+                Column(
+                  children: [
+                    SizedBox(
+                      width: 40,
+                      height: 40,
+                      child: Image.asset(CustomTextConstants().appIconPath),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Text(
+                        CustomTextConstants().welcomeText,
+                        style: CustomTheme.customThemeData().textTheme.headline1,
+                      ),
+                    ),
+                  ],
+                ),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 8.0),
+                        child: Image.asset(CustomTextConstants().welcomeIconPath),
+                      ),
+                      const CustomElevatedButton(
+                        buttonIcons: Icons.email_rounded,
+                        buttonTexts: "Continue with Email",
+                        buttonColors: Colors.red,
+                      ),
+                      const CustomElevatedButton(
+                        buttonIcons: Icons.apple_outlined,
+                        buttonColors: Colors.black,
+                        buttonTexts: "Continue with Apple ",
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          SizedBox(
+                            height: 50,
+                            width: 150,
+                            child: OutlinedButton(
+                              onPressed: () {},
+                              child: Center(
+                                child: Image.asset(
+                                  "assets/images/png/google_icon.png",
+                                  width: 30,
+                                ),
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 150,
+                            child: OutlinedButton(
+                                onPressed: () {},
+                                child: Center(
+                                    child: Image.asset(
+                                  "assets/images/png/facebook_icon.png",
+                                  width: 20,
+                                ))),
+                          )
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0, left: 30, right: 30),
+                        child: Text(
+                          "By continuing you agree to Todoist's Terms of Service and Privacy Policy.",
+                          style: CustomTheme.customThemeData().textTheme.subtitle1,
+                          textAlign: TextAlign.center,
+                        ),
+                      )
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
