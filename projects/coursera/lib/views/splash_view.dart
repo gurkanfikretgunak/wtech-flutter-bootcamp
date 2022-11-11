@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_in_view.dart';
-import 'package:coursera/widgets/custom_scaffold.dart';
 import 'package:coursera/widgets/logo.dart';
 import 'package:flutter/material.dart';
 
@@ -31,11 +30,13 @@ class _WelcomeViewState extends State<WelcomeView> {
   @override
   Widget build(BuildContext context) {
     ConstantsClass constants = ConstantsClass.instance;
-    return CustomScaffold(
-      backgroundColor: constants.appBlue,
-      body: Center(
-        child: Logo(
-          color: constants.appWhite,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: constants.appBlue,
+        body: Center(
+          child: Logo(
+            color: constants.appWhite,
+          ),
         ),
       ),
     );

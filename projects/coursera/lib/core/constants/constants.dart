@@ -9,7 +9,7 @@ class ConstantsClass {
   ConstantsClass._init();
 
   Color appBlack = const Color.fromRGBO(0, 0, 0, 1);
-  Color appGrey = Color.fromARGB(255, 206, 102, 102);
+  Color appGrey = const Color(0xFFe5e5e5);
   Color appBlue = const Color(0xFF2354CC);
   Color appWhite = const Color(0xFFFFFFFF);
 
@@ -60,4 +60,11 @@ class ConstantsClass {
   double buttonElevatedWidth = 1;
   double buttonElevatedIconSize = 28;
   Color buttonElevatediconCircleAvatarBackgroundColor = Colors.transparent;
+
+  //IconButton
+  Color buttonIconColor = const Color(0xFFFFC542);
+  Color buttonIconSplashColor = Colors.white30;
+  Color buttonIconHighlightColor = Colors.white30;
+  double buttonIconSize = 18;
+  double buttonIconSplashRadius = 20;
 }

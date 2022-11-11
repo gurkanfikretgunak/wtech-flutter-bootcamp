@@ -1,7 +1,6 @@
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
-import 'package:coursera/widgets/button/custom_text_button.dart';
-import 'package:coursera/widgets/custom_scaffold.dart';
+import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/logo.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:coursera/widgets/text/text_field_form.dart';
@@ -15,38 +14,41 @@ class SignUpView extends StatelessWidget {
   ConstantsClass constant = ConstantsClass.instance;
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-        body: Padding(
-      padding: context.paddingMedium,
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const Logo(),
-            const CustomText(
-              text: "Create an Account",
-              fontSize: 18,
-            ),
-            _buildTextFormFields(),
-            CustomElevatedButton(
-              onPressed: () {},
-              text: "Create an Account",
-              primary: constant.appGrey,
-            ),
-            Align(
-              alignment: Alignment.center,
-              child: CustomTextButton(
-                onPressed: () {},
-                text: "Sign up with your organization",
-                fontWeight: FontWeight.bold,
-                fontSize: 16,
+    return SafeArea(
+      child: Scaffold(
+          body: Padding(
+        padding: context.paddingMedium,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Logo(),
+              const CustomText(
+                text: "Create an Account",
+                fontSize: 18,
               ),
-            ),
-            Align(alignment: Alignment.bottomCenter, child: _buildTermsText()),
-          ],
+              _buildTextFormFields(),
+              CustomElevatedButton(
+                onPressed: () {},
+                text: "Create an Account",
+                primary: constant.appGrey,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: CustomTextButton(
+                  onPressed: () {},
+                  text: "Sign up with your organization",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
+              ),
+              Align(
+                  alignment: Alignment.bottomCenter, child: _buildTermsText()),
+            ],
+          ),
         ),
-      ),
-    ));
+      )),
+    );
   }
 
   Column _buildTextFormFields() {

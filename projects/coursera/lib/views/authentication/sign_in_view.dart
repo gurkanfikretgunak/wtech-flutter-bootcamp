@@ -1,8 +1,9 @@
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_up_view.dart';
+import 'package:coursera/views/bottom_nav_bar_control.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
-import 'package:coursera/widgets/button/custom_text_button.dart';
-import 'package:coursera/widgets/custom_scaffold.dart';
+import 'package:coursera/widgets/button/custom_button_text.dart';
+import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/logo.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -15,32 +16,35 @@ class SignInView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScaffold(
-      body: Padding(
-        padding: context.paddingMedium,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Expanded(child: Logo()),
-            const Expanded(
-              child: CustomText(
-                text:
-                    "Take the world's best courses online from top universities and industry partners.",
-                maxLines: 2,
-                height: 1.4,
+    return SafeArea(
+      child: Scaffold(
+        appBar: CustomAppBar.customAppBar(titleText: ""),
+        body: Padding(
+          padding: context.paddingMedium,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Expanded(child: Logo()),
+              const Expanded(
+                child: CustomText(
+                  text:
+                      "Take the world's best courses online from top universities and industry partners.",
+                  maxLines: 2,
+                  height: 1.4,
+                ),
               ),
-            ),
-            Expanded(
-              flex: 3,
-              child: Container(child: _buildLoginButtons()),
-            ),
-            Expanded(
-              child: _buildCreateAccountTextButton(context),
-            ),
-            Expanded(
-              child: _buildTermsText(),
-            )
-          ],
+              Expanded(
+                flex: 3,
+                child: Container(child: _buildLoginButtons(context)),
+              ),
+              Expanded(
+                child: _buildCreateAccountTextButton(context),
+              ),
+              Expanded(
+                child: _buildTermsText(),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -106,7 +110,7 @@ class SignInView extends StatelessWidget {
     );
   }
 
-  Wrap _buildLoginButtons() {
+  Wrap _buildLoginButtons(BuildContext context) {
     return Wrap(
       children: [
         CustomElevatedButton(
@@ -135,7 +139,14 @@ class SignInView extends StatelessWidget {
         ),
         const Divider(),
         CustomElevatedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => HomeView(),
+              ),
+            );
+          },
           text: "Log in with Email",
         ),
       ],
