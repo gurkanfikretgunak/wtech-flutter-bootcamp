@@ -13,8 +13,7 @@ class MyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: const Color(0xFF1B5E20),
-      child: (
-        Image.asset(
+      child: (Image.asset(
           "assets/resimler/sweetgreen-rebrands-removebg-preview.png")),
     );
   }
