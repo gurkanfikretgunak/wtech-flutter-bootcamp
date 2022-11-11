@@ -6,7 +6,7 @@ class CustomTheme {
           color: Colors.black,
         ),
         scaffoldBackgroundColor: Colors.white,
-        primaryColor: Colors.black,
+        primaryColor: Colors.red,
         textTheme: TextTheme(
             headline1: TextStyle(
               color: Colors.black.withOpacity(0.8),
