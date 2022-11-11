@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'core/app.dart';
-
+import 'BottomNavigationBar.dart';
 void main() {
-  runApp(const App());
+  runApp(const AppBarApp());
 }
 
 IconButton _buildPlayPauseButton() {
