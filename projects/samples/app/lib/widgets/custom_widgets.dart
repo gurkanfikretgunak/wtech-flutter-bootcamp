@@ -15,38 +15,10 @@ class CustomWidgets {
       // ignore: prefer_const_literals_to_create_immutables
       items: [
         const BottomNavigationBarItem(
-          label: "Livbary Book",
-          icon: Icon(Icons.library_books),
+          label: "shopping_basket",
+          icon: Icon(Icons.shopping_basket),
         ),
       ],
-    );
-  }
-
-  static Widget customAppBanner() {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: [
-          Text(" mesaj"),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: MaterialBanner(
-              content: const Text('ödeviniz yanıtlandı'),
-              leading: const CircleAvatar(child: Icon(Icons.delete)),
-              actions: [
-                TextButton(
-                  child: const Text('cevapla'),
-                  onPressed: () {},
-                ),
-                TextButton(
-                  child: const Text('detaylı görüntüle'),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 
@@ -55,7 +27,7 @@ class CustomWidgets {
         // ignore: sort_child_properties_last
         child: Container(
           decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(20)),
+              color: Colors.pink, borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -64,8 +36,8 @@ class CustomWidgets {
                 children: [
                   // ignore: prefer_const_constructors
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: const Text("cepte ödev "),
+                    padding: const EdgeInsets.all(10.0),
+                    child: const Text("YEMEK DÜNYASI "),
                   ),
                   IconButton(
                       onPressed: () {

@@ -37,9 +37,6 @@ class HomeView extends StatelessWidget {
           color: Colors.amber,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CustomWidgets.customAppBanner(),
-            ],
           ),
         ),
         bottomNavigationBar: CustomWidgets.getBottomAppbarWidget());
