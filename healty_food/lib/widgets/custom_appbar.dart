@@ -15,7 +15,9 @@ class CustomAppbar {
         actions: [
           IconButton(
               onPressed: () {},
-              icon: const Icon(Icons.search),
+              icon: const Icon(
+                Icons.search,
+              ),
               color: Colors.black),
         ],
       ),
