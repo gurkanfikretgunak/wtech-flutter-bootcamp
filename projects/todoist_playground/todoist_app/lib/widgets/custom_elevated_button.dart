@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import 'package:todoist_app/views/login_with_email_view.dart';
-
 class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton({Key? key, required this.buttonTexts, required this.buttonColors, this.buttonIcons})
+  const CustomElevatedButton(
+      {Key? key, required this.buttonTexts, required this.buttonColors, this.buttonIcons, required this.widName})
       : super(key: key);
   final String buttonTexts;
   final Color? buttonColors;
   final IconData? buttonIcons;
+  final Widget widName;
 
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
@@ -21,7 +21,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          _settingModalBottomSheet(context);
+          _settingModalBottomSheet(context, widget.widName);
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(widget.buttonColors),
@@ -48,7 +48,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   }
 }
 
-void _settingModalBottomSheet(context) {
+void _settingModalBottomSheet(context, Widget wid) {
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -60,14 +60,12 @@ void _settingModalBottomSheet(context) {
         ),
       ),
       builder: (context) => Container(
+          height: 600,
           padding: const EdgeInsetsDirectional.only(
             start: 20,
             end: 20,
             bottom: 30,
             top: 8,
           ),
-          child: const SizedBox(
-            height: 600,
-            child: LoginWithEmail(),
-          )));
+          child: wid));
 }

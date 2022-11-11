@@ -3,6 +3,7 @@ import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/widgets/custom_elevated_button.dart';
 
 import '../constants/custom_constants.dart';
+import 'login_with_email_view.dart';
 
 class WelcomeToApp extends StatefulWidget {
   const WelcomeToApp({Key? key}) : super(key: key);
@@ -53,11 +54,13 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         buttonIcons: Icons.email_rounded,
                         buttonTexts: CustomTextConstants().buttonTextEmail,
                         buttonColors: Colors.red,
+                        widName: LoginWithEmail(),
                       ),
                       CustomElevatedButton(
                         buttonIcons: Icons.apple_outlined,
                         buttonColors: Colors.black,
                         buttonTexts: CustomTextConstants().buttonTextApple,
+                        widName: LoginWithEmail(),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

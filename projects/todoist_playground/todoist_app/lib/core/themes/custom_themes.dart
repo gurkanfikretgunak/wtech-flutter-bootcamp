@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class CustomTheme {
   static ThemeData customThemeData() => ThemeData().copyWith(
         iconTheme: const IconThemeData(
-          color: Colors.black,
+          color: Colors.red,
         ),
         scaffoldBackgroundColor: Colors.white,
         primaryColor: Colors.red,

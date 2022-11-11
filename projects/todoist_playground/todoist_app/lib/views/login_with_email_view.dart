@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/views/sign_up_page_view.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
@@ -16,32 +17,47 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   Widget build(BuildContext context) {
     var yourEmailText = "YOUR EMAIL";
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(
-            CustomTextConstants().sheetCloseText,
-            style: const TextStyle(color: Colors.red),
+        SizedBox(
+          height: 120,
+          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text(
+                CustomTextConstants().sheetCloseText,
+                style: const TextStyle(color: Colors.red),
+                textAlign: TextAlign.left,
+              ),
+            ),
+            Text(
+              CustomTextConstants().whatEmailText,
+              style: CustomTheme.customThemeData().textTheme.headline1,
+            ),
+          ]),
+        ),
+        SizedBox(
+          height: 250,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                yourEmailText,
+                style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
+                textAlign: TextAlign.left,
+              ),
+              const CustomInputDecoration(labelText: "Email"),
+              CustomElevatedButton(
+                buttonTexts: CustomTextConstants().buttonTextEmail,
+                buttonColors: Colors.red,
+                widName: SignInView(),
+              ),
+            ],
           ),
-        ),
-        Text(
-          CustomTextConstants().whatEmailText,
-          style: CustomTheme.customThemeData().textTheme.headline1,
-        ),
-        Padding(
-          padding: const EdgeInsets.only(top: 100.0),
-          child: Text(
-            yourEmailText,
-            style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
-            textAlign: TextAlign.left,
-          ),
-        ),
-        const SizedBox(height: 20),
-        const CustomInputDecoration(),
-        const SizedBox(height: 20),
-        CustomElevatedButton(buttonTexts: CustomTextConstants().buttonTextEmail, buttonColors: Colors.red)
+        )
       ],
     );
   }
@@ -50,26 +66,26 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
 class CustomInputDecoration extends StatelessWidget {
   const CustomInputDecoration({
     Key? key,
+    required this.labelText,
   }) : super(key: key);
-
+  final String labelText;
   @override
   Widget build(BuildContext context) {
-    var emailText = "Email";
     return Container(
       color: Colors.white,
-      height: 43,
+      height: 45,
       child: TextField(
         decoration: InputDecoration(
-          labelText: emailText,
+          labelText: labelText,
           labelStyle: TextStyle(
             color: Colors.grey[350],
-            fontSize: 13,
+            fontSize: 14,
           ),
           enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(10)), borderSide: BorderSide(color: Colors.white)),
+              borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
           focusedBorder: const OutlineInputBorder(
               borderSide: BorderSide(
-            width: 1.5,
+            width: 2,
             color: Colors.red,
           )),
         ),
