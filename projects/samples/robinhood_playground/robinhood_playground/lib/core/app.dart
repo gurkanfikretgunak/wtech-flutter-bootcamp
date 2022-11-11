@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:robinhood_playground/views/splash_view.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -9,7 +8,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: appName,
       debugShowCheckedModeBanner: false,
-      home: const SplashView(),
+      home: const Scaffold(),
     );
   }
 }
