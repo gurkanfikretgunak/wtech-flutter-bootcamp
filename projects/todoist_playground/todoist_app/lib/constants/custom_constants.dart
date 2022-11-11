@@ -3,6 +3,8 @@ class CustomTextConstants {
   final String buttonTextEmail = "Continue with Email";
   final String buttonTextApple = "Continue with Apple ";
   final String agreeText = "By continuing you agree to Todoist's Terms of Service and Privacy Policy.";
+  final String whatEmailText = "What's your email address?";
+  final String sheetCloseText = "Close";
 }
 
 class CustomImagePathConstants {

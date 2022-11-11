@@ -14,25 +14,26 @@ class LoginWithEmail extends StatefulWidget {
 class _LoginWithEmailState extends State<LoginWithEmail> {
   @override
   Widget build(BuildContext context) {
+    var yourEmailText = "YOUR EMAIL";
     return Column(
       children: [
         TextButton(
           onPressed: () {
             Navigator.pop(context);
           },
-          child: const Text(
-            "Close",
-            style: TextStyle(color: Colors.red),
+          child: Text(
+            CustomTextConstants().sheetCloseText,
+            style: const TextStyle(color: Colors.red),
           ),
         ),
         Text(
-          "What's your email address?",
+          CustomTextConstants().whatEmailText,
           style: CustomTheme.customThemeData().textTheme.headline1,
         ),
         Padding(
           padding: const EdgeInsets.only(top: 100.0),
           child: Text(
-            "YOUR EMAIL",
+            yourEmailText,
             style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
             textAlign: TextAlign.left,
           ),
@@ -53,12 +54,13 @@ class CustomInputDecoration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var emailText = "Email";
     return Container(
       color: Colors.white,
       height: 43,
       child: TextField(
         decoration: InputDecoration(
-          labelText: "Email",
+          labelText: emailText,
           labelStyle: TextStyle(
             color: Colors.grey[350],
             fontSize: 13,
