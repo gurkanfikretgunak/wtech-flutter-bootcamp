@@ -1,4 +1,5 @@
 import 'package:app/core/themes/custom_theme_data.dart';
+import 'package:app/views/cascase_example.dart';
 import 'package:flutter/material.dart';
 
 import '../views/home_view.dart';
@@ -10,7 +11,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: const HomeView(),
+        home: CascaseExamples(),
         title: 'Flutter Demo',
         theme: CustomTheme.customThemeData());
   }
