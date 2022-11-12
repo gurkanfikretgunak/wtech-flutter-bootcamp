@@ -1,4 +1,4 @@
-import 'package:breeze_app_clone/views/home_view.dart';
+import 'package:breeze_app_clone/views/first_screen_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -14,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () async {
-      Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => new HomeView()));
+      Navigator.pushReplacement(context, new MaterialPageRoute(builder: (context) => new FirstScreen()));
     });
   }
 
