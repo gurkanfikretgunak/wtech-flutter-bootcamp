@@ -1,4 +1,4 @@
-import 'package:eventbrite_app/view/register/register_view.dart';
+import 'package:eventbrite_app/view/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
 
 class EventbriteApp extends StatelessWidget {
@@ -8,7 +8,7 @@ class EventbriteApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Eventbrite',
-      home: RegisterView(),
+      home: WelcomeView(),
       // home: HomeView(),
     );
   }

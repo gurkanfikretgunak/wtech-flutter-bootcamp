@@ -33,123 +33,133 @@ class _RegisterViewState extends State<RegisterView> {
       ),
       body: SizedBox(
         height: size.height,
-        child: Form(
-          child: Column(
-            children: [
-              SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 30),
-                        child: CustomTextFormField(
-                          enabled: false,
-                          initialValue: "melihcelik0909@gmail.com",
-                          textColor: Colors.grey,
+        child: Stack(
+          children: [
+            Padding(
+              padding: Paddings.defaultPadding * 2,
+              child: Form(
+                child: SingleChildScrollView(
+                  child: SizedBox(
+                    height: size.height * 0.6,
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: Paddings.defaultBottomPadding * 2,
+                          child: const CustomTextFormField(
+                            enabled: false,
+                            initialValue: "melihcelik0909@gmail.com",
+                            textColor: Colors.grey,
+                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                            labelText: 'Email',
+                          ),
+                        ),
+                        CustomTextFormField(
+                          onChanged: (value) => debugPrint(value),
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          labelText: 'Email',
+                          labelText: 'Confirm Email',
+                          hintText: 'Confirm Email',
+                          keyboardType: TextInputType.emailAddress,
                         ),
-                      ),
-                      const CustomTextFormField(
-                        floatingLabelBehavior: FloatingLabelBehavior.always,
-                        labelText: 'Confirm Email',
-                        hintText: 'Confirm Email',
-                        keyboardType: TextInputType.emailAddress,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 40),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Expanded(
-                              child: CustomTextFormField(
-                                floatingLabelBehavior: FloatingLabelBehavior.always,
-                                labelText: 'First Name',
-                                hintText: 'Enter first name',
-                                keyboardType: TextInputType.name,
+                        Padding(
+                          padding: Paddings.defaultVerticalPadding * 4,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: CustomTextFormField(
+                                  onChanged: (value) => debugPrint(value),
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  labelText: 'First Name',
+                                  hintText: 'Enter first name',
+                                  keyboardType: TextInputType.name,
+                                ),
                               ),
-                            ),
-                            SizedBox(width: 20),
-                            Expanded(
-                              child: CustomTextFormField(
-                                floatingLabelBehavior: FloatingLabelBehavior.always,
-                                labelText: 'Surname',
-                                hintText: 'Enter surname',
-                                keyboardType: TextInputType.name,
+                              const SizedBox(width: 20),
+                              Expanded(
+                                child: CustomTextFormField(
+                                  onChanged: (value) => debugPrint(value),
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  labelText: 'Surname',
+                                  hintText: 'Enter surname',
+                                  keyboardType: TextInputType.name,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
-                      ),
-                      CustomTextFormField(
-                        onChanged: (value) => _checkPassword(value),
-                        suffixIcon: IconButton(
-                          onPressed: () {
-                            setState(() {
-                              _isObscure = !_isObscure;
-                            });
-                          },
-                          icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                        CustomTextFormField(
+                          onChanged: (value) => _checkPassword(value),
+                          suffixIcon: IconButton(
+                            onPressed: () {
+                              setState(() {
+                                _isObscure = !_isObscure;
+                              });
+                            },
+                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                          ),
+                          helperText: _helperText,
+                          obscureText: _isObscure,
                         ),
-                        helperText: _helperText,
-                        obscureText: _isObscure,
-                      ),
-                      password.isNotEmpty
-                          ? Row(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SizedBox(
-                                  width: 100,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: LinearProgressIndicator(
-                                      value: _strength,
-                                      minHeight: 10,
-                                      backgroundColor: Colors.grey[300],
-                                      valueColor: AlwaysStoppedAnimation<Color>(
-                                        _strength < 0.3
-                                            ? Colors.red
-                                            : _strength < 0.6
-                                                ? Colors.yellow
-                                                : Colors.green,
+                        password.isNotEmpty
+                            ? Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  SizedBox(
+                                    width: 100,
+                                    child: ClipRRect(
+                                      borderRadius: BorderRadius.circular(10),
+                                      child: LinearProgressIndicator(
+                                        value: _strength,
+                                        minHeight: 10,
+                                        backgroundColor: Colors.grey[300],
+                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                          _strength < 0.3
+                                              ? Colors.red
+                                              : _strength < 0.6
+                                                  ? Colors.yellow
+                                                  : Colors.green,
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                )
-                              ],
-                            )
-                          : Container(),
-                    ],
+                                  )
+                                ],
+                              )
+                            : Container(),
+                      ],
+                    ),
                   ),
                 ),
               ),
-              const Spacer(),
-              const Divider(),
-              Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: SizedBox(
-                        height: 40,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFC14D25),
-                          ),
-                          onPressed: () {},
-                          child: const Text(
-                            'Sign Up',
-                            style: TextStyle(fontWeight: FontWeight.w900),
+            ),
+            Column(
+              children: [
+                const Spacer(),
+                const Divider(),
+                Padding(
+                  padding: Paddings.defaultPadding,
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: SizedBox(
+                          height: 40,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: const Color(0xFFC14D25),
+                            ),
+                            onPressed: () {},
+                            child: const Text(
+                              'Sign Up',
+                              style: TextStyle(fontWeight: FontWeight.w900),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
+              ],
+            )
+          ],
         ),
       ),
     );
@@ -181,11 +191,17 @@ class _RegisterViewState extends State<RegisterView> {
           // should contain at least one special character
           // Must be at least 8 characters in length
           _strength = 1;
-          _helperText = 'Your password is great.';
+          _helperText = 'Great!';
         });
       }
     }
   }
+}
+
+class Paddings {
+  static const EdgeInsets defaultPadding = EdgeInsets.all(10);
+  static const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: 10);
+  static const EdgeInsets defaultVerticalPadding = EdgeInsets.symmetric(vertical: 10);
 }
 
 class CustomTextFormField extends StatelessWidget {
