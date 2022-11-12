@@ -16,7 +16,7 @@ class CustomTheme {
         color: Colors.transparent,
         iconTheme: IconThemeData(
           color: constant.appBlue,
-          size: 27,
+          size: 20,
         ),
       ),
       primarySwatch: Colors.grey,

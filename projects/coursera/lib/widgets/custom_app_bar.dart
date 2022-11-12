@@ -22,6 +22,7 @@ class CustomAppBar extends PreferredSize {
     return PreferredSize(
       preferredSize: const Size.fromHeight(70),
       child: Container(
+        color: Colors.amber,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
