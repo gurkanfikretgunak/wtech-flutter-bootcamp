@@ -15,20 +15,19 @@ class LoginPage extends StatelessWidget {
           children: [
             Expanded(
               flex: 10,
-              child: Image.network(
-                  "https://logos-world.net/wp-content/uploads/2020/12/Patreon-Emblem.png"),
+              child: Image.asset("assets/Patreon-Emblem.png"),
             ),
             CustomTextButton(
               text: "Continue with Google",
-              buttonColor: Colors.blueGrey,
+              buttonColor: Colors.blueAccent.shade200,
               onPress: () {},
               disabledColor: Colors.blueGrey,
             ),
             CustomTextButton(
               text: "Continue with Facebook",
-              buttonColor: Colors.blue,
+              buttonColor: Colors.blueAccent.shade400,
               onPress: () {},
-              disabledColor: Colors.blueGrey,
+              disabledColor: Colors.blueAccent.shade400,
             ),
             CustomTextButton(
               text: "Log in with Email",
@@ -40,7 +39,7 @@ class LoginPage extends StatelessWidget {
                       builder: (context) => const LoginwithEmail()),
                 );
               },
-              disabledColor: Colors.blueGrey,
+              disabledColor: Colors.red.shade400,
             ),
             Expanded(
               flex: 0,
