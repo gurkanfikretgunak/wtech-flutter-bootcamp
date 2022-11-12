@@ -5,12 +5,14 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final Color color;
   final TextStyle textStyle;
+  final bool? border;
   const CustomElevatedButton({
     Key? key,
     required this.text,
     required this.onPressed,
     required this.color,
     required this.textStyle,
+    this.border,
   }) : super(key: key);
 
   @override
@@ -24,6 +26,9 @@ class CustomElevatedButton extends StatelessWidget {
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: color,
+                side: border == true
+                    ? const BorderSide(color: Colors.black54, width: 2)
+                    : null,
               ),
               child: Text(
                 text,

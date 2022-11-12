@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/view/register/register_view.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,13 @@ class TicketView extends StatelessWidget {
             const Spacer(),
             CustomElevatedButton(
               text: 'Log in',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const RegisterView(),
+                  ),
+                );
+              },
               color: const Color(0xFFC14D25),
               textStyle: const TextStyle(fontWeight: FontWeight.w900),
             ),
@@ -32,7 +39,9 @@ class TicketView extends StatelessWidget {
               text: 'Find things to do',
               onPressed: () {},
               color: Colors.white,
-              textStyle: const TextStyle(fontWeight: FontWeight.w900),
+              border:true,
+              textStyle: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.w900),
             ),
           ],
         ),
