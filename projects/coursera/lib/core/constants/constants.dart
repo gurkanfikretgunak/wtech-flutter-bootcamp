@@ -45,7 +45,7 @@ class ConstantsClass {
   FontStyle buttonTextFontStyle = FontStyle.normal;
 
   //Text
-  Color textColor = const Color(0xFF424242);
+  Color textColor = const Color.fromRGBO(0, 0, 0, 1);
 
   //ElevatedButton
   Color buttonElevatedBackgroundColor = const Color(0xFF2354CC);
