@@ -1,3 +1,4 @@
+import 'package:dunkin_app/view/home.dart';
 import 'package:dunkin_app/view/onboard.dart';
 import 'package:flutter/material.dart';
 
@@ -12,16 +13,27 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => OnBoard()));
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.of(context).pushReplacement(
+        //< this
+        PageRouteBuilder(
+          transitionDuration: Duration(milliseconds: 2000),
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return OnBoard();
+          },
+        ),
+      );
     });
   }
 
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        child: Image(image: AssetImage("assets/images/splashscreen.png")),
+        decoration: BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/splashscreen.png"),
+                fit: BoxFit.cover)),
       ),
     );
   }
