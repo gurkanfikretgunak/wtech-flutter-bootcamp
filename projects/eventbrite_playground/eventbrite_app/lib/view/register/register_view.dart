@@ -1,3 +1,5 @@
+import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
+import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {
@@ -9,7 +11,8 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   bool _isObscure = true;
-  RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  RegExp regex =
+      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
   late String password;
   double _strength = 0;
   String _helperText = 'Password must have at least 8 characters.';
@@ -28,7 +31,8 @@ class _RegisterViewState extends State<RegisterView> {
         backgroundColor: Colors.white,
         title: const Text(
           'Sign Up',
-          style: TextStyle(color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
         ),
       ),
       body: SizedBox(
@@ -68,7 +72,8 @@ class _RegisterViewState extends State<RegisterView> {
                               Expanded(
                                 child: CustomTextFormField(
                                   onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
                                   labelText: 'First Name',
                                   hintText: 'Enter first name',
                                   keyboardType: TextInputType.name,
@@ -78,7 +83,8 @@ class _RegisterViewState extends State<RegisterView> {
                               Expanded(
                                 child: CustomTextFormField(
                                   onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
                                   labelText: 'Surname',
                                   hintText: 'Enter surname',
                                   keyboardType: TextInputType.name,
@@ -95,7 +101,9 @@ class _RegisterViewState extends State<RegisterView> {
                                 _isObscure = !_isObscure;
                               });
                             },
-                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(_isObscure
+                                ? Icons.visibility
+                                : Icons.visibility_off),
                           ),
                           helperText: _helperText,
                           obscureText: _isObscure,
@@ -112,7 +120,8 @@ class _RegisterViewState extends State<RegisterView> {
                                         value: _strength,
                                         minHeight: 10,
                                         backgroundColor: Colors.grey[300],
-                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
                                           _strength < 0.3
                                               ? Colors.red
                                               : _strength < 0.6
@@ -136,27 +145,13 @@ class _RegisterViewState extends State<RegisterView> {
                 const Spacer(),
                 const Divider(),
                 Padding(
-                  padding: Paddings.defaultPadding,
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: SizedBox(
-                          height: 40,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: const Color(0xFFC14D25),
-                            ),
-                            onPressed: () {},
-                            child: const Text(
-                              'Sign Up',
-                              style: TextStyle(fontWeight: FontWeight.w900),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                    padding: Paddings.defaultPadding,
+                    child: CustomElevatedButton(
+                      text: 'Sign Up',
+                      onPressed: () {},
+                      color: const Color(0xFFC14D25),
+                      textStyle: const TextStyle(fontWeight: FontWeight.w900),
+                    )),
               ],
             )
           ],
@@ -201,52 +196,6 @@ class _RegisterViewState extends State<RegisterView> {
 class Paddings {
   static const EdgeInsets defaultPadding = EdgeInsets.all(10);
   static const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: 10);
-  static const EdgeInsets defaultVerticalPadding = EdgeInsets.symmetric(vertical: 10);
-}
-
-class CustomTextFormField extends StatelessWidget {
-  final String? labelText;
-  final String? hintText;
-  final String? helperText;
-  final bool? obscureText;
-  final String? initialValue;
-  final Color? textColor;
-  final bool? enabled;
-  final TextInputType? keyboardType;
-  final FloatingLabelBehavior? floatingLabelBehavior;
-  final Widget? suffixIcon;
-  final Function(String)? onChanged;
-  const CustomTextFormField({
-    Key? key,
-    this.labelText,
-    this.hintText,
-    this.helperText,
-    this.obscureText,
-    this.initialValue,
-    this.enabled,
-    this.keyboardType,
-    this.floatingLabelBehavior,
-    this.suffixIcon,
-    this.textColor,
-    this.onChanged,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      style: TextStyle(color: textColor),
-      initialValue: initialValue,
-      enabled: enabled,
-      keyboardType: keyboardType,
-      obscureText: obscureText ?? false,
-      decoration: InputDecoration(
-        floatingLabelBehavior: floatingLabelBehavior ?? FloatingLabelBehavior.auto,
-        suffixIcon: suffixIcon,
-        labelText: labelText,
-        hintText: hintText,
-        helperText: helperText,
-      ),
-    );
-  }
+  static const EdgeInsets defaultVerticalPadding =
+      EdgeInsets.symmetric(vertical: 10);
 }
