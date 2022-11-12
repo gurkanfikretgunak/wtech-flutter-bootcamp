@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:story/story.dart';
+import 'package:wise_app/pages/login_page.dart';
 
 class SplashFirst extends StatelessWidget {
   const SplashFirst({
@@ -71,7 +72,9 @@ class SplashBottomButton extends StatelessWidget {
                     backgroundColor:
                     const Color.fromRGBO(73, 159, 216, 1),
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage()));
+                  },
                   child: const Text("Log in")),
             ),
             const SizedBox(
