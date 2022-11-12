@@ -7,14 +7,14 @@ packages:
       name: _fe_analyzer_shared
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "50.0.0"
+    version: "47.0.0"
   analyzer:
     dependency: transitive
     description:
       name: analyzer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.2.0"
+    version: "4.7.0"
   animated_splash_screen:
     dependency: "direct main"
     description:
@@ -326,6 +326,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.2"
+  mobx:
+    dependency: transitive
+    description:
+      name: mobx
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
+  mobx_codegen:
+    dependency: "direct main"
+    description:
+      name: mobx_codegen
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.7+3"
   nested:
     dependency: transitive
     description:
@@ -389,6 +403,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1+1"
+  retrofit_generator:
+    dependency: "direct main"
+    description:
+      name: retrofit_generator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.1.2"
   shelf:
     dependency: transitive
     description:
@@ -478,6 +499,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  tuple:
+    dependency: transitive
+    description:
+      name: tuple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
   typed_data:
     dependency: transitive
     description:
