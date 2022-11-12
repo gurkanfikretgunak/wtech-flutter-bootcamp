@@ -18,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         appBar: AppBar(
           elevation: 0.1,
-          toolbarHeight: 320,
+          toolbarHeight: 315,
           leadingWidth: 4,
           backgroundColor: Colors.brown[50],
           leading: Column(
@@ -72,7 +72,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Expanded(
                       child: Container(
-                          height: 40,
+                          height: 35,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
                               color: Colors.pink[800]),
@@ -94,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(width: 20),
                     Expanded(
                       child: Container(
-                          height: 40,
+                          height: 35,
                           width: double.infinity,
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(40),
@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 12),
                 Container(
                     height: 1, width: double.infinity, color: Colors.grey[350]),
                 Row(
