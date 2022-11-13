@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:dunkin_app/view/onboard.dart';
+import 'package:dunkin_app/view/sing_up.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -80,7 +81,13 @@ class _HomeScreenState extends State<HomeScreen> {
                             style: ButtonStyle(
                                 overlayColor: MaterialStateProperty.all(
                                     Colors.transparent)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const SignUp()),
+                              );
+                            },
                             child: Text(
                               "JOIN NOW",
                               style: TextStyle(
