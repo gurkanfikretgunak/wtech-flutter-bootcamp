@@ -1,33 +1,29 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todoist_app/service/data_service.dart';
 
 import '../model/users_model.dart';
 
-class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton(
+class ElevatedButtonC extends StatefulWidget {
+  const ElevatedButtonC(
       {Key? key,
       required this.buttonTexts,
       required this.buttonColors,
       this.buttonIcons,
-      required this.hasDataWidget,
-      this.controller,
-      required this.nullDataWidget})
+      required this.widName,
+      this.controller})
       : super(key: key);
   final String buttonTexts;
   final Color? buttonColors;
   final IconData? buttonIcons;
-  final Widget hasDataWidget;
-  final Widget nullDataWidget;
-
+  final Widget widName;
   final TextEditingController? controller;
 
   @override
-  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
+  State<ElevatedButtonC> createState() => _ElevatedButtonCState();
 }
 
-class _CustomElevatedButtonState extends State<CustomElevatedButton> {
+class _ElevatedButtonCState extends State<ElevatedButtonC> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -35,8 +31,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          print(widget.controller!.text);
-          _settingModalBottomSheet(context, widget.hasDataWidget, widget.nullDataWidget, widget.controller);
+          _settingModalBottomSheet(context, widget.widName);
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(widget.buttonColors),
@@ -63,7 +58,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   }
 }
 
-void _settingModalBottomSheet(context, Widget hasDatawidget, Widget nullDataWidget, TextEditingController? controller) {
+void _settingModalBottomSheet(context, Widget wid) {
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -82,23 +77,5 @@ void _settingModalBottomSheet(context, Widget hasDatawidget, Widget nullDataWidg
             bottom: 30,
             top: 8,
           ),
-          child: _buildBody(context, controller!.text, hasDatawidget, nullDataWidget)));
-}
-
-FutureBuilder<List<Users>> _buildBody(
-    BuildContext context, String controller, Widget hasDataWidget, Widget nullDataWidget) {
-  final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
-      baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
-  return FutureBuilder<List<Users>>(
-    future: client.getUsers(),
-    builder: (context, snapshot) {
-      if (snapshot.hasData) {
-        return ListView.builder(
-            itemCount: snapshot.data!.length,
-            itemBuilder: (_, index) => snapshot.data![index].email == controller ? hasDataWidget : nullDataWidget);
-      } else {
-        return const Center(child: CircularProgressIndicator());
-      }
-    },
-  );
+          child: wid));
 }
