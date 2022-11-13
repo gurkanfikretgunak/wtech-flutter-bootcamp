@@ -1,13 +1,28 @@
+import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:todoist_app/repository/users_repository.dart';
+import 'package:todoist_app/service/data_service.dart';
+
+import '../model/users_model.dart';
 
 class CustomElevatedButton extends StatefulWidget {
   const CustomElevatedButton(
-      {Key? key, required this.buttonTexts, required this.buttonColors, this.buttonIcons, required this.widName})
+      {Key? key,
+      required this.buttonTexts,
+      required this.buttonColors,
+      this.buttonIcons,
+      required this.hasDataWidget,
+      this.controller,
+      required this.nullDataWidget})
       : super(key: key);
   final String buttonTexts;
   final Color? buttonColors;
   final IconData? buttonIcons;
-  final Widget widName;
+  final Widget hasDataWidget;
+  final Widget nullDataWidget;
+
+  final TextEditingController? controller;
 
   @override
   State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
@@ -21,7 +36,8 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          _settingModalBottomSheet(context, widget.widName);
+          print(widget.controller!.text);
+          _settingModalBottomSheet(context, widget.hasDataWidget, widget.nullDataWidget, widget.controller);
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(widget.buttonColors),
@@ -48,7 +64,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   }
 }
 
-void _settingModalBottomSheet(context, Widget wid) {
+void _settingModalBottomSheet(context, Widget hasDatawidget, Widget nullDataWidget, TextEditingController? controller) {
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -67,5 +83,23 @@ void _settingModalBottomSheet(context, Widget wid) {
             bottom: 30,
             top: 8,
           ),
-          child: wid));
+          child: _buildBody(context, controller!.text, hasDatawidget, nullDataWidget)));
+}
+
+FutureBuilder<List<Users>> _buildBody(
+    BuildContext context, String controller, Widget hasDataWidget, Widget nullDataWidget) {
+  final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
+      baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
+  return FutureBuilder<List<Users>>(
+    future: client.getUsers(),
+    builder: (context, snapshot) {
+      if (snapshot.hasData) {
+        return ListView.builder(
+            itemCount: snapshot.data!.length,
+            itemBuilder: (_, index) => snapshot.data![index].email == controller ? hasDataWidget : nullDataWidget);
+      } else {
+        return const Center(child: CircularProgressIndicator());
+      }
+    },
+  );
 }
