@@ -1,7 +1,9 @@
 import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/views/explore/explore_view_widget/free_courses_list.dart';
+import 'package:coursera/views/explore/explore_view_widget/most_popular_certificates_list.dart';
+import 'package:coursera/views/explore/explore_view_widget/topic_list.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/custom_card.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:coursera/widgets/text/text_field_form.dart';
 import 'package:flutter/material.dart';
@@ -22,9 +24,10 @@ class ExploreView extends StatelessWidget {
           ),
           context: context,
         ),
-        body: Padding(
-          padding: context.horizontalPaddingMedium,
-          child: SingleChildScrollView(
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Padding(
+            padding: context.horizontalPaddingMedium,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -55,19 +58,7 @@ class ExploreView extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: context.dynamicHeight(0.1),
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return const Chip(
-                        label: CustomText(text: "Business"),
-                      );
-                    },
-                  ),
-                ),
+                const TopicList(),
                 CustomText(
                   text: "My Coursera",
                   fontSize: 23,
@@ -89,53 +80,7 @@ class ExploreView extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: context.dynamicHeight(0.36),
-                  child: ListView.builder(
-                    physics: const BouncingScrollPhysics(),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return CustomCard(
-                        width: context.dynamicWidth(0.4),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Image(
-                              image:
-                                  AssetImage("assets/learn_page_image_1.png"),
-                            ),
-                            const CustomText(
-                              textAlign: TextAlign.start,
-                              text: "Google Data Analytics",
-                              fontSize: 16,
-                              maxLines: 2,
-                            ),
-                            CustomText(
-                              textAlign: TextAlign.start,
-                              text: "Google    Professional Certificates",
-                              fontSize: 16,
-                              maxLines: 2,
-                              color: constant.appGreyDark,
-                            ),
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.star,
-                                ),
-                                CustomText(
-                                  text: "4.8(79K)",
-                                  fontSize: 18,
-                                  color: constant.appGreyDark,
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                const MostPopularCertificatesList(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -164,61 +109,7 @@ class ExploreView extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
-                  height: context.dynamicHeight(0.5),
-                  child: ListView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return CustomCard(
-                          child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const CustomText(
-                                textAlign: TextAlign.start,
-                                text: "COVID-19 Contact Tracing",
-                                fontSize: 16,
-                                maxLines: 2,
-                              ),
-                              CustomText(
-                                textAlign: TextAlign.start,
-                                text: "John Hopkins University",
-                                maxLines: 2,
-                                color: constant.appGreyDark,
-                              ),
-                              CustomText(
-                                textAlign: TextAlign.start,
-                                text: "John Hopkins University",
-                                maxLines: 2,
-                                color: constant.appGreyDark,
-                              ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    color: constant.appBlack,
-                                    Icons.star,
-                                    size: 20,
-                                  ),
-                                  CustomText(
-                                    text: "4.8(79K)",
-                                    color: constant.appGreyDark,
-                                  )
-                                ],
-                              )
-                            ],
-                          ),
-                          const Image(
-                            image: AssetImage("assets/learn_page_image_1.png"),
-                          ),
-                        ],
-                      ));
-                    },
-                  ),
-                )
+                const FreeCoursesList()
               ],
             ),
           ),

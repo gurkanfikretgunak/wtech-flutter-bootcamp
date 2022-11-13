@@ -57,11 +57,11 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  assets:
-    - assets/image/
-    - assets/svgs/
-    - assets/icons/bottom_navbar/
-    - assets/lotties/
+  # assets:
+  #   - assets/image/
+  #   - assets/svgs/
+  #   - assets/icons/bottom_navbar/
+  #   - assets/lotties/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
