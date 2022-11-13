@@ -1,3 +1,5 @@
+import 'package:coursera/core/model/user.dart';
+import 'package:coursera/core/services/user_service_retrofit.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
@@ -5,8 +7,20 @@ import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-class LearnView extends StatelessWidget {
+class LearnView extends StatefulWidget {
   const LearnView({super.key});
+
+  @override
+  State<LearnView> createState() => _LearnViewState();
+}
+
+class _LearnViewState extends State<LearnView> {
+  late Future<User> futureUser;
+  @override
+  void initState() {
+    super.initState();
+    futureUser = UserServiceRetrofit().getUsers();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +40,18 @@ class LearnView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              FutureBuilder<User>(
+                future: futureUser,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    return Text(snapshot.data!.name!);
+                  } else if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
+
+                  return const CircularProgressIndicator();
+                },
+              ),
               const CustomText(
                 text: "Learn",
                 fontSize: 28,

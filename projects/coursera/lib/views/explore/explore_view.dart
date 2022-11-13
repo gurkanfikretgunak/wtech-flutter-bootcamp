@@ -55,8 +55,7 @@ class ExploreView extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
-                  color: Colors.pink,
+                SizedBox(
                   height: context.dynamicHeight(0.1),
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),
@@ -90,8 +89,7 @@ class ExploreView extends StatelessWidget {
                     )
                   ],
                 ),
-                Container(
-                  color: Colors.amber,
+                SizedBox(
                   height: context.dynamicHeight(0.36),
                   child: ListView.builder(
                     physics: const BouncingScrollPhysics(),

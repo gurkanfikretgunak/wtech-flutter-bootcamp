@@ -1,4 +1,4 @@
-import 'package:coursera/views/explore_view.dart';
+import 'package:coursera/views/explore/explore_view.dart';
 import 'package:coursera/views/learn_view.dart';
 import 'package:coursera/views/profile_view.dart';
 import 'package:flutter/foundation.dart';
