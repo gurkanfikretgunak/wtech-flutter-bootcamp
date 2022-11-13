@@ -17,7 +17,7 @@ class TitleWithMoreBtn extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Row(
         children: [
-          const TitleWithCustomUnderline(text: title),
+          // const TitleWithCustomUnderline(text: title), düzenle
           const Spacer(),
           TextButton(
             style: ButtonStyle(
@@ -25,7 +25,7 @@ class TitleWithMoreBtn extends StatelessWidget {
                     RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
                         side: const BorderSide(color: kPrimaryColor)))),
-            onPressed: press,
+            onPressed: (() {}), //düzenle
             child: const Text(
               "Fazlası",
               style: TextStyle(color: Colors.white),
