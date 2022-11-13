@@ -15,15 +15,18 @@ class GenerealButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          padding: _ElevatedButtonPadding().vertical,
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20))),
-          backgroundColor: backgroundColor,
-          foregroundColor: foregroundColor),
-      child: Text(text),
+    return SizedBox(
+      width: MediaQuery.of(context).size.width * 0.7,
+      child: ElevatedButton(
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+            padding: _ElevatedButtonPadding().vertical,
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(20))),
+            backgroundColor: backgroundColor,
+            foregroundColor: foregroundColor),
+        child: Text(text),
+      ),
     );
   }
 }

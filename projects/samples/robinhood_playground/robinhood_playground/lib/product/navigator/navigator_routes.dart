@@ -1,0 +1,1 @@
+enum NavigateRoutes { onboarding, enterview }

@@ -7,8 +7,8 @@ class CustomDivider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 6,
-      width: MediaQuery.of(context).size.width * 0.35,
+      height: 5,
+      width: MediaQuery.of(context).size.width * 0.30,
       decoration: BoxDecoration(
           color: dividerColor,
           shape: BoxShape.rectangle,
