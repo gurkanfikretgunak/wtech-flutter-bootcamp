@@ -14,8 +14,7 @@ class _WelcomeViewState extends State<WelcomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3))
-        .then((value) => {FlutterNativeSplash.remove()});
+    Future.delayed(const Duration(seconds: 3)).then((value) => {FlutterNativeSplash.remove()});
   }
 
   @override
@@ -34,21 +33,18 @@ class _WelcomeViewState extends State<WelcomeView> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text('Hello',
-                      style:
-                          TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
+                  const Text('Hello', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 10),
                     child: Text(
                       'Let\'s find your next unforgettable event.\nChoose a location below to get started.',
-                      style: Theme.of(context).textTheme.bodySmall,
+                      style: TextStyle(fontSize: 20),
                     ),
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset('assets/get_started.png'),
-                      const SizedBox(height: 20),
                       CustomElevatedButton(
                         color: const Color(0xFFC14D25),
                         onPressed: () {},

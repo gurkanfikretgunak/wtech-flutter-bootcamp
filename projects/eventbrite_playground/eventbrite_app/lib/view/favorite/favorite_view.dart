@@ -1,5 +1,6 @@
+import 'package:eventbrite_app/view/get_started/get_started_view.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
-import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
+import 'package:eventbrite_app/widgets/guest_screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class FavoriteView extends StatelessWidget {
@@ -13,21 +14,20 @@ class FavoriteView extends StatelessWidget {
         currentIndex: BottomNavigationItem.favorite.index,
       ),
       body: SafeArea(
-        child: Column(
-          children: [
-            const Text('See your favorites in one place'),
-            const Text('Log in to see your favorites'),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Explore events'),
-            ),
-            const Spacer(),
-            CustomElevatedButton(
-                text: 'Log in',
-                onPressed: () {},
-                color: const Color(0xFFC14D25),
-                textStyle: const TextStyle(fontWeight: FontWeight.w900))
-          ],
+        child: GuestScreenWidget(
+          title: 'See your favorites in one place',
+          subtitle: 'Log in to see your favorites',
+          hasTextButton: true,
+          textDetail: 'Explore events',
+          bottomScreenIcon: Icons.favorite_border_outlined,
+          bottomButtonText: 'Log in',
+          navigateBottom: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const GetStartedView(),
+              ),
+            );
+          },
         ),
       ),
     );

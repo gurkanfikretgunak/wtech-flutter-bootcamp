@@ -35,8 +35,7 @@ class GetStartedView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Text('Sign up or log in to see what\'s happening near you',
-                        style: TextStyle(fontSize: 22)),
+                    Text('Sign up or log in to see what\'s happening near you', style: TextStyle(fontSize: 22)),
                   ],
                 ),
               ),
@@ -48,8 +47,7 @@ class GetStartedView extends StatelessWidget {
                       text: 'Continue with email address',
                       onPressed: () {
                         Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => const RegisterView()),
+                          MaterialPageRoute(builder: (context) => const RegisterView()),
                         );
                       },
                       color: const Color(0xFFC14D25),
@@ -66,8 +64,7 @@ class GetStartedView extends StatelessWidget {
                         border: true,
                         hasImage: true,
                         imagePath: 'assets/facebook_logo.png',
-                        textStyle: const TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w600),
+                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
                       ),
                     ),
                     CustomElevatedButton(
@@ -77,13 +74,11 @@ class GetStartedView extends StatelessWidget {
                       hasImage: true,
                       imagePath: 'assets/google_logo.png',
                       border: true,
-                      textStyle: const TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.w600),
+                      textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
-                          'I bought tickets,but I dont\'t have an account'),
+                      child: const Text('I bought tickets,but I dont\'t have an account'),
                     ),
                   ],
                 ),

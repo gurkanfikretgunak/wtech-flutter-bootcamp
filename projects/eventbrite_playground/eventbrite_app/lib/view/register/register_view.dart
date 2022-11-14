@@ -11,8 +11,7 @@ class RegisterView extends StatefulWidget {
 
 class _RegisterViewState extends State<RegisterView> {
   bool _isObscure = true;
-  RegExp regex =
-      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+  RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
   late String password;
   double _strength = 0;
   String _helperText = 'Password must have at least 8 characters.';
@@ -32,8 +31,7 @@ class _RegisterViewState extends State<RegisterView> {
         backgroundColor: Colors.white,
         title: const Text(
           'Sign Up',
-          style: TextStyle(
-              color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
         ),
       ),
       body: SizedBox(
@@ -73,8 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
                               Expanded(
                                 child: CustomTextFormField(
                                   onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.always,
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
                                   labelText: 'First Name',
                                   hintText: 'Enter first name',
                                   keyboardType: TextInputType.name,
@@ -84,8 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                               Expanded(
                                 child: CustomTextFormField(
                                   onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.always,
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
                                   labelText: 'Surname',
                                   hintText: 'Enter surname',
                                   keyboardType: TextInputType.name,
@@ -102,9 +98,7 @@ class _RegisterViewState extends State<RegisterView> {
                                 _isObscure = !_isObscure;
                               });
                             },
-                            icon: Icon(_isObscure
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
                           ),
                           helperText: _helperText,
                           obscureText: _isObscure,
@@ -121,8 +115,7 @@ class _RegisterViewState extends State<RegisterView> {
                                         value: _strength,
                                         minHeight: 10,
                                         backgroundColor: Colors.grey[300],
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
+                                        valueColor: AlwaysStoppedAnimation<Color>(
                                           _strength < 0.3
                                               ? Colors.red
                                               : _strength < 0.6
@@ -197,6 +190,5 @@ class _RegisterViewState extends State<RegisterView> {
 class Paddings {
   static const EdgeInsets defaultPadding = EdgeInsets.all(10);
   static const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: 10);
-  static const EdgeInsets defaultVerticalPadding =
-      EdgeInsets.symmetric(vertical: 10);
+  static const EdgeInsets defaultVerticalPadding = EdgeInsets.symmetric(vertical: 10);
 }
