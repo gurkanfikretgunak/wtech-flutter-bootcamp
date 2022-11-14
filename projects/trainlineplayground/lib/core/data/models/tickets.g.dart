@@ -7,7 +7,6 @@ part of 'tickets.dart';
 // **************************************************************************
 
 Tickets _$TicketsFromJson(Map<String, dynamic> json) => Tickets(
-      id: json['id'] as String?,
       trainTime: json['trainTime'] as String?,
       trainarriveTime: json['trainarriveTime'] as String?,
       standardPrice: json['standardPrice'] as String?,
@@ -17,10 +16,10 @@ Tickets _$TicketsFromJson(Map<String, dynamic> json) => Tickets(
       busPrice: json['busPrice'] as String?,
       kalkisYeri: json['kalkisYeri'] as String?,
       varisYeri: json['varisYeri'] as String?,
+      id: json['id'] as String?,
     );
 
 Map<String, dynamic> _$TicketsToJson(Tickets instance) => <String, dynamic>{
-      'id': instance.id,
       'trainTime': instance.trainTime,
       'trainarriveTime': instance.trainarriveTime,
       'standardPrice': instance.standardPrice,
@@ -30,4 +29,5 @@ Map<String, dynamic> _$TicketsToJson(Tickets instance) => <String, dynamic>{
       'busPrice': instance.busPrice,
       'kalkisYeri': instance.kalkisYeri,
       'varisYeri': instance.varisYeri,
+      'id': instance.id,
     };

@@ -1,6 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'client_api.dart';
+part of 'deneme_api.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+Dest _$DestFromJson(Map<String, dynamic> json) => Dest(
+      station: json['station'] as String?,
+      id: json['id'] as String?,
+    );
+
+Map<String, dynamic> _$DestToJson(Dest instance) => <String, dynamic>{
+      'station': instance.station,
+      'id': instance.id,
+    };
 
 // **************************************************************************
 // RetrofitGenerator
@@ -21,27 +35,25 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<Tickets>> getTasks() async {
+  Future<Dest> getDest() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result =
-        await _dio.fetch<List<dynamic>>(_setStreamType<List<Tickets>>(Options(
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Dest>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
     )
             .compose(
               _dio.options,
-              '/tickets',
+              '/destinations/{stationName}',
               queryParameters: queryParameters,
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    var value = _result.data!
-        .map((dynamic i) => Tickets.fromJson(i as Map<String, dynamic>))
-        .toList();
+    final value = Dest.fromJson(_result.data!);
     return value;
   }
 
