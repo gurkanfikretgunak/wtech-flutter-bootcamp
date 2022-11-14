@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/views/after_login_page_view.dart';
+import 'package:todoist_app/views/pick_theme_page_view.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
@@ -58,7 +59,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 CustomElevatedButton(
                   buttonTexts: CustomTextConstants().buttonTextEmail,
                   buttonColors: Colors.red,
-                  hasDataWidget: const WhiteCircularPage(logText: "If at first you don't succeed,laugh until you do."),
+                  hasDataWidget: ThemeSwitcher(),
                   nullDataWidget: const LoginPasswordView(),
                 ),
                 Center(

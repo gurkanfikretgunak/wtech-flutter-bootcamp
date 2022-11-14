@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:page_transition/page_transition.dart';
+import 'package:todoist_app/views/pick_theme_page_view.dart';
 import '../core/themes/custom_themes.dart';
 import 'welcome_page_view.dart';
 import 'package:lottie/lottie.dart';
@@ -24,7 +25,7 @@ class WhiteCircularPage extends StatelessWidget {
                 splash: Lottie.asset("assets/lottie/97443-loading-gray.json"),
                 backgroundColor: Colors.white,
                 splashIconSize: 100,
-                nextScreen: const WelcomeToApp(),
+                nextScreen: ThemeSwitcher(),
                 pageTransitionType: PageTransitionType.topToBottom,
                 duration: 1000,
               ),
