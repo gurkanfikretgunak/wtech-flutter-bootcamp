@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
   const CustomBottomAppBar({super.key});
@@ -37,13 +38,13 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                   },
                   icon: _selectedIndex == 0
                       ? const Icon(
-                          Icons.home_filled,
-                          color: Colors.black,
+                          Icons.table_chart,
+                          color: Colors.grey,
                           size: 30,
                         )
                       : const Icon(
-                          Icons.home_outlined,
-                          color: Colors.black,
+                          Icons.table_chart_outlined,
+                          color: Colors.grey,
                           size: 30,
                         ),
                 ),
@@ -56,13 +57,13 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                   },
                   icon: _selectedIndex == 1
                       ? const Icon(
-                          Icons.search,
-                          color: Colors.black,
+                          Icons.explore,
+                          color: Colors.grey,
                           size: 30,
                         )
                       : const Icon(
-                          Icons.search_outlined,
-                          color: Colors.black,
+                          Icons.explore_outlined,
+                          color: Colors.grey,
                           size: 30,
                         ),
                 ),
@@ -75,13 +76,13 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                   },
                   icon: _selectedIndex == 2
                       ? const Icon(
-                          Icons.local_post_office,
-                          color: Colors.black,
+                          Icons.mail,
+                          color: Colors.grey,
                           size: 30,
                         )
                       : const Icon(
-                          Icons.local_post_office_outlined,
-                          color: Colors.black,
+                          Icons.mail_outline,
+                          color: Colors.grey,
                           size: 30,
                         ),
                 ),

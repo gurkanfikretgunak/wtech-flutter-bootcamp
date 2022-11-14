@@ -64,38 +64,42 @@ class LoginPage extends StatelessWidget {
             ),
             Expanded(
               flex: 2,
-              child: RichText(
-                textAlign: TextAlign.center,
-                text: const TextSpan(
-                  text:
-                      "By clicking Sign Up for Patreon,Continue with Google,or Continue with Facebook,you agree to Patreon's ",
-                  style: TextStyle(color: Colors.black),
-                  children: <InlineSpan>[
-                    WidgetSpan(
-                      alignment: PlaceholderAlignment.baseline,
-                      baseline: TextBaseline.alphabetic,
-                      child: LinkButton(
-                          urlLabel: "Terms of Use,",
-                          url: "https://www.patreon.com/policy/legal"),
-                    ),
-                    WidgetSpan(
-                      alignment: PlaceholderAlignment.baseline,
-                      baseline: TextBaseline.alphabetic,
-                      child: LinkButton(
-                          urlLabel: " Privacy Policy",
-                          url: "https://privacy.patreon.com/"),
-                    ),
-                    TextSpan(
-                      text: ',and ',
-                    ),
-                    WidgetSpan(
-                      alignment: PlaceholderAlignment.baseline,
-                      baseline: TextBaseline.alphabetic,
-                      child: LinkButton(
-                          urlLabel: "Cookie Policy.",
-                          url: "https://www.patreon.com/policy/cookies"),
-                    ),
-                  ],
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: const TextSpan(
+                    text:
+                        "By clicking Sign Up for Patreon,Continue with Google,or Continue with Facebook,you agree to Patreon's ",
+                    style: TextStyle(color: Colors.black),
+                    children: <InlineSpan>[
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.baseline,
+                        baseline: TextBaseline.alphabetic,
+                        child: LinkButton(
+                            urlLabel: "Terms of Use,",
+                            url: "https://www.patreon.com/policy/legal"),
+                      ),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.baseline,
+                        baseline: TextBaseline.alphabetic,
+                        child: LinkButton(
+                            urlLabel: " Privacy Policy",
+                            url: "https://privacy.patreon.com/"),
+                      ),
+                      TextSpan(
+                        text: ',and ',
+                      ),
+                      WidgetSpan(
+                        alignment: PlaceholderAlignment.baseline,
+                        baseline: TextBaseline.alphabetic,
+                        child: LinkButton(
+                            urlLabel: "Cookie Policy.",
+                            url: "https://www.patreon.com/policy/cookies"),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             )

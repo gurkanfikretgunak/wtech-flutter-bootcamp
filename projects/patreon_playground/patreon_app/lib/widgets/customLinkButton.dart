@@ -33,7 +33,10 @@ class LinkButton extends StatelessWidget {
       onPressed: () {
         _launchUrl(url);
       },
-      child: Text(urlLabel),
+      child: Text(
+        urlLabel,
+        style: const TextStyle(decoration: TextDecoration.underline,color: Colors.red),
+      ),
     );
   }
 }

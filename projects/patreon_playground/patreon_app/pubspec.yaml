@@ -33,6 +33,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.2.14
+  font_awesome_flutter: ^10.2.1
   url_launcher: ^6.1.6
 
 dev_dependencies:

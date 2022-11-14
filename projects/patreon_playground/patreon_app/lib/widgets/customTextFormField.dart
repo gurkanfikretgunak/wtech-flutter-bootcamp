@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
         validator: valid,
         obscureText: obscure,
         decoration: InputDecoration(
-          labelStyle: const TextStyle(color: Colors.red),
+          floatingLabelStyle: TextStyle(color: Colors.red),
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
