@@ -1,15 +1,12 @@
 
 
 import 'package:flutter/material.dart';
-
-
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
 
-    
     return Scaffold(
       backgroundColor: const Color(0xFFE9E9E9),
       bottomNavigationBar: ClipRRect(
@@ -28,21 +25,21 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Icon(Icons.home),
               ),
-         title: Text(
+         label: Text(
             "Home",
             style: const TextStyle(color: Colors.white),
           ),
             ),
             BottomNavigationBarItem( 
-              // ignore: prefer_const_constructors
+              
               icon: Padding(
                 child: Icon(Icons.search),
                 padding: const EdgeInsets.only(top: 8.0),
               ),
              
-              title: Text(
+              label: Text(
                 "Search",
-                style: const TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ), 
             ),
             BottomNavigationBarItem(
@@ -50,7 +47,7 @@ class ProfileScreen extends StatelessWidget {
                 child: Icon(Icons.person),
                 padding: const EdgeInsets.only(top: 8.0),
                 ),
-                title: Text(
+                label: Text(
                   "Profile",
                   style: const TextStyle(color: Colors.white),
                                 ),
@@ -79,8 +76,46 @@ class ProfileScreen extends StatelessWidget {
            left: 0,
            right: 0,
            child: Container(
-            color: Colors.grey,
+
+             
             height: height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(
+                    bottom: 8,
+                    left: 32,
+                    right: 16,
+                  ),
+                  child: Text(
+                    "Meals for Today",
+                    style: const TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w700,
+
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Row(
+                      children: <Widget>[
+
+                      ],
+                    ),
+                  ),
+                  ),  
+                Expanded(
+                  child: Container(
+                    color: Colors.blueAccent,
+                  ),
+                ),
+              ],
+
+
+            ),
             
            ),
           ),
