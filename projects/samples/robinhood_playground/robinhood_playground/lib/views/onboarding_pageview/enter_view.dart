@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinhood_playground/views/onboarding_pageview/cover_onboarding.dart';
 import 'package:robinhood_playground/views/onboarding_pageview/investing_onboarding.dart';
 import 'package:robinhood_playground/views/onboarding_pageview/start_onboarding.dart';
 import 'package:robinhood_playground/views/onboarding_pageview/welcome_onboarding.dart';
@@ -32,6 +33,7 @@ class _EnterViewState extends State<EnterView> {
         WelcomeOnBoarding(),
         InvestingOnBoarding(),
         StartOnboarding(),
+        CoverOnBoarding(),
       ],
     );
   }
