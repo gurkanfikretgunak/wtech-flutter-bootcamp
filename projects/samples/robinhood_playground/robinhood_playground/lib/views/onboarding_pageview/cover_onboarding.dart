@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
+import 'package:robinhood_playground/product/assets/image_path.dart';
 import 'package:robinhood_playground/widget/login_signup_divider_component.dart';
 import 'package:robinhood_playground/widget/onboarding_base_title.dart';
 import 'package:robinhood_playground/widget/onboarding_dimmed_text.dart';
@@ -7,16 +8,14 @@ import 'package:robinhood_playground/widget/onboarding_image.dart';
 
 class CoverOnBoarding extends StatelessWidget {
   const CoverOnBoarding({super.key});
-  final String path = 'assets/page_cover.png';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          OnboardingImage(
-            path: path,
-          ),
+          OnboardingImage(path: ImagePath.instance.cover),
           Padding(
             padding: GeneralPadding().generalHorizontal,
             child: const _CoverText(),

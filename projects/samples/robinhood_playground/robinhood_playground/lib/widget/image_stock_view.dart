@@ -1,19 +1,20 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:robinhood_playground/product/assets/image_path.dart';
 
 class ImageContainerStock extends StatelessWidget {
   const ImageContainerStock({
     Key? key,
   }) : super(key: key);
-  final String path = 'assets/page_two_copy.png';
+  
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 200,
       decoration:
-          BoxDecoration(image: DecorationImage(image: AssetImage(path))),
+          BoxDecoration(image: DecorationImage(image: AssetImage(ImagePath.instance.two))),
     );
   }
 }

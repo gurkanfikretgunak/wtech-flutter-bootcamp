@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinhood_playground/product/assets/image_path.dart';
 import 'package:robinhood_playground/widget/login_signup_divider_component.dart';
 import 'package:robinhood_playground/widget/onboarding_base_title.dart';
 
@@ -15,10 +16,10 @@ class _WelcomeOnBoardingState extends State<WelcomeOnBoarding> {
     return Scaffold(
         body: Container(
       width: MediaQuery.of(context).size.width,
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
           image: DecorationImage(
               image: AssetImage(
-                'assets/welcomepage.png',
+                ImagePath.instance.welcomePage,
               ),
               fit: BoxFit.fill)),
       child: Column(
