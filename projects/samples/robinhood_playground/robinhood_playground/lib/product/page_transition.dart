@@ -14,7 +14,7 @@ class _PageTransitionState extends State<PageTransition> {
       scrollDirection: Axis.horizontal,
       itemCount: 4,
       itemBuilder: (context, index) {
-        return const _FillContainer(color: Colors.black);
+        return _FillContainer(color: PageTranitionColor.grey.getColor());
       },
     );
   }

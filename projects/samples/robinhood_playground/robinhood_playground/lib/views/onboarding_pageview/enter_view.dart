@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:robinhood_playground/views/onboarding_pageview/investing_onboard.dart';
 import 'package:robinhood_playground/views/onboarding_pageview/welcome_onboarding.dart';
 
 class EnterView extends StatefulWidget {
@@ -28,6 +29,7 @@ class _EnterViewState extends State<EnterView> {
       onPageChanged: _updatePageIndex,
       children: const [
         WelcomeOnBoarding(),
+        InvestingOnBoarding(),
       ],
     );
   }

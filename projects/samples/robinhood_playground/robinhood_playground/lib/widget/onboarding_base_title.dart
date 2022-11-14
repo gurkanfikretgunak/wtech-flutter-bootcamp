@@ -8,8 +8,9 @@ class OnBoardingBaseTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
+      textAlign: TextAlign.left,
       style: Theme.of(context).textTheme.headline3?.copyWith(
-          fontWeight: FontWeight.w400, color: Colors.black, height: 1),
+          fontWeight: FontWeight.w400, color: Colors.black, height: 1.1),
     );
   }
 }

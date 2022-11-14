@@ -30,8 +30,8 @@ class _WelcomeOnBoardingState extends State<WelcomeOnBoarding> {
             child: const _OnboardingWelcomeText(),
           ),
           Padding(
-            padding:
-                EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.45),
+            padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.435),
             child: const LoginSignupDivider(isBackGroundGreen: true),
           )
         ],
