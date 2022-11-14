@@ -13,6 +13,8 @@ class NavigatorCustom {
 
       case NavigateRoutes.enterview:
         return _navigateToNormal(const EnterView());
+      case NavigateRoutes.emailsignup:
+        return _navigateToNormal(const GetEmailView());
     }
   }
 

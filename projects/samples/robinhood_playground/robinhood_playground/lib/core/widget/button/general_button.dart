@@ -34,3 +34,16 @@ class GenerealButton extends StatelessWidget {
 class _ElevatedButtonPadding {
   final EdgeInsets vertical = const EdgeInsets.symmetric(vertical: 15);
 }
+
+enum GeneralButtonColor { black, white }
+
+extension GeneralButtonColorExtension on GeneralButtonColor {
+  Color getColor() {
+    switch (this) {
+      case GeneralButtonColor.black:
+        return Colors.black;
+      case GeneralButtonColor.white:
+        return Colors.white;
+    }
+  }
+}

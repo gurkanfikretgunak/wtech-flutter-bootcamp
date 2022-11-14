@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/widget/button/login_sign_up_button.dart';
 import 'package:robinhood_playground/core/widget/custom_divider.dart';
+import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/product/page_transition.dart';
 
 class LoginSignupDivider extends StatelessWidget {
@@ -55,7 +56,9 @@ class _SignupButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoginSignupButton(
         text: LoginSignupName.signup.getName(),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(NavigateRoutes.emailsignup.name);
+        },
         backgroundColor: LoginSignupColor.black.getValue(),
         foregroundColor: LoginSignupColor.white.getValue());
   }
