@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_model_bottom_elevated_button.dart';
 import 'after_login_page_view.dart';
 import 'login_with_email_view.dart';
 

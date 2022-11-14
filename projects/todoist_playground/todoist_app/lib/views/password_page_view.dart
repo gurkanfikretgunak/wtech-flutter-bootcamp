@@ -3,7 +3,7 @@ import 'package:todoist_app/views/after_login_page_view.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_model_bottom_elevated_button.dart';
 import 'login_with_email_view.dart';
 
 class LoginPasswordView extends StatefulWidget {

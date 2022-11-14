@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import '../core/themes/custom_themes.dart';
 import 'welcome_page_view.dart';
+import 'package:lottie/lottie.dart';
 
 class WhiteCircularPage extends StatelessWidget {
   const WhiteCircularPage({Key? key, required this.logText}) : super(key: key);
@@ -11,20 +12,25 @@ class WhiteCircularPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-          child: Column(
+      backgroundColor: Colors.white,
+      body: Column(
         children: [
-          AnimatedSplashScreen(
-            splash: const CircularProgressIndicator(color: Colors.grey, strokeWidth: 10),
-            backgroundColor: Colors.white,
-            splashIconSize: 100,
-            nextScreen: const WelcomeToApp(),
-            pageTransitionType: PageTransitionType.topToBottom,
-            duration: 800,
-            animationDuration: const Duration(seconds: 3),
+          SizedBox(
+            height: 500,
+            width: 100,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: AnimatedSplashScreen(
+                splash: Lottie.asset("assets/lottie/97443-loading-gray.json"),
+                backgroundColor: Colors.white,
+                splashIconSize: 100,
+                nextScreen: const WelcomeToApp(),
+                pageTransitionType: PageTransitionType.topToBottom,
+                duration: 1000,
+              ),
+            ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
+          Center(
             child: Text(
               logText,
               style: CustomTheme.customThemeData().textTheme.subtitle1,
@@ -32,7 +38,7 @@ class WhiteCircularPage extends StatelessWidget {
             ),
           )
         ],
-      )),
+      ),
     );
   }
 }

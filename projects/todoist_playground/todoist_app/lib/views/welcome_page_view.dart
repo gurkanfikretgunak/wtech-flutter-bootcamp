@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import 'package:todoist_app/widgets/custom_elevated_button.dart';
-import 'package:todoist_app/widgets/deneme_button.dart';
+import 'package:todoist_app/widgets/custom_model_bottom_elevated_button.dart';
+import 'package:todoist_app/widgets/custom_button_for_welcome.dart';
 
 import '../constants/custom_constants.dart';
 import 'login_with_email_view.dart';

@@ -3,7 +3,7 @@ import 'package:todoist_app/views/sign_up_page_view.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/custom_elevated_button.dart';
+import '../widgets/custom_model_bottom_elevated_button.dart';
 import 'password_page_view.dart';
 
 class LoginWithEmail extends StatefulWidget {
