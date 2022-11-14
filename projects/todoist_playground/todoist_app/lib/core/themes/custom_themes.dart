@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class CustomTheme {
-  static ThemeData customThemeData() => ThemeData().copyWith(
+  static ThemeData customLightThemeData() => ThemeData().copyWith(
         iconTheme: const IconThemeData(
           color: Colors.red,
         ),
-        scaffoldBackgroundColor: Colors.white,
+        backgroundColor: Colors.grey[50],
         primaryColor: Colors.red,
         textTheme: TextTheme(
             headline1: TextStyle(

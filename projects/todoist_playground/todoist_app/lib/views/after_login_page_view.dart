@@ -34,7 +34,7 @@ class WhiteCircularPage extends StatelessWidget {
           Center(
             child: Text(
               logText,
-              style: CustomTheme.customThemeData().textTheme.subtitle1,
+              style: CustomTheme.customLightThemeData().textTheme.subtitle1,
               textAlign: TextAlign.center,
             ),
           )

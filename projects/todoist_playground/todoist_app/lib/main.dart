@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             themeMode: value.selectedThemeMode,
-            theme: CustomTheme.customThemeData(),
+            theme: CustomTheme.customLightThemeData(),
             darkTheme: ThemeData(
               brightness: Brightness.dark,
             ),

@@ -31,13 +31,13 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 icon: const Icon(Icons.arrow_back_ios)),
             Text(
               "Log in with your password",
-              style: CustomTheme.customThemeData().textTheme.headline1,
+              style: CustomTheme.customLightThemeData().textTheme.headline1,
             ),
           ]),
         ),
         Text(
           "Using nur@gmail.com to log in.",
-          style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
+          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 50.0),
@@ -49,7 +49,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
               children: [
                 Text(
                   "YOUR PASSWORD",
-                  style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
+                  style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 ),
                 const CustomInputDecoration(
                   labelText: "Password",
@@ -67,7 +67,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                         onPressed: () {},
                         child: Text(
                           "Forgot your password",
-                          style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
+                          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
                         )))
               ],
             ),

@@ -30,13 +30,13 @@ class _SignInViewState extends State<SignInView> {
                 icon: const Icon(Icons.arrow_back_ios)),
             Text(
               "Sign Up",
-              style: CustomTheme.customThemeData().textTheme.headline1,
+              style: CustomTheme.customLightThemeData().textTheme.headline1,
             ),
           ]),
         ),
         Text(
           "Using nur@gmail.com to log in.",
-          style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
+          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 50.0),
@@ -48,12 +48,12 @@ class _SignInViewState extends State<SignInView> {
               children: [
                 Text(
                   yourEmailText,
-                  style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
+                  style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 ),
                 const CustomInputDecoration(labelText: "Name"),
                 Text(
                   "YOUR PASSWORD",
-                  style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
+                  style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 ),
                 const CustomInputDecoration(
                   labelText: "Password",

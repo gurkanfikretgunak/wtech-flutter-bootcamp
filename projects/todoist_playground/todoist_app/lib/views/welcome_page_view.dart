@@ -17,6 +17,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Center(
           child: Padding(
@@ -34,7 +35,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                       padding: const EdgeInsets.only(top: 15.0),
                       child: Text(
                         CustomTextConstants().welcomeText,
-                        style: CustomTheme.customThemeData().textTheme.headline1,
+                        style: CustomTheme.customLightThemeData().textTheme.headline1,
                       ),
                     ),
                   ],
@@ -97,7 +98,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         padding: const EdgeInsets.only(bottom: 20.0, left: 30, right: 30),
                         child: Text(
                           CustomTextConstants().agreeText,
-                          style: CustomTheme.customThemeData().textTheme.subtitle1,
+                          style: CustomTheme.customLightThemeData().textTheme.subtitle1,
                           textAlign: TextAlign.center,
                         ),
                       )

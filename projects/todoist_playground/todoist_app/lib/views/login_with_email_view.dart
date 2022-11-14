@@ -37,7 +37,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
             ),
             Text(
               CustomTextConstants().whatEmailText,
-              style: CustomTheme.customThemeData().textTheme.headline1,
+              style: CustomTheme.customLightThemeData().textTheme.headline1,
             ),
           ]),
         ),
@@ -49,7 +49,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
             children: [
               Text(
                 yourEmailText,
-                style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
+                style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 textAlign: TextAlign.left,
               ),
               CustomInputDecoration(labelText: "Email", controller: controller),
