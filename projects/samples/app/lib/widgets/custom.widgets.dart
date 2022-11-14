@@ -82,4 +82,6 @@ class CustomWidgets{
           ],
         ));
   }
+
+  static customAppBar() {}
 }
