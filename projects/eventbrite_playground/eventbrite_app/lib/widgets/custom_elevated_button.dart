@@ -6,6 +6,8 @@ class CustomElevatedButton extends StatelessWidget {
   final Color color;
   final TextStyle textStyle;
   final bool? border;
+  final bool? hasImage;
+  final String? imagePath;
   const CustomElevatedButton({
     Key? key,
     required this.text,
@@ -13,6 +15,8 @@ class CustomElevatedButton extends StatelessWidget {
     required this.color,
     required this.textStyle,
     this.border,
+    this.hasImage,
+    this.imagePath,
   }) : super(key: key);
 
   @override
@@ -30,9 +34,23 @@ class CustomElevatedButton extends StatelessWidget {
                     ? const BorderSide(color: Colors.black54, width: 2)
                     : null,
               ),
-              child: Text(
-                text,
-                style: textStyle,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  hasImage == true
+                      ? Container(
+                          padding: const EdgeInsets.only(right: 20),
+                          child: Image.asset(
+                            imagePath!,
+                            height: 20,
+                          ),
+                        )
+                      : const SizedBox(),
+                  Text(
+                    text,
+                    style: textStyle,
+                  ),
+                ],
               ),
             ),
           ),

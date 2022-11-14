@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/view/get_started/get_started_view.dart';
 import 'package:eventbrite_app/view/register/register_view.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
@@ -28,7 +29,7 @@ class TicketView extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => const RegisterView(),
+                    builder: (context) => const GetStartedView(),
                   ),
                 );
               },
@@ -39,7 +40,7 @@ class TicketView extends StatelessWidget {
               text: 'Find things to do',
               onPressed: () {},
               color: Colors.white,
-              border:true,
+              border: true,
               textStyle: const TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w900),
             ),
