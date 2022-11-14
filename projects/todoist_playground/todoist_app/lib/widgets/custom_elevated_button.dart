@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todoist_app/service/data_service.dart';
 
@@ -35,7 +34,6 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          print(widget.controller!.text);
           _settingModalBottomSheet(context, widget.hasDataWidget, widget.nullDataWidget, widget.controller);
         },
         style: ButtonStyle(
@@ -82,23 +80,39 @@ void _settingModalBottomSheet(context, Widget hasDatawidget, Widget nullDataWidg
             bottom: 30,
             top: 8,
           ),
-          child: _buildBody(context, controller!.text, hasDatawidget, nullDataWidget)));
+          child: hasDatawidget));
 }
 
-FutureBuilder<List<Users>> _buildBody(
+/*FutureBuilder<List<Users>> _buildBody(
     BuildContext context, String controller, Widget hasDataWidget, Widget nullDataWidget) {
   final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
       baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
+  var emailList = [];
+  var noEmailList = [];
   return FutureBuilder<List<Users>>(
     future: client.getUsers(),
     builder: (context, snapshot) {
       if (snapshot.hasData) {
         return ListView.builder(
             itemCount: snapshot.data!.length,
-            itemBuilder: (_, index) => snapshot.data![index].email == controller ? hasDataWidget : nullDataWidget);
+            itemBuilder: (_, index) {
+              for (int i = 0; i < snapshot.data!.length; ++i) {
+                if (snapshot.data![index].email == controller) {
+                  emailList.add(snapshot.data![index]);
+                  return hasDataWidget;
+                } else {
+                  noEmailList.add(snapshot.data![index]);
+                }
+                if (noEmailList.isNotEmpty && i <= 0) {
+                  return nullDataWidget;
+                }
+              }
+
+              return Text("");
+            });
       } else {
         return const Center(child: CircularProgressIndicator());
       }
     },
   );
-}
+}*/

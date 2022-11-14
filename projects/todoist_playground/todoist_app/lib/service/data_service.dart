@@ -10,6 +10,9 @@ abstract class RestClient {
 
   @GET("/users")
   Future<List<Users>> getUsers();
+  @GET("/users/{id}")
+  Future<Users> getUser(@Path("id") String id);
   @POST("/users")
-  Future<void> updateTasks(List<Users> users);
+  @FormUrlEncoded()
+  Future<Users> loginPage(@Field("email") emailId, @Field("password") password);
 }

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/views/after_login_page_view.dart';
 
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
 import '../widgets/custom_elevated_button.dart';
-import 'after_login_page_view.dart';
 import 'login_with_email_view.dart';
 
-class SignInView extends StatefulWidget {
-  const SignInView({Key? key}) : super(key: key);
+class LoginPasswordView extends StatefulWidget {
+  const LoginPasswordView({Key? key}) : super(key: key);
 
   @override
-  State<SignInView> createState() => _SignInViewState();
+  State<LoginPasswordView> createState() => _LoginPasswordViewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _LoginPasswordViewState extends State<LoginPasswordView> {
   @override
   Widget build(BuildContext context) {
-    var yourEmailText = "YOUR NAME";
+    var yourEmailText = "YOUR PASSWORD";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -29,7 +29,7 @@ class _SignInViewState extends State<SignInView> {
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
             Text(
-              "Sign Up",
+              "Log in with your password",
               style: CustomTheme.customThemeData().textTheme.headline1,
             ),
           ]),
@@ -47,11 +47,6 @@ class _SignInViewState extends State<SignInView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  yourEmailText,
-                  style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
-                ),
-                const CustomInputDecoration(labelText: "Name"),
-                Text(
                   "YOUR PASSWORD",
                   style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(),
                 ),
@@ -63,10 +58,16 @@ class _SignInViewState extends State<SignInView> {
                 CustomElevatedButton(
                   buttonTexts: CustomTextConstants().buttonTextEmail,
                   buttonColors: Colors.red,
-                  hasDataWidget: const WhiteCircularPage(
-                      logText: "If you don't know where you are going, you might wind up someplace else. -YOGI BERRA"),
-                  nullDataWidget: const SignInView(),
+                  hasDataWidget: const WhiteCircularPage(logText: "If at first you don't succeed,laugh until you do."),
+                  nullDataWidget: const LoginPasswordView(),
                 ),
+                Center(
+                    child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Forgot your password",
+                          style: CustomTheme.customThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
+                        )))
               ],
             ),
           ),

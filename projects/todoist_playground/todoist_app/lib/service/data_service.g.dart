@@ -46,24 +46,56 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<void> updateTasks(users) async {
+  Future<Users> getUser(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
-    await _dio.fetch<void>(_setStreamType<void>(Options(
-      method: 'POST',
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Users>(Options(
+      method: 'GET',
       headers: _headers,
       extra: _extra,
     )
-        .compose(
-          _dio.options,
-          '/users',
-          queryParameters: queryParameters,
-          data: _data,
-        )
-        .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    return null;
+            .compose(
+              _dio.options,
+              '/users/${id}',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Users.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<Users> loginPage(
+    emailId,
+    password,
+  ) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = {
+      'email': emailId,
+      'password': password,
+    };
+    final _result =
+        await _dio.fetch<Map<String, dynamic>>(_setStreamType<Users>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+      contentType: 'application/x-www-form-urlencoded',
+    )
+            .compose(
+              _dio.options,
+              '/users',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = Users.fromJson(_result.data!);
+    return value;
   }
 
   RequestOptions _setStreamType<T>(RequestOptions requestOptions) {
