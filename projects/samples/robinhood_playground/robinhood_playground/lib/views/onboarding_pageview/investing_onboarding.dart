@@ -47,7 +47,7 @@ class _InvestingText extends StatelessWidget {
           child: Text(
             _InvestingOnBoardingText().description,
             textAlign: TextAlign.left,
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.subtitle1?.copyWith(height: 1.2),
           ),
         ),
         //
