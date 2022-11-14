@@ -5,8 +5,8 @@ import '../../model/themes_model.dart';
 class ThemeProvider with ChangeNotifier {
   ThemeMode selectedThemeMode = appThemes[0].mode;
 
-  setSelectedThemeMode(ThemeMode _themeMode) {
-    selectedThemeMode = _themeMode;
+  setSelectedThemeMode(ThemeMode themeMode) {
+    selectedThemeMode = themeMode;
     notifyListeners();
   }
 }

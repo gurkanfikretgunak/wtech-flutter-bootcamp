@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../constants/custom_constants.dart';
 import '../core/provider/theme_change_provider.dart';
 import '../model/themes_model.dart';
 
 class ThemeSwitcher extends StatelessWidget {
+  const ThemeSwitcher({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,17 +14,8 @@ class ThemeSwitcher extends StatelessWidget {
         builder: (c, themeProvider, _) => Card(
           child: Column(
             children: [
-              Container(
-                width: 500,
-                height: 40,
-                child: Row(
-                  children: [
-                    Image.asset(
-                      CustomImagePathConstants().appIconPath,
-                    ),
-                  ],
-                ),
-              ),
+              SizedBox(
+                  width: 500, height: 40, child: Row(children: [Image.asset(CustomImagePathConstants().appIconPath)])),
               Padding(
                 padding: const EdgeInsets.only(top: 80.0),
                 child: SizedBox(
@@ -31,17 +23,16 @@ class ThemeSwitcher extends StatelessWidget {
                   child: ListView.builder(
                     itemCount: appThemes.length,
                     itemBuilder: (context, index) {
-                      bool _isSelectedTheme = appThemes[index].mode == themeProvider.selectedThemeMode;
+                      bool isSelectedTheme = appThemes[index].mode == themeProvider.selectedThemeMode;
                       return GestureDetector(
-                        onTap:
-                            _isSelectedTheme ? null : () => themeProvider.setSelectedThemeMode(appThemes[index].mode),
+                        onTap: isSelectedTheme ? null : () => themeProvider.setSelectedThemeMode(appThemes[index].mode),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: AnimatedContainer(
                             height: 100,
                             duration: const Duration(milliseconds: 200),
                             decoration: BoxDecoration(
-                              color: _isSelectedTheme ? Theme.of(context).primaryColor : Colors.transparent,
+                              color: isSelectedTheme ? Theme.of(context).primaryColor : Colors.transparent,
                               borderRadius: BorderRadius.circular(10),
                               border: Border.all(width: 2, color: Theme.of(context).primaryColor),
                             ),

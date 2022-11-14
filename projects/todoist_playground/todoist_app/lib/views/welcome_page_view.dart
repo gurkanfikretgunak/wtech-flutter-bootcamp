@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/widgets/custom_model_bottom_elevated_button.dart';
 import 'package:todoist_app/widgets/custom_button_for_welcome.dart';
-
 import '../constants/custom_constants.dart';
 import 'login_with_email_view.dart';
 
@@ -26,18 +25,13 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
               children: [
                 Column(
                   children: [
-                    SizedBox(
-                      width: 40,
-                      height: 40,
-                      child: Image.asset(CustomImagePathConstants().appIconPath),
-                    ),
+                    SizedBox(width: 40, height: 40, child: Image.asset(CustomImagePathConstants().appIconPath)),
                     Padding(
-                      padding: const EdgeInsets.only(top: 15.0),
-                      child: Text(
-                        CustomTextConstants().welcomeText,
-                        style: CustomTheme.customLightThemeData().textTheme.headline1,
-                      ),
-                    ),
+                        padding: const EdgeInsets.only(top: 15.0),
+                        child: Text(
+                          CustomTextConstants().welcomeText,
+                          style: CustomTheme.customLightThemeData().textTheme.headline1,
+                        ))
                   ],
                 ),
                 Expanded(
@@ -46,12 +40,11 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: Image.asset(
-                          CustomImagePathConstants().welcomeIconPath,
-                          height: 250,
-                        ),
-                      ),
+                          padding: const EdgeInsets.only(top: 8.0),
+                          child: Image.asset(
+                            CustomImagePathConstants().welcomeIconPath,
+                            height: 250,
+                          )),
                       ElevatedButtonC(
                         buttonIcons: Icons.email_rounded,
                         buttonTexts: CustomTextConstants().buttonTextEmail,
@@ -69,18 +62,15 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           SizedBox(
-                            height: 50,
-                            width: 150,
-                            child: OutlinedButton(
-                              onPressed: () {},
-                              child: Center(
-                                child: Image.asset(
-                                  CustomImagePathConstants().googleIconPath,
-                                  width: 30,
-                                ),
-                              ),
-                            ),
-                          ),
+                              height: 50,
+                              width: 150,
+                              child: OutlinedButton(
+                                  onPressed: () {},
+                                  child: Center(
+                                      child: Image.asset(
+                                    CustomImagePathConstants().googleIconPath,
+                                    width: 30,
+                                  )))),
                           SizedBox(
                             height: 50,
                             width: 150,

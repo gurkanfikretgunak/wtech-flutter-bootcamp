@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/views/after_login_page_view.dart';
 import 'package:todoist_app/views/pick_theme_page_view.dart';
-
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
 import '../widgets/custom_model_bottom_elevated_button.dart';
@@ -17,7 +15,7 @@ class LoginPasswordView extends StatefulWidget {
 class _LoginPasswordViewState extends State<LoginPasswordView> {
   @override
   Widget build(BuildContext context) {
-    var yourEmailText = "YOUR PASSWORD";
+    var usersText = "Using nur@gmail.com to log in.";
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -30,13 +28,13 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
             Text(
-              "Log in with your password",
+              CustomTextConstants().logWithPasswordText,
               style: CustomTheme.customLightThemeData().textTheme.headline1,
             ),
           ]),
         ),
         Text(
-          "Using nur@gmail.com to log in.",
+          usersText,
           style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
         ),
         Padding(
@@ -48,11 +46,11 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "YOUR PASSWORD",
-                  style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
+                  CustomTextConstants().yourPasswordText,
+                  style: CustomTheme.customLightThemeData().textTheme.subtitle1,
                 ),
-                const CustomInputDecoration(
-                  labelText: "Password",
+                CustomInputDecoration(
+                  labelText: CustomTextConstants().passwordLabelText,
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
                 ),
@@ -66,7 +64,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                     child: TextButton(
                         onPressed: () {},
                         child: Text(
-                          "Forgot your password",
+                          CustomTextConstants().forgotPasswordText,
                           style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
                         )))
               ],

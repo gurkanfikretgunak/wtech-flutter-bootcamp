@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         builder: (context, value, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Flutter Demo',
+            title: 'Todoist App',
             themeMode: value.selectedThemeMode,
             theme: CustomTheme.customLightThemeData(),
             darkTheme: ThemeData(

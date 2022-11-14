@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:todoist_app/views/pick_theme_page_view.dart';
 import '../core/themes/custom_themes.dart';
-import 'welcome_page_view.dart';
 import 'package:lottie/lottie.dart';
 
 class WhiteCircularPage extends StatelessWidget {
