@@ -1,5 +1,5 @@
 import 'package:coursera/core/constants/constants.dart';
-import 'package:coursera/views/authentication/terms_text.dart';
+import 'package:coursera/views/authentication/authentication_custom_widget/terms_text.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';

@@ -1,11 +1,12 @@
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/sign_up_view.dart';
-import 'package:coursera/views/authentication/terms_text.dart';
+import 'package:coursera/views/authentication/authentication_custom_widget/terms_text.dart';
 import 'package:coursera/views/home_view.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/custom_logo.dart';
+import 'package:coursera/widgets/custom_viewer_image.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -23,9 +24,12 @@ class SignInView extends StatelessWidget {
           context: context,
           leading: Align(
             alignment: Alignment.centerLeft,
-            child: CustomTextButton(
-              onPressed: () {},
-              text: "Sign Up Later",
+            child: Padding(
+              padding: context.horizontalPaddingLow,
+              child: CustomTextButton(
+                onPressed: () {},
+                text: "Sign Up Later",
+              ),
             ),
           ),
         ),
@@ -96,7 +100,10 @@ class SignInView extends StatelessWidget {
           borderSideColor: constant.appBlack,
           primary: constant.appWhite,
           textColor: constant.appBlack,
-          iconWidget: const Icon(Icons.apple),
+          iconWidget: Icon(
+            Icons.apple,
+            size: context.mediumValue,
+          ),
           text: "Continue with Apple",
           onPressed: () {},
         ),
@@ -104,24 +111,23 @@ class SignInView extends StatelessWidget {
           borderSideColor: constant.appGreyDark,
           primary: constant.appWhite,
           textColor: constant.appGreyDark,
-          iconWidget: Image.asset("assets/icons/google.png"),
-          // icon: FontAwesomeIcons.google,
-          // iconsize: 18,
-          // iconColor: Colors.amber,
+          iconWidget: CustomImageViewer(
+            fit: BoxFit.contain,
+            assetPath: "assets/icons/google.png",
+            height: context.mediumValue,
+          ),
           text: "Continue with Google",
           onPressed: () {},
         ),
         CustomElevatedButton(
-          borderSideColor: constant.appBlue,
+          borderSideColor: constant.facebookLogoColor,
           primary: constant.appWhite,
-          textColor: constant.appBlue,
+          textColor: constant.facebookLogoColor,
           iconWidget: Icon(
+            size: context.mediumValue,
             FontAwesomeIcons.facebook,
-            color: constant.appBlue,
+            color: constant.facebookLogoColor,
           ),
-          // icon: FontAwesomeIcons.facebook,
-          // iconsize: 20,
-          // iconColor: constant.appBlue,
           text: "Continue with Facebook",
           onPressed: () {},
         ),
@@ -135,7 +141,7 @@ class SignInView extends StatelessWidget {
               ),
             );
           },
-          text: "Log in with Email",
+          text: "Log In with Email",
         ),
       ],
     );

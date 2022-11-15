@@ -17,6 +17,7 @@ class CustomTextButton extends StatelessWidget {
     this.padding,
     this.child,
     this.shadowColor,
+    this.minimumSize,
   }) : super(key: key);
 
   final String text;
@@ -29,6 +30,7 @@ class CustomTextButton extends StatelessWidget {
   final Function() onPressed;
   final Widget? child;
   final Color? shadowColor;
+  final Size? minimumSize;
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +39,12 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         shadowColor: shadowColor,
-        padding: padding ?? context.horizontalPaddingMedium,
+        padding: padding ?? EdgeInsets.zero,
         foregroundColor: foregroundColor ?? constants.buttonTextForegroundColor,
+        elevation: 0,
+        minimumSize: minimumSize ??
+            Size(context.dynamicWidth(0.2), context.dynamicHeight(0.05)),
+        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       ),
       onPressed: onPressed,
       child: child ??
