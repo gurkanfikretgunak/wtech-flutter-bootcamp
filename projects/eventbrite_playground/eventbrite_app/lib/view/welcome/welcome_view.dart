@@ -14,59 +14,70 @@ class _WelcomeViewState extends State<WelcomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3)).then((value) => {FlutterNativeSplash.remove()});
+    Future.delayed(const Duration(seconds: 3))
+        .then((value) => {FlutterNativeSplash.remove()});
   }
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.white,
-        bottomNavigationBar: CustomBottomNavigationBar(
-          currentIndex: BottomNavigationItem.home.index,
-        ),
-        body: SafeArea(
-          child: SizedBox(
-            height: size.height,
-            child: Padding(
-              padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text('Hello', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 10),
-                    child: Text(
-                      'Let\'s find your next unforgettable event.\nChoose a location below to get started.',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/get_started.png'),
-                      CustomElevatedButton(
-                        color: const Color(0xFFC14D25),
-                        onPressed: () {},
-                        text: 'Pick a city',
-                        textStyle: const TextStyle(fontWeight: FontWeight.w900),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(Icons.my_location),
-                          TextButton(
-                            onPressed: () {},
-                            child: const Text('Use my current location'),
-                          )
-                        ],
-                      )
-                    ],
-                  ),
-                ],
+      backgroundColor: Colors.white,
+      bottomNavigationBar: CustomBottomNavigationBar(
+        currentIndex: BottomNavigationItem.home.index,
+      ),
+      body: SafeArea(
+          child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'Hello',
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
               ),
             ),
-          ),
-        ));
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 10),
+              child: Text(
+                'Let\'s find your next unforgettable event.\nChoose a location below to get started.',
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+            Container(
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(vertical: size.height * 0.05),
+              height: size.height * 0.4,
+              child: Image.asset('assets/get_started.png'),
+            ),
+            const Spacer(),
+            CustomElevatedButton(
+              color: const Color(0xFFC14D25),
+              onPressed: () {},
+              text: 'Pick a city',
+              textStyle: const TextStyle(fontWeight: FontWeight.w900),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.my_location),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Use my current location'),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
+      )),
+    );
   }
 }
