@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="523b2faa-8e53-41a5-9a81-02250f0909dc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robinhood_playground/lib/core/app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/robinhood_playground/lib/core/app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/robinhood_playground/lib/product/custom_divider.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robinhood_playground/lib/product/general_button.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/robinhood_playground/lib/views/onboarding_stock_views.dart" beforeDir="false" afterPath="$PROJECT_DIR$/robinhood_playground/lib/views/onboarding_stock_views.dart" afterDir="false" />
-    </list>
+    <list default="true" id="523b2faa-8e53-41a5-9a81-02250f0909dc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

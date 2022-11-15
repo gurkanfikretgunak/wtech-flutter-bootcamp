@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
 import 'package:robinhood_playground/user_cache/shared_manager.dart';
 import 'package:robinhood_playground/widget/email_agreement_policy.dart';
@@ -100,9 +101,18 @@ class _GetEmailViewState extends State<GetEmailView> {
   }
 
   Future<void> _goPasswordPage() async {
+    if (await _authentication()) {
+      Navigator.of(context).pushNamed(NavigateRoutes.passwordsignup.name);
+    }
+  }
+
+  Future<bool> _authentication() async {
     if (_isActive && _controller.text.contains('@')) {
       await SharedManager.instance
           .setStringValue(SharedKeys.email, _controller.text);
+      return true;
+    } else {
+      return false;
     }
   }
 }
