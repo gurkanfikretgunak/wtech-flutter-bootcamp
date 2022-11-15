@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/user_cache/shared_keys.dart';
+import 'package:robinhood_playground/user_cache/shared_manager.dart';
 import 'package:robinhood_playground/widget/email_agreement_policy.dart';
 
 class GetEmailView extends StatefulWidget {
@@ -97,9 +99,10 @@ class _GetEmailViewState extends State<GetEmailView> {
     );
   }
 
-  void _goPasswordPage() {
+  Future<void> _goPasswordPage() async {
     if (_isActive && _controller.text.contains('@')) {
-      debugPrint('Passworde  gidecek');
+      await SharedManager.instance
+          .setStringValue(SharedKeys.email, _controller.text);
     }
   }
 }
