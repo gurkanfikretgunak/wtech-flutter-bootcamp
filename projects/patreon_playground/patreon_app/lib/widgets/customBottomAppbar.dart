@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:patreon_app/views/explore_page.dart';
+import 'package:patreon_app/views/home_page.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
   const CustomBottomAppBar({super.key});
@@ -35,16 +36,21 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                     setState(() {
                       _selectedIndex = 0;
                     });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyHomePage()),
+                    );
                   },
                   icon: _selectedIndex == 0
                       ? const Icon(
                           Icons.table_chart,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         )
                       : const Icon(
                           Icons.table_chart_outlined,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         ),
                 ),
@@ -54,16 +60,21 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                     setState(() {
                       _selectedIndex = 1;
                     });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ExplorePage()),
+                    );
                   },
                   icon: _selectedIndex == 1
                       ? const Icon(
                           Icons.explore,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         )
                       : const Icon(
                           Icons.explore_outlined,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         ),
                 ),
@@ -77,12 +88,12 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
                   icon: _selectedIndex == 2
                       ? const Icon(
                           Icons.mail,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         )
                       : const Icon(
                           Icons.mail_outline,
-                          color: Colors.grey,
+                          color: Colors.black,
                           size: 30,
                         ),
                 ),

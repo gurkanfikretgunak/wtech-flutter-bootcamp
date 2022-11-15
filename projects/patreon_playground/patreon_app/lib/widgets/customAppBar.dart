@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
-  const CustomAppBar({super.key});
+  const CustomAppBar({
+    super.key,
+    required this.title,
+    required this.w,
+    required this.color,
+    required this.con,
+    required this.iColor,
+    required this.press,
+  });
+  final String title;
+  final double w;
+  final Color color;
+  final IconData con;
+  final Color iColor;
+  final Function()? press;
+
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
   @override
   PreferredSizeWidget build(BuildContext context) {
@@ -17,24 +31,21 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(50)),
+                      color: color, borderRadius: BorderRadius.circular(50)),
                   child: IconButton(
-                      onPressed: () {
-                        Scaffold.of(context).openDrawer();
-                      },
-                      icon: const Icon(
-                        Icons.person,
-                        color: Colors.black,
+                      onPressed: press,
+                      icon: Icon(
+                        con,
+                        color: iColor,
                       )),
                 ),
-                const SizedBox(
-                  width: 150,
+                SizedBox(
+                  width: w,
                 ),
-                const Text(
-                  "Feed",
+                Text(
+                  title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.black,
                       fontWeight: FontWeight.bold,
                       fontSize: 20),

@@ -6,12 +6,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       title: 'Patreon',
-      // theme: ThemeData(
-      //primarySwatch: Colors.red,
-      // ),
-      home: AuthPage(),
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white
+      ),
+      home: const AuthPage(),
     );
   }
 }
