@@ -96,65 +96,128 @@ class HomeTicketPage extends StatelessWidget {
             ),
           ),
           Container(
-              padding: const EdgeInsets.only(left: 12.0, right: 12.0,top: 10),
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 10),
               child: Container(
-                    height: 50,
-                    width: 350, 
+                height: 50,
+                width: 350,
                 child: TextButton(
                     onPressed: () {
-                      DatePicker.showDatePicker(context,
-                          showTitleActions: true,
-                          minTime: DateTime.now(),
-                          maxTime: DateTime(2024, 1, 1), onChanged: (date) {
+                      DatePicker.showDatePicker(
+                        context,
+                        showTitleActions: true,
+                        minTime: DateTime.now(),
+                        maxTime: DateTime(2024, 1, 1),
+                        onChanged: (date) {
                           print('change $date');
-                        }, onConfirm: (date) {
+                        },
+                        onConfirm: (date) {
                           print('confirm $date');
-                        }, currentTime: DateTime.now(), );
+                        },
+                        currentTime: DateTime.now(),
+                      );
                     },
                     child: Row(
-                      children:const [
-                         Text(
-                                'Outbound',
-                                  style: TextStyle(color: Colors.black,fontSize: 21),
+                      children: const [
+                        Text(
+                          'Outbound',
+                          style: TextStyle(color: Colors.black, fontSize: 21),
                         ),
-                        
                       ],
-                    )
-                    ),
-                    
-              )
-          ),
+                    )),
+              )),
           Container(
-              padding: const EdgeInsets.only(left: 12.0, right: 12.0,top: 10),
+              padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 10),
               child: Container(
-                    height: 50,
-                    width: 350, 
+                height: 50,
+                width: 350,
                 child: TextButton(
                     onPressed: () {
-                      DatePicker.showDatePicker(context,
-                          showTitleActions: true,
-                          minTime: DateTime.now(),
-                          maxTime: DateTime(2024, 1, 1), onChanged: (date) {
+                      DatePicker.showDatePicker(
+                        context,
+                        showTitleActions: true,
+                        minTime: DateTime.now(),
+                        maxTime: DateTime(2024, 1, 1),
+                        onChanged: (date) {
                           print('change $date');
-                        }, onConfirm: (date) {
+                        },
+                        onConfirm: (date) {
                           print('confirm $date');
-                        }, currentTime: DateTime.now(), );
+                        },
+                        currentTime: DateTime.now(),
+                      );
                     },
                     child: Row(
-                      children:const [
-                         Text(
-                                'Return',
-                                  style: TextStyle(color: Colors.black,fontSize: 21),
+                      children: const [
+                        Text(
+                          'Return',
+                          style: TextStyle(color: Colors.black, fontSize: 21),
                         ),
-                        
                       ],
-                    )
-                    ),
-                    
-              )
-          )
+                    )),
+              )),
+          InkWell(
+            child: Container(
+              height: 50,
+              width: 350,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Icon(Icons.person),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: const [
+                          Text("1 Adult"),
+                          Icon(Icons.keyboard_arrow_right_sharp)
+                        ],
+                      ),
+                      const Padding(padding: EdgeInsets.only(top: 8.0)),
+                      const Text(
+                        "Add loyalyty cards & vouchers",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          const Padding(padding: EdgeInsets.only(top: 8.0)),
+          InkWell(
+            child: Container(
+              alignment: Alignment.center,
+              height: 50,
+              width: 350,
+              decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  borderRadius: BorderRadius.circular(5)),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Text(
+                    "      to:",
+                    style: TextStyle(fontSize: 15, color: Colors.white),
+                  ),
+                  Padding(padding: EdgeInsets.only(left: 10)),
+                  Text(
+                    "Destination Station",
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+            BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: const Icon(Icons.search)),label: 'Search'),
+            BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: const Icon(Icons.airplane_ticket_outlined)),label: 'My Tickets'),
+            BottomNavigationBarItem(icon: IconButton(onPressed: (){}, icon: const Icon(Icons.person)),label: 'Sign In'),
+          ]),
     );
   }
 }
