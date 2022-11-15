@@ -33,11 +33,7 @@ class LoginPage extends StatelessWidget {
               text: "Log in with Email",
               buttonColor: Colors.red.shade400,
               onPress: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => const LoginwithEmail()),
-                );
+                Navigator.pushNamed(context, "/loginWithEmail");
               },
               disabledColor: Colors.red.shade400,
             ),
@@ -49,11 +45,7 @@ class LoginPage extends StatelessWidget {
                   const Text("New to Patreon?"),
                   TextButton(
                       onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const RegisterPage()),
-                        );
+                        Navigator.pushNamed(context, "/register");
                       },
                       child: const Text(
                         "Sign Up",

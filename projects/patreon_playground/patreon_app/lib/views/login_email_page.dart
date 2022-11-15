@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:patreon_app/views/home_page.dart';
-
 import '../widgets/customTextButton.dart';
 import '../widgets/customTextFormField.dart';
 
@@ -115,13 +114,15 @@ class _RegisterPageState extends State<LoginwithEmail> {
                       CustomTextButton(
                         text: "Log In",
                         buttonColor: Colors.red,
-                        onPress: value ? () {
-                          Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const MyHomePage()),
-                              );
-                        } : null,
+                        onPress: value
+                            ? () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const MyHomePage()),
+                                );
+                              }
+                            : null,
                         disabledColor: Colors.red.shade200,
                       ),
                     ],

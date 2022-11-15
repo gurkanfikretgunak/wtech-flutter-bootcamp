@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: const SafeAreaExample(),
+      home: const HomeView(),
       title: 'Flutter Demo',
       theme: CustomTheme.customTheme(),
     );
