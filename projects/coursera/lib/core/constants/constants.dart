@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 //Singleton design pattern, çalışma zamanında yalnızca bir obje yaratılmasını garanti eden bir tasarım desenidir.
 //Birden çok sınıfın aynı intence'ı kullanması gerektiğinde bu yapı kullanılabilir.
 
-class ConstantsClass {
+class ConstantsClass extends StatelessWidget {
   static final ConstantsClass _instance = ConstantsClass._init();
   static ConstantsClass get instance => _instance;
   ConstantsClass._init();
@@ -51,6 +51,7 @@ class ConstantsClass {
   //ElevatedButton
   Color buttonElevatedBackgroundColor = const Color(0xFF2354CC);
   BorderRadiusGeometry buttonElevatedBorderRadius = BorderRadius.circular(5);
+
   Color buttonElevatedBorderSideColor = Colors.transparent;
   Color buttonElevatedTextColor = const Color(0xFFFFFFFF);
   Color buttonElevatedShadowColor = const Color(0xFF2354CC);
@@ -76,4 +77,9 @@ class ConstantsClass {
   String viewerImageAssetPath = "assets/error.jpg";
   int viewerImageCacheHeight = 100;
   int viewerImageCacheWidth = 100;
+
+  @override
+  Widget build(BuildContext context) {
+    throw UnimplementedError();
+  }
 }
