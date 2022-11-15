@@ -1,4 +1,4 @@
-import 'package:coursera/provider/bottom_nav_bar_state.dart';
+import 'package:coursera/core/provider/bottom_nav_bar_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

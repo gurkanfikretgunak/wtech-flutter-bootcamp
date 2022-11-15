@@ -68,4 +68,11 @@ class ConstantsClass {
   Color buttonIconHighlightColor = Colors.white70;
   double buttonIconSize = 18;
   double buttonIconSplashRadius = 30;
+
+  //ImageViewer
+  String viewerImageUrl =
+      "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg";
+  String viewerImageAssetPath = "assets/error.jpg";
+  int viewerImageCacheHeight = 100;
+  int viewerImageCacheWidth = 100;
 }

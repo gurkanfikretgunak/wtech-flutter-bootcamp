@@ -1,5 +1,5 @@
 import 'package:coursera/core/themes/custom_theme.dart';
-import 'package:coursera/provider/bottom_nav_bar_state.dart';
+import 'package:coursera/core/provider/bottom_nav_bar_state.dart';
 import 'package:coursera/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,7 +1,7 @@
 import 'package:coursera/core/constants/constants.dart';
-import 'package:coursera/views/explore/explore_view_widget/free_courses_list.dart';
-import 'package:coursera/views/explore/explore_view_widget/most_popular_certificates_list.dart';
-import 'package:coursera/views/explore/explore_view_widget/topic_list.dart';
+import 'package:coursera/views/explore/explore_custom_widget/free_courses_list.dart';
+import 'package:coursera/views/explore/explore_custom_widget/most_popular_certificates_list.dart';
+import 'package:coursera/views/explore/explore_custom_widget/topic_list.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
