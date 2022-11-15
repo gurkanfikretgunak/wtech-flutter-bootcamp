@@ -15,7 +15,7 @@ class HomeTicketPage extends StatelessWidget {
       body: Column(
         children: [
           Container(
-            height: 300,
+            height: 250,
             width: double.infinity,
             color: Colors.purple,
             child: Column(
@@ -191,7 +191,7 @@ class HomeTicketPage extends StatelessWidget {
               height: 50,
               width: 350,
               decoration: BoxDecoration(
-                  color: Colors.blueGrey,
+                  color: Colors.lightGreen,
                   borderRadius: BorderRadius.circular(5)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -203,13 +203,41 @@ class HomeTicketPage extends StatelessWidget {
                   ),
                   Padding(padding: EdgeInsets.only(left: 10)),
                   Text(
-                    "Destination Station",
+                    "Find Times and Prices",
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ],
               ),
             ),
           ),
+          const Padding(padding: EdgeInsets.all(10.0)),
+          Container(
+              height: 90,
+              width: 350,
+              decoration: BoxDecoration(
+                color: Colors.cyanAccent,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  const Padding(padding: EdgeInsets.only(left: 15)),
+                  Image.asset('lib/assets/images/trainIcon.png'),
+                  
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    
+                    children: const[
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text("Make saving simple",style: TextStyle(fontSize: 18,fontStyle:FontStyle.normal ),),
+                      Padding(padding: EdgeInsets.only(top: 10)),
+                      Text("Save 1/2 with a digital Railcard in-app",style: TextStyle(fontSize: 15),)
+                    ],
+                  )
+                ],
+              ),
+          
+          )
           
         ],
       ),
