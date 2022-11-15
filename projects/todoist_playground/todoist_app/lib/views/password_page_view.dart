@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todoist_app/views/pick_theme_page_view.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
+import '../widgets/custom_input_decoration_widget.dart';
 import '../widgets/custom_model_bottom_elevated_button.dart';
-import 'login_with_email_view.dart';
 
 class LoginPasswordView extends StatefulWidget {
   const LoginPasswordView({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 },
                 icon: const Icon(Icons.arrow_back_ios)),
             Text(
-              CustomTextConstants().logWithPasswordText,
+              CustomTextConstants.logWithPasswordText,
               style: CustomTheme.customLightThemeData().textTheme.headline1,
             ),
           ]),
@@ -46,25 +46,24 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  CustomTextConstants().yourPasswordText,
+                  CustomTextConstants.yourPasswordText,
                   style: CustomTheme.customLightThemeData().textTheme.subtitle1,
                 ),
-                CustomInputDecoration(
-                  labelText: CustomTextConstants().passwordLabelText,
+                const CustomInputDecoration(
+                  labelText: CustomTextConstants.passwordLabelText,
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
                 ),
-                CustomElevatedButton(
-                  buttonTexts: CustomTextConstants().buttonTextEmail,
-                  buttonColors: Colors.red,
+                const CustomRedButton(
+                  buttonTexts: CustomTextConstants.buttonTextEmail,
                   hasDataWidget: ThemeSwitcher(),
-                  nullDataWidget: const LoginPasswordView(),
+                  nullDataWidget: LoginPasswordView(),
                 ),
                 Center(
                     child: TextButton(
                         onPressed: () {},
                         child: Text(
-                          CustomTextConstants().forgotPasswordText,
+                          CustomTextConstants.forgotPasswordText,
                           style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
                         )))
               ],

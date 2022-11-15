@@ -1,28 +1,19 @@
 import 'package:flutter/material.dart';
 
-class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton(
-      {Key? key,
-      required this.buttonTexts,
-      required this.buttonColors,
-      this.buttonIcons,
-      required this.hasDataWidget,
-      this.controller,
-      required this.nullDataWidget})
+class CustomRedButton extends StatefulWidget {
+  const CustomRedButton(
+      {Key? key, required this.buttonTexts, required this.hasDataWidget, this.controller, required this.nullDataWidget})
       : super(key: key);
   final String buttonTexts;
-  final Color? buttonColors;
-  final IconData? buttonIcons;
   final Widget hasDataWidget;
   final Widget nullDataWidget;
-
   final TextEditingController? controller;
 
   @override
-  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
+  State<CustomRedButton> createState() => _CustomRedButtonState();
 }
 
-class _CustomElevatedButtonState extends State<CustomElevatedButton> {
+class _CustomRedButtonState extends State<CustomRedButton> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -33,7 +24,7 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
           _settingModalBottomSheet(context, widget.hasDataWidget, widget.nullDataWidget, widget.controller);
         },
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(widget.buttonColors),
+            backgroundColor: MaterialStateProperty.all(Colors.red),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -42,7 +33,6 @@ class _CustomElevatedButtonState extends State<CustomElevatedButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(widget.buttonIcons),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(

@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-      splash: CustomImagePathConstants().appIconPath,
+      splash: CustomImagePathConstants.appIconPath,
       backgroundColor: Colors.white,
       splashIconSize: 100,
       nextScreen: const WelcomeToApp(),

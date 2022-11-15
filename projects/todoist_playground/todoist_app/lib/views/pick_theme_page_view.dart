@@ -15,7 +15,7 @@ class ThemeSwitcher extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                  width: 500, height: 40, child: Row(children: [Image.asset(CustomImagePathConstants().appIconPath)])),
+                  width: 500, height: 40, child: Row(children: [Image.asset(CustomImagePathConstants.appIconPath)])),
               Padding(
                 padding: const EdgeInsets.only(top: 80.0),
                 child: SizedBox(
