@@ -12,6 +12,7 @@ class EventbriteApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeNotifier provider = Provider.of<ThemeNotifier>(context);
     return MaterialApp(
       title: 'Eventbrite',
       routes: {
@@ -21,6 +22,7 @@ class EventbriteApp extends StatelessWidget {
         '/favorite': (context) => const FavoriteView(),
         '/profile': (context) => const ProfileView(),
       },
+      // theme: provider.currentTheme,
       theme: context.watch<ThemeNotifier>().currentTheme,
       home: const WelcomeView(),
       // home: HomeView(),

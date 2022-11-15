@@ -1,7 +1,10 @@
+import 'package:eventbrite_app/core/constants/enums/app_theme_enums.dart';
+import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:provider/provider.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -20,6 +23,7 @@ class _WelcomeViewState extends State<WelcomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final ThemeNotifier provider = Provider.of<ThemeNotifier>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
@@ -58,7 +62,9 @@ class _WelcomeViewState extends State<WelcomeView> {
             const Spacer(),
             CustomElevatedButton(
               color: const Color(0xFFC14D25),
-              onPressed: () {},
+              onPressed: () {
+                provider.changeTheme();
+              },
               text: 'Pick a city',
               textStyle: const TextStyle(fontWeight: FontWeight.w900),
             ),
