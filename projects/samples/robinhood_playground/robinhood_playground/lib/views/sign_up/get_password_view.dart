@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
+import 'package:robinhood_playground/widget/signup/password_text_field.dart';
 import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
 import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
@@ -19,20 +20,30 @@ class _GetPasswordViewState extends State<GetPasswordView> {
   bool _isActive = false;
   final TextEditingController _passwordController = TextEditingController();
 
+  @override
+  void initState() {
+    super.initState();
+    _passwordController.addListener(() {
+      setState(() {
+        _isActiveControl();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _passwordController.dispose();
+  }
+
   void _changeVisible() {
     setState(() {
       _isVisible = !_isVisible;
     });
   }
 
-  void _isActiveControl() {
-    setState(() {
-      if (_passwordController.text.isNotEmpty) {
-        _isActive = true;
-      } else {
-        _isActive = false;
-      }
-    });
+  _isActiveControl() {
+    _passwordController.text.isNotEmpty ? _isActive = true : _isActive = false;
   }
 
   Future<void> _saveAndNavigate() async {
@@ -65,18 +76,9 @@ class _GetPasswordViewState extends State<GetPasswordView> {
                 child: const SignUpTitle(title: _PasswordText.choosePassword)),
             Padding(
               padding: _PasswordViewPadding.textFieldTop,
-              child: TextField(
-                onChanged: (value) {
-                  _isActiveControl();
-                },
-                controller: _passwordController,
-                keyboardType: TextInputType.visiblePassword,
-                autofocus: false,
-                obscureText: _isVisible,
-                autofillHints: const [AutofillHints.password],
-                textAlign: TextAlign.center,
-                decoration: const InputDecoration(hintText: 'Password'),
-              ),
+              child: SignUpPasswordTextField(
+                  passwordController: _passwordController,
+                  isVisible: _isVisible),
             ),
             Padding(
               padding: _PasswordViewPadding.showPasswordTop,

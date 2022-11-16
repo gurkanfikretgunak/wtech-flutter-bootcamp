@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/widget/signup/e_mail_text_field.dart';
 import 'package:robinhood_playground/widget/signup/sign_up_description.dart';
 import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
 import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
@@ -19,13 +20,17 @@ class _GetEmailViewState extends State<GetEmailView> {
   final TextEditingController _controller = TextEditingController();
   bool _isActive = false;
 
-  void _isActiveControl() {
-    setState(() {
-      if (_controller.text.isNotEmpty) {
-        _isActive = true;
-      } else {
-        _isActive = false;
-      }
+  _isActiveControl() {
+    _controller.text.isNotEmpty ? _isActive = true : _isActive = false;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _controller.addListener(() {
+      setState(() {
+        _isActiveControl();
+      });
     });
   }
 
@@ -66,18 +71,7 @@ class _GetEmailViewState extends State<GetEmailView> {
                       description: _GetEmailText().description)),
               Padding(
                 padding: _PaddingEmailView.textFieldTop,
-                child: TextField(
-                  controller: _controller,
-                  cursorColor: Colors.black,
-                  onChanged: (value) {
-                    _isActiveControl();
-                  },
-                  keyboardType: TextInputType.emailAddress,
-                  autofocus: false,
-                  autofillHints: const [AutofillHints.email],
-                  textAlign: TextAlign.center,
-                  decoration: const InputDecoration(hintText: 'Email'),
-                ),
+                child: SignUpEmailTextField(controller: _controller),
               ),
               const Padding(
                   padding: _PaddingEmailView.policyTop,

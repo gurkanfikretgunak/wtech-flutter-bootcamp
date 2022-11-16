@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class LastNameTextField extends StatefulWidget {
-  const LastNameTextField({
+class SignUpLastNameTextField extends StatefulWidget {
+  const SignUpLastNameTextField({
     Key? key,
     required TextEditingController lastNameController,
     required FocusNode lastNameFocusNode,
@@ -13,10 +13,11 @@ class LastNameTextField extends StatefulWidget {
   final FocusNode _lastNameFocusNode;
 
   @override
-  State<LastNameTextField> createState() => _LastNameTextFieldState();
+  State<SignUpLastNameTextField> createState() =>
+      _SignUpLastNameTextFieldState();
 }
 
-class _LastNameTextFieldState extends State<LastNameTextField> {
+class _SignUpLastNameTextFieldState extends State<SignUpLastNameTextField> {
   @override
   Widget build(BuildContext context) {
     return TextField(

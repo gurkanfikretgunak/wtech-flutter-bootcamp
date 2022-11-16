@@ -58,13 +58,13 @@ class _FirsAndLastNameViewState extends State<FirsAndLastNameView> {
               ),
               Padding(
                 padding: _FirstNameAndLastNamePadding.firstNameTextFieldTop,
-                child: FirsNameTextField(
+                child: SignUpFirstNameTextField(
                     firsNameController: _firsNameController,
                     firstNameFocusNode: _firstNameFocusNode),
               ),
               Padding(
                 padding: _FirstNameAndLastNamePadding.lastNameTextFieldTop,
-                child: LastNameTextField(
+                child: SignUpLastNameTextField(
                     lastNameController: _lastNameController,
                     lastNameFocusNode: _lastNameFocusNode),
               ),
