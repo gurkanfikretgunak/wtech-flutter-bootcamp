@@ -22,10 +22,16 @@ class EventbriteApp extends StatelessWidget {
         '/favorite': (context) => const FavoriteView(),
         '/profile': (context) => const ProfileView(),
       },
-      // theme: provider.currentTheme,
-      theme: context.watch<ThemeNotifier>().currentTheme,
+      theme: provider.currentTheme,
       home: const WelcomeView(),
       // home: HomeView(),
     );
   }
 }
+
+//TODO CustomThemeData yapısını oluşturulacak
+//TODO Paddingler için constants değerleri oluşturulacak
+//TODO Provider ile tema değişimi yapılacak
+//TODO Provider ile navigation bar değişimi yapılabilir
+//TODO Mock API ile backend oluşturulacak
+//TODO Retrofit ile backend için ilgili modeller oluşturulup kullanılacak

@@ -7,7 +7,6 @@ class SearchView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: BottomNavigationItem.search.index,
       ),

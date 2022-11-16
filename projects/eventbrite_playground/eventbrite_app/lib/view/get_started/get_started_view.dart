@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/view/register/register_view.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
@@ -8,12 +9,8 @@ class GetStartedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        elevation: 0,
-      ),
-      backgroundColor: Colors.white,
+      appBar: AppBar(),
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
@@ -24,18 +21,18 @@ class GetStartedView extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * 0.4,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
+                      padding: const EdgeInsets.symmetric(vertical: 20),
                       child: Text(
-                        'Let\'s get started',
-                        style: TextStyle(
-                          fontSize: 42,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        AppConstants.getStartedTitle,
+                        style: Theme.of(context).textTheme.headline1,
                       ),
                     ),
-                    Text('Sign up or log in to see what\'s happening near you', style: TextStyle(fontSize: 22)),
+                    Text(
+                      AppConstants.getStartedSubtitle,
+                      style: Theme.of(context).textTheme.headline2,
+                    ),
                   ],
                 ),
               ),
@@ -44,41 +41,41 @@ class GetStartedView extends StatelessWidget {
                 child: Column(
                   children: [
                     CustomElevatedButton(
-                      text: 'Continue with email address',
+                      text: AppConstants.getStartedElevatedButtonText,
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(builder: (context) => const RegisterView()),
                         );
                       },
-                      color: const Color(0xFFC14D25),
-                      textStyle: const TextStyle(fontWeight: FontWeight.w600),
+                      color: Theme.of(context).primaryColor,
+                      textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
                         vertical: 15,
                       ),
                       child: CustomElevatedButton(
-                        text: 'Continue with Facebook',
+                        text: AppConstants.getStartedFacebookButtonText,
                         onPressed: () {},
-                        color: Colors.white,
+                        color: Theme.of(context).backgroundColor,
                         border: true,
                         hasImage: true,
-                        imagePath: 'assets/facebook_logo.png',
-                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+                        imagePath: AppConstants.facebookIconPath,
+                        textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                       ),
                     ),
                     CustomElevatedButton(
-                      text: 'Continue with Google',
+                      text: AppConstants.getStartedGoogleButtonText,
                       onPressed: () {},
-                      color: Colors.white,
+                      color: Theme.of(context).backgroundColor,
                       hasImage: true,
-                      imagePath: 'assets/google_logo.png',
+                      imagePath: AppConstants.googleIconPath,
                       border: true,
-                      textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.w600),
+                      textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: const Text('I bought tickets,but I dont\'t have an account'),
+                      child: const Text(AppConstants.getStartedTextButton),
                     ),
                   ],
                 ),

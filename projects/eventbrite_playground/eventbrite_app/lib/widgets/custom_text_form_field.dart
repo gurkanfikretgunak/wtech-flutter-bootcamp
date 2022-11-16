@@ -38,7 +38,7 @@ class CustomTextFormField extends StatelessWidget {
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
         floatingLabelBehavior: floatingLabelBehavior ?? FloatingLabelBehavior.auto,
-        floatingLabelStyle: const TextStyle(color: Colors.black),
+        // floatingLabelStyle: const TextStyle(color: Colors.black),
         suffixIcon: suffixIcon,
         labelText: labelText,
         hintText: hintText,

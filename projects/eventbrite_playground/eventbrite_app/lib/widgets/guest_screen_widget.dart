@@ -43,11 +43,11 @@ class GuestScreenWidget extends StatelessWidget {
               child: Container(
                 height: 400,
                 width: 400,
-                color: const Color(0XFFF8F7FC),
+                color: Theme.of(context).primaryColorDark,
                 child: Icon(
                   bottomScreenIcon,
                   size: 200,
-                  color: const Color(0XFFDBD9E5),
+                  color: Theme.of(context).primaryColorLight,
                 ),
               ),
             ),
@@ -60,19 +60,13 @@ class GuestScreenWidget extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 40,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.headline1,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Text(
                   subtitle,
-                  style: const TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).textTheme.headline2,
                 ),
               ),
               hasTextButton == true
@@ -88,8 +82,8 @@ class GuestScreenWidget extends StatelessWidget {
               CustomElevatedButton(
                 text: bottomButtonText ?? '',
                 onPressed: navigateBottom ?? () {},
-                color: const Color(0xFFC14D25),
-                textStyle: const TextStyle(fontWeight: FontWeight.w900),
+                color: Theme.of(context).primaryColor,
+                textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
               ),
               hasOutlineButton == true
                   ? Padding(
@@ -97,9 +91,9 @@ class GuestScreenWidget extends StatelessWidget {
                       child: CustomElevatedButton(
                         text: bottomOutlineButtonText ?? '',
                         onPressed: navigateOutline ?? () {},
-                        color: Colors.white,
+                        color: Theme.of(context).backgroundColor,
                         border: true,
-                        textStyle: const TextStyle(color: Colors.black, fontWeight: FontWeight.w900),
+                        textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                       ),
                     )
                   : const SizedBox(),

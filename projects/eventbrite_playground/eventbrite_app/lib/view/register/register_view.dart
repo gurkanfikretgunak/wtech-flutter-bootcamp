@@ -25,13 +25,10 @@ class _RegisterViewState extends State<RegisterView> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        backgroundColor: Colors.white,
-        title: const Text(
+        title: Text(
           'Sign Up',
-          style: TextStyle(color: Colors.black, fontSize: 26, fontWeight: FontWeight.bold),
+          style: Theme.of(context).textTheme.headline3,
         ),
       ),
       body: SizedBox(
@@ -143,8 +140,8 @@ class _RegisterViewState extends State<RegisterView> {
                     child: CustomElevatedButton(
                       text: 'Sign Up',
                       onPressed: () {},
-                      color: const Color(0xFFC14D25),
-                      textStyle: const TextStyle(fontWeight: FontWeight.w900),
+                      color: Theme.of(context).primaryColor,
+                      textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                     )),
               ],
             )

@@ -1,4 +1,4 @@
-import 'package:eventbrite_app/core/constants/enums/app_theme_enums.dart';
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
@@ -17,8 +17,7 @@ class _WelcomeViewState extends State<WelcomeView> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3))
-        .then((value) => {FlutterNativeSplash.remove()});
+    Future.delayed(const Duration(seconds: 3)).then((value) => {FlutterNativeSplash.remove()});
   }
 
   @override
@@ -26,7 +25,6 @@ class _WelcomeViewState extends State<WelcomeView> {
     final ThemeNotifier provider = Provider.of<ThemeNotifier>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: BottomNavigationItem.home.index,
       ),
@@ -36,47 +34,41 @@ class _WelcomeViewState extends State<WelcomeView> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Hello',
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-              ),
+            Text(
+              AppConstants.welcomeTitle,
+              style: Theme.of(context).textTheme.headline1,
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(vertical: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 10),
               child: Text(
-                'Let\'s find your next unforgettable event.\nChoose a location below to get started.',
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w400,
-                ),
+                AppConstants.welcomeSubtitle,
+                style: Theme.of(context).textTheme.headline2,
               ),
             ),
             Container(
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(vertical: size.height * 0.05),
               height: size.height * 0.4,
-              child: Image.asset('assets/get_started.png'),
+              child: Image.asset(AppConstants.welcomeImagePath),
             ),
             const Spacer(),
             CustomElevatedButton(
-              color: const Color(0xFFC14D25),
+              color: Theme.of(context).primaryColor,
               onPressed: () {
                 provider.changeTheme();
               },
-              text: 'Pick a city',
-              textStyle: const TextStyle(fontWeight: FontWeight.w900),
+              text: AppConstants.welcomeElevatedButtonText,
+              textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.my_location),
+                  const Icon(AppConstants.welcomeIcon),
                   TextButton(
                     onPressed: () {},
-                    child: const Text('Use my current location'),
+                    child: const Text(AppConstants.welcomeTextButton),
                   )
                 ],
               ),

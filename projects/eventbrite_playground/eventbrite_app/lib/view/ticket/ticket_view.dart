@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/view/get_started/get_started_view.dart';
 import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/guest_screen_widget.dart';
@@ -9,18 +10,17 @@ class TicketView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: BottomNavigationItem.ticket.index,
       ),
       body: SafeArea(
         child: GuestScreenWidget(
-          title: 'Looking for your mobile tickets?',
-          subtitle: 'Log into same account you used to buy your tickets.',
-          bottomScreenIcon: Icons.confirmation_number_outlined,
-          bottomButtonText: 'Log in',
+          title: AppConstants.ticketTitle,
+          subtitle: AppConstants.ticketSubtitle,
+          bottomScreenIcon: AppConstants.ticketIcon,
+          bottomButtonText: AppConstants.ticketBottomButtonText,
           hasOutlineButton: true,
-          bottomOutlineButtonText: 'Find things to do',
+          bottomOutlineButtonText: AppConstants.ticketBottomOutlinedButtonText,
           navigateBottom: () {
             Navigator.of(context).push(
               MaterialPageRoute(

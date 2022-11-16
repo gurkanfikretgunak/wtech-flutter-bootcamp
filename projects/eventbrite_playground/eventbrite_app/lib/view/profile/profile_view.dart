@@ -10,7 +10,6 @@ class ProfileView extends StatelessWidget {
     final List<String> headers = ['Ticket Issues', 'Manage Events', 'Settings'];
 
     return Scaffold(
-      backgroundColor: Colors.white,
       bottomNavigationBar: CustomBottomNavigationBar(
         currentIndex: BottomNavigationItem.profile.index,
       ),
@@ -24,7 +23,7 @@ class ProfileView extends StatelessWidget {
                 return Column(
                   children: [
                     ListTile(
-                      title: Text(headers[index], style: const TextStyle(fontWeight: FontWeight.bold)),
+                      title: Text(headers[index], style: Theme.of(context).textTheme.headline2),
                       trailing: const Icon(Icons.arrow_forward_ios),
                     ),
                     const Padding(
@@ -51,8 +50,8 @@ class ProfileView extends StatelessWidget {
                   ),
                 );
               },
-              color: const Color(0xFFC14D25),
-              textStyle: const TextStyle(fontWeight: FontWeight.w900),
+              color: Theme.of(context).primaryColor,
+              textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
             ),
           ),
         ],
