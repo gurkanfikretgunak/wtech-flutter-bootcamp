@@ -21,6 +21,26 @@ class _FirsAndLastNameViewState extends State<FirsAndLastNameView> {
   final FocusNode _firstNameFocusNode = FocusNode();
   final FocusNode _lastNameFocusNode = FocusNode();
 
+  bool _isActive = false;
+
+  _isActiveControl() {
+    if (_firsNameController.text.isEmpty || _lastNameController.text.isEmpty) {
+      _isActive = false;
+    } else {
+      _isActive = true;
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _firsNameController.addListener(() {
+      setState(() {
+        _isActiveControl();
+      });
+    });
+  }
+
   @override
   void dispose() {
     super.dispose();
@@ -70,10 +90,13 @@ class _FirsAndLastNameViewState extends State<FirsAndLastNameView> {
               ),
               Padding(
                 padding: _FirstNameAndLastNamePadding.continueButtonTop,
-                child: GenerealButton(
-                  text: _FirstNameAndLastNameText.continueButton,
-                  backgroundColor: GeneralButtonColor.black.getColor(),
-                  onPressed: _saveAndNavigate,
+                child: Opacity(
+                  opacity: _isActive ? 1 : 0.2,
+                  child: GenerealButton(
+                    text: _FirstNameAndLastNameText.continueButton,
+                    backgroundColor: GeneralButtonColor.black.getColor(),
+                    onPressed: _saveAndNavigate,
+                  ),
                 ),
               )
             ],
