@@ -1,7 +1,5 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:flutter/material.dart';
-import '../widgets/my_widgets.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:wise_app/unit/imports.dart';
+
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -16,16 +14,17 @@ class _SplashPageState extends State<SplashPage> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       top: false,
+      //custom olacak
       child: AnimatedSplashScreen(
-        splash: SplashFirst(
+        splash: SplashWidget(
           size: size,
         ),
         splashIconSize: size.height,
-        duration: 2000,
+        duration: SplashConstants.splashDurationTime,
         splashTransition: SplashTransition.fadeTransition,
         pageTransitionType: PageTransitionType.leftToRightWithFade,
-        animationDuration: const Duration(seconds: 1),
-        nextScreen: SplashSecondWidget(size),
+        animationDuration: SplashConstants.splashAnimationTime,
+        nextScreen: SplashOnboardingWidget(size),
       ),
     );
   }

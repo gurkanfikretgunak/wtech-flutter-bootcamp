@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import '../core/theme/provider_theme.dart';
-import '../widgets/my_widgets.dart';
+import '../widgets/login/login_body.dart';
+import '../widgets/login/login_bottom_button.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -12,7 +12,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  TextEditingController _textEditingControllerEmail = TextEditingController();
+ final TextEditingController _textEditingControllerEmail = TextEditingController();
   TextEditingController _textEditingControllerPassword =
       TextEditingController();
   @override
