@@ -10,6 +10,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int _selectedPageIndex = 0;
   List<Widget> _page = [
     HomePage(),
     LivePage(),
@@ -18,22 +19,22 @@ class _HomePageState extends State<HomePage> {
     MenuPage(),
   ];
 
-  int _selectedPageIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(),
+      appBar: AppBar(
+        title: const Text('Takip Sistemi'),
+      ),
       body: _buildBody(),
       bottomNavigationBar: _buildBottomNavigationBar(),
     );
   }
 
-  Widget _buildAppBar() {
-    return AppBar(
-      title: Text("Home Page"),
-    );
-  }
+  // Widget _buildAppBar() {
+  //   return AppBar(
+  //     title: const Text("Home Page"),
+  //   );
+  // } bu şekilde yazınca hata veriyor.
 
   Widget _buildBody() {
     return _page[_selectedPageIndex];
@@ -63,14 +64,14 @@ class _HomePageState extends State<HomePage> {
           label: 'Menu',
         ),
       ],
-      currentIndex: _page,
-      onTap: _sayfaDegistir,
+      currentIndex: _selectedPageIndex, //New
+      onTap: _onTapItem,
     );
   }
 
-  void _sayfaDegistir(int newIndex) {
+  void _onTapItem(int index) {
     setState(() {
-      _page = newIndex;
+      _selectedPageIndex = index;
     });
   }
 }
