@@ -13,6 +13,7 @@ class ConstantsClass extends StatelessWidget {
   Color appGreyDark = const Color.fromARGB(255, 118, 117, 117);
   Color appBlue = const Color(0xFF2354CC);
   Color appWhite = const Color(0xFFFFFFFF);
+  Color appRed = const Color(0xFFF52400);
   Color facebookLogoColor = const Color(0xFF425992);
 
   //TextFormField

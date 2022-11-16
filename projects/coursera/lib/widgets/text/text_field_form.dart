@@ -33,6 +33,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fontSize,
     this.readOnly,
     this.labelTextFontSize,
+    this.errorText,
   }) : super(key: key);
 
   final int? maxLines;
@@ -64,6 +65,7 @@ class CustomTextFormField extends StatelessWidget {
   final Function()? onTap;
   final double? fontSize;
   final bool? readOnly;
+  final String? errorText;
 
   @override
   Widget build(BuildContext context) {
@@ -120,6 +122,20 @@ class CustomTextFormField extends StatelessWidget {
                         constants.textFieldFormBorderSideColor,
                   ),
                 ),
+            errorText: errorText,
+            errorStyle: TextStyle(color: constants.appRed),
+            focusedErrorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                width: 1.5,
+                color: borderSideColor ?? constants.appRed,
+              ),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                width: 1.5,
+                color: borderSideColor ?? constants.appRed,
+              ),
+            ),
             suffixIcon: suffixIcon == null
                 ? null
                 : Icon(
