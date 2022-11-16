@@ -31,9 +31,9 @@ class ConstantsClass extends StatelessWidget {
   String textFieldFormLabeText = "";
   Color textFieldFormLabelTextColor = const Color(0xFF909090);
   double textFieldFormLabelTextSize = 14;
-  double textFieldFormHintTextSize = 14;
-
+  double textFieldFormHintTextSize = 15;
   IconData textFieldFormSuffixIcon = Icons.abc_rounded;
+  double textFieldFormIconSize = 15;
   IconData textFieldFormPrefixIcon = Icons.abc_rounded;
   TextInputType textFieldFormKeyboardType = TextInputType.emailAddress;
   InputBorder textFieldFormBorder = const UnderlineInputBorder();

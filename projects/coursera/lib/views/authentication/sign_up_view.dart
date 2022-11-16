@@ -22,58 +22,76 @@ class SignUpView extends StatelessWidget {
         body: Padding(
           padding: context.paddingMedium,
           child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Logo(),
-                const CustomText(
-                  text: "Create an Account",
-                  fontSize: 18,
-                ),
-                _buildTextFormFields(),
-                CustomElevatedButton(
-                  onPressed: () {},
-                  text: "Create an Account",
-                  primary: constant.appGreyDark,
-                ),
-                const Divider(
-                  thickness: 2,
-                ),
-                Align(
-                  alignment: Alignment.center,
-                  child: CustomTextButton(
-                    onPressed: () {},
-                    text: "Sign up with your organization",
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
+            child: SizedBox(
+              height: context.dynamicHeight(0.8),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Logo(),
+                  Wrap(
+                    runAlignment: WrapAlignment.center,
+                    runSpacing: context.dynamicHeight(0.02),
+                    alignment: WrapAlignment.center,
+                    children: [
+                      const CustomText(
+                        text: "Create an Account",
+                        fontSize: 18,
+                      ),
+                      context.emptySizedHeightBoxNormal,
+                      const CustomTextFormField(
+                        hintText: "Full name (Required)",
+                      ),
+                      const CustomTextFormField(
+                        hintText: "Email (Required)",
+                      ),
+                      const CustomTextFormField(
+                        hintText: "Password (Required)",
+                        suffixIcon: FontAwesomeIcons.eyeSlash,
+                      ),
+                      CustomElevatedButton(
+                        onPressed: () {},
+                        text: "Create an Account",
+                        primary: constant.appGreyDark,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Expanded(
+                              flex: 2,
+                              child: Divider(color: constant.appGreyDark)),
+                          Expanded(
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Text(
+                                "or",
+                                style: TextStyle(
+                                    color: constant.appGreyDark,
+                                    fontStyle: FontStyle.italic),
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                              flex: 2,
+                              child: Divider(color: constant.appGreyDark)),
+                        ],
+                      ),
+                      Align(
+                        alignment: Alignment.center,
+                        child: CustomTextButton(
+                          onPressed: () {},
+                          text: "Sign up with your organization",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: TermsText(),
-                ),
-              ],
+                  const TermsText(),
+                ],
+              ),
             ),
           ),
         ),
       ),
-    );
-  }
-
-  Column _buildTextFormFields() {
-    return Column(
-      children: const [
-        CustomTextFormField(
-          hintText: "Full name (Required)",
-        ),
-        CustomTextFormField(
-          hintText: "Email (Required)",
-        ),
-        CustomTextFormField(
-          hintText: "Password (Required)",
-          suffixIcon: FontAwesomeIcons.eyeSlash,
-        ),
-      ],
     );
   }
 }

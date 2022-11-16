@@ -32,98 +32,101 @@ class SignInView extends StatelessWidget {
         ),
         body: Padding(
           padding: context.paddingMedium,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              const Logo(),
-              CustomText(
-                text:
-                    "Take the world's best courses online from top universities and industry partners.",
-                maxLines: 2,
-                height: context.dynamicHeight(0.002),
-              ),
-              Wrap(
-                runSpacing: context.dynamicHeight(0.02),
-                children: [
-                  CustomElevatedButton(
-                    borderSideColor: constant.appBlack,
-                    primary: constant.appWhite,
-                    textColor: constant.appBlack,
-                    iconWidget: Icon(
-                      Icons.apple,
-                      size: context.mediumValue,
+          child: Container(
+            color: Colors.amber,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const Logo(),
+                CustomText(
+                  text:
+                      "Take the world's best courses online from top universities and industry partners.",
+                  maxLines: 2,
+                  height: context.dynamicHeight(0.002),
+                ),
+                Wrap(
+                  runSpacing: context.dynamicHeight(0.02),
+                  children: [
+                    CustomElevatedButton(
+                      borderSideColor: constant.appBlack,
+                      primary: constant.appWhite,
+                      textColor: constant.appBlack,
+                      iconWidget: Icon(
+                        Icons.apple,
+                        size: context.mediumValue,
+                      ),
+                      text: "Continue with Apple",
+                      onPressed: () {},
                     ),
-                    text: "Continue with Apple",
-                    onPressed: () {},
-                  ),
-                  CustomElevatedButton(
-                    borderSideColor: constant.appGreyDark,
-                    primary: constant.appWhite,
-                    textColor: constant.appGreyDark,
-                    iconWidget: CustomImageViewer(
-                      fit: BoxFit.contain,
-                      assetPath: "assets/icons/google.png",
-                      height: context.mediumValue,
+                    CustomElevatedButton(
+                      borderSideColor: constant.appGreyDark,
+                      primary: constant.appWhite,
+                      textColor: constant.appGreyDark,
+                      iconWidget: CustomImageViewer(
+                        fit: BoxFit.contain,
+                        assetPath: "assets/icons/google.png",
+                        height: context.mediumValue,
+                      ),
+                      text: "Continue with Google",
+                      onPressed: () {},
                     ),
-                    text: "Continue with Google",
-                    onPressed: () {},
-                  ),
-                  CustomElevatedButton(
-                    borderSideColor: constant.facebookLogoColor,
-                    primary: constant.appWhite,
-                    textColor: constant.facebookLogoColor,
-                    iconWidget: Icon(
-                      size: context.mediumValue,
-                      FontAwesomeIcons.facebook,
-                      color: constant.facebookLogoColor,
+                    CustomElevatedButton(
+                      borderSideColor: constant.facebookLogoColor,
+                      primary: constant.appWhite,
+                      textColor: constant.facebookLogoColor,
+                      iconWidget: Icon(
+                        size: context.mediumValue,
+                        FontAwesomeIcons.facebook,
+                        color: constant.facebookLogoColor,
+                      ),
+                      text: "Continue with Facebook",
+                      onPressed: () {},
                     ),
-                    text: "Continue with Facebook",
-                    onPressed: () {},
-                  ),
-                  const Divider(thickness: 1),
-                  CustomElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomeView(),
-                        ),
-                      );
-                    },
-                    text: "Log In with Email",
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(
+                    const Divider(thickness: 1),
+                    CustomElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => SignUpView()));
-                    },
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: RichText(
-                        text: TextSpan(
-                          children: [
-                            TextSpan(
-                                text: "New to Coursera?",
-                                style: TextStyle(color: constant.appBlue)),
-                            TextSpan(
-                              text: "  Create Account",
-                              style: TextStyle(
-                                color: constant.appBlue,
-                                fontWeight: FontWeight.w700,
+                            builder: (context) => const HomeView(),
+                          ),
+                        );
+                      },
+                      text: "Log In with Email",
+                    ),
+                    InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SignUpView()));
+                      },
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: RichText(
+                          text: TextSpan(
+                            children: [
+                              TextSpan(
+                                  text: "New to Coursera?",
+                                  style: TextStyle(color: constant.appBlue)),
+                              TextSpan(
+                                text: "  Create Account",
+                                style: TextStyle(
+                                  color: constant.appBlue,
+                                  fontWeight: FontWeight.w700,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
-              ),
-              const TermsText()
-            ],
+                  ],
+                ),
+                const TermsText()
+              ],
+            ),
           ),
         ),
       ),

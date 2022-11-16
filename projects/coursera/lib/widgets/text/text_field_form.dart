@@ -68,79 +68,77 @@ class CustomTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ConstantsClass constants = ConstantsClass.instance;
-    return Column(children: [
-      TextFormField(
-        readOnly: readOnly ?? false,
-        key: key,
-        controller: controller,
-        onTap: onTap,
-        onChanged: onChanged,
-        validator: validator,
-        style: TextStyle(
-          color: textColor,
-          fontSize: fontSize,
-        ),
-        cursorColor: cursorColor ?? constants.textFieldFormCursorColor,
-        maxLines: maxLines ?? constants.textFieldFormMaxLines,
-        obscureText: obscureText ?? constants.textFieldFormObscureText,
-        keyboardType: keyboardType ?? constants.textFieldFormKeyboardType,
-        maxLength: maxLength == null ? null : constants.textFieldFormMaxLength,
-        decoration: InputDecoration(
-          contentPadding: EdgeInsets.zero,
-          filled: filled ?? constants.textFieldFormFilled,
-          fillColor: fillColor ?? constants.textFieldFormFilledColor,
-          hintText: hintText ?? constants.textFieldFormHintText,
-          hintStyle: TextStyle(
-            fontSize: hintTextFontSize ?? constants.textFieldFormHintTextSize,
-            color: hintTextColor ?? constants.textFieldFormHintTextColor,
+    return Column(
+      children: [
+        TextFormField(
+          readOnly: readOnly ?? false,
+          key: key,
+          controller: controller,
+          onTap: onTap,
+          onChanged: onChanged,
+          validator: validator,
+          style: TextStyle(
+            color: textColor,
+            fontSize: fontSize,
           ),
-          labelText: labelText == null
-              ? null
-              : labelText ?? constants.textFieldFormLabeText,
-          labelStyle: TextStyle(
-            fontSize: constants.textFieldFormLabelTextSize,
-            color: labelTextColor ?? constants.textFieldFormLabelTextColor,
+          cursorColor: cursorColor ?? constants.textFieldFormCursorColor,
+          maxLines: maxLines ?? constants.textFieldFormMaxLines,
+          obscureText: obscureText ?? constants.textFieldFormObscureText,
+          keyboardType: keyboardType ?? constants.textFieldFormKeyboardType,
+          maxLength:
+              maxLength == null ? null : constants.textFieldFormMaxLength,
+          decoration: InputDecoration(
+            contentPadding: contentPadding ??
+                EdgeInsets.symmetric(
+                    horizontal: context.dynamicWidth(0.03), vertical: 0),
+            fillColor: fillColor ?? constants.textFieldFormFilledColor,
+            hintText: hintText ?? constants.textFieldFormHintText,
+            hintStyle: TextStyle(
+              fontSize: hintTextFontSize ?? constants.textFieldFormHintTextSize,
+              color: hintTextColor ?? constants.textFieldFormHintTextColor,
+            ),
+            labelText: labelText == null
+                ? null
+                : labelText ?? constants.textFieldFormLabeText,
+            labelStyle: TextStyle(
+              fontSize: constants.textFieldFormLabelTextSize,
+              color: labelTextColor ?? constants.textFieldFormLabelTextColor,
+            ),
+            enabledBorder: enabledBorder ??
+                OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 1.5,
+                    color: borderSideColor ??
+                        constants.textFieldFormBorderSideColor,
+                  ),
+                ),
+            focusedBorder: enabledBorder ??
+                OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 1.5,
+                    color: borderSideColor ??
+                        constants.textFieldFormBorderSideColor,
+                  ),
+                ),
+            suffixIcon: suffixIcon == null
+                ? null
+                : Icon(
+                    size: constants.textFieldFormIconSize,
+                    suffixIcon ?? constants.textFieldFormSuffixIcon,
+                    color: suffixIconColor ??
+                        constants.textFieldFormSuffixIconColor,
+                  ),
+            prefixIcon: prefixIcon == null
+                ? null
+                : Icon(
+                    size: constants.textFieldFormIconSize,
+                    prefixIcon ?? constants.textFieldFormPrefixIcon,
+                    color: prefixIconColor ??
+                        constants.textFieldFormPrefixIconColor,
+                  ),
           ),
-          enabledBorder: enabledBorder ??
-              OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1.5,
-                  color:
-                      borderSideColor ?? constants.textFieldFormBorderSideColor,
-                ),
-              ),
-          focusedBorder: enabledBorder ??
-              OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 1.5,
-                  color:
-                      borderSideColor ?? constants.textFieldFormBorderSideColor,
-                ),
-              ),
-          suffixIcon: suffixIcon == null
-              ? null
-              : Icon(
-                  suffixIcon ?? constants.textFieldFormSuffixIcon,
-                  color:
-                      suffixIconColor ?? constants.textFieldFormSuffixIconColor,
-                ),
-          prefixIcon: prefixIcon == null
-              ? null
-              : Icon(
-                  prefixIcon ?? constants.textFieldFormPrefixIcon,
-                  color:
-                      prefixIconColor ?? constants.textFieldFormPrefixIconColor,
-                ),
         ),
-      ),
-      enabledBorder == null
-          ? Padding(
-              padding: context.paddingLow,
-              child: const Divider(
-                color: Colors.white,
-              ),
-            )
-          : const SizedBox()
-    ]);
+      ],
+    );
   }
 }
