@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/widget/signup/sign_up_description.dart';
+import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
 import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
 import 'package:robinhood_playground/user_cache/shared_manager.dart';
@@ -53,17 +55,15 @@ class _GetEmailViewState extends State<GetEmailView> {
           padding: GeneralPadding().generalHorizontal,
           child: Column(
             children: [
-              const Padding(
-                padding: _PaddingEmailView.emailTitleTop,
-                child: _EmailTitle(),
-              ),
               Padding(
-                padding: _PaddingEmailView.descriptionTop,
-                child: Text(
-                  _GetEmailText().description,
-                  style: Theme.of(context).textTheme.subtitle1,
-                ),
-              ),
+                  padding: _PaddingEmailView.emailTitleTop,
+                  child: SignUpTitle(
+                    title: _GetEmailText().emailTitle,
+                  )),
+              Padding(
+                  padding: _PaddingEmailView.descriptionTop,
+                  child: SignUpDescription(
+                      description: _GetEmailText().description)),
               Padding(
                 padding: _PaddingEmailView.textFieldTop,
                 child: TextField(
@@ -114,22 +114,6 @@ class _GetEmailViewState extends State<GetEmailView> {
     } else {
       return false;
     }
-  }
-}
-
-class _EmailTitle extends StatelessWidget {
-  const _EmailTitle({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      _GetEmailText().emailTitle,
-      style: Theme.of(context).textTheme.headline5?.copyWith(
-            color: Colors.black,
-          ),
-    );
   }
 }
 

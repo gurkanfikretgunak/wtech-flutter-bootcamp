@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
+import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
 import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
 import 'package:robinhood_playground/user_cache/shared_manager.dart';
@@ -60,9 +61,8 @@ class _GetPasswordViewState extends State<GetPasswordView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Padding(
-              padding: _PasswordViewPadding.titleTop,
-              child: const _ChoosePassword(),
-            ),
+                padding: _PasswordViewPadding.titleTop,
+                child: const SignUpTitle(title: _PasswordText.choosePassword)),
             Padding(
               padding: _PasswordViewPadding.textFieldTop,
               child: TextField(
@@ -104,23 +104,6 @@ class _GetPasswordViewState extends State<GetPasswordView> {
         ),
       ),
     ));
-  }
-}
-
-class _ChoosePassword extends StatelessWidget {
-  const _ChoosePassword({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      _PasswordText.choosePassword,
-      style: Theme.of(context)
-          .textTheme
-          .headline5
-          ?.copyWith(color: Colors.black, fontWeight: FontWeight.w500),
-    );
   }
 }
 
