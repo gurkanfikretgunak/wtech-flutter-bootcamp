@@ -46,6 +46,21 @@ class _Page5State extends State<Page5> {
                     borderRadius:
                         const BorderRadius.all(Radius.circular(8.0)))),
           ),
+        ),
+        InkWell(
+          autofocus: true,
+          child: Container(
+            height: 50,
+            width: 358,
+            color: Colors.grey.shade400,
+            child: Center(
+              child: Text(
+                "NEXT",
+                style: TextStyle(fontSize: 30, color: Colors.grey),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
         )
       ]),
     );
