@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Page5 extends StatelessWidget {
+class Page5 extends StatefulWidget {
   const Page5({super.key});
+
+  @override
+  State<Page5> createState() => _Page5State();
+}
+
+class _Page5State extends State<Page5> {
+  late TextEditingController _agecontroller;
+  @override
+  void initState() {
+    super.initState();
+    _agecontroller = TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +32,8 @@ class Page5 extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 50, 16, 0),
-          child: TextField(
+          child: TextFormField(
+            controller: _agecontroller,
             keyboardType: TextInputType.number,
             autofocus: true,
             decoration: InputDecoration(
