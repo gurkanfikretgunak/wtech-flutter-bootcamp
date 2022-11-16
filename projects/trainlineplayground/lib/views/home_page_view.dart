@@ -6,17 +6,23 @@ import 'package:trainlineplayground/core/data/provider/home_page_state.dart';
 import '../widgets/ticket_page_widgets.dart';
 
 // ignore: must_be_immutable
-class HomeTicketPage extends StatelessWidget {
+class HomeTicketPage extends StatefulWidget {
   HomeTicketPage({super.key});
-  
-  get selectedDate => HomePageState().selectedDate;
-  
-  
-  // List<Dest> veri = [];
-  // late Future destinationList = AddList().getAndAddDestinations(veri);
 
-  
-  
+  @override
+  State<HomeTicketPage> createState() => _HomeTicketPageState();
+}
+
+class _HomeTicketPageState extends State<HomeTicketPage> {
+  late DateTime secilenTarih;
+
+  @override
+  void initState() {
+   
+    super.initState();
+    secilenTarih = Provider.of<HomePageState>(context,listen: false).selectedDate;
+  }
+  // List<Dest> veri = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -145,10 +151,10 @@ class HomeTicketPage extends StatelessWidget {
                             Row(
                               children:  [
                                 Text(
-                                  "{$selectedDate}",
-                                  style:  const TextStyle(color: Colors.black),
+                                  "$secilenTarih",
+                                  style:   const TextStyle(color: Colors.black),
                                 ),
-                                 const Icon(Icons.keyboard_arrow_right),
+                                  const Icon(Icons.keyboard_arrow_right),
                               ],
                             ),
                           )
