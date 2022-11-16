@@ -1,5 +1,6 @@
 import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/views/authentication/authentication_custom_widget/terms_text.dart';
+import 'package:coursera/views/authentication/sign_up_view.dart';
 import 'package:coursera/views/home_view.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
@@ -23,12 +24,9 @@ class SignInView extends StatelessWidget {
           context: context,
           leading: Align(
             alignment: Alignment.centerLeft,
-            child: Padding(
-              padding: context.horizontalPaddingLow,
-              child: CustomTextButton(
-                onPressed: () {},
-                text: "Sign Up Later",
-              ),
+            child: CustomTextButton(
+              onPressed: () {},
+              text: "Sign Up Later",
             ),
           ),
         ),
@@ -96,7 +94,12 @@ class SignInView extends StatelessWidget {
                     text: "Log In with Email",
                   ),
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUpView()));
+                    },
                     child: Align(
                       alignment: Alignment.center,
                       child: RichText(

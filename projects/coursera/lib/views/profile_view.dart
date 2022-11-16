@@ -1,4 +1,5 @@
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
+import 'package:coursera/widgets/button/custom_button_icon.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,11 @@ class ProfileView extends StatelessWidget {
         appBar: CustomAppBar.customAppBar(
           context: context,
           leading: const SizedBox(),
-          isTrailing: true,
+          trailing: CustomIconButton(
+            onPressed: () {},
+            icon: Icons.settings_outlined,
+            iconSize: 22,
+          ),
         ),
         body: Padding(
           padding: context.horizontalPaddingMedium,

@@ -39,7 +39,7 @@ class CustomTextButton extends StatelessWidget {
     return TextButton(
       style: TextButton.styleFrom(
         shadowColor: shadowColor,
-        padding: padding ?? EdgeInsets.zero,
+        padding: padding,
         foregroundColor: foregroundColor ?? constants.buttonTextForegroundColor,
         elevation: 0,
         minimumSize: minimumSize ??

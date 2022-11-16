@@ -18,9 +18,7 @@ class SignUpView extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomAppBar.customAppBar(
-          context: context,
-        ),
+        appBar: CustomAppBar.customAppBar(context: context),
         body: Padding(
           padding: context.paddingMedium,
           child: SingleChildScrollView(

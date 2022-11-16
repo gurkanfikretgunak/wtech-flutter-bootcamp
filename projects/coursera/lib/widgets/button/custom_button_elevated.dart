@@ -60,7 +60,8 @@ class CustomElevatedButton extends StatelessWidget {
         direction: Axis.horizontal,
         alignment: WrapAlignment.center,
         crossAxisAlignment: WrapCrossAlignment.center,
-        spacing: 10,
+        spacing: 0,
+        // 10,
         children: [
           iconWidget == null ? const SizedBox() : iconWidget!,
           CustomText(
