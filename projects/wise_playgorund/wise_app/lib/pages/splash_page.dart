@@ -1,6 +1,5 @@
 import 'package:wise_app/unit/imports.dart';
 
-
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
 

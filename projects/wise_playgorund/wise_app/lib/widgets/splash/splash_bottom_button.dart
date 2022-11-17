@@ -17,11 +17,11 @@ class SplashBottomButton extends StatelessWidget {
                 print("");
               }
             },
-            child:const Text(
+            child: const Text(
               SplashTextConstants.checkOurRates,
               style: SplashStyle.checkOurRatesStyle,
             )),
-        const SizedBox(height:SplashConstants.spaceBetweenWidgetsSize),
+        const SizedBox(height: SplashConstants.spaceBetweenWidgetsSize),
         SizedBox(
           width: widget.size.width - 30,
           height: SplashConstants.splashGoogleButtonHeight,
@@ -43,22 +43,28 @@ class SplashBottomButton extends StatelessWidget {
           children: [
             SizedBox(
               width: widget.size.width / 2.2,
-              height: SplashConstants.splashGoogleButtonHeight-5,
+              height: SplashConstants.splashGoogleButtonHeight - 5,
               child: ElevatedButton(
                   style: SplashStyle.splashLoginRegisterButtonStyle,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const LoginPage()));
                   },
                   child: const Text(SplashTextConstants.login)),
             ),
             const SizedBox(width: SplashConstants.splashBottomButtonSpaceWidth),
             SizedBox(
               width: widget.size.width / 2.2,
-              height: SplashConstants.splashGoogleButtonHeight-5,
+              height: SplashConstants.splashGoogleButtonHeight - 5,
               child: ElevatedButton(
                   style: SplashStyle.splashLoginRegisterButtonStyle,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context)=>const RegisterPage()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const RegisterPage()));
                   },
                   child: const Text(SplashTextConstants.register)),
             ),

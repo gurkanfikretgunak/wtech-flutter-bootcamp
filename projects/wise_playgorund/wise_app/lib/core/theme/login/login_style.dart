@@ -11,6 +11,8 @@ class LoginStyle {
         color: provider.topLoginTextColor,
       );
 
+  static  const TextStyle loginButtonTextStyle = TextStyle(fontSize: 19);
+
   static TextStyle emailTextStyle(ThemeProvider provider) => TextStyle(
       fontSize: 18,
       color: provider.loginEmailTextColor,
@@ -25,13 +27,13 @@ class LoginStyle {
     borderSide: BorderSide(color: Colors.blue, width: 2.0),
   );
 
-  static  InputBorder textFieldEnabledBorder = OutlineInputBorder(
-    borderSide:
-    BorderSide(color: ColorConstants.loginTextButtonBorderSideColor, width: 2.0),
+  static InputBorder textFieldEnabledBorder = OutlineInputBorder(
+    borderSide: BorderSide(
+        color: ColorConstants.loginTextButtonBorderSideColor, width: 2.0),
   );
 
-  static const troubleTextStyle=TextStyle(
-  fontWeight: FontWeight.w500,
-  fontSize: 18,
-  color:ColorConstants.loginAndRegisterButtonColor);
+  static const troubleTextStyle = TextStyle(
+      fontWeight: FontWeight.w500,
+      fontSize: 18,
+      color: ColorConstants.loginAndRegisterButtonColor);
 }

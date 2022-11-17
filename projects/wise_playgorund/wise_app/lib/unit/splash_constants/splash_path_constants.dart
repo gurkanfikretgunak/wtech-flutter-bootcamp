@@ -1,5 +1,4 @@
-class SplashPathConstants{
-
+class SplashPathConstants {
   static const appIconPath = "assets/images/wise_app_logo.png";
   static const storyPath1 = "assets/images/sp1.png";
   static const storyPath2 = "assets/images/sp2.png";

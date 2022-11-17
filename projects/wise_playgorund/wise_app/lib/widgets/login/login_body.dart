@@ -1,12 +1,13 @@
+import 'package:provider/provider.dart';
+import 'package:wise_app/core/provider/unit_provider.dart';
 import 'package:wise_app/unit/imports.dart';
-import 'package:wise_app/unit/login_constants/login_constants.dart';
-import 'package:wise_app/unit/login_constants/login_text_constants.dart';
+
 
 class LoginPageBody extends StatelessWidget {
   const LoginPageBody({
     Key? key,
     required this.size,
-    required this.provider,
+    required this.providerTheme,
     required TextEditingController textEditingControllerEmail,
     required TextEditingController textEditingControllerPassword,
   })  : _textEditingControllerEmail = textEditingControllerEmail,
@@ -14,12 +15,13 @@ class LoginPageBody extends StatelessWidget {
         super(key: key);
 
   final Size size;
-  final ThemeProvider provider;
+  final ThemeProvider providerTheme;
   final TextEditingController _textEditingControllerEmail;
   final TextEditingController _textEditingControllerPassword;
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<UnitProvider>(context);
     return SizedBox(
       width: size.width,
       height: size.height - 300,
@@ -31,7 +33,7 @@ class LoginPageBody extends StatelessWidget {
               children: [
                 Text(
                   LoginTextConstants.login,
-                  style: LoginStyle.topTextStyle(provider),
+                  style: LoginStyle.topTextStyle(providerTheme),
                 ),
               ],
             ),
@@ -45,7 +47,7 @@ class LoginPageBody extends StatelessWidget {
                   children: [
                     Text(
                       LoginTextConstants.email,
-                      style: LoginStyle.emailTextStyle(provider),
+                      style: LoginStyle.emailTextStyle(providerTheme),
                     ),
                   ],
                 ),
@@ -53,17 +55,17 @@ class LoginPageBody extends StatelessWidget {
                   height: 8,
                 ),
                 TextField(
-                    controller: _textEditingControllerEmail,
+                    controller: provider.textEditingControllerEmail,
                     decoration: InputDecoration(
                       alignLabelWithHint: true,
-                      suffixIcon: IconButton(
-                          onPressed: () {
-                            if (kDebugMode) {}
-                          },
-                          icon: Icon(Icons.cancel)),
+                      suffixIcon:  provider.isSuffixIcon,
                       focusedBorder: LoginStyle.textFieldFocusedBorder,
                       enabledBorder: LoginStyle.textFieldEnabledBorder,
-                    )),
+                    ),
+                  onChanged: (e){
+                    provider.checkSufficIcon(e);
+                  },
+                ),
               ],
             ),
             const SizedBox(
@@ -75,7 +77,7 @@ class LoginPageBody extends StatelessWidget {
                 Row(
                   children: [
                     Text(LoginTextConstants.password,
-                        style: LoginStyle.passwordTextStyle(provider)),
+                        style: LoginStyle.passwordTextStyle(providerTheme)),
                   ],
                 ),
                 const SizedBox(
@@ -83,13 +85,16 @@ class LoginPageBody extends StatelessWidget {
                 ),
                 TextField(
                     controller: _textEditingControllerPassword,
+                    obscureText: provider.isObsor,
                     decoration: InputDecoration(
                       alignLabelWithHint: true,
                       suffixIcon: IconButton(
                           onPressed: () {
-                            if (kDebugMode) {}
+                            if (kDebugMode) {
+                              provider.changeObser();
+                            }
                           },
-                          icon: Icon(Icons.remove_red_eye_outlined)),
+                          icon:provider.passwordIcon),
                       focusedBorder: LoginStyle.textFieldFocusedBorder,
                       enabledBorder: LoginStyle.textFieldEnabledBorder,
                     )),
@@ -106,7 +111,9 @@ class LoginPageBody extends StatelessWidget {
                     onPressed: () {
                       if (kDebugMode) {}
                     },
-                    child: const Text(LoginTextConstants.login))),
+                    child: const Text(LoginTextConstants.login,
+                    style: LoginStyle.loginButtonTextStyle,
+                    ))),
             const SizedBox(
               height: 10,
             ),

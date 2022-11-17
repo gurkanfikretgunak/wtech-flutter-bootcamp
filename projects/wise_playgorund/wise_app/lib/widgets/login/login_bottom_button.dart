@@ -1,5 +1,6 @@
 import 'package:wise_app/unit/imports.dart';
 
+
 class LoginPageBottomButton extends StatelessWidget {
   const LoginPageBottomButton({
     Key? key,
@@ -34,7 +35,7 @@ class LoginPageBottomButton extends StatelessWidget {
               height: 50,
               child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                  separatorBuilder: (context, index) =>const SizedBox(
+                  separatorBuilder: (context, index) => const SizedBox(
                         width: 10,
                       ),
                   scrollDirection: Axis.horizontal,
@@ -53,34 +54,4 @@ class LoginPageBottomButton extends StatelessWidget {
   }
 }
 
-class BottomButton extends StatelessWidget {
-  const BottomButton({
-    Key? key,
-    required this.size,
-    required this.provider,
-    required this.iconPath,
-  }) : super(key: key);
 
-  final Size size;
-  final String iconPath;
-  final ThemeProvider provider;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-       width: size.width / 3.6,
-      child: ElevatedButton(
-          style: ElevatedButton.styleFrom(
-            side: BorderSide(color: provider.elevationButtonBorderColor),
-            backgroundColor: provider.elevationButtonBackgroundColor,
-          ),
-          onPressed: () {
-            if (kDebugMode) {}
-          },
-          child: SizedBox(
-              width: 28,
-              height: 28,
-              child: Image.asset(iconPath))),
-    );
-  }
-}

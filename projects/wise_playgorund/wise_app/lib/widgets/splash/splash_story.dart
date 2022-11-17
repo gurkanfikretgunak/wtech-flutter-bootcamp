@@ -15,13 +15,13 @@ class SplashStory extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width:widget.size.width,
-      height:widget.size.height/1.5,
+      width: widget.size.width,
+      height: widget.size.height / 1.5,
       child: StoryPageView(
         initialPage: 0,
         indicatorVisitedColor: ColorConstants.indicatorVisitedColor,
         indicatorUnvisitedColor: ColorConstants.indicatorUnvisitedColor,
-        backgroundColor:ColorConstants.splashBackgroundColor,
+        backgroundColor: ColorConstants.splashBackgroundColor,
         itemBuilder: (context, pageIndex, storyIndex) {
           return Container(
               color: ColorConstants.splashBackgroundColor,
@@ -35,7 +35,6 @@ class SplashStory extends StatelessWidget {
                       width: widget.size.width,
                       height: SplashConstants.storyHeight,
                       child: listStory[storyIndex]),
-
                 ],
               ));
         },

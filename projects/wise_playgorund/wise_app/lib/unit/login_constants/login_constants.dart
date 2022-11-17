@@ -1,5 +1,3 @@
-class LoginConstants{
-
-  static const double bodyAndTopTextSpaceSize=55;
-
+class LoginConstants {
+  static const double bodyAndTopTextSpaceSize = 55;
 }

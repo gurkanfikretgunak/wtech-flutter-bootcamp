@@ -45,7 +45,8 @@ class _SplashOnboardingWidgetState extends State<SplashOnboardingWidget> {
     return Scaffold(
         backgroundColor: ColorConstants.splashBackgroundColor,
         body: Padding(
-          padding:  const EdgeInsets.all(SplashConstants.splashOnboardingPaddingSize),
+          padding:
+              const EdgeInsets.all(SplashConstants.splashOnboardingPaddingSize),
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

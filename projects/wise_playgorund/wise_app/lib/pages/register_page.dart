@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../core/theme/provider_theme.dart';
+import '../core/provider/provider_theme.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -61,7 +61,6 @@ class _RegisterPageState extends State<RegisterPage> {
                       ),
                     ],
                   ),
-
                   Padding(
                     padding: const EdgeInsets.only(top: 40.0),
                     child: Row(
@@ -91,7 +90,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ],
               ),
             ),
-           const Spacer(),
+            const Spacer(),
             Row(
               children: [
                 Column(
@@ -99,20 +98,31 @@ class _RegisterPageState extends State<RegisterPage> {
                     Padding(
                       padding: const EdgeInsets.only(bottom: 8.0),
                       child: Row(
-                        children:const [
-                           Text(
-                             "By signing up you agree to our",
-                             style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400),
-                           ),  Text(
-                             " Terms of Use",
-                             style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color.fromRGBO(73, 159, 216, 1)),
-                           ),  Text(
-                             " and",
-                             style: TextStyle(fontSize: 12,fontWeight: FontWeight.w400),
-                           ),  Text(
-                             " Privacy Policy",
-                             style: TextStyle(fontSize: 12,fontWeight: FontWeight.w500,color: Color.fromRGBO(73, 159, 216, 1)),
-                           ),
+                        children: const [
+                          Text(
+                            "By signing up you agree to our",
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            " Terms of Use",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromRGBO(73, 159, 216, 1)),
+                          ),
+                          Text(
+                            " and",
+                            style: TextStyle(
+                                fontSize: 12, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            " Privacy Policy",
+                            style: TextStyle(
+                                fontSize: 12,
+                                fontWeight: FontWeight.w500,
+                                color: Color.fromRGBO(73, 159, 216, 1)),
+                          ),
                         ],
                       ),
                     ),
@@ -122,10 +132,13 @@ class _RegisterPageState extends State<RegisterPage> {
                       child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               side: const BorderSide(color: Colors.blue),
-                              backgroundColor: const Color.fromRGBO(73, 159, 216, 1)),
-                          onPressed: (){
-
-                      }, child:const Text("Next",style: TextStyle(fontSize: 18),)),
+                              backgroundColor:
+                                  const Color.fromRGBO(73, 159, 216, 1)),
+                          onPressed: () {},
+                          child: const Text(
+                            "Next",
+                            style: TextStyle(fontSize: 18),
+                          )),
                     ),
                   ],
                 )

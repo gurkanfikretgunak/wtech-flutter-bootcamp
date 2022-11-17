@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../core/theme/provider_theme.dart';
+import '../core/provider/provider_theme.dart';
 import '../widgets/login/login_body.dart';
 import '../widgets/login/login_bottom_button.dart';
 
@@ -12,7 +12,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
- final TextEditingController _textEditingControllerEmail = TextEditingController();
+  final TextEditingController _textEditingControllerEmail =
+      TextEditingController();
   TextEditingController _textEditingControllerPassword =
       TextEditingController();
   @override
@@ -43,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 LoginPageBody(
                     size: size,
-                    provider: provider,
+                    providerTheme: provider,
                     textEditingControllerEmail: _textEditingControllerEmail,
                     textEditingControllerPassword:
                         _textEditingControllerPassword),
