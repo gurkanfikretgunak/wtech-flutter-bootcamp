@@ -5,7 +5,7 @@ import 'package:coursera/views/explore/explore_custom_widget/topic_list.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
-import 'package:coursera/widgets/text/text_field_form.dart';
+import 'package:coursera/widgets/text/custom_text_field_form.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 

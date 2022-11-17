@@ -35,12 +35,14 @@ class CustomText extends StatelessWidget {
     Constant constants = Constant.instance;
     return AutoSizeText(
       text,
+      wrapWords: false,
       maxLines: maxLines ?? 1,
       textAlign: textAlign ?? TextAlign.center,
       overflow: overflow ?? TextOverflow.ellipsis,
       maxFontSize: fontSize ?? 14,
       minFontSize: (fontSize ?? 14 - 2),
       style: TextStyle(
+        wordSpacing: wordSpacing,
         height: height ?? 1.2,
         color: color ?? constants.textColor,
         fontWeight: fontWeight ?? FontWeight.w400,

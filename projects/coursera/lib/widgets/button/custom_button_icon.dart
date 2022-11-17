@@ -22,7 +22,7 @@ class CustomIconButton extends StatelessWidget {
   final double? splashRadius;
   final IconData icon;
   final String? tooltip;
-  final Function() onPressed;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {

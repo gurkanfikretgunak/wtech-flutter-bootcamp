@@ -63,7 +63,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? Function(String?)? validator;
   final EdgeInsetsGeometry? contentPadding;
   final Function(String)? onChanged;
-  final Function()? onTap;
+  final VoidCallback? onTap;
   final double? fontSize;
   final bool? readOnly;
   final String? errorText;

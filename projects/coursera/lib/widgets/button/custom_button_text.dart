@@ -27,7 +27,7 @@ class CustomTextButton extends StatelessWidget {
   final FontWeight? fontWeight;
   final FontStyle? fontStyle;
   final EdgeInsetsGeometry? padding;
-  final Function() onPressed;
+  final VoidCallback? onPressed;
   final Widget? child;
   final Color? shadowColor;
   final Size? minimumSize;

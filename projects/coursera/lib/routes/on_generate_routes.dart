@@ -1,5 +1,5 @@
-import 'package:coursera/views/authentication/sign_in_view.dart';
-import 'package:coursera/views/authentication/sign_up_view.dart';
+import 'package:coursera/views/authentication/sign_in/sign_in_view.dart';
+import 'package:coursera/views/authentication/sign_up/sign_up_view.dart';
 import 'package:coursera/views/home_view.dart';
 import 'package:coursera/views/splash_view.dart';
 import 'package:flutter/material.dart';
