@@ -57,6 +57,7 @@ class _SignInViewState extends State<SignInView> {
                 CustomInputDecoration(
                   labelText: "Name",
                   controller: emailTextController,
+                  deneme: true,
                 ),
                 Text(
                   CustomTextConstants.yourPasswordText,
@@ -67,6 +68,7 @@ class _SignInViewState extends State<SignInView> {
                   labelText: CustomTextConstants.passwordLabelText,
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
+                  deneme: true,
                 ),
                 CustomSignUpButton(
                   emailController: emailTextController,

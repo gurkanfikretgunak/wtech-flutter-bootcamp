@@ -53,6 +53,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                   labelText: CustomTextConstants.passwordLabelText,
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
+                  deneme: true,
                 ),
                 const CustomLogInButton(
                   buttonTexts: CustomTextConstants.buttonTextEmail,

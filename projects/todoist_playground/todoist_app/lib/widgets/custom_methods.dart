@@ -8,12 +8,12 @@ class CustomMethods {
         backgroundColor: Colors.grey[50],
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
-            topEnd: Radius.circular(25),
-            topStart: Radius.circular(25),
+            topEnd: Radius.circular(10),
+            topStart: Radius.circular(10),
           ),
         ),
         builder: (context) => Container(
-            height: 600,
+            height: 630,
             padding: const EdgeInsetsDirectional.only(
               start: 20,
               end: 20,

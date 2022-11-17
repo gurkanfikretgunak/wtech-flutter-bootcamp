@@ -7,11 +7,13 @@ class CustomInputDecoration extends StatefulWidget {
     this.inputIcon,
     this.unInputIcon,
     this.controller,
+    required this.deneme,
   }) : super(key: key);
   final String labelText;
   final IconData? inputIcon;
   final IconData? unInputIcon;
   final TextEditingController? controller;
+  final bool deneme;
 
   @override
   State<CustomInputDecoration> createState() => _CustomInputDecorationState();
@@ -44,20 +46,55 @@ class _CustomInputDecorationState extends State<CustomInputDecoration> {
             ),
           ),
           suffixIcon: GestureDetector(
-            onTap: () {
-              setState(() {
-                obscureText = !obscureText;
-              });
-            },
-            child: obscureText
-                ? Icon(
-                    widget.unInputIcon,
-                    color: Colors.grey,
-                  )
-                : Icon(widget.inputIcon),
-          ),
+              onTap: () {
+                if (widget.deneme) {
+                  setState(() {
+                    obscureText = !obscureText;
+                  });
+                } else {
+                  widget.controller!.clear();
+                }
+              },
+              child: widget.deneme
+                  ? obscureText
+                      ? Icon(
+                          widget.unInputIcon,
+                          color: Colors.grey,
+                        )
+                      : Icon(widget.inputIcon)
+                  : widget.controller!.text.isNotEmpty
+                      ? _CustomClearSuffixIcon(
+                          controller: widget.controller,
+                        )
+                      : SizedBox()),
         ),
       ),
+    );
+  }
+}
+
+class _CustomClearSuffixIcon extends StatelessWidget {
+  const _CustomClearSuffixIcon({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
+  final TextEditingController? controller;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: const Alignment(0.0, 0.0),
+      children: [
+        Container(
+          width: 17,
+          height: 17,
+          decoration: BoxDecoration(shape: BoxShape.circle, color: Colors.grey[350]),
+        ),
+        const Icon(
+          Icons.clear,
+          size: 30 * 0.4,
+          color: Colors.white,
+        )
+      ],
     );
   }
 }
