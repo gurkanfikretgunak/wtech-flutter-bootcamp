@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/core/model/topic.dart';
 import 'package:coursera/core/services/service.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
@@ -41,7 +41,8 @@ class _TopicListState extends State<TopicList> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return CircularProgressIndicator(color: Constant.instance.appBlue);
+          return CircularProgressIndicator(
+              color: ColorConstant.instance.appBlue);
         },
       ),
     );

@@ -27,10 +27,10 @@ class CustomRouter {
         return _buildMaterialPageRoute(const SplashView());
 
       case "/SignInView":
-        return _buildMaterialPageRoute(SignInView());
+        return _buildMaterialPageRoute(const SignInView());
 
       case "/SignUpView":
-        return _buildMaterialPageRoute(SignUpView());
+        return _buildMaterialPageRoute(const SignUpView());
 
       case "/HomeView":
         return _buildMaterialPageRoute(const HomeView());

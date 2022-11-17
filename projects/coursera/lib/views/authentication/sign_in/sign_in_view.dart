@@ -1,4 +1,3 @@
-import 'package:coursera/core/constants/constants.dart';
 import 'package:coursera/routes/custom_navigator.dart';
 import 'package:coursera/views/authentication/authentication_view.dart';
 import 'package:coursera/views/authentication/sign_in/sign_in_view_model.dart';
@@ -17,8 +16,6 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
-  Constant constant = Constant.instance;
-
   @override
   Widget build(BuildContext context) {
     return AuthenticationView(

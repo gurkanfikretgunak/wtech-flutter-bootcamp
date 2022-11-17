@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +14,7 @@ class Logo extends StatelessWidget {
     return Center(
       child: CustomText(
         text: "coursera",
-        color: color ?? Constant.instance.appBlue,
+        color: color ?? ColorConstant.instance.appBlue,
         fontSize: 40,
         fontWeight: FontWeight.bold,
       ),

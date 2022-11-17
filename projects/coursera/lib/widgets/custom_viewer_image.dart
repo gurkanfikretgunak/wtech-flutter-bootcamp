@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../core/constants/constants.dart';
-
 class CustomImageViewer extends StatelessWidget {
   const CustomImageViewer({
     Key? key,
@@ -24,16 +22,15 @@ class CustomImageViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
-
     if (assetPath == null || (assetPath!).isEmpty) {
       return Image.network(
-        url ?? constants.viewerImageUrl,
+        url ??
+            "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
         fit: BoxFit.cover,
       );
     } else {
       return Image.asset(
-        assetPath ?? constants.viewerImageAssetPath,
+        assetPath ?? "assets/error.jpg",
         height: height,
         width: width,
         fit: fit ?? BoxFit.cover,

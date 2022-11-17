@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/views/explore/explore_custom_widget/free_courses_list.dart';
 import 'package:coursera/views/explore/explore_custom_widget/most_popular_certificates_list.dart';
 import 'package:coursera/views/explore/explore_custom_widget/topic_list.dart';
@@ -14,7 +14,6 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constant = Constant.instance;
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar.customAppBar(
@@ -39,7 +38,7 @@ class ExploreView extends StatelessWidget {
                 ),
                 CustomTextFormField(
                     borderRadius: 15,
-                    fillColor: constant.appGreyLight,
+                    fillColor: ColorConstant.instance.appGreyLight,
                     prefixIcon: Icons.search_outlined,
                     hintText: "What do you want to learn?",
                     contentPadding: EdgeInsets.zero),
@@ -62,7 +61,7 @@ class ExploreView extends StatelessWidget {
                 CustomText(
                   text: "My Coursera",
                   fontSize: 23,
-                  color: constant.appGreyDark,
+                  color: ColorConstant.instance.appGreyDark,
                   fontWeight: FontWeight.w600,
                 ),
                 Row(

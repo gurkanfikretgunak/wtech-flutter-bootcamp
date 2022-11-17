@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextSpan {
@@ -10,7 +10,7 @@ class CustomTextSpan {
     return TextSpan(
       text: text,
       style: TextStyle(
-        color: color ?? Constant.instance.appBlue,
+        color: color ?? ColorConstant.instance.appBlue,
         fontWeight: fontWeight,
       ),
     );

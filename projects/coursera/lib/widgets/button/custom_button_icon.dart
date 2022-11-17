@@ -1,6 +1,6 @@
+import 'package:coursera/core/constants/color_constant.dart';
+import 'package:coursera/core/constants/radius_constant.dart';
 import 'package:flutter/material.dart';
-
-import '../../../core/constants/constants.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
@@ -26,17 +26,16 @@ class CustomIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
-
     return IconButton(
       tooltip: tooltip ?? "",
       onPressed: onPressed,
       icon: Icon(icon),
-      color: color ?? constants.buttonIconColor,
-      iconSize: iconSize ?? constants.buttonIconSize,
-      splashColor: splashColor ?? constants.buttonIconSplashColor,
-      highlightColor: highlightColor ?? constants.buttonIconHighlightColor,
-      splashRadius: splashRadius ?? constants.buttonIconSplashRadius,
+      color: color ?? ColorConstant.instance.appBlue,
+      iconSize: iconSize,
+      splashColor: splashColor,
+      highlightColor: highlightColor,
+      splashRadius:
+          splashRadius ?? RadiusConstant.instance.buttonIconSplashRadius,
     );
   }
 }

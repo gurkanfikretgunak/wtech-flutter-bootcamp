@@ -1,20 +1,20 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 class MyBottomNavBarTheme {
   static BottomNavigationBarThemeData buildBottomNavigationBarTheme() {
-    Constant constant = Constant.instance;
+    ColorConstant colorConstant = ColorConstant.instance;
 
     return BottomNavigationBarThemeData(
-        backgroundColor: constant.appGreyLight,
+        backgroundColor: colorConstant.appGreyLight,
         elevation: 4,
-        selectedItemColor: constant.appBlue,
+        selectedItemColor: colorConstant.appBlue,
         showSelectedLabels: true,
         selectedLabelStyle: TextStyle(
-          color: constant.appBlue,
+          color: colorConstant.appBlue,
         ),
         selectedIconTheme: IconThemeData(
-          color: constant.appBlue,
+          color: colorConstant.appBlue,
         ));
   }
 }

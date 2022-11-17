@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -7,7 +7,6 @@ class TermsText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constant = Constant.instance;
     return Padding(
       padding: context.horizontalPaddingMedium,
       child: RichText(
@@ -21,7 +20,7 @@ class TermsText extends StatelessWidget {
                 onTap: () {},
                 child: Text(
                   "Terms of Service, Privacy Policy,",
-                  style: TextStyle(color: constant.appBlue),
+                  style: TextStyle(color: ColorConstant.instance.appBlue),
                 ),
               ),
             ),
@@ -33,7 +32,7 @@ class TermsText extends StatelessWidget {
                 onTap: () {},
                 child: Text(
                   "Honor Code",
-                  style: TextStyle(color: constant.appBlue),
+                  style: TextStyle(color: ColorConstant.instance.appBlue),
                 ),
               ),
             ),

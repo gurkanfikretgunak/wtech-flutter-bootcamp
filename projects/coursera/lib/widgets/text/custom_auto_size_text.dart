@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:coursera/core/constants/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomText extends StatelessWidget {
@@ -32,7 +31,6 @@ class CustomText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
     return AutoSizeText(
       text,
       wrapWords: false,
@@ -44,7 +42,7 @@ class CustomText extends StatelessWidget {
       style: TextStyle(
         wordSpacing: wordSpacing,
         height: height ?? 1.2,
-        color: color ?? constants.textColor,
+        color: color,
         fontWeight: fontWeight ?? FontWeight.w400,
         decoration: decoration ?? TextDecoration.none,
         fontStyle: fontStyle ?? FontStyle.normal,

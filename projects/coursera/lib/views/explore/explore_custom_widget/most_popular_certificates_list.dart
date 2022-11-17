@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/core/model/course.dart';
 import 'package:coursera/core/services/service.dart';
 import 'package:coursera/widgets/custom_card.dart';
@@ -25,8 +25,6 @@ class _MostPopularCertificatesListState
 
   @override
   Widget build(BuildContext context) {
-    Constant constant = Constant.instance;
-
     return Padding(
       padding: context.verticalPaddingMedium,
       child: SizedBox(
@@ -65,7 +63,7 @@ class _MostPopularCertificatesListState
                           textAlign: TextAlign.start,
                           text: snapshot.data![index].courseDescription
                               .toString(),
-                          color: constant.appGreyDark,
+                          color: ColorConstant.instance.appGreyDark,
                           maxLines: 2,
                         ),
                         Row(
@@ -77,7 +75,7 @@ class _MostPopularCertificatesListState
                               text:
                                   snapshot.data![index].coursePoint.toString(),
                               fontSize: 18,
-                              color: constant.appGreyDark,
+                              color: ColorConstant.instance.appGreyDark,
                             )
                           ],
                         )
@@ -89,7 +87,8 @@ class _MostPopularCertificatesListState
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
-            return CircularProgressIndicator(color: constant.appBlue);
+            return CircularProgressIndicator(
+                color: ColorConstant.instance.appBlue);
           },
         ),
       ),

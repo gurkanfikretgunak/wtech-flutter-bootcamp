@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/views/authentication/authentication_view.dart';
 import 'package:coursera/views/authentication/sign_up/sign_up_view_model.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
@@ -18,8 +18,6 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  Constant constant = Constant.instance;
-
   @override
   Widget build(BuildContext context) {
     return AuthenticationView(
@@ -58,7 +56,7 @@ class _SignUpViewState extends State<SignUpView> {
           CustomElevatedButton(
             onPressed: () {},
             text: "Create an Account",
-            primary: constant.appGreyDark,
+            primary: ColorConstant.instance.appGreyDark,
           ),
           Row(
             children: [
@@ -68,7 +66,7 @@ class _SignUpViewState extends State<SignUpView> {
                   alignment: Alignment.center,
                   child: CustomText(
                     text: 'or',
-                    color: constant.appGreyDark,
+                    color: ColorConstant.instance.appGreyDark,
                   ),
                 ),
               ),

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/routes/custom_navigator.dart';
 import 'package:coursera/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
@@ -21,13 +21,12 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: constants.appBlue,
+        backgroundColor: ColorConstant.instance.appBlue,
         body: Center(
           child: Logo(
-            color: constants.appWhite,
+            color: ColorConstant.instance.appWhite,
           ),
         ),
       ),

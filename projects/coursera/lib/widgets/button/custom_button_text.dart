@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/widgets/text/custom_auto_size_text.dart';
 import 'package:flutter/material.dart';
 
@@ -34,13 +34,10 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
-
     return TextButton(
       style: TextButton.styleFrom(
         shadowColor: shadowColor,
         padding: padding,
-        foregroundColor: foregroundColor ?? constants.buttonTextForegroundColor,
         elevation: 0,
         minimumSize: minimumSize ??
             Size(context.dynamicWidth(0.2), context.dynamicHeight(0.05)),
@@ -50,10 +47,10 @@ class CustomTextButton extends StatelessWidget {
       child: child ??
           CustomText(
             text: text,
-            color: textColor ?? constants.buttonTextTextColor,
-            fontSize: fontSize ?? constants.buttonTextFontSize,
-            fontWeight: fontWeight ?? constants.buttonTextFontWeight,
-            fontStyle: fontStyle ?? constants.buttonTextFontStyle,
+            color: textColor ?? ColorConstant.instance.appBlue,
+            fontSize: fontSize,
+            fontWeight: fontWeight,
+            fontStyle: fontStyle,
           ),
     );
   }

@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
 import 'package:coursera/core/model/course.dart';
 import 'package:coursera/core/services/service.dart';
 import 'package:coursera/widgets/custom_card.dart';
@@ -23,8 +23,6 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
 
   @override
   Widget build(BuildContext context) {
-    Constant constant = Constant.instance;
-
     return Padding(
       padding: context.verticalPaddingMedium,
       child: SizedBox(
@@ -58,24 +56,24 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
                               text: snapshot.data![index].courseDescription
                                   .toString(),
                               maxLines: 2,
-                              color: constant.appGreyDark,
+                              color: ColorConstant.instance.appGreyDark,
                             ),
                             CustomText(
                               textAlign: TextAlign.start,
                               text: "John Hopkins University",
                               maxLines: 2,
-                              color: constant.appGreyDark,
+                              color: ColorConstant.instance.appGreyDark,
                             ),
                             Row(
                               children: [
                                 Icon(
-                                  color: constant.appBlack,
+                                  color: ColorConstant.instance.appBlack,
                                   Icons.star,
                                   size: 20,
                                 ),
                                 CustomText(
                                   text: "4.8(79K)",
-                                  color: constant.appGreyDark,
+                                  color: ColorConstant.instance.appGreyDark,
                                 )
                               ],
                             )
@@ -97,7 +95,8 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
-            return CircularProgressIndicator(color: constant.appBlue);
+            return CircularProgressIndicator(
+                color: ColorConstant.instance.appBlue);
           },
         ),
       ),

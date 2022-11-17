@@ -1,4 +1,5 @@
-import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/core/constants/color_constant.dart';
+import 'package:coursera/core/constants/radius_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -71,7 +72,6 @@ class CustomTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Constant constants = Constant.instance;
     return Column(
       children: [
         TextFormField(
@@ -85,67 +85,61 @@ class CustomTextFormField extends StatelessWidget {
             color: textColor,
             fontSize: fontSize,
           ),
-          cursorColor: cursorColor ?? constants.textFieldFormCursorColor,
-          maxLines: maxLines ?? constants.textFieldFormMaxLines,
-          obscureText: obscureText ?? constants.textFieldFormObscureText,
-          keyboardType: keyboardType ?? constants.textFieldFormKeyboardType,
-          maxLength:
-              maxLength == null ? null : constants.textFieldFormMaxLength,
+          cursorColor: cursorColor,
+          maxLines: maxLines,
+          obscureText: obscureText ?? false,
+          keyboardType: keyboardType,
+          maxLength: maxLength,
           decoration: InputDecoration(
             contentPadding: contentPadding ??
                 EdgeInsets.symmetric(
                     horizontal: context.dynamicWidth(0.03), vertical: 0),
-            fillColor: fillColor ?? constants.textFieldFormFilledColor,
-            hintText: hintText ?? constants.textFieldFormHintText,
+            fillColor: fillColor,
+            hintText: hintText,
             hintStyle: TextStyle(
-              fontSize: hintTextFontSize ?? constants.textFieldFormHintTextSize,
-              color: hintTextColor ?? constants.textFieldFormHintTextColor,
+              fontSize: hintTextFontSize,
+              color: hintTextColor,
             ),
-            labelText: labelText == null
-                ? null
-                : labelText ?? constants.textFieldFormLabeText,
+            labelText: labelText,
             labelStyle: TextStyle(
-              fontSize: constants.textFieldFormLabelTextSize,
-              color: labelTextColor ?? constants.textFieldFormLabelTextColor,
+              fontSize: fontSize,
+              color: labelTextColor ?? ColorConstant.instance.appGreyDark,
             ),
-            enabledBorder: enabledBorder ?? _buildOutlineInputBorder(constants),
-            focusedBorder: enabledBorder ?? _buildOutlineInputBorder(constants),
+            enabledBorder: enabledBorder ?? _buildOutlineInputBorder(),
+            focusedBorder: enabledBorder ?? _buildOutlineInputBorder(),
             errorText: errorText,
-            errorStyle: TextStyle(color: constants.appRed),
-            focusedErrorBorder: _buildOutlineInputBorder(constants),
-            errorBorder: _buildOutlineInputBorder(constants),
+            errorStyle: TextStyle(color: ColorConstant.instance.appRed),
+            focusedErrorBorder: _buildOutlineInputBorder(),
+            errorBorder: _buildOutlineInputBorder(),
             suffixIcon: suffixIcon == null
                 ? null
                 : Icon(
-                    size: constants.textFieldFormIconSize,
-                    suffixIcon ?? constants.textFieldFormSuffixIcon,
-                    color: suffixIconColor ??
-                        constants.textFieldFormSuffixIconColor,
+                    suffixIcon,
+                    color:
+                        suffixIconColor ?? ColorConstant.instance.appGreyDark,
                   ),
             prefixIcon: prefixIcon == null
                 ? null
-                : Icon(
-                    size: constants.textFieldFormIconSize,
-                    prefixIcon ?? constants.textFieldFormPrefixIcon,
-                    color: prefixIconColor ??
-                        constants.textFieldFormPrefixIconColor,
-                  ),
+                : Icon(prefixIcon,
+                    color:
+                        prefixIconColor ?? ColorConstant.instance.appGreyDark),
           ),
         ),
       ],
     );
   }
 
-  OutlineInputBorder _buildOutlineInputBorder(Constant constants) {
+  OutlineInputBorder _buildOutlineInputBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.all(
         Radius.circular(
-          borderRadius ?? constants.textFieldFormBorderRadius,
+          borderRadius ?? RadiusConstant.instance.textFieldFormBorderRadius,
         ),
       ),
       borderSide: BorderSide(
         width: 1.5,
-        color: borderSideColor ?? constants.textFieldFormBorderSideColor,
+        color:
+            borderSideColor ?? ColorConstant.instance.textFormFieldBorderColor,
       ),
     );
   }
