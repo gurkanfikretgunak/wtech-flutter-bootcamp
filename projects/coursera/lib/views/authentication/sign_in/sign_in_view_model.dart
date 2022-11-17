@@ -1,5 +1,5 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/widgets/custom_viewer_image.dart';
+import '../../../core/constants/color_constant.dart';
+import '../../../widgets/custom_viewer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kartal/kartal.dart';

@@ -1,6 +1,6 @@
-import 'package:coursera/core/api/api_client.dart';
-import 'package:coursera/core/model/course.dart';
-import 'package:coursera/core/model/topic.dart';
+import '../api/api_client.dart';
+import '../model/course.dart';
+import '../model/topic.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
 

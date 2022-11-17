@@ -1,13 +1,13 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/views/explore/explore_custom_widget/free_courses_list.dart';
-import 'package:coursera/views/explore/explore_custom_widget/most_popular_certificates_list.dart';
-import 'package:coursera/views/explore/explore_custom_widget/topic_list.dart';
-import 'package:coursera/widgets/button/custom_button_text.dart';
-import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
-import 'package:coursera/widgets/text/custom_text_field_form.dart';
+import '../../core/constants/color_constant.dart';
+import 'explore_custom_widget/free_courses_list.dart';
+import 'explore_custom_widget/most_popular_certificates_list.dart';
+import 'explore_custom_widget/topic_list.dart';
+import '../../widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../widgets/button/button_libary.dart';
+import '../../widgets/text/text_libary.dart';
 
 class ExploreView extends StatelessWidget {
   const ExploreView({super.key});

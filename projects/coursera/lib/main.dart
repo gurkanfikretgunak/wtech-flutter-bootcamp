@@ -1,7 +1,8 @@
-import 'package:coursera/core/app.dart';
-import 'package:coursera/core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'core/app.dart';
+import 'core/constants/color_constant.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(

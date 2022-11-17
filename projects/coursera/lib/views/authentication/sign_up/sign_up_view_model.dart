@@ -1,7 +1,8 @@
-import 'package:coursera/core/provider/sign_up_state.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
+
+import '../../../core/provider/sign_up_state.dart';
 
 class SignUpViewModel {
   static buildTextFormFieldValue(BuildContext context) {

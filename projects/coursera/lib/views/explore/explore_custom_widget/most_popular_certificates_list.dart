@@ -1,10 +1,11 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/core/model/course.dart';
-import 'package:coursera/core/services/service.dart';
-import 'package:coursera/widgets/custom_card.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
+import '../../../core/constants/color_constant.dart';
+import '../../../core/model/course.dart';
+import '../../../core/services/service.dart';
+import '../../../widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../widgets/text/text_libary.dart';
 
 class MostPopularCertificatesList extends StatefulWidget {
   const MostPopularCertificatesList({super.key});

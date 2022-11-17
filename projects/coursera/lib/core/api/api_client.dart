@@ -1,5 +1,5 @@
-import 'package:coursera/core/model/course.dart';
-import 'package:coursera/core/model/topic.dart';
+import '../model/course.dart';
+import '../model/topic.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 

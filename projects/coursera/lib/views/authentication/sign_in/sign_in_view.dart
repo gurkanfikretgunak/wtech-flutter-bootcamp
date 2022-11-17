@@ -1,12 +1,12 @@
-import 'package:coursera/routes/custom_navigator.dart';
-import 'package:coursera/views/authentication/authentication_view.dart';
-import 'package:coursera/views/authentication/sign_in/sign_in_view_model.dart';
-import 'package:coursera/widgets/button/custom_button_elevated.dart';
-import 'package:coursera/widgets/custom_divider.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
-import 'package:coursera/widgets/text/custom_text_span.dart';
+import '../../../routes/custom_navigator.dart';
+import '../authentication_view.dart';
+import 'sign_in_view_model.dart';
+import '../../../widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../widgets/button/button_libary.dart';
+import '../../../widgets/text/text_libary.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});

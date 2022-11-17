@@ -1,4 +1,4 @@
-import 'package:coursera/core/constants/color_constant.dart';
+import '../../core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextSpan {

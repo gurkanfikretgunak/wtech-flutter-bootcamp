@@ -1,6 +1,7 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
+import '../core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
+
+import 'text/text_libary.dart';
 
 class Logo extends StatelessWidget {
   final Color? color;

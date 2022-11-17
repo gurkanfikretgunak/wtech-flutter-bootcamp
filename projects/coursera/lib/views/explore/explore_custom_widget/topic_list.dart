@@ -1,9 +1,10 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/core/model/topic.dart';
-import 'package:coursera/core/services/service.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
+import '../../../core/constants/color_constant.dart';
+import '../../../core/model/topic.dart';
+import '../../../core/services/service.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../widgets/text/text_libary.dart';
 
 class TopicList extends StatefulWidget {
   const TopicList({super.key});

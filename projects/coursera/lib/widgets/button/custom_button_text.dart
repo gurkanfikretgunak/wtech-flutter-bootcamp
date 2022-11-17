@@ -1,8 +1,9 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
+import '../../core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
 
 import 'package:kartal/kartal.dart';
+
+import '../text/text_libary.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({

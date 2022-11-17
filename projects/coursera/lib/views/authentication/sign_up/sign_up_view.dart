@@ -1,14 +1,13 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/views/authentication/authentication_view.dart';
-import 'package:coursera/views/authentication/sign_up/sign_up_view_model.dart';
-import 'package:coursera/widgets/button/custom_button_elevated.dart';
-import 'package:coursera/widgets/button/custom_button_text.dart';
-import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/custom_divider.dart';
-import 'package:coursera/widgets/text/custom_auto_size_text.dart';
-import 'package:coursera/widgets/text/custom_text_field_form.dart';
+import '../../../core/constants/color_constant.dart';
+import '../authentication_view.dart';
+import 'sign_up_view_model.dart';
+import '../../../widgets/custom_app_bar.dart';
+import '../../../widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../widgets/button/button_libary.dart';
+import '../../../widgets/text/text_libary.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({super.key});

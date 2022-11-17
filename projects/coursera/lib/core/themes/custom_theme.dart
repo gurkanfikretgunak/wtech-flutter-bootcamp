@@ -1,7 +1,7 @@
-import 'package:coursera/core/constants/color_constant.dart';
-import 'package:coursera/core/themes/bottom_nav_bar_theme.dart';
-import 'package:coursera/core/themes/card_theme.dart';
-import 'package:coursera/core/themes/elevated_button_theme.dart';
+import '../constants/color_constant.dart';
+import 'bottom_nav_bar_theme.dart';
+import 'card_theme.dart';
+import 'elevated_button_theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomTheme {

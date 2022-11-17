@@ -1,9 +1,10 @@
-import 'package:coursera/views/authentication/authentication_custom_widget/terms_text.dart';
-import 'package:coursera/widgets/button/custom_button_text.dart';
-import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/custom_logo.dart';
+import 'authentication_custom_widget/terms_text.dart';
+import '../../widgets/custom_app_bar.dart';
+import '../../widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../widgets/button/button_libary.dart';
 
 class AuthenticationView extends StatelessWidget {
   const AuthenticationView({
