@@ -13,7 +13,7 @@ class _RestClient implements RestClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'https://636eb123bb9cf402c807e3fd.mockapi.io/users';
+    baseUrl ??= 'https://636eb123bb9cf402c807e3fd.mockapi.io/';
   }
 
   final Dio _dio;
@@ -69,11 +69,17 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<Users> loginPage(emailId) async {
+  Future<Users> loginPage(
+    emailId,
+    passwordId,
+  ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {'email': emailId};
+    final _data = {
+      'email': emailId,
+      'password': passwordId,
+    };
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Users>(Options(
       method: 'POST',

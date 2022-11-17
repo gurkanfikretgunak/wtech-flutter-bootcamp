@@ -6,6 +6,8 @@ import '../../service/data_service.dart';
 class ServiceProvider with ChangeNotifier {
   List<Users> response = [];
 
+  late Users newUser;
+
   void fetchUser() async {
     final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
         baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
@@ -13,17 +15,25 @@ class ServiceProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> fetch(email) async {
+  Future<bool> userController(email) async {
     for (var item in response) {
       if (item.email == email.text) {
-        print("kullanıcı var");
         return true;
       }
     }
     return false;
   }
 
-  Future<bool> hasUser(email) {
-    return fetch(email);
+  Future<bool> postUser(email, password) async {
+    for (var item in response) {
+      if (item.email == email.text && item.password == password.text) {
+        return false;
+      }
+    }
+
+    final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
+            baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
+        .loginPage(email.text, password.text);
+    return true;
   }
 }

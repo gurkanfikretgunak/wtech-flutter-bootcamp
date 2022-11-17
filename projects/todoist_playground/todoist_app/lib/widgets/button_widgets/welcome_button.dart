@@ -1,17 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
+import 'package:todoist_app/widgets/custom_methods.dart';
 
-import 'custom_methods.dart';
-
-class CustomBlackButton extends StatefulWidget {
-  const CustomBlackButton({Key? key, required this.widName}) : super(key: key);
+class CustomButtonWelcome extends StatefulWidget {
+  const CustomButtonWelcome({
+    Key? key,
+    required this.widName,
+    required this.color,
+    required this.icon,
+  }) : super(key: key);
   final Widget widName;
-
+  final Color color;
+  final IconData icon;
   @override
-  State<CustomBlackButton> createState() => _CustomBlackButtonState();
+  State<CustomButtonWelcome> createState() => _CustomButtonWelcomeState();
 }
 
-class _CustomBlackButtonState extends State<CustomBlackButton> {
+class _CustomButtonWelcomeState extends State<CustomButtonWelcome> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -22,7 +27,7 @@ class _CustomBlackButtonState extends State<CustomBlackButton> {
           CustomMethods.settingModalBottomSheet(context, widget.widName);
         },
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.black),
+            backgroundColor: MaterialStateProperty.all(widget.color),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -31,11 +36,11 @@ class _CustomBlackButtonState extends State<CustomBlackButton> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(Icons.apple_outlined),
+            Icon(widget.icon),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                CustomTextConstants.buttonTextApple,
+                CustomTextConstants.buttonTextEmail,
                 style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
               ),
             ),

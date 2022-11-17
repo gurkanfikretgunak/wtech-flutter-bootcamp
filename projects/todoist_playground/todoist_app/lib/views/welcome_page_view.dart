@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/views/sign_up_page_view.dart';
-import 'package:todoist_app/widgets/custom_button_for_welcome.dart';
+import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
 import '../constants/custom_constants.dart';
-import '../widgets/custom_black_button.dart';
 import 'login_with_email_view.dart';
 
 class WelcomeToApp extends StatefulWidget {
@@ -44,8 +43,9 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         padding: const EdgeInsets.only(top: 8.0),
                         child: Image.asset(CustomImagePathConstants.welcomeIconPath, height: 250),
                       ),
-                      const CustomButtonWelcome(widName: LoginWithEmail()),
-                      const CustomBlackButton(widName: SignInView()),
+                      const CustomButtonWelcome(
+                          color: Colors.red, icon: Icons.email_rounded, widName: LoginWithEmail()),
+                      const CustomButtonWelcome(color: Colors.black, icon: Icons.apple_rounded, widName: SignInView()),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [

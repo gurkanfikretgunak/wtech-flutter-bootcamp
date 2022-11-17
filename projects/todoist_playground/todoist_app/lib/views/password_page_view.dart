@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todoist_app/views/pick_theme_page_view.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/custom_input_decoration_widget.dart';
-import '../widgets/custom_red_button.dart';
+import '../widgets/input_decoration_widget.dart';
+import '../widgets/button_widgets/login_button.dart';
 
 class LoginPasswordView extends StatefulWidget {
   const LoginPasswordView({Key? key}) : super(key: key);
@@ -54,7 +54,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
                 ),
-                const CustomRedButton(
+                const CustomLogInButton(
                   buttonTexts: CustomTextConstants.buttonTextEmail,
                   hasDataWidget: ThemeSwitcher(),
                   nullDataWidget: LoginPasswordView(),

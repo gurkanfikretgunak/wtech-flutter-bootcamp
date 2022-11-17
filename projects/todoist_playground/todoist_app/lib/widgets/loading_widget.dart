@@ -1,15 +1,16 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'package:todoist_app/views/information_page_view.dart';
+import '../constants/custom_constants.dart';
+import '../core/themes/custom_themes.dart';
 // ignore: depend_on_referenced_packages
 import 'package:page_transition/page_transition.dart';
-import 'package:todoist_app/constants/custom_constants.dart';
-import 'package:todoist_app/views/pick_theme_page_view.dart';
-import '../core/themes/custom_themes.dart';
-import 'package:lottie/lottie.dart';
 
-class WhiteCircularPage extends StatelessWidget {
-  const WhiteCircularPage({Key? key, required this.logText}) : super(key: key);
+class LoadingPage extends StatelessWidget {
+  const LoadingPage({Key? key, required this.logText}) : super(key: key);
   final String logText;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +26,7 @@ class WhiteCircularPage extends StatelessWidget {
                 splash: Lottie.asset(CustomImagePathConstants.loadingLottiePath),
                 backgroundColor: Colors.white,
                 splashIconSize: 100,
-                nextScreen: const ThemeSwitcher(),
+                nextScreen: const InformationApp(),
                 pageTransitionType: PageTransitionType.topToBottom,
                 duration: 1000,
               ),

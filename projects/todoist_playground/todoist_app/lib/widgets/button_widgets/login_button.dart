@@ -1,20 +1,29 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../core/provider/service_provider.dart';
+import 'package:todoist_app/widgets/custom_methods.dart';
+import '../../core/provider/service_provider.dart';
 
-class CustomRedButton extends StatefulWidget {
-  const CustomRedButton(
-      {Key? key, required this.buttonTexts, required this.hasDataWidget, this.controller, required this.nullDataWidget})
+class CustomLogInButton extends StatefulWidget {
+  const CustomLogInButton(
+      {Key? key,
+      required this.buttonTexts,
+      required this.hasDataWidget,
+      this.emailController,
+      required this.nullDataWidget,
+      this.passwordController})
       : super(key: key);
   final String buttonTexts;
   final Widget hasDataWidget;
   final Widget nullDataWidget;
-  final TextEditingController? controller;
+  final TextEditingController? emailController;
+  final TextEditingController? passwordController;
+
   @override
-  State<CustomRedButton> createState() => _CustomRedButtonState();
+  State<CustomLogInButton> createState() => _CustomLogInButtonState();
 }
 
-class _CustomRedButtonState extends State<CustomRedButton> {
+class _CustomLogInButtonState extends State<CustomLogInButton> {
   @override
   void initState() {
     super.initState();
@@ -30,11 +39,13 @@ class _CustomRedButtonState extends State<CustomRedButton> {
         width: 350,
         child: ElevatedButton(
           onPressed: () async {
-            bool isCheck = await value.hasUser(widget.controller);
+            bool isCheck = await value.userController(widget.emailController);
             if (isCheck) {
-              _settingModalBottomSheet(context, widget.hasDataWidget);
+              // ignore: use_build_context_synchronously
+              CustomMethods.settingModalBottomSheet(context, widget.hasDataWidget);
             } else {
-              _settingModalBottomSheet(context, widget.nullDataWidget);
+              // ignore: use_build_context_synchronously
+              CustomMethods.settingModalBottomSheet(context, widget.nullDataWidget);
             }
           },
           style: ButtonStyle(
@@ -60,26 +71,4 @@ class _CustomRedButtonState extends State<CustomRedButton> {
       ),
     );
   }
-}
-
-void _settingModalBottomSheet(context, Widget datawidget) {
-  showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      backgroundColor: Colors.grey[50],
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadiusDirectional.only(
-          topEnd: Radius.circular(25),
-          topStart: Radius.circular(25),
-        ),
-      ),
-      builder: (context) => Container(
-          height: 600,
-          padding: const EdgeInsetsDirectional.only(
-            start: 20,
-            end: 20,
-            bottom: 30,
-            top: 8,
-          ),
-          child: datawidget));
 }

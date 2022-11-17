@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/views/login_with_email_view.dart';
+import 'package:todoist_app/widgets/loading_widget.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/custom_input_decoration_widget.dart';
-import '../widgets/custom_red_button.dart';
-import 'after_login_page_view.dart';
+import '../widgets/button_widgets/sign_up_button.dart';
+import '../widgets/input_decoration_widget.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({Key? key}) : super(key: key);
@@ -67,11 +68,12 @@ class _SignInViewState extends State<SignInView> {
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,
                 ),
-                const CustomRedButton(
+                CustomSignUpButton(
+                  emailController: emailTextController,
+                  passwordController: passwordTextController,
                   buttonTexts: CustomTextConstants.buttonTextEmail,
-                  hasDataWidget: WhiteCircularPage(
-                      logText: "If you don't know where you are going, you might wind up someplace else. -YOGI BERRA"),
-                  nullDataWidget: SignInView(),
+                  hasDataWidget: const LoadingPage(logText: "DENEMEEEE"),
+                  nullDataWidget: const LoginWithEmail(),
                 ),
               ],
             ),
