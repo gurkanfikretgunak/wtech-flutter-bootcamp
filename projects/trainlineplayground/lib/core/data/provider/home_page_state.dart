@@ -1,17 +1,20 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:intl/intl.dart';
 
 
 class HomePageState with ChangeNotifier{
-  DateTime selectedDate = DateTime.now();
+  late String selectedDate;
   
-  void displaySelectedDate(DateTime newTime){
+  void displaySelectedDate(String newTime){
     selectedDate = newTime;
+    
     notifyListeners(); // bu şekilde veri her değiştiğinde dinleyecek bi yapı kurduk
   }
-  DateTime readDate(){
-    return selectedDate;
+  void formatString(DateTime pickeddate){
+    DateFormat('dd-MM-yyyy').format(pickeddate);
   }
+
 
 }
