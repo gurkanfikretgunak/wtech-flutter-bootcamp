@@ -242,6 +242,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.2.0"
+  grock:
+    dependency: "direct main"
+    description:
+      name: grock
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.6+2"
   http:
     dependency: "direct main"
     description:
@@ -403,6 +410,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.5.1"
+  pretty_dio_logger:
+    dependency: "direct main"
+    description:
+      name: pretty_dio_logger
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.0-beta-1"
   provider:
     dependency: "direct main"
     description:

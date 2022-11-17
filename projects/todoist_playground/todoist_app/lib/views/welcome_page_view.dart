@@ -30,7 +30,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                     Padding(
                         padding: const EdgeInsets.only(top: 15.0),
                         child: Text(
-                          CustomTextConstants.agreeText,
+                          CustomTextConstants.welcomeText,
                           style: CustomTheme.customLightThemeData().textTheme.headline1,
                         ))
                   ],

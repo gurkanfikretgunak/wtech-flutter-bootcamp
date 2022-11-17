@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
 import '../widgets/custom_input_decoration_widget.dart';
-import '../widgets/custom_model_bottom_elevated_button.dart';
+import '../widgets/custom_red_button.dart';
 import 'after_login_page_view.dart';
 
 class SignInView extends StatefulWidget {
@@ -13,6 +13,9 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+  TextEditingController emailTextController = TextEditingController();
+  TextEditingController passwordTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     var userEmailText = "Using nur@gmail.com to log in.";
@@ -50,12 +53,16 @@ class _SignInViewState extends State<SignInView> {
                   CustomTextConstants.yourNameText,
                   style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 ),
-                const CustomInputDecoration(labelText: "Name"),
+                CustomInputDecoration(
+                  labelText: "Name",
+                  controller: emailTextController,
+                ),
                 Text(
                   CustomTextConstants.yourPasswordText,
                   style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
                 ),
-                const CustomInputDecoration(
+                CustomInputDecoration(
+                  controller: passwordTextController,
                   labelText: CustomTextConstants.passwordLabelText,
                   inputIcon: Icons.visibility_rounded,
                   unInputIcon: Icons.visibility_off_rounded,

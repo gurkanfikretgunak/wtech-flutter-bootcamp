@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-import '../model/users_model.dart';
+import '../model/user/users_model.dart';
 
 part 'data_service.g.dart';
 
@@ -11,8 +11,8 @@ abstract class RestClient {
   @GET("/users")
   Future<List<Users>> getUsers();
   @GET("/users/{id}")
-  Future<Users> getUser(@Path("id") String id);
+  Future<Users> postUsers(@Path("id") String id);
   @POST("/users")
   @FormUrlEncoded()
-  Future<Users> loginPage(@Field("email") emailId, @Field("password") password);
+  Future<Users> loginPage(@Field("email") emailId);
 }

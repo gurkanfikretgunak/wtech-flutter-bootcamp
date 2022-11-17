@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoist_app/core/provider/theme_change_provider.dart';
+import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/views/splash_screen_view.dart';
 
@@ -15,13 +15,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ThemeProvider())],
-      child: Consumer<ThemeProvider>(
+      providers: [ChangeNotifierProvider(create: (_) => ServiceProvider())],
+      child: Consumer<ServiceProvider>(
         builder: (context, value, child) {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             title: 'Todoist App',
-            themeMode: value.selectedThemeMode,
+            // themeMode: value.selectedThemeMode,
             theme: CustomTheme.customLightThemeData(),
             darkTheme: ThemeData(
               brightness: Brightness.dark,
