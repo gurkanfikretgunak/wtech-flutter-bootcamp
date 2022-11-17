@@ -5,6 +5,8 @@ class CustomTheme {
         iconTheme: const IconThemeData(
           color: Colors.red,
         ),
+        floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.red),
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.red),
         backgroundColor: Colors.grey[50],
         primaryColor: Colors.red,
         textTheme: TextTheme(

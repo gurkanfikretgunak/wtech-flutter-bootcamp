@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import 'package:todoist_app/views/welcome_page_view.dart';
-import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
+import '../widgets/button_widgets/no_sheet_button.dart';
+import 'home_page_view.dart';
 
 class InformationApp extends StatelessWidget {
   const InformationApp({Key? key}) : super(key: key);
@@ -46,11 +46,14 @@ class InformationApp extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(top: 25.0),
-              child: CustomButtonWelcome(
-                  widName: WelcomeToApp(), color: Colors.red, text: CustomTextConstants.learnMoreText),
+              child: NoSheetButton(widName: MyHomePage(), text: CustomTextConstants.learnMoreText),
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const MyHomePage(),
+                  ));
+                },
                 child: Text(
                   "Continue",
                   style: CustomTheme.customLightThemeData().textTheme.subtitle1,
