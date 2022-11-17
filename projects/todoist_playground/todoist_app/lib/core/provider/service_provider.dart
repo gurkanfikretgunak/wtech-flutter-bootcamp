@@ -5,7 +5,6 @@ import '../../service/data_service.dart';
 
 class ServiceProvider with ChangeNotifier {
   List<Users> response = [];
-
   late Users newUser;
 
   void fetchUser() async {
@@ -30,7 +29,6 @@ class ServiceProvider with ChangeNotifier {
         return false;
       }
     }
-
     final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
             baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
         .loginPage(email.text, password.text);

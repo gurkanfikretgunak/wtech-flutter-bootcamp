@@ -44,8 +44,16 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         child: Image.asset(CustomImagePathConstants.welcomeIconPath, height: 250),
                       ),
                       const CustomButtonWelcome(
-                          color: Colors.red, icon: Icons.email_rounded, widName: LoginWithEmail()),
-                      const CustomButtonWelcome(color: Colors.black, icon: Icons.apple_rounded, widName: SignInView()),
+                          color: Colors.red,
+                          icon: Icons.email_rounded,
+                          widName: LoginWithEmail(),
+                          text: CustomTextConstants.buttonTextEmail),
+                      const CustomButtonWelcome(
+                        color: Colors.black,
+                        icon: Icons.apple_rounded,
+                        widName: SignInView(),
+                        text: CustomTextConstants.buttonTextApple,
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: const [

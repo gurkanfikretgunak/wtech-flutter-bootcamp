@@ -1,16 +1,19 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:todoist_app/views/information_page_view.dart';
+import 'package:todoist_app/widgets/custom_methods.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-// ignore: depend_on_referenced_packages
-import 'package:page_transition/page_transition.dart';
 
-class LoadingPage extends StatelessWidget {
+class LoadingPage extends StatefulWidget {
   const LoadingPage({Key? key, required this.logText}) : super(key: key);
   final String logText;
 
+  @override
+  State<LoadingPage> createState() => _LoadingPageState();
+}
+
+class _LoadingPageState extends State<LoadingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,27 +21,27 @@ class LoadingPage extends StatelessWidget {
       body: Column(
         children: [
           SizedBox(
-            height: 500,
+            height: 300,
             width: 100,
             child: Padding(
-              padding: const EdgeInsets.only(top: 50),
-              child: AnimatedSplashScreen(
-                splash: Lottie.asset(CustomImagePathConstants.loadingLottiePath),
-                backgroundColor: Colors.white,
-                splashIconSize: 100,
-                nextScreen: const InformationApp(),
-                pageTransitionType: PageTransitionType.topToBottom,
-                duration: 1000,
-              ),
-            ),
+                padding: const EdgeInsets.only(top: 50),
+                child: Lottie.asset(CustomImagePathConstants.loadingLottiePath)),
           ),
           Center(
             child: Text(
-              logText,
+              widget.logText,
               style: CustomTheme.customLightThemeData().textTheme.subtitle1,
               textAlign: TextAlign.center,
             ),
-          )
+          ),
+          TextButton(
+              onPressed: () {
+                CustomMethods.settingModalBottomSheet(context, const InformationApp());
+              },
+              child: Text(
+                "next",
+                style: TextStyle(color: Colors.red),
+              ))
         ],
       ),
     );

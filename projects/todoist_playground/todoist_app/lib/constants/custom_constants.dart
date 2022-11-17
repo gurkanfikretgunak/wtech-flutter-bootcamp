@@ -8,6 +8,7 @@ class CustomTextConstants {
   static const sheetCloseText = "Close";
   static const yourPasswordText = "YOUR PASSWORD";
   static const yourNameText = "YOUR NAME";
+  static const learnMoreText = "Learn More";
 
   static const forgotPasswordText = "Forgot your password";
   static const logWithPasswordText = "Log in with your password";
@@ -20,6 +21,7 @@ class CustomImagePathConstants {
   static const googleIconPath = "assets/images/png/google_icon.png";
   static const facbookIconPath = "assets/images/png/facebook_icon.png";
   static const loadingLottiePath = "assets/lottie/97443-loading-gray.json";
+  static const learnMorePath = "assets/images/png/learn_more.png";
 }
 
 class CustomColorConstants {}

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 
 class CustomButtonWelcome extends StatefulWidget {
@@ -7,11 +6,13 @@ class CustomButtonWelcome extends StatefulWidget {
     Key? key,
     required this.widName,
     required this.color,
-    required this.icon,
+    this.icon,
+    required this.text,
   }) : super(key: key);
   final Widget widName;
   final Color color;
-  final IconData icon;
+  final IconData? icon;
+  final String text;
   @override
   State<CustomButtonWelcome> createState() => _CustomButtonWelcomeState();
 }
@@ -40,7 +41,7 @@ class _CustomButtonWelcomeState extends State<CustomButtonWelcome> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                CustomTextConstants.buttonTextEmail,
+                widget.text,
                 style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
               ),
             ),
