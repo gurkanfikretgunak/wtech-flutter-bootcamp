@@ -1,0 +1,111 @@
+
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class SignInAccountPage extends StatefulWidget {
+  const SignInAccountPage({super.key});
+
+  @override
+  State<SignInAccountPage> createState() => SignInAccountPageState();
+}
+
+class SignInAccountPageState extends State<SignInAccountPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      
+      body: Column(
+        
+        children: [
+          Container(
+            color: Colors.blueGrey[100],
+             alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Padding(padding: EdgeInsets.only(top: 50)),
+              const Text("Sign in to your Account",style: TextStyle(fontSize: 24),),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              const Text("Manage, change and refund your bookings effortlesly",),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              InkWell(
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 350,
+                  decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.purple
+                  ),
+                  child: const Text("Sign in with email",style: TextStyle(color: Colors.white,fontSize: 20),)
+                  
+                ),
+                onTap: () {
+                  
+                },
+              ),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              InkWell(
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 350,
+                  decoration:  BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white
+                  ),
+                  child: const Text("Continue with Google",style: TextStyle(color: Colors.black,fontSize: 20),)
+                  
+                ),
+                onTap: () {
+                  
+                },
+              ),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      height: 40,
+                      width: 125,
+                      child: const Text("Facebook"),
+                    ),
+                    onTap: () {
+                      
+                    },
+                  ),
+                  InkWell(
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: Colors.white,
+                      height: 40,
+                      width: 125,
+                      child: const Text("Apple"),
+                    ),
+                    onTap: () {
+                      
+                    },
+                  )
+                ],
+              ),
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text("New Customer?"),
+                  TextButton(onPressed: () {},
+                   child:const Text("Create an account",style: TextStyle(color: Colors.purple),))
+                ],
+              )
+            ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
