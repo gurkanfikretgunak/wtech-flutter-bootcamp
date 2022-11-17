@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 
 class CustomTheme {
   static ThemeData customThemeData(BuildContext context) {
-    ConstantsClass constant = ConstantsClass.instance;
-
+    Constant constant = Constant.instance;
+    //thema olarak parçala
     return ThemeData(
       scaffoldBackgroundColor: const Color(0xFFFFFFFF),
       useMaterial3: false,

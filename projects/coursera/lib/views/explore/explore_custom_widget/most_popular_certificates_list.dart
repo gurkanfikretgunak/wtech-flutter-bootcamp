@@ -25,7 +25,7 @@ class _MostPopularCertificatesListState
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constant = ConstantsClass.instance;
+    Constant constant = Constant.instance;
 
     return Padding(
       padding: context.verticalPaddingMedium,

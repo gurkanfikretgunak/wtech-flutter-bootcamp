@@ -14,7 +14,7 @@ class ExploreView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constant = ConstantsClass.instance;
+    Constant constant = Constant.instance;
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar.customAppBar(
@@ -38,11 +38,11 @@ class ExploreView extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
                 CustomTextFormField(
-                  fillColor: constant.appGreyLight,
-                  prefixIcon: Icons.search_outlined,
-                  labelText: "What do you want to learn?",
-                  contentPadding: const EdgeInsets.all(2),
-                ),
+                    borderRadius: 15,
+                    fillColor: constant.appGreyLight,
+                    prefixIcon: Icons.search_outlined,
+                    hintText: "What do you want to learn?",
+                    contentPadding: EdgeInsets.zero),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class MyBottomNavBarTheme {
   static BottomNavigationBarThemeData buildBottomNavigationBarTheme() {
-    ConstantsClass constant = ConstantsClass.instance;
+    Constant constant = Constant.instance;
 
     return BottomNavigationBarThemeData(
         backgroundColor: constant.appGreyLight,

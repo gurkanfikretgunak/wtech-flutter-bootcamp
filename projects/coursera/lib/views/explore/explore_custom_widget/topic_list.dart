@@ -41,8 +41,7 @@ class _TopicListState extends State<TopicList> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return CircularProgressIndicator(
-              color: ConstantsClass.instance.appBlue);
+          return CircularProgressIndicator(color: Constant.instance.appBlue);
         },
       ),
     );

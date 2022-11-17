@@ -31,13 +31,13 @@ class CustomElevatedButton extends StatelessWidget {
   final double? height;
   final double? width;
   final double? borderRadius;
-  final Function() onPressed;
+  final VoidCallback? onPressed;
   final Widget? child;
   final Widget? iconWidget;
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constants = ConstantsClass.instance;
+    Constant constants = Constant.instance;
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(

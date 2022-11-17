@@ -20,7 +20,7 @@ class SignUpView extends StatefulWidget {
 }
 
 class _SignUpViewState extends State<SignUpView> {
-  ConstantsClass constant = ConstantsClass.instance;
+  Constant constant = Constant.instance;
   bool isErrorNameTextFormField = false;
   TextEditingController nameController = TextEditingController();
   bool onError = false;

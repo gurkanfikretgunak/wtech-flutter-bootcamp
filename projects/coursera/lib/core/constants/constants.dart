@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 //Singleton design pattern, çalışma zamanında yalnızca bir obje yaratılmasını garanti eden bir tasarım desenidir.
 //Birden çok sınıfın aynı intence'ı kullanması gerektiğinde bu yapı kullanılabilir.
 
-class ConstantsClass extends StatelessWidget {
-  static final ConstantsClass _instance = ConstantsClass._init();
-  static ConstantsClass get instance => _instance;
-  ConstantsClass._init();
+class Constant {
+  //İsimlendirmede class kullanam
+  static final Constant _instance = Constant._init();
+  static Constant get instance => _instance;
+  Constant._init();
 
   Color appBlack = const Color.fromRGBO(0, 0, 0, 1);
   Color appGreyLight = const Color(0xFFe5e5e5);
@@ -38,6 +39,7 @@ class ConstantsClass extends StatelessWidget {
   IconData textFieldFormPrefixIcon = Icons.abc_rounded;
   TextInputType textFieldFormKeyboardType = TextInputType.emailAddress;
   InputBorder textFieldFormBorder = const UnderlineInputBorder();
+  double textFieldFormBorderRadius = 4.0;
 
   //TextButton
   Color buttonTextForegroundColor = const Color(0xFFFFFFFF);
@@ -78,9 +80,4 @@ class ConstantsClass extends StatelessWidget {
   String viewerImageAssetPath = "assets/error.jpg";
   int viewerImageCacheHeight = 100;
   int viewerImageCacheWidth = 100;
-
-  @override
-  Widget build(BuildContext context) {
-    throw UnimplementedError();
-  }
 }

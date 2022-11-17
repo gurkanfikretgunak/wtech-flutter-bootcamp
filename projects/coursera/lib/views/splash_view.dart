@@ -1,35 +1,27 @@
 import 'dart:async';
-
 import 'package:coursera/core/constants/constants.dart';
-import 'package:coursera/views/authentication/sign_in_view.dart';
+import 'package:coursera/routes/custom_navigator.dart';
 import 'package:coursera/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 
-class WelcomeView extends StatefulWidget {
-  const WelcomeView({super.key});
+class SplashView extends StatefulWidget {
+  const SplashView({super.key});
 
   @override
-  State<WelcomeView> createState() => _WelcomeViewState();
+  State<SplashView> createState() => _SplashViewState();
 }
 
-class _WelcomeViewState extends State<WelcomeView> {
+class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(seconds: 2),
-      () => Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => SignInView(),
-        ),
-      ),
-    );
+    Timer(const Duration(seconds: 2),
+        () => CustomNavigator.goToScreen(context, "/SignInView"));
   }
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constants = ConstantsClass.instance;
+    Constant constants = Constant.instance;
     return SafeArea(
       child: Scaffold(
         backgroundColor: constants.appBlue,

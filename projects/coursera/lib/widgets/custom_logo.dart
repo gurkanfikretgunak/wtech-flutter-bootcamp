@@ -14,7 +14,7 @@ class Logo extends StatelessWidget {
     return Center(
       child: CustomText(
         text: "coursera",
-        color: color ?? ConstantsClass.instance.appBlue,
+        color: color ?? Constant.instance.appBlue,
         fontSize: 40,
         fontWeight: FontWeight.bold,
       ),

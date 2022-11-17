@@ -34,7 +34,7 @@ class CustomTextButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constants = ConstantsClass.instance;
+    Constant constants = Constant.instance;
 
     return TextButton(
       style: TextButton.styleFrom(

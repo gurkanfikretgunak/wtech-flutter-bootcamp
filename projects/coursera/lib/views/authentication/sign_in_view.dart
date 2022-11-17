@@ -1,7 +1,6 @@
 import 'package:coursera/core/constants/constants.dart';
+import 'package:coursera/routes/custom_navigator.dart';
 import 'package:coursera/views/authentication/authentication_custom_widget/terms_text.dart';
-import 'package:coursera/views/authentication/sign_up_view.dart';
-import 'package:coursera/views/home_view.dart';
 import 'package:coursera/widgets/button/custom_button_elevated.dart';
 import 'package:coursera/widgets/button/custom_button_text.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
@@ -14,7 +13,8 @@ import 'package:kartal/kartal.dart';
 
 class SignInView extends StatelessWidget {
   SignInView({super.key});
-  ConstantsClass constant = ConstantsClass.instance;
+
+  Constant constant = Constant.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -46,6 +46,7 @@ class SignInView extends StatelessWidget {
               Wrap(
                 runSpacing: context.dynamicHeight(0.02),
                 children: [
+                  //CustomElevatedButton customlaştır model
                   CustomElevatedButton(
                     borderSideColor: constant.appBlack,
                     primary: constant.appWhite,
@@ -55,7 +56,7 @@ class SignInView extends StatelessWidget {
                       size: context.mediumValue,
                     ),
                     text: "Continue with Apple",
-                    onPressed: () {},
+                    onPressed: _buildLoginWithApple,
                   ),
                   CustomElevatedButton(
                     borderSideColor: constant.appGreyDark,
@@ -67,7 +68,7 @@ class SignInView extends StatelessWidget {
                       height: context.mediumValue,
                     ),
                     text: "Continue with Google",
-                    onPressed: () {},
+                    onPressed: _buildLoginWithGoogle,
                   ),
                   CustomElevatedButton(
                     borderSideColor: constant.facebookLogoColor,
@@ -79,26 +80,19 @@ class SignInView extends StatelessWidget {
                       color: constant.facebookLogoColor,
                     ),
                     text: "Continue with Facebook",
-                    onPressed: () {},
+                    onPressed: _buildLoginWithFacebook,
                   ),
-                  const Divider(thickness: 1),
+                  const Divider(thickness: 1), //Custom yap
                   CustomElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const HomeView(),
-                        ),
-                      );
+                      CustomNavigator.goToScreen(context, "/HomeView");
                     },
                     text: "Log In with Email",
                   ),
+
                   InkWell(
                     onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => SignUpView()));
+                      CustomNavigator.goToScreen(context, "/SignUpView");
                     },
                     child: Align(
                       alignment: Alignment.center,
@@ -129,4 +123,15 @@ class SignInView extends StatelessWidget {
       ),
     );
   }
+
+  _buildLoginWithEmail(BuildContext context) {
+    return Navigator.pushNamed(context, "/HomeView");
+    //CustomNavigator.goToScreen(context, "/HomeView");
+  }
+
+  void _buildLoginWithFacebook() {}
+
+  void _buildLoginWithGoogle() {}
+
+  void _buildLoginWithApple() {}
 }

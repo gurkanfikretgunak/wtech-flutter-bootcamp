@@ -34,6 +34,7 @@ class CustomTextFormField extends StatelessWidget {
     this.readOnly,
     this.labelTextFontSize,
     this.errorText,
+    this.borderRadius,
   }) : super(key: key);
 
   final int? maxLines;
@@ -66,10 +67,11 @@ class CustomTextFormField extends StatelessWidget {
   final double? fontSize;
   final bool? readOnly;
   final String? errorText;
+  final double? borderRadius;
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constants = ConstantsClass.instance;
+    Constant constants = Constant.instance;
     return Column(
       children: [
         TextFormField(
@@ -106,36 +108,12 @@ class CustomTextFormField extends StatelessWidget {
               fontSize: constants.textFieldFormLabelTextSize,
               color: labelTextColor ?? constants.textFieldFormLabelTextColor,
             ),
-            enabledBorder: enabledBorder ??
-                OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 1.5,
-                    color: borderSideColor ??
-                        constants.textFieldFormBorderSideColor,
-                  ),
-                ),
-            focusedBorder: enabledBorder ??
-                OutlineInputBorder(
-                  borderSide: BorderSide(
-                    width: 1.5,
-                    color: borderSideColor ??
-                        constants.textFieldFormBorderSideColor,
-                  ),
-                ),
+            enabledBorder: enabledBorder ?? _buildOutlineInputBorder(constants),
+            focusedBorder: enabledBorder ?? _buildOutlineInputBorder(constants),
             errorText: errorText,
             errorStyle: TextStyle(color: constants.appRed),
-            focusedErrorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                width: 1.5,
-                color: borderSideColor ?? constants.appRed,
-              ),
-            ),
-            errorBorder: OutlineInputBorder(
-              borderSide: BorderSide(
-                width: 1.5,
-                color: borderSideColor ?? constants.appRed,
-              ),
-            ),
+            focusedErrorBorder: _buildOutlineInputBorder(constants),
+            errorBorder: _buildOutlineInputBorder(constants),
             suffixIcon: suffixIcon == null
                 ? null
                 : Icon(
@@ -155,6 +133,20 @@ class CustomTextFormField extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  OutlineInputBorder _buildOutlineInputBorder(Constant constants) {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.all(
+        Radius.circular(
+          borderRadius ?? constants.textFieldFormBorderRadius,
+        ),
+      ),
+      borderSide: BorderSide(
+        width: 1.5,
+        color: borderSideColor ?? constants.textFieldFormBorderSideColor,
+      ),
     );
   }
 }

@@ -19,7 +19,7 @@ class CustomAppBar extends PreferredSize {
     bool? isBackIcon,
     bool? isTrailing,
   }) {
-    ConstantsClass constant = ConstantsClass.instance;
+    Constant constant = Constant.instance;
     return PreferredSize(
       preferredSize: const Size.fromHeight(55),
       child: AppBar(

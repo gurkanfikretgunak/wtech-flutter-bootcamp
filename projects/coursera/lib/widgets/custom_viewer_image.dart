@@ -24,7 +24,7 @@ class CustomImageViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ConstantsClass constants = ConstantsClass.instance;
+    Constant constants = Constant.instance;
 
     if (assetPath == null || (assetPath!).isEmpty) {
       return Image.network(
