@@ -1,4 +1,5 @@
-import 'package:duolingo_math/onboarding_screen/onboarding_screen.dart';
+import 'package:duolingo_math/pages/onboarding_pages.dart';
+import 'package:duolingo_math/navigator/route_generator.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -8,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: OnBoardingScreen(),
+      onGenerateRoute: RouteGenerator.routeGenerator,
     );
   }
 }
