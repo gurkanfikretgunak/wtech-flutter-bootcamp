@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
 
-import '../views/home_page_view.dart';
+import '../views/orjin_home_page.dart';
+
 
 class AppRoutes{
-  static Map<String, WidgetBuilder> get mainRoute => {"/home":(context) => HomeTicketPage()};
+  static Map<String, WidgetBuilder> get mainRoute => {"/home":(context) => const OriginalHomePage()};
 }

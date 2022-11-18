@@ -104,8 +104,64 @@ class SignInAccountPageState extends State<SignInAccountPage> {
             ],
             ),
           ),
+          Container(
+            height: 90,
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Icon(Icons.mail_outline_outlined),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const[
+                     Text("Messages",style: TextStyle(fontSize: 18)),
+                     Text("You have no new messages",style: TextStyle(fontSize: 16),)
+                  ],
+                )
+              ],
+            ),
+          ),
+          
+          Container(
+            height: 90,
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Icon(Icons.mail_outline_outlined),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const[
+                     Text("Booking preferences",style: TextStyle(fontSize: 21)),
+                     Text("Railcards",style: TextStyle(fontSize: 16),)
+                  ],
+                )
+              ],
+            ),
+          ),
+          Container(
+            height: 90,
+            width: double.infinity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const Icon(Icons.mail_outline_outlined),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const[
+                     Text("Trainline Business",style: TextStyle(fontSize: 21)),
+                     Text("Business bookings",style: TextStyle(fontSize: 16),)
+                  ],
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
-}
+}   
+
+//ROUTES EKLE
+//PROVIDER BAĞLA
+// SONRAKI SAYFALARDA API BAĞLA
