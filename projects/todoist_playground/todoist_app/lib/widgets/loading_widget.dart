@@ -34,14 +34,6 @@ class _LoadingPageState extends State<LoadingPage> {
               textAlign: TextAlign.center,
             ),
           ),
-          TextButton(
-              onPressed: () {
-                CustomMethods.settingModalBottomSheet(context, const InformationApp());
-              },
-              child: const Text(
-                "next",
-                style: TextStyle(color: Colors.red),
-              ))
         ],
       ),
     );
