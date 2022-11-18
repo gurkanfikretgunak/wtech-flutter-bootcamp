@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -31,7 +32,8 @@ class CustomTextField extends StatelessWidget {
         validator: valid,
         obscureText: obscure,
         decoration: InputDecoration(
-          floatingLabelStyle: const TextStyle(color: Colors.red),
+          floatingLabelStyle:
+              CustomTheme.customThemeData().textTheme.labelSmall,
           enabledBorder: const UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:patreon_app/views/auth_page.dart';
 import 'package:patreon_app/views/explore_page.dart';
 import 'package:patreon_app/views/home_page.dart';
@@ -22,7 +23,8 @@ class MyApp extends StatelessWidget {
         '/loginWithEmail': (context) => const LoginwithEmail(),
         '/register': (context) => const RegisterPage(),
       },
-      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      theme: CustomTheme.customThemeData(),
+      debugShowCheckedModeBanner: false,
       home: const AuthPage(),
     );
   }

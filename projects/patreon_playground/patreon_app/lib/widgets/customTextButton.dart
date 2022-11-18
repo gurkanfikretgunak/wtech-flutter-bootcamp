@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -31,7 +32,7 @@ class CustomTextButton extends StatelessWidget {
                   onPressed: onPress,
                   child: Text(
                     text,
-                    style: const TextStyle(color: Colors.white),
+                    style: CustomTheme.customThemeData().textTheme.displaySmall,
                   ))),
         ));
   }

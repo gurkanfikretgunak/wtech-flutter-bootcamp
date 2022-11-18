@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinkButton extends StatelessWidget {
@@ -20,7 +21,8 @@ class LinkButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       style: TextButton.styleFrom(
-        foregroundColor: Colors.red,
+        foregroundColor:
+            CustomTheme.customThemeData().textTheme.labelSmall?.color,
         padding: EdgeInsets.zero,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(0),
@@ -35,7 +37,9 @@ class LinkButton extends StatelessWidget {
       },
       child: Text(
         urlLabel,
-        style: const TextStyle(decoration: TextDecoration.underline,color: Colors.red),
+        style: TextStyle(
+            decoration: TextDecoration.underline,
+            color: CustomTheme.customThemeData().textTheme.labelSmall?.color),
       ),
     );
   }

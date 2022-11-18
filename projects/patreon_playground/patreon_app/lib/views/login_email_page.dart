@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:patreon_app/views/home_page.dart';
 import '../widgets/customTextButton.dart';
 import '../widgets/customTextFormField.dart';
@@ -51,15 +52,14 @@ class _RegisterPageState extends State<LoginwithEmail> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: Colors.white,
         leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
             },
             icon: Icon(Icons.arrow_back_ios, color: Colors.blueGrey[300])),
-        title: const Text(
+        title: Text(
           "Log In",
-          style: TextStyle(color: Colors.black),
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
         ),
       ),
       body: Center(
@@ -94,9 +94,11 @@ class _RegisterPageState extends State<LoginwithEmail> {
                               //       builder: (context) => const RegisterPage()),
                               // );
                             },
-                            child: const Text(
+                            child: Text(
                               "FORGOT?",
-                              style: TextStyle(color: Colors.red),
+                              style: CustomTheme.customThemeData()
+                                  .textTheme
+                                  .labelSmall,
                             ))
                       ],
                     ),

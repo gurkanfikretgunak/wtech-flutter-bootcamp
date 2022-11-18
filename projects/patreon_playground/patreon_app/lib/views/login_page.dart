@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:patreon_app/views/login_email_page.dart';
-import 'package:patreon_app/views/register_page.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 import '../widgets/customLinkButton.dart';
 import '../widgets/customTextButton.dart';
 
@@ -47,9 +46,10 @@ class LoginPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.pushNamed(context, "/register");
                       },
-                      child: const Text(
+                      child: Text(
                         "Sign Up",
-                        style: TextStyle(color: Colors.black),
+                        style:
+                            CustomTheme.customThemeData().textTheme.bodyMedium,
                       ))
                 ],
               ),
@@ -61,11 +61,11 @@ class LoginPage extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 22),
                 child: RichText(
                   textAlign: TextAlign.center,
-                  text: const TextSpan(
+                  text: TextSpan(
                     text:
                         "By clicking Sign Up for Patreon,Continue with Google,or Continue with Facebook,you agree to Patreon's ",
-                    style: TextStyle(color: Colors.black),
-                    children: <InlineSpan>[
+                    style: CustomTheme.customThemeData().textTheme.bodySmall,
+                    children: const <InlineSpan>[
                       WidgetSpan(
                         alignment: PlaceholderAlignment.baseline,
                         baseline: TextBaseline.alphabetic,

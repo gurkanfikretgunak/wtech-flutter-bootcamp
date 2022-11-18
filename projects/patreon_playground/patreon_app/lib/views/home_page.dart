@@ -24,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
         iColor: Colors.white,
         press: () {},
       ),
-      //body: LoadingWidget(),
+      //body: const LoadingWidget(),
       body: const NotFollowingWidget(),
       bottomNavigationBar: CustomBottomAppBar(selectedIndex: 0),
     );

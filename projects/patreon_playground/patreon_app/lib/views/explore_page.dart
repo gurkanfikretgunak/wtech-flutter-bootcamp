@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:patreon_app/widgets/customAppBar.dart';
 import 'package:patreon_app/widgets/customBottomAppbar.dart';
+import 'package:patreon_app/widgets/templatewithoutButtonWidget.dart';
 
 class User {
   final String name;
@@ -33,7 +35,7 @@ class _ExplorePageState extends State<ExplorePage> {
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
         title: "Find creators",
-        w: 120,
+        w: 110,
         color: Colors.white,
         con: Icons.arrow_back,
         iColor: Colors.grey,
@@ -46,8 +48,8 @@ class _ExplorePageState extends State<ExplorePage> {
           children: [
             Center(
               child: Container(
-                height: 40,
-                margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                height: 43,
+                margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
@@ -57,9 +59,12 @@ class _ExplorePageState extends State<ExplorePage> {
                         borderRadius: BorderRadius.circular(10),
                         borderSide: const BorderSide(color: Colors.black12),
                       ),
-                      prefixIcon: const Icon(
+                      prefixIcon: Icon(
                         Icons.search,
-                        color: Colors.black54,
+                        color: CustomTheme.customThemeData()
+                            .textTheme
+                            .displayMedium
+                            ?.color,
                       ),
                       suffixIcon: controller.text.isNotEmpty
                           ? IconButton(
@@ -68,9 +73,12 @@ class _ExplorePageState extends State<ExplorePage> {
                                 users.clear();
                                 setState(() {});
                               },
-                              icon: const Icon(
+                              icon: Icon(
                                 Icons.cancel,
-                                color: Colors.black54,
+                                color: CustomTheme.customThemeData()
+                                    .textTheme
+                                    .displayMedium
+                                    ?.color,
                               ))
                           : null,
                       hintText: "Search for a creator",
@@ -83,49 +91,25 @@ class _ExplorePageState extends State<ExplorePage> {
               ),
             ),
             Expanded(
-              child: users.isNotEmpty && controller.text.isNotEmpty
-                  ? ListView.builder(
-                      itemCount: users.length,
-                      itemBuilder: (context, index) {
-                        final user = users[index];
+                child: users.isNotEmpty && controller.text.isNotEmpty
+                    ? ListView.builder(
+                        itemCount: users.length,
+                        itemBuilder: (context, index) {
+                          final user = users[index];
 
-                        return ListTile(
-                          leading: const Icon(Icons.person),
-                          title: Text(user.name),
-                          subtitle: Text(user.info),
-                        );
-                      },
-                    )
-                  : controller.text.isNotEmpty
-                      ? Text("No result for ${controller.text}")
-                      : Column(
-                          children: [
-                            Image.asset("assets/not_following.png"),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              // ignore: prefer_const_literals_to_create_immutables
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        vertical: 10, horizontal: 18),
-                                    child: RichText(
-                                      textAlign: TextAlign.center,
-                                      text: const TextSpan(
-                                        text: "You're not following anyone yet",
-                                        style: TextStyle(
-                                            color: Colors.black54,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 27),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-            ),
+                          return ListTile(
+                            leading: const Icon(Icons.person),
+                            title: Text(user.name),
+                            subtitle: Text(user.info),
+                          );
+                        },
+                      )
+                    : controller.text.isNotEmpty
+                        ? Text("No result for ${controller.text}")
+                        : const TemplateWithoutButtonWidget(
+                            imagePath: "assets/not_following.png",
+                            underImageText: "You're not following anyone yet",
+                          )),
           ],
         ),
       ),

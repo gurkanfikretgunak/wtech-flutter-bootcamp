@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:patreon_app/views/explore_page.dart';
-import 'package:patreon_app/views/home_page.dart';
-import 'package:patreon_app/widgets/loadingWidget.dart';
-import 'package:patreon_app/widgets/notFollowingWidget.dart';
 
+// ignore: must_be_immutable
 class CustomBottomAppBar extends StatefulWidget {
   int selectedIndex = 0;
 
@@ -24,7 +21,8 @@ class _CustomBottomAppBarState extends State<CustomBottomAppBar> {
       child: Column(
         children: [
           const Divider(
-            color: Colors.grey,
+            color: Colors.black12,
+            thickness: 1,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
