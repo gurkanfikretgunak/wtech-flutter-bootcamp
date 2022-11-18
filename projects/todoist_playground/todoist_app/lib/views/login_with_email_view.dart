@@ -68,7 +68,6 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                         buttonTexts: CustomTextConstants.buttonTextEmail,
                         onPressed: () async {
                           bool isCheck = await data.userController(emailController);
-                          print(value.emailValidate);
                           if (value.emailValidate) {
                             if (isCheck) {
                               // ignore: use_build_context_synchronously
