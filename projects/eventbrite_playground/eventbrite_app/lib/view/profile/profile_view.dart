@@ -1,5 +1,4 @@
 import 'package:eventbrite_app/view/get_started/get_started_view.dart';
-import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
@@ -10,13 +9,9 @@ class ProfileView extends StatelessWidget {
     final List<String> headers = ['Ticket Issues', 'Manage Events', 'Settings'];
 
     return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: BottomNavigationItem.profile.index,
-      ),
       body: Column(
         children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height / 2,
+          Expanded(
             child: ListView.builder(
               itemCount: headers.length,
               itemBuilder: (context, index) {

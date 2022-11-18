@@ -1,4 +1,3 @@
-import 'package:eventbrite_app/widgets/custom_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class SearchView extends StatelessWidget {
@@ -6,11 +5,8 @@ class SearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CustomBottomNavigationBar(
-        currentIndex: BottomNavigationItem.search.index,
-      ),
-      body: const Center(
+    return const Scaffold(
+      body: Center(
         child: Text('Search'),
       ),
     );

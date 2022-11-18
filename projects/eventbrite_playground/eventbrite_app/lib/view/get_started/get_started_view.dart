@@ -1,5 +1,6 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
-import 'package:eventbrite_app/view/register/register_view.dart';
+import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
+import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
@@ -43,9 +44,7 @@ class GetStartedView extends StatelessWidget {
                     CustomElevatedButton(
                       text: AppConstants.getStartedElevatedButtonText,
                       onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(builder: (context) => const RegisterView()),
-                        );
+                        NavigationService.instance.navigateToPage(routeName: NavigationConstants.registerPage);
                       },
                       color: Theme.of(context).primaryColor,
                       textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
