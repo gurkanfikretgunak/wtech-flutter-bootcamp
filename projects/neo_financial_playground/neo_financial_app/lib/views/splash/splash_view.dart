@@ -1,6 +1,5 @@
 //This class is not best practice for splash screen, but it works.
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/views/home/home_view.dart';
 
 class SplashScreenView extends StatefulWidget {
   const SplashScreenView({super.key});
@@ -48,8 +47,10 @@ class _SplashScreenViewState extends State<SplashScreenView> {
 
   void _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {});
-    Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => const HomeView()));
-    //TODO: Here must be in routes folder
+    // ignore: use_build_context_synchronously
+    Navigator.pushNamed(
+      context,
+      '/Onboarding',
+    );
   }
 }
