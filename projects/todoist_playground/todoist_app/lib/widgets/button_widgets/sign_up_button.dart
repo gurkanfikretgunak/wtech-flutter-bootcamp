@@ -4,19 +4,21 @@ import 'package:todoist_app/widgets/custom_methods.dart';
 import '../../core/provider/service_provider.dart';
 
 class CustomSignUpButton extends StatefulWidget {
-  const CustomSignUpButton(
-      {Key? key,
-      required this.buttonTexts,
-      required this.hasDataWidget,
-      this.emailController,
-      required this.nullDataWidget,
-      this.passwordController})
-      : super(key: key);
+  const CustomSignUpButton({
+    Key? key,
+    required this.buttonTexts,
+    required this.hasDataWidget,
+    this.emailController,
+    required this.nullDataWidget,
+    this.passwordController,
+    required this.onPressed,
+  }) : super(key: key);
   final String buttonTexts;
   final Widget hasDataWidget;
   final Widget nullDataWidget;
   final TextEditingController? emailController;
   final TextEditingController? passwordController;
+  final Null Function() onPressed;
 
   @override
   State<CustomSignUpButton> createState() => _CustomSignUpButtonState();

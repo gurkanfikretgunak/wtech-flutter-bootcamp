@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todoist_app/views/sign_up_page_view.dart';
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
-import '../widgets/input_decoration_widget.dart';
+import '../widgets/input_decoration_widgets/input_decoration_widget.dart';
 import '../widgets/button_widgets/login_button.dart';
 import 'password_page_view.dart';
 

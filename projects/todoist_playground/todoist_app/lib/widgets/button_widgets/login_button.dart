@@ -40,15 +40,13 @@ class _CustomLogInButtonState extends State<CustomLogInButton> {
         width: 350,
         child: ElevatedButton(
           onPressed: () async {
-            if (widget.keyForm!.currentState!.validate()) {
-              bool isCheck = await value.userController(widget.emailController);
-              if (isCheck) {
-                // ignore: use_build_context_synchronously
-                CustomMethods.settingModalBottomSheet(context, widget.hasDataWidget);
-              } else {
-                // ignore: use_build_context_synchronously
-                CustomMethods.settingModalBottomSheet(context, widget.nullDataWidget);
-              }
+            bool isCheck = await value.userController(widget.emailController);
+            if (isCheck) {
+              // ignore: use_build_context_synchronously
+              CustomMethods.settingModalBottomSheet(context, widget.hasDataWidget);
+            } else {
+              // ignore: use_build_context_synchronously
+              CustomMethods.settingModalBottomSheet(context, widget.nullDataWidget);
             }
           },
           style: ButtonStyle(
