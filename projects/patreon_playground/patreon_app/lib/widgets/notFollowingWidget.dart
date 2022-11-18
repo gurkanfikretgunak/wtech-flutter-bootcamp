@@ -17,8 +17,10 @@ class NotFollowingWidget extends StatelessWidget {
             color: Colors.grey,
           ),
           TemplateWithButtonWidget(
-              imagePath: "assets/not_following.png",
-              underImageText: "You're not following anyone yet", buttonText: "Find some creators",)
+            imagePath: "assets/not_following.png",
+            underImageText: "You're not following anyone yet",
+            buttonText: "Find some creators",
+          )
         ],
       )),
     );

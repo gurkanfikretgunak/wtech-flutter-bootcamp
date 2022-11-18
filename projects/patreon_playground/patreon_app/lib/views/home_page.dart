@@ -3,6 +3,7 @@ import 'package:patreon_app/widgets/customAppBar.dart';
 import 'package:patreon_app/widgets/customBottomAppbar.dart';
 import 'package:patreon_app/widgets/notFollowingWidget.dart';
 
+import '../widgets/customShowBottom.dart';
 import '../widgets/loadingWidget.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -22,7 +23,9 @@ class _MyHomePageState extends State<MyHomePage> {
         color: Colors.blue,
         con: Icons.person,
         iColor: Colors.white,
-        press: () {},
+        press: () {
+          customShowBottom(context);
+        },
       ),
       //body: const LoadingWidget(),
       body: const NotFollowingWidget(),

@@ -4,6 +4,8 @@ import 'package:patreon_app/widgets/customAppBar.dart';
 import 'package:patreon_app/widgets/customBottomAppbar.dart';
 import 'package:patreon_app/widgets/templatewithoutButtonWidget.dart';
 
+import '../widgets/customShowBottom.dart';
+
 class User {
   final String name;
   final String info;
@@ -36,16 +38,19 @@ class _ExplorePageState extends State<ExplorePage> {
       appBar: CustomAppBar(
         title: "Find creators",
         w: 110,
-        color: Colors.white,
-        con: Icons.arrow_back,
-        iColor: Colors.grey,
+        color: Colors.blue,
+        con: Icons.person,
+        iColor: Colors.white,
         press: () {
-          Navigator.pushNamed(context, "/home");
+          customShowBottom(context);
         },
       ),
       body: SizedBox(
         child: Column(
           children: [
+            const SizedBox(
+              height: 10,
+            ),
             Center(
               child: Container(
                 height: 43,

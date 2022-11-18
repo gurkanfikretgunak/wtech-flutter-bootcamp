@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/customAppBar.dart';
 import '../widgets/customBottomAppbar.dart';
+import '../widgets/customShowBottom.dart';
 import '../widgets/templatewithButtonWidget.dart';
 
 class MessagesPage extends StatefulWidget {
@@ -20,7 +21,9 @@ class _MessagesPageState extends State<MessagesPage> {
         color: Colors.blue,
         con: Icons.person,
         iColor: Colors.white,
-        press: () {},
+        press: () {
+          customShowBottom(context);
+        },
       ),
       //body: const LoadingWidget(),
       body: Column(
