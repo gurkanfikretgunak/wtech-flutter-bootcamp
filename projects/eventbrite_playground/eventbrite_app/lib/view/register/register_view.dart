@@ -1,42 +1,29 @@
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
+import 'package:eventbrite_app/widgets/terms_conditions_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class RegisterView extends StatefulWidget {
+class RegisterView extends StatelessWidget {
   const RegisterView({super.key});
 
   @override
-  State<RegisterView> createState() => _RegisterViewState();
-}
-
-class _RegisterViewState extends State<RegisterView> {
-  bool _isObscure = true;
-  RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-  late String password;
-  double _strength = 0;
-  String _helperText = 'Password must have at least 8 characters.';
-  @override
-  void initState() {
-    super.initState();
-    password = '';
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<RegisterNotifier>(context);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Sign Up',
-          style: Theme.of(context).textTheme.headline3,
-        ),
+        title: Text('Sign Up', style: Theme.of(context).textTheme.headline3),
+        elevation: 3,
       ),
       body: SizedBox(
         height: size.height,
         child: Stack(
           children: [
             Padding(
-              padding: Paddings.defaultPadding * 2,
+              padding: PaddingConstants.defaultPadding * 2,
               child: Form(
                 child: SingleChildScrollView(
                   child: SizedBox(
@@ -44,7 +31,7 @@ class _RegisterViewState extends State<RegisterView> {
                     child: Column(
                       children: [
                         Padding(
-                          padding: Paddings.defaultBottomPadding * 2,
+                          padding: PaddingConstants.defaultBottomPadding * 2,
                           child: const CustomTextFormField(
                             enabled: false,
                             initialValue: "melihcelik0909@gmail.com",
@@ -61,7 +48,7 @@ class _RegisterViewState extends State<RegisterView> {
                           keyboardType: TextInputType.emailAddress,
                         ),
                         Padding(
-                          padding: Paddings.defaultVerticalPadding * 4,
+                          padding: PaddingConstants.defaultVerticalPadding * 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -88,19 +75,17 @@ class _RegisterViewState extends State<RegisterView> {
                           ),
                         ),
                         CustomTextFormField(
-                          onChanged: (value) => _checkPassword(value),
+                          onChanged: (value) => provider.checkPassword(value),
                           suffixIcon: IconButton(
                             onPressed: () {
-                              setState(() {
-                                _isObscure = !_isObscure;
-                              });
+                              provider.isObsecure();
                             },
-                            icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(provider.isObscure ? Icons.visibility : Icons.visibility_off),
                           ),
-                          helperText: _helperText,
-                          obscureText: _isObscure,
+                          helperText: provider.helperText,
+                          obscureText: provider.isObscure,
                         ),
-                        password.isNotEmpty
+                        provider.strength > 0
                             ? Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
@@ -109,13 +94,13 @@ class _RegisterViewState extends State<RegisterView> {
                                     child: ClipRRect(
                                       borderRadius: BorderRadius.circular(10),
                                       child: LinearProgressIndicator(
-                                        value: _strength,
+                                        value: provider.strength,
                                         minHeight: 10,
                                         backgroundColor: Colors.grey[300],
                                         valueColor: AlwaysStoppedAnimation<Color>(
-                                          _strength < 0.3
+                                          provider.strength < 0.3
                                               ? Colors.red
-                                              : _strength < 0.6
+                                              : provider.strength < 0.6
                                                   ? Colors.yellow
                                                   : Colors.green,
                                         ),
@@ -136,13 +121,16 @@ class _RegisterViewState extends State<RegisterView> {
                 const Spacer(),
                 const Divider(),
                 Padding(
-                    padding: Paddings.defaultPadding,
-                    child: CustomElevatedButton(
-                      text: 'Sign Up',
-                      onPressed: () {},
-                      color: Theme.of(context).primaryColor,
-                      textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
-                    )),
+                  padding: PaddingConstants.defaultPadding,
+                  child: CustomElevatedButton(
+                    text: 'Sign Up',
+                    onPressed: () {
+                      showModalBottomSheet(context: context, builder: (context) => const TermsConditionWidget());
+                    },
+                    color: Theme.of(context).primaryColor,
+                    textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
+                  ),
+                ),
               ],
             )
           ],
@@ -150,42 +138,4 @@ class _RegisterViewState extends State<RegisterView> {
       ),
     );
   }
-
-  void _checkPassword(String value) {
-    password = value.trim();
-    if (password.isEmpty) {
-      setState(() {
-        _strength = 0;
-        _helperText = 'Password must have at least 8 characters.';
-      });
-    } else if (password.length < 8) {
-      setState(() {
-        _strength = 0.25;
-        _helperText = 'Weak';
-      });
-    } else {
-      if (!regex.hasMatch(password)) {
-        setState(() {
-          _strength = 0.5;
-          _helperText = 'Average';
-        });
-      } else {
-        setState(() {
-          // should contain at least one upper case
-          // should contain at least one lower case
-          // should contain at least one digit
-          // should contain at least one special character
-          // Must be at least 8 characters in length
-          _strength = 1;
-          _helperText = 'Great!';
-        });
-      }
-    }
-  }
-}
-
-class Paddings {
-  static const EdgeInsets defaultPadding = EdgeInsets.all(10);
-  static const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: 10);
-  static const EdgeInsets defaultVerticalPadding = EdgeInsets.symmetric(vertical: 10);
 }

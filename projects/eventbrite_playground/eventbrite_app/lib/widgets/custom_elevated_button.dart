@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
@@ -30,16 +31,14 @@ class CustomElevatedButton extends StatelessWidget {
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: color,
-                side: border == true
-                    ? const BorderSide(color: Colors.black54, width: 2)
-                    : null,
+                side: border == true ? const BorderSide(color: Colors.black54, width: 2) : null,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   hasImage == true
                       ? Container(
-                          padding: const EdgeInsets.only(right: 20),
+                          padding: PaddingConstants.defaultRightPadding * 2,
                           child: Image.asset(
                             imagePath!,
                             height: 20,

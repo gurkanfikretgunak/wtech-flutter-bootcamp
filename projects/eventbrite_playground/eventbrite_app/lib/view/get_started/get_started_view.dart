@@ -1,4 +1,5 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
 import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
@@ -15,7 +16,7 @@ class GetStartedView extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          padding: PaddingConstants.defaultHorizontalPadding * 2,
           child: Column(
             children: [
               SizedBox(
@@ -24,7 +25,7 @@ class GetStartedView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 20),
+                      padding: PaddingConstants.defaultVerticalPadding * 2,
                       child: Text(
                         AppConstants.getStartedTitle,
                         style: Theme.of(context).textTheme.headline1,
@@ -44,15 +45,13 @@ class GetStartedView extends StatelessWidget {
                     CustomElevatedButton(
                       text: AppConstants.getStartedElevatedButtonText,
                       onPressed: () {
-                        NavigationService.instance.navigateToPage(routeName: NavigationConstants.registerPage);
+                        NavigationService.instance.navigateToPage(routeName: NavigationConstants.loginPage);
                       },
                       color: Theme.of(context).primaryColor,
                       textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 15,
-                      ),
+                      padding: PaddingConstants.defaultVerticalPadding * 2,
                       child: CustomElevatedButton(
                         text: AppConstants.getStartedFacebookButtonText,
                         onPressed: () {},

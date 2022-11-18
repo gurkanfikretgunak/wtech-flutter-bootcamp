@@ -7,5 +7,6 @@ class NavigationConstants {
   static const profilePage = '/profile';
   static const getStartedPage = '/getStarted';
   static const registerPage = '/signUp';
+  static const loginPage = '/login';
   static const errorPage = '/error';
 }

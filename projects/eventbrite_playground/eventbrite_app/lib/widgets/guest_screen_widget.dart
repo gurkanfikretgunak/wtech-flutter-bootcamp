@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_elevated_button.dart';
@@ -54,7 +55,7 @@ class GuestScreenWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: PaddingConstants.defaultPadding * 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -63,7 +64,7 @@ class GuestScreenWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1,
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: PaddingConstants.defaultVerticalPadding,
                 child: Text(
                   subtitle,
                   style: Theme.of(context).textTheme.headline2,
@@ -87,7 +88,7 @@ class GuestScreenWidget extends StatelessWidget {
               ),
               hasOutlineButton == true
                   ? Padding(
-                      padding: const EdgeInsets.only(top: 10),
+                      padding: PaddingConstants.defaultTopPadding,
                       child: CustomElevatedButton(
                         text: bottomOutlineButtonText ?? '',
                         onPressed: navigateOutline ?? () {},

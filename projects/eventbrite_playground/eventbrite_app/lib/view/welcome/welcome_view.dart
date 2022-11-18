@@ -1,4 +1,5 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,7 @@ class WelcomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: PaddingConstants.defaultPadding * 2,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -23,7 +24,7 @@ class WelcomeView extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: PaddingConstants.defaultVerticalPadding,
               child: Text(
                 AppConstants.welcomeSubtitle,
                 style: Theme.of(context).textTheme.headline2,
@@ -45,7 +46,7 @@ class WelcomeView extends StatelessWidget {
               textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+              padding: PaddingConstants.defaultVerticalPadding,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

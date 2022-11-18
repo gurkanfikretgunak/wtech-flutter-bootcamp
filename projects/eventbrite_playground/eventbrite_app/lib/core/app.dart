@@ -20,9 +20,5 @@ class EventbriteApp extends StatelessWidget {
   }
 }
 
-//TODO CustomThemeData yapısını oluşturulacak
-//TODO Paddingler için constants değerleri oluşturulacak
-//TODO Provider ile tema değişimi yapılacak
-//TODO Provider ile navigation bar değişimi yapılabilir
 //TODO Mock API ile backend oluşturulacak
 //TODO Retrofit ile backend için ilgili modeller oluşturulup kullanılacak

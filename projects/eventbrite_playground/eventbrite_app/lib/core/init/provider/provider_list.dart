@@ -1,4 +1,5 @@
 import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -14,5 +15,6 @@ class AppProvider {
   List<SingleChildWidget> providers = [
     ChangeNotifierProvider(create: (context) => ThemeNotifier()),
     ChangeNotifierProvider(create: (context) => NavbarNotifier()),
+    ChangeNotifierProvider(create: (context) => RegisterNotifier()),
   ];
 }

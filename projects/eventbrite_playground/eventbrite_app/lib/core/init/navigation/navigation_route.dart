@@ -9,6 +9,8 @@ import 'package:eventbrite_app/view/search/search_view.dart';
 import 'package:eventbrite_app/view/ticket/ticket_view.dart';
 import 'package:flutter/material.dart';
 
+import '../../../view/login/login_view.dart';
+
 class NavigationRoute {
   NavigationRoute._init();
   static final NavigationRoute _instance = NavigationRoute._init();
@@ -29,8 +31,11 @@ class NavigationRoute {
         return normalNavigate(widget: const ProfileView());
       case NavigationConstants.getStartedPage:
         return normalNavigate(widget: const GetStartedView());
+      case NavigationConstants.loginPage:
+        return normalNavigate(widget: const LoginView());
       case NavigationConstants.registerPage:
         return normalNavigate(widget: const RegisterView());
+
       default:
         return MaterialPageRoute(builder: (context) => const Text('Page Not Found'));
     }

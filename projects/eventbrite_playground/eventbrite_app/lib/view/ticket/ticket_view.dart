@@ -1,7 +1,9 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
-import 'package:eventbrite_app/view/get_started/get_started_view.dart';
 import 'package:eventbrite_app/widgets/guest_screen_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/navigation/navigation_constants.dart';
+import '../../core/init/navigation/navigation_service.dart';
 
 class TicketView extends StatelessWidget {
   const TicketView({super.key});
@@ -18,11 +20,7 @@ class TicketView extends StatelessWidget {
           hasOutlineButton: true,
           bottomOutlineButtonText: AppConstants.ticketBottomOutlinedButtonText,
           navigateBottom: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => const GetStartedView(),
-              ),
-            );
+            NavigationService.instance.navigateToPage(routeName: NavigationConstants.getStartedPage);
           },
         ),
       ),

@@ -1,6 +1,9 @@
-import 'package:eventbrite_app/view/get_started/get_started_view.dart';
+import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/constants/navigation/navigation_constants.dart';
+import '../../core/init/navigation/navigation_service.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -9,6 +12,7 @@ class ProfileView extends StatelessWidget {
     final List<String> headers = ['Ticket Issues', 'Manage Events', 'Settings'];
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         children: [
           Expanded(
@@ -21,9 +25,9 @@ class ProfileView extends StatelessWidget {
                       title: Text(headers[index], style: Theme.of(context).textTheme.headline2),
                       trailing: const Icon(Icons.arrow_forward_ios),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Divider(
+                    Padding(
+                      padding: PaddingConstants.defaultHorizontalPadding * 2,
+                      child: const Divider(
                         thickness: 1,
                       ),
                     )
@@ -35,15 +39,11 @@ class ProfileView extends StatelessWidget {
           const Spacer(),
           const Divider(),
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: PaddingConstants.defaultPadding * 2,
             child: CustomElevatedButton(
               text: 'Log In',
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const GetStartedView(),
-                  ),
-                );
+                NavigationService.instance.navigateToPage(routeName: NavigationConstants.getStartedPage);
               },
               color: Theme.of(context).primaryColor,
               textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
