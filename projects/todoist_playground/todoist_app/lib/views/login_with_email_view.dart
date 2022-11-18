@@ -15,10 +15,12 @@ class LoginWithEmail extends StatefulWidget {
 
 class _LoginWithEmailState extends State<LoginWithEmail> {
   TextEditingController controller = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     var yourEmailText = "YOUR EMAIL";
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,12 +45,13 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
             children: [
               Text(yourEmailText,
                   style: CustomTheme.customLightThemeData().textTheme.subtitle1, textAlign: TextAlign.left),
-              CustomInputDecoration(labelText: "Email", controller: controller, deneme: false),
+              CustomInputDecoration(labelText: "Email", controller: controller, deneme: false, keyForm: formKey),
               CustomLogInButton(
                   buttonTexts: CustomTextConstants.buttonTextEmail,
                   hasDataWidget: const LoginPasswordView(),
                   nullDataWidget: const SignInView(),
-                  emailController: controller)
+                  emailController: controller,
+                  keyForm: formKey)
             ],
           ),
         )

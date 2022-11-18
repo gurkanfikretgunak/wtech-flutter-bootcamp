@@ -16,6 +16,7 @@ class SignInView extends StatefulWidget {
 class _SignInViewState extends State<SignInView> {
   TextEditingController emailTextController = TextEditingController();
   TextEditingController passwordTextController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {

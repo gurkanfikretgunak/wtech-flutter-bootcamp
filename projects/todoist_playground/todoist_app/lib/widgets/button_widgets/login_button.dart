@@ -1,23 +1,24 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import '../../core/provider/service_provider.dart';
 
 class CustomLogInButton extends StatefulWidget {
-  const CustomLogInButton(
-      {Key? key,
-      required this.buttonTexts,
-      required this.hasDataWidget,
-      this.emailController,
-      required this.nullDataWidget,
-      this.passwordController})
-      : super(key: key);
+  const CustomLogInButton({
+    Key? key,
+    required this.buttonTexts,
+    required this.hasDataWidget,
+    this.emailController,
+    required this.nullDataWidget,
+    this.passwordController,
+    this.keyForm,
+  }) : super(key: key);
   final String buttonTexts;
   final Widget hasDataWidget;
   final Widget nullDataWidget;
   final TextEditingController? emailController;
   final TextEditingController? passwordController;
+  final GlobalKey<FormState>? keyForm;
 
   @override
   State<CustomLogInButton> createState() => _CustomLogInButtonState();
@@ -39,13 +40,15 @@ class _CustomLogInButtonState extends State<CustomLogInButton> {
         width: 350,
         child: ElevatedButton(
           onPressed: () async {
-            bool isCheck = await value.userController(widget.emailController);
-            if (isCheck) {
-              // ignore: use_build_context_synchronously
-              CustomMethods.settingModalBottomSheet(context, widget.hasDataWidget);
-            } else {
-              // ignore: use_build_context_synchronously
-              CustomMethods.settingModalBottomSheet(context, widget.nullDataWidget);
+            if (widget.keyForm!.currentState!.validate()) {
+              bool isCheck = await value.userController(widget.emailController);
+              if (isCheck) {
+                // ignore: use_build_context_synchronously
+                CustomMethods.settingModalBottomSheet(context, widget.hasDataWidget);
+              } else {
+                // ignore: use_build_context_synchronously
+                CustomMethods.settingModalBottomSheet(context, widget.nullDataWidget);
+              }
             }
           },
           style: ButtonStyle(
