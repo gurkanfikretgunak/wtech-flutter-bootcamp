@@ -1,6 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/login_with_email_view.dart';
 import 'package:todoist_app/views/welcome_page_view.dart';
 import 'package:todoist_app/widgets/loading_widget.dart';
@@ -8,6 +11,7 @@ import '../constants/custom_constants.dart';
 import '../core/provider/validation_provider.dart';
 import '../core/themes/custom_themes.dart';
 import '../widgets/button_widgets/sign_up_button.dart';
+import '../widgets/custom_methods.dart';
 import '../widgets/input_decoration_widgets/input_decoration_widget.dart';
 
 class SignInView extends StatefulWidget {
@@ -21,6 +25,12 @@ class _SignInViewState extends State<SignInView> {
   TextEditingController emailTextController = TextEditingController();
   TextEditingController passwordTextController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+    final dataProvider = Provider.of<ServiceProvider>(context, listen: false);
+    dataProvider.fetchUser();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,22 +98,28 @@ class _SignInViewState extends State<SignInView> {
                     onChanged: _formProvider.validatePassword,
                     errorText: _formProvider.password.error,
                   ),
-                  Consumer<FormProvider>(
-                    builder: (context, value, child) {
-                      return CustomSignUpButton(
-                        emailController: emailTextController,
-                        passwordController: passwordTextController,
-                        buttonTexts: CustomTextConstants.buttonTextEmail,
-                        hasDataWidget: const LoadingPage(logText: "DENEMEEEE"),
-                        nullDataWidget: const LoginWithEmail(),
-                        onPressed: () {
-                          if (value.validate) {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (_) => WelcomeToApp(),
-                              ),
-                            );
-                          }
+                  Consumer<ServiceProvider>(
+                    builder: (context, data, child) {
+                      return Consumer<FormProvider>(
+                        builder: (context, value, child) {
+                          return CustomAuthButton(
+                            buttonTexts: CustomTextConstants.buttonTextEmail,
+                            onPressed: () async {
+                              if (value.signUpValidate) {
+                                bool isCheck = await data.postUser(emailTextController, passwordTextController);
+                                if (isCheck) {
+                                  // ignore: use_build_context_synchronously
+                                  CustomMethods.settingModalBottomSheet(
+                                    context,
+                                    const LoadingPage(logText: "DENEMEEEE"),
+                                  );
+                                } else {
+                                  // ignore: use_build_context_synchronously
+                                  CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());
+                                }
+                              }
+                            },
+                          );
                         },
                       );
                     },

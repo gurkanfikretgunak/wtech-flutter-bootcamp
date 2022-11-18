@@ -47,6 +47,7 @@ class _CustomInputDecorationState extends State<CustomInputDecoration> {
         autofocus: true,
         // keyboardType: TextInputType.visiblePassword,
         decoration: InputDecoration(
+          errorText: widget.errorText,
           errorStyle: const TextStyle(
             fontSize: 16.0,
           ),

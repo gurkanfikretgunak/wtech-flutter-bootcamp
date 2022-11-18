@@ -38,7 +38,15 @@ class FormProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  bool get validate {
-    return _email.value != null && _password.value != null && _name.value != null;
+  bool get emailValidate {
+    return _email.value != null;
+  }
+
+  bool get passwordValidate {
+    return _password.value != null;
+  }
+
+  bool get signUpValidate {
+    return _password.value != null && _name.value != null;
   }
 }
