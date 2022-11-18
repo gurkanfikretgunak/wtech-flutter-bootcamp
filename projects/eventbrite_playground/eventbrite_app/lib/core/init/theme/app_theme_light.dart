@@ -36,10 +36,20 @@ class AppThemeLight extends AppTheme {
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,
         ),
+        tabBarTheme: const TabBarTheme(
+          labelColor: Colors.grey,
+          labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          unselectedLabelColor: Colors.grey,
+          unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
+          indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(color: Color(0xFF0000BD), width: 2),
+          ),
+        ),
         textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 40, fontWeight: FontWeight.bold, color: Colors.black),
           headline2: TextStyle(fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black),
           headline3: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black),
+          headline4: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey),
           bodyText1: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.black),
           caption: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w600),
           button: TextStyle(fontWeight: FontWeight.w900, color: Colors.white),

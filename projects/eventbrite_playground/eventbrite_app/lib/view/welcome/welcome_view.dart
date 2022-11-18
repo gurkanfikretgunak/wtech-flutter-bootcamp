@@ -5,6 +5,9 @@ import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../core/constants/navigation/navigation_constants.dart';
+import '../../core/init/navigation/navigation_service.dart';
+
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
 
@@ -52,7 +55,9 @@ class WelcomeView extends StatelessWidget {
                 children: [
                   const Icon(AppConstants.welcomeIcon),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+                    },
                     child: const Text(AppConstants.welcomeTextButton),
                   )
                 ],

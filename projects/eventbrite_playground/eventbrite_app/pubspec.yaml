@@ -17,12 +17,23 @@ dependencies:
   flutter_native_splash: ^2.2.14
   #State Management
   provider: ^6.0.4
+  #Network
+  retrofit: ^3.3.1
+  dio: ^4.0.6
+  #Logging
+  logger: ^1.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  #Retrofit
+  retrofit_generator: ^4.2.0
+  #Build Runner
+  build_runner: ^2.3.2
+  #Json Serializable
+  json_serializable: ^6.5.4
 
 flutter:
   uses-material-design: true
