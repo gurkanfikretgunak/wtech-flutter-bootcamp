@@ -25,10 +25,9 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0),
                 child: Icon(Icons.home),
               ),
-         label: Text(
-            "Home",
-            style: const TextStyle(color: Colors.white),
-          ),
+         label: "Home",
+           
+          
             ),
             BottomNavigationBarItem( 
               
@@ -37,21 +36,19 @@ class ProfileScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 8.0),
               ),
              
-              label: Text(
-                "Search",
-                style: TextStyle(color: Colors.white),
+              label:  "Search",
+             
               ), 
-            ),
+            
             BottomNavigationBarItem(
               icon: Padding(
                 child: Icon(Icons.person),
                 padding: const EdgeInsets.only(top: 8.0),
                 ),
-                label: Text(
-                  "Profile",
-                  style: const TextStyle(color: Colors.white),
+                label:  "Profile",
+               
                                 ),
-            ),
+            
             ],
       ),
       ),

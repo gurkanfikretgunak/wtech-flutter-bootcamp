@@ -1,3 +1,4 @@
+import 'package:app/ui/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -13,11 +14,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       
       title: 'LifeSum',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: false,
         primarySwatch: Colors.blue,
       ),
-      home: Container(),
+      home: const ProfileScreen(),
+      
     );
   }
 }
