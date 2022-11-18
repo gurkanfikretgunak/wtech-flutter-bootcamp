@@ -1,7 +1,8 @@
-import '../views/authentication/sign_in/sign_in_view.dart';
-import '../views/authentication/sign_up/sign_up_view.dart';
-import '../views/home_view.dart';
-import '../views/splash_view.dart';
+import '../../views/authentication/sign_in/sign_in_with_organization.view.dart';
+import '../../views/authentication/sign_in/sign_in_with_email_view.dart';
+import '../../views/authentication/sign_up/sign_up_view.dart';
+import '../../views/home_view.dart';
+import '../../views/splash_view.dart';
 import 'package:flutter/material.dart';
 
 class CustomRouter {
@@ -28,6 +29,9 @@ class CustomRouter {
 
       case "/SignInView":
         return _buildMaterialPageRoute(const SignInView());
+
+      case "/SignInWithEmail":
+        return _buildMaterialPageRoute(const SignInWithEmail());
 
       case "/SignUpView":
         return _buildMaterialPageRoute(const SignUpView());

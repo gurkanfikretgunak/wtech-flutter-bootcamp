@@ -1,5 +1,5 @@
-import '../../core/constants/color_constant.dart';
 import 'package:flutter/material.dart';
+import '../../../core/constants/constant_libary.dart';
 
 class CustomTextSpan {
   textSpan({

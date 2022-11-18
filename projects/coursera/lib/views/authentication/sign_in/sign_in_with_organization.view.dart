@@ -1,4 +1,4 @@
-import '../../../routes/custom_navigator.dart';
+import '../../../core/routes/custom_navigator.dart';
 import '../authentication_view.dart';
 import 'sign_in_view_model.dart';
 import '../../../widgets/custom_divider.dart';
@@ -85,6 +85,6 @@ class _SignInViewState extends State<SignInView> {
   }
 
   void _loginWithEmail() {
-    CustomNavigator.goToScreen(context, "/HomeView");
+    CustomNavigator.goToScreen(context, "/SignInWithEmail");
   }
 }

@@ -1,11 +1,11 @@
-import '../../../core/constants/color_constant.dart';
+import 'package:coursera/widgets/custom_or_text.dart';
+
 import '../authentication_view.dart';
 import 'sign_up_view_model.dart';
 import '../../../widgets/custom_app_bar.dart';
-import '../../../widgets/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
+import '../../../core/constants/constant_libary.dart';
 import '../../../widgets/button/button_libary.dart';
 import '../../../widgets/text/text_libary.dart';
 
@@ -57,21 +57,7 @@ class _SignUpViewState extends State<SignUpView> {
             text: "Create an Account",
             primary: ColorConstant.instance.appGreyDark,
           ),
-          Row(
-            children: [
-              const Expanded(flex: 2, child: CustomDivider()),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.center,
-                  child: CustomText(
-                    text: 'or',
-                    color: ColorConstant.instance.appGreyDark,
-                  ),
-                ),
-              ),
-              const Expanded(flex: 2, child: CustomDivider()),
-            ],
-          ),
+          const CustomOrText(),
           CustomTextButton(
             onPressed: () {},
             text: "Sign up with your organization",

@@ -11,10 +11,12 @@ class AuthenticationView extends StatelessWidget {
     super.key,
     required this.widget,
     this.appBar,
+    this.isTermsText,
   });
 
   final Widget widget;
   final PreferredSizeWidget? appBar;
+  final bool? isTermsText;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -43,7 +45,7 @@ class AuthenticationView extends StatelessWidget {
                 children: [
                   const Logo(),
                   Expanded(child: widget),
-                  const TermsText(),
+                  isTermsText ?? true ? const TermsText() : const SizedBox(),
                 ],
               ),
             ),

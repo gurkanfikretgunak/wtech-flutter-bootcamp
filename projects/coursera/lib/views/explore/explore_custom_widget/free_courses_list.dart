@@ -1,9 +1,11 @@
-import '../../../core/constants/color_constant.dart';
+import 'package:coursera/widgets/custom_circular_progress_indicator.dart';
+
 import '../../../core/model/course.dart';
 import '../../../core/services/service.dart';
 import '../../../widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import '../../../core/constants/constant_libary.dart';
 
 import '../../../widgets/text/text_libary.dart';
 
@@ -96,8 +98,7 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
             } else if (snapshot.hasError) {
               return Text('${snapshot.error}');
             }
-            return CircularProgressIndicator(
-                color: ColorConstant.instance.appBlue);
+            return const CustomCircularProgressIndicator();
           },
         ),
       ),

@@ -1,8 +1,8 @@
 import 'dart:async';
-import '../core/constants/color_constant.dart';
-import '../routes/custom_navigator.dart';
+import '../core/routes/custom_navigator.dart';
 import '../widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
+import '../../../core/constants/constant_libary.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

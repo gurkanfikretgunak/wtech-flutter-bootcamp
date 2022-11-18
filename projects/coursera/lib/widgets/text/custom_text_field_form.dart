@@ -1,7 +1,6 @@
-import '../../core/constants/color_constant.dart';
-import '../../core/constants/radius_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import '../../../core/constants/constant_libary.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -36,6 +35,7 @@ class CustomTextFormField extends StatelessWidget {
     this.labelTextFontSize,
     this.errorText,
     this.borderRadius,
+    this.suffixIconSize,
   }) : super(key: key);
 
   final int? maxLines;
@@ -49,6 +49,7 @@ class CustomTextFormField extends StatelessWidget {
   final Color? fillColor;
   final Color? prefixIconColor;
   final Color? suffixIconColor;
+  final double? suffixIconSize;
   final Color? borderSideColor;
   final Color? textColor;
   final InputBorder? enabledBorder;
@@ -115,6 +116,7 @@ class CustomTextFormField extends StatelessWidget {
                 ? null
                 : Icon(
                     suffixIcon,
+                    size: suffixIconSize,
                     color:
                         suffixIconColor ?? ColorConstant.instance.appGreyDark,
                   ),

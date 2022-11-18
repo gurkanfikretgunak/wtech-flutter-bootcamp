@@ -1,10 +1,10 @@
-import '../../core/constants/color_constant.dart';
 import 'explore_custom_widget/free_courses_list.dart';
 import 'explore_custom_widget/most_popular_certificates_list.dart';
 import 'explore_custom_widget/topic_list.dart';
 import '../../widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import '../../../core/constants/constant_libary.dart';
 
 import '../../widgets/button/button_libary.dart';
 import '../../widgets/text/text_libary.dart';

@@ -1,8 +1,6 @@
-import '../../core/constants/color_constant.dart';
-import '../../core/constants/radius_constant.dart';
-import '../../core/constants/size_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import '../../../core/constants/constant_libary.dart';
 
 import '../text/text_libary.dart';
 

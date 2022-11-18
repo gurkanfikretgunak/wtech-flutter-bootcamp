@@ -1,9 +1,8 @@
-import '../../../core/constants/color_constant.dart';
-import '../../../core/model/topic.dart';
-import '../../../core/services/service.dart';
+import 'package:coursera/widgets/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
+import '../../../core/model/topic.dart';
+import '../../../core/services/service.dart';
 import '../../../widgets/text/text_libary.dart';
 
 class TopicList extends StatefulWidget {
@@ -42,8 +41,7 @@ class _TopicListState extends State<TopicList> {
           } else if (snapshot.hasError) {
             return Text('${snapshot.error}');
           }
-          return CircularProgressIndicator(
-              color: ColorConstant.instance.appBlue);
+          return const CustomCircularProgressIndicator();
         },
       ),
     );
