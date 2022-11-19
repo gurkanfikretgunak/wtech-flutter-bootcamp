@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:sweetgreen_playground/core/app.dart';
-import 'package:sweetgreen_playground/views/splash_view.dart';
 
-void main() {
-  runApp(const MyWidget());
-}
+void main() => runApp(const MyApp());
+
+

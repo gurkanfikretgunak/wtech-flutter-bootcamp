@@ -1,13 +1,22 @@
+import 'package:flutter/material.dart';
+import 'package:sweetgreen_playground/views/login.dart';
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
+class MyWidget extends StatefulWidget {
+  const MyWidget({super.key});
 
-void main() {
-  runApp(MyWidget());
+  @override
+  State<MyWidget> createState() => _MyWidgetState();
 }
 
-class MyWidget extends StatelessWidget {
-  const MyWidget({super.key});
+class _MyWidgetState extends State<MyWidget> {
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+    _navigateToHome();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,5 +25,12 @@ class MyWidget extends StatelessWidget {
       child: (Image.asset(
           "assets/resimler/sweetgreen-rebrands-removebg-preview.png")),
     );
+  }
+
+  void _navigateToHome() async {
+    await Future.delayed(const Duration(milliseconds: 3000), () {});
+    // ignore: use_build_context_synchronously
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => LoginPage()));
   }
 }
