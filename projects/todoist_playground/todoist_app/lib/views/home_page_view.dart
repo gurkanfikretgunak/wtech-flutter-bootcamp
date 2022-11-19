@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import 'package:todoist_app/views/settings_app.dart';
+import 'package:todoist_app/views/settings/settings_app.dart';
 import 'package:todoist_app/views/welcome_page_view.dart';
 
 import '../widgets/custom_methods.dart';

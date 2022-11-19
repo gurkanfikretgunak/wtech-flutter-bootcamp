@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/views/settings_app.dart';
+import 'package:todoist_app/views/settings/settings_app.dart';
 
-import '../core/themes/custom_themes.dart';
+import '../../core/themes/custom_themes.dart';
 
 class AccountSettingView extends StatefulWidget {
   const AccountSettingView({Key? key}) : super(key: key);

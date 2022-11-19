@@ -2,17 +2,20 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
-import 'package:todoist_app/views/login_with_email_view.dart';
+import 'package:todoist_app/views/home_page_view.dart';
+import 'package:todoist_app/views/auth/login_with_email_view.dart';
 import 'package:todoist_app/views/welcome_page_view.dart';
 import 'package:todoist_app/widgets/loading_widget.dart';
-import '../constants/custom_constants.dart';
-import '../core/provider/validation_provider.dart';
-import '../core/themes/custom_themes.dart';
-import '../widgets/button_widgets/sign_up_button.dart';
-import '../widgets/custom_methods.dart';
-import '../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import '../../constants/custom_constants.dart';
+import '../../core/provider/validation_provider.dart';
+import '../../core/themes/custom_themes.dart';
+import '../../widgets/button_widgets/sign_up_button.dart';
+import '../../widgets/custom_methods.dart';
+import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import 'information_page_view.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({Key? key}) : super(key: key);
@@ -118,10 +121,14 @@ class _SignInViewState extends State<SignInView> {
                                     bool isCheck = await data.postUser(emailTextController, passwordTextController);
                                     if (isCheck) {
                                       // ignore: use_build_context_synchronously
-                                      CustomMethods.settingModalBottomSheet(
-                                        context,
-                                        const LoadingPage(logText: "D"),
-                                      );
+                                      Navigator.of(context).push(MaterialPageRoute(
+                                        builder: (context) => const LoadingPage(
+                                            logText:
+                                                "If you don't know where you are going,you might wind up someplace else. -YOGI BERRA"),
+                                      ));
+                                      await loginAction();
+                                      // ignore: use_build_context_synchronously
+                                      CustomMethods.settingModalBottomSheet(context, const InformationApp());
                                     } else {
                                       // ignore: use_build_context_synchronously
                                       CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());
@@ -143,4 +150,10 @@ class _SignInViewState extends State<SignInView> {
       ),
     );
   }
+}
+
+Future<bool> loginAction() async {
+  //replace the below line of code with your login request
+  await Future.delayed(const Duration(seconds: 2));
+  return true;
 }

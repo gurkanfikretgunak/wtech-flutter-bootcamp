@@ -12,12 +12,7 @@ class CustomMethods {
             topStart: Radius.circular(10),
           ),
         ),
-        builder: (context) => Container(
-            height: 630,
-            padding: const EdgeInsetsDirectional.only(
-              bottom: 30,
-              top: 8,
-            ),
-            child: wid));
+        builder: (context) =>
+            Container(height: 630, padding: const EdgeInsetsDirectional.only(bottom: 30, top: 3), child: wid));
   }
 }

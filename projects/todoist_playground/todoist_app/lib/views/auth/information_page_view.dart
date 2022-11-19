@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import '../widgets/button_widgets/no_sheet_button.dart';
-import 'home_page_view.dart';
+import '../../widgets/button_widgets/no_sheet_button.dart';
+import '../home_page_view.dart';
 
 class InformationApp extends StatelessWidget {
   const InformationApp({Key? key}) : super(key: key);

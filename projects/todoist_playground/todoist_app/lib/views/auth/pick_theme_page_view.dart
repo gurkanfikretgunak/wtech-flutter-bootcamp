@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../constants/custom_constants.dart';
-import '../core/provider/theme_change_provider.dart';
-import '../model/themes/themes_model.dart';
+import '../../constants/custom_constants.dart';
+import '../../core/provider/theme_change_provider.dart';
+import '../../model/themes/themes_model.dart';
 
 class ThemeSwitcher extends StatelessWidget {
   const ThemeSwitcher({Key? key}) : super(key: key);

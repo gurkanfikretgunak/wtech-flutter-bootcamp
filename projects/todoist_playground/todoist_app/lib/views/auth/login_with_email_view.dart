@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoist_app/views/sign_up_page_view.dart';
-import '../constants/custom_constants.dart';
-import '../core/provider/service_provider.dart';
-import '../core/provider/validation_provider.dart';
-import '../core/themes/custom_themes.dart';
-import '../widgets/button_widgets/sign_up_button.dart';
-import '../widgets/custom_methods.dart';
-import '../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import 'package:todoist_app/views/auth/sign_up_page_view.dart';
+import '../../constants/custom_constants.dart';
+import '../../core/provider/service_provider.dart';
+import '../../core/provider/validation_provider.dart';
+import '../../core/themes/custom_themes.dart';
+import '../../widgets/button_widgets/sign_up_button.dart';
+import '../../widgets/custom_methods.dart';
+import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
 import 'password_page_view.dart';
 
 class LoginWithEmail extends StatefulWidget {

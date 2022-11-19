@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import 'package:todoist_app/views/sign_up_page_view.dart';
+import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
 import '../constants/custom_constants.dart';
-import 'login_with_email_view.dart';
+import 'auth/login_with_email_view.dart';
 
 class WelcomeToApp extends StatefulWidget {
   const WelcomeToApp({Key? key}) : super(key: key);

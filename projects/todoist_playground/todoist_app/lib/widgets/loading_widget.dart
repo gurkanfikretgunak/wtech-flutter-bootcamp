@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:todoist_app/views/information_page_view.dart';
-import 'package:todoist_app/widgets/custom_methods.dart';
+
 import '../constants/custom_constants.dart';
 import '../core/themes/custom_themes.dart';
 
@@ -19,29 +18,24 @@ class _LoadingPageState extends State<LoadingPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: 300,
-            width: 100,
-            child: Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Lottie.asset(CustomImagePathConstants.loadingLottiePath)),
+            height: 30,
+            width: 30,
+            child: Lottie.asset(CustomImagePathConstants.loadingLottiePath),
           ),
-          Center(
+          Padding(
+            padding: const EdgeInsets.all(40.0),
             child: Text(
               widget.logText,
-              style: CustomTheme.customLightThemeData().textTheme.subtitle1,
+              style: CustomTheme.customLightThemeData()
+                  .textTheme
+                  .subtitle1
+                  ?.copyWith(fontSize: 18, fontWeight: FontWeight.normal),
               textAlign: TextAlign.center,
             ),
           ),
-          TextButton(
-              onPressed: () {
-                CustomMethods.settingModalBottomSheet(context, const InformationApp());
-              },
-              child: const Text(
-                "next",
-                style: TextStyle(color: Colors.red),
-              ))
         ],
       ),
     );

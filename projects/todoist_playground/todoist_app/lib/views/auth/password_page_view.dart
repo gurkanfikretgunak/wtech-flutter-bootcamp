@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import 'package:todoist_app/widgets/loading_widget.dart';
-import '../constants/custom_constants.dart';
-import '../core/provider/service_provider.dart';
-import '../core/provider/validation_provider.dart';
-import '../core/themes/custom_themes.dart';
-import '../widgets/button_widgets/sign_up_button.dart';
-import '../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import '../../constants/custom_constants.dart';
+import '../../core/provider/service_provider.dart';
+import '../../core/provider/validation_provider.dart';
+import '../../core/themes/custom_themes.dart';
+import '../../widgets/button_widgets/sign_up_button.dart';
+import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
 
 class LoginPasswordView extends StatefulWidget {
   const LoginPasswordView({Key? key}) : super(key: key);

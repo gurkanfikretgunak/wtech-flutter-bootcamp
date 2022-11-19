@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
-import 'package:todoist_app/views/account_settings_view.dart';
+import 'package:todoist_app/views/settings/account_settings_view.dart';
 
-import '../widgets/custom_methods.dart';
+import '../../widgets/custom_methods.dart';
 
 class SettingsApp extends StatefulWidget {
   const SettingsApp({Key? key}) : super(key: key);
@@ -51,7 +51,10 @@ class _SettingsAppState extends State<SettingsApp> {
                 ),
                 child: Column(
                   children: [
-                    const CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: const CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
+                    ),
                     const Padding(
                       padding: EdgeInsets.only(
                         top: 20.0,
@@ -62,6 +65,7 @@ class _SettingsAppState extends State<SettingsApp> {
                     const CustomToCard(),
                     const Padding(
                       padding: EdgeInsets.only(
+                        top: 20,
                         bottom: 23,
                       ),
                       child: CustomHelpListCard(),
@@ -70,7 +74,6 @@ class _SettingsAppState extends State<SettingsApp> {
                     Padding(
                       padding: const EdgeInsets.only(
                         top: 20.0,
-                        bottom: 20,
                       ),
                       child: Text(
                         "Logged in as: nur@gmail.com",
