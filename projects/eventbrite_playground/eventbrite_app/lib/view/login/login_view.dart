@@ -1,7 +1,14 @@
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
+import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/navigation/navigation_constants.dart';
 import '../../core/init/navigation/navigation_service.dart';
@@ -12,9 +19,11 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final LoginNotifier provider = Provider.of<LoginNotifier>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Log in or Sign up', style: Theme.of(context).textTheme.headline3),
+        title: Text('Log in or Sign up',
+            style: Theme.of(context).textTheme.headline3),
         elevation: 3,
       ),
       body: SizedBox(
@@ -30,11 +39,15 @@ class LoginView extends StatelessWidget {
                     children: [
                       Padding(
                         padding: PaddingConstants.defaultBottomPadding * 2,
-                        child: const CustomTextFormField(
+                        child: CustomTextFormField(
+                          onChanged: (value) {
+                            context.read<LoginNotifier>().validateEmail(value);
+                          },
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: 'Email',
                           hintText: 'Enter email address',
                           keyboardType: TextInputType.emailAddress,
+                          errorText: provider.email.error,
                         ),
                       ),
                     ],
@@ -46,7 +59,8 @@ class LoginView extends StatelessWidget {
               children: [
                 const Spacer(),
                 Padding(
-                  padding: PaddingConstants.defaultHorizontalPadding + PaddingConstants.defaultRightPadding * 6,
+                  padding: PaddingConstants.defaultHorizontalPadding +
+                      PaddingConstants.defaultRightPadding * 6,
                   child: Row(
                     children: [
                       Container(
@@ -69,7 +83,9 @@ class LoginView extends StatelessWidget {
                           Icons.confirmation_number_outlined,
                         ),
                       ),
-                      const Expanded(child: Text('Sign in with the same email address you used to get your tickets.')),
+                      const Expanded(
+                          child: Text(
+                              'Sign in with the same email address you used to get your tickets.')),
                     ],
                   ),
                 ),
@@ -79,11 +95,14 @@ class LoginView extends StatelessWidget {
                   child: CustomElevatedButton(
                     text: 'Next',
                     border: true,
-                    onPressed: () {
-                      NavigationService.instance.navigateToPage(routeName: NavigationConstants.registerPage);
-                    },
+                    onPressed: provider.isValid
+                        ? () {
+                            provider.isEmailExist(provider.email.value!);
+                          }
+                        : null,
                     color: Theme.of(context).backgroundColor,
-                    textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.caption ??
+                        const TextStyle(),
                   ),
                 ),
               ],

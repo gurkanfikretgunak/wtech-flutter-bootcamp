@@ -4,6 +4,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? labelText;
   final String? hintText;
   final String? helperText;
+  final String? errorText;
   final bool? obscureText;
   final String? initialValue;
   final Color? textColor;
@@ -25,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.textColor,
     this.onChanged,
+    this.errorText,
   }) : super(key: key);
 
   @override
@@ -37,12 +39,14 @@ class CustomTextFormField extends StatelessWidget {
       keyboardType: keyboardType,
       obscureText: obscureText ?? false,
       decoration: InputDecoration(
-        floatingLabelBehavior: floatingLabelBehavior ?? FloatingLabelBehavior.auto,
+        floatingLabelBehavior:
+            floatingLabelBehavior ?? FloatingLabelBehavior.auto,
         // floatingLabelStyle: const TextStyle(color: Colors.black),
         suffixIcon: suffixIcon,
         labelText: labelText,
         hintText: hintText,
         helperText: helperText,
+        errorText: errorText,
       ),
     );
   }

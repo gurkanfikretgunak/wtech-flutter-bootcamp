@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
@@ -16,5 +17,6 @@ class AppProvider {
     ChangeNotifierProvider(create: (context) => ThemeNotifier()),
     ChangeNotifierProvider(create: (context) => NavbarNotifier()),
     ChangeNotifierProvider(create: (context) => RegisterNotifier()),
+    ChangeNotifierProvider(create: (context) => LoginNotifier()),
   ];
 }

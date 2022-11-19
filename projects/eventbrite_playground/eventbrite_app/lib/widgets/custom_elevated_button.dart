@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Color color;
   final TextStyle textStyle;
   final bool? border;
@@ -31,7 +31,9 @@ class CustomElevatedButton extends StatelessWidget {
               onPressed: onPressed,
               style: ElevatedButton.styleFrom(
                 backgroundColor: color,
-                side: border == true ? const BorderSide(color: Colors.black54, width: 2) : null,
+                side: border == true
+                    ? const BorderSide(color: Colors.black54, width: 2)
+                    : null,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
