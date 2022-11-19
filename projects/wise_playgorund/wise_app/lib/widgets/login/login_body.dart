@@ -1,23 +1,15 @@
-import 'package:provider/provider.dart';
-import 'package:wise_app/core/provider/unit_provider.dart';
 import 'package:wise_app/unit/imports.dart';
-
 
 class LoginPageBody extends StatelessWidget {
   const LoginPageBody({
     Key? key,
     required this.size,
     required this.providerTheme,
-    required TextEditingController textEditingControllerEmail,
-    required TextEditingController textEditingControllerPassword,
-  })  : _textEditingControllerEmail = textEditingControllerEmail,
-        _textEditingControllerPassword = textEditingControllerPassword,
-        super(key: key);
+
+  }) : super(key: key);
 
   final Size size;
   final ThemeProvider providerTheme;
-  final TextEditingController _textEditingControllerEmail;
-  final TextEditingController _textEditingControllerPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -55,15 +47,15 @@ class LoginPageBody extends StatelessWidget {
                   height: 8,
                 ),
                 TextField(
-                    controller: provider.textEditingControllerEmail,
-                    decoration: InputDecoration(
-                      alignLabelWithHint: true,
-                      suffixIcon:  provider.isSuffixIcon,
-                      focusedBorder: LoginStyle.textFieldFocusedBorder,
-                      enabledBorder: LoginStyle.textFieldEnabledBorder,
-                    ),
-                  onChanged: (e){
-                    provider.checkSufficIcon(e);
+                  controller: provider.loginTextControllerEmail,
+                  decoration: InputDecoration(
+                    alignLabelWithHint: true,
+                    suffixIcon: provider.suffixIcon,
+                    focusedBorder: LoginStyle.textFieldFocusedBorder,
+                    enabledBorder: LoginStyle.textFieldEnabledBorder,
+                  ),
+                  onChanged: (e) {
+                    provider.loginCheckSufficIcon(e);
                   },
                 ),
               ],
@@ -84,17 +76,17 @@ class LoginPageBody extends StatelessWidget {
                   height: 8,
                 ),
                 TextField(
-                    controller: _textEditingControllerPassword,
-                    obscureText: provider.isObsor,
+                    controller: provider.loginTextControllerPassword,
+                    obscureText: provider.isObscure,
                     decoration: InputDecoration(
                       alignLabelWithHint: true,
                       suffixIcon: IconButton(
                           onPressed: () {
                             if (kDebugMode) {
-                              provider.changeObser();
+                              provider.changeisObscure();
                             }
                           },
-                          icon:provider.passwordIcon),
+                          icon: provider.passwordIcon),
                       focusedBorder: LoginStyle.textFieldFocusedBorder,
                       enabledBorder: LoginStyle.textFieldEnabledBorder,
                     )),
@@ -109,10 +101,13 @@ class LoginPageBody extends StatelessWidget {
                 child: ElevatedButton(
                     style: LoginStyle.loginButtonStyle,
                     onPressed: () {
-                      if (kDebugMode) {}
+                      if (kDebugMode) {
+
+                      }
                     },
-                    child: const Text(LoginTextConstants.login,
-                    style: LoginStyle.loginButtonTextStyle,
+                    child: const Text(
+                      LoginTextConstants.login,
+                      style: LoginStyle.loginButtonTextStyle,
                     ))),
             const SizedBox(
               height: 10,

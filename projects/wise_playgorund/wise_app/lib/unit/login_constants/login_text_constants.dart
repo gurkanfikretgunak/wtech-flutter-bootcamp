@@ -4,4 +4,5 @@ class LoginTextConstants {
   static const String password = "Password";
   static const String troubleLoggingIn = "Trouble logging in?";
   static const String orLogInWith = "Or log in with";
+  static const String changeTheme = "Change Theme";
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:wise_app/unit/login_constants/login_text_constants.dart';
 import '../core/provider/provider_theme.dart';
 import '../widgets/login/login_body.dart';
 import '../widgets/login/login_bottom_button.dart';
@@ -12,10 +13,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _textEditingControllerEmail =
+  final TextEditingController _textEditingControllerPassword =
       TextEditingController();
-  TextEditingController _textEditingControllerPassword =
-      TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -27,12 +27,12 @@ class _LoginPageState extends State<LoginPage> {
           iconTheme: provider.appBarButtonColor,
           actions: [
             SizedBox(
-              width: 100,
+              width: 120,
               child: TextButton(
                 onPressed: () {
                   provider.changeTheme();
                 },
-                child: Text("Tema Değiş"),
+                child: const Text(LoginTextConstants.changeTheme),
               ),
             ),
           ],
@@ -44,10 +44,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 LoginPageBody(
                     size: size,
-                    providerTheme: provider,
-                    textEditingControllerEmail: _textEditingControllerEmail,
-                    textEditingControllerPassword:
-                        _textEditingControllerPassword),
+                    providerTheme: provider),
                 const SizedBox(
                   height: 100,
                 ),
