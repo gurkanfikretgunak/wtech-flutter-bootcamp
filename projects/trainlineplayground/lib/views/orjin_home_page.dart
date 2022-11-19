@@ -167,6 +167,7 @@ class OriginalHomePageState extends State<OriginalHomePage> {
         ],
       ),
       bottomNavigationBar: const GlobalCustomNavigationBar()
+
     );
   }
 }

@@ -1,9 +1,33 @@
-
 import 'package:flutter/material.dart';
 
 import '../views/orjin_home_page.dart';
+import '../views/sign_in_account_page.dart';
 
+class RouteGenerator {
 
-class AppRoutes{
-  static Map<String, WidgetBuilder> get mainRoute => {"/home":(context) => const OriginalHomePage()};
+  static Route<dynamic> generateRoute(RouteSettings settings){
+
+    final args = settings.arguments;
+
+    switch (settings.name){
+      case '/':
+        return MaterialPageRoute(builder: (_) => const OriginalHomePage());
+      case '/rightpage':
+        return MaterialPageRoute(builder: (_) => const SignInAccountPage());
+      default: 
+        return _errorRoute(); 
+    }
+  }
+  
+  static Route<dynamic> _errorRoute() {
+    return MaterialPageRoute(builder: (_) {
+      return Scaffold(
+        appBar: AppBar(title: const Text("error"),),
+        body: const Center(
+          child: Text("error"),
+        ),
+      );
+
+    });
+  }
 }

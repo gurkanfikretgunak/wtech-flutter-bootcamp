@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
+import 'package:trainlineplayground/routes/routes.dart';
 
-import '../routes/routes.dart';
+
 
 import '../views/home_ticket_page.dart';
 import '../views/orjin_home_page.dart';
@@ -23,17 +24,18 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (BuildContext context)=>HomePageState(),),
         FutureProvider(create: (BuildContext context) {  }, initialData: null,)],
       child: MaterialApp(
-        routes: AppRoutes.mainRoute,
+        initialRoute: '/',
+        onGenerateRoute: RouteGenerator.generateRoute,
         title: 'Flutter Demo',
         theme: ThemeData(
           
           primarySwatch: Colors.blue,
         ),
-        home: const SignInAccountPage(),
+        home: const OriginalHomePage(),
       ),
       
     );
   }
 
 }
-
+// bloc state management arastir
