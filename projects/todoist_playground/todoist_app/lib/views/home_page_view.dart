@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
+import 'package:todoist_app/views/settings_app.dart';
 import 'package:todoist_app/views/welcome_page_view.dart';
+
+import '../widgets/custom_methods.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -31,7 +34,11 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: () {},
             icon: const Icon(Icons.search_rounded),
           ),
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_horiz_rounded)),
+          IconButton(
+              onPressed: () {
+                CustomMethods.settingModalBottomSheet(context, const SettingsApp());
+              },
+              icon: const Icon(Icons.settings)),
         ],
       ),
       body: Column(
@@ -60,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
             ),
           ),
-          CustomOutlineButton(imagePath: CustomImagePathConstants.lampPath),
+          const CustomOutlineButton(imagePath: CustomImagePathConstants.lampPath),
         ],
       ),
       floatingActionButton: FloatingActionButton(

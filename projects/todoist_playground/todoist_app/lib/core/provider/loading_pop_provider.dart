@@ -7,11 +7,8 @@ import 'package:grock/grock.dart';
 import '../../service/data_service.dart';
 
 class LoginRiverpod extends ChangeNotifier {
-  TextEditingController email = TextEditingController();
-  TextEditingController password = TextEditingController();
-
   void fetch() {
-    LoadingPage(
+    const LoadingPage(
       logText: "Deneme",
     );
     RestClient(Dio(BaseOptions(contentType: "application/json")),

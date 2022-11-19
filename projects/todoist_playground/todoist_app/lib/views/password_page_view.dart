@@ -75,7 +75,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                                 CustomMethods.settingModalBottomSheet(
                                     context,
                                     const LoadingPage(
-                                      logText: "aaaaaa",
+                                      logText: "deneme",
                                     ));
                               } else {
                                 // ignore: use_build_context_synchronously

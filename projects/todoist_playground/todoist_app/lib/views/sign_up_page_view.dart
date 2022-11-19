@@ -111,7 +111,7 @@ class _SignInViewState extends State<SignInView> {
                                   // ignore: use_build_context_synchronously
                                   CustomMethods.settingModalBottomSheet(
                                     context,
-                                    const LoadingPage(logText: "DENEMEEEE"),
+                                    const LoadingPage(logText: "D"),
                                   );
                                 } else {
                                   // ignore: use_build_context_synchronously

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/core/provider/loading_pop_provider.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/core/provider/theme_change_provider.dart';
 import 'package:todoist_app/core/provider/validation_provider.dart';
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(create: (_) => ServiceProvider()),
           ChangeNotifierProvider(create: (_) => FormProvider()),
-          ChangeNotifierProvider(create: (_) => ThemeProvider())
+          ChangeNotifierProvider(create: (_) => ThemeProvider()),
         ],
         child: Consumer<ThemeProvider>(
           builder: (context, value, child) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
+import 'package:todoist_app/views/home_page_view.dart';
 import 'package:todoist_app/views/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
 import '../constants/custom_constants.dart';
@@ -46,7 +47,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                       const CustomButtonWelcome(
                           color: Colors.red,
                           icon: Icons.email_rounded,
-                          widName: LoginWithEmail(),
+                          widName: MyHomePage(),
                           text: CustomTextConstants.buttonTextEmail),
                       const CustomButtonWelcome(
                         color: Colors.black,
