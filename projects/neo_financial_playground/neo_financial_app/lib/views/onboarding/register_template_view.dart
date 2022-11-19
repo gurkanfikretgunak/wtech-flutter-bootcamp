@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
 import 'package:provider/provider.dart';
-import '../../core/models/onboarding/onboard.dart';
+import '../../core/data/models/onboarding/onboard.dart';
+import '../../core/provider/sign_up_state.dart';
 
 class RegisterTemplateView extends StatefulWidget {
   const RegisterTemplateView({
@@ -15,6 +16,7 @@ class RegisterTemplateView extends StatefulWidget {
 class _RegisterTemplateViewState extends State<RegisterTemplateView> {
   @override
   Widget build(BuildContext context) {
+    final signupState = Provider.of<SignUpState>(context, listen: false);
     OnboardingLoadWidgetState state =
         Provider.of<OnboardingLoadWidgetState>(context, listen: false);
     Onboard widgetPage =
@@ -86,19 +88,21 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(widgetPage.btnName),
-                              const Padding(
-                                padding: EdgeInsets.only(left: 5.0),
-                                child: Icon(
-                                  Icons.arrow_forward,
-                                ),
+                              Padding(
+                                padding: widgetPage.btnIcon != null
+                                    ? const EdgeInsets.only(left: 5.0)
+                                    : EdgeInsets.zero,
+                                child: Icon(widgetPage.btnIcon),
                               )
                             ]),
                       ),
-                      onPressed: () {
+                      onPressed: () async {
                         if (state.currentWidget !=
-                            state.widgetOptions.length - 1) {
+                            state.widgetOptions.length - 2) {
                           state.goPage();
                         } else {
+                          await signupState.signUp();
+                          // ignore: use_build_context_synchronously
                           Navigator.pushNamed(
                             context,
                             '/Homeview',

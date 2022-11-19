@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/custom_bottom_navigation_bar_widget.dart';
+import '../../core/data/models/user.dart';
+import '../../core/data/services/service.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -8,11 +10,20 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
         onWillPop: () async => false,
-        child: const Scaffold(
+        child: Scaffold(
           body: Center(
-            child: Text('Neo Financial'),
+            child: FutureBuilder<List<User>>(
+              builder: (BuildContext context, AsyncSnapshot snapshot) {
+                if (snapshot.hasData) {
+                  return Text(snapshot.data.last.email);
+                } else {
+                  return const Text('No connection');
+                }
+              },
+              future: UserRetrofit().getUsers(),
+            ),
           ),
-          bottomNavigationBar: CustomBottomNavBar(),
+          bottomNavigationBar: const CustomBottomNavBar(),
         ));
   }
 }

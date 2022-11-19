@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/provider/sign_up_state.dart';
 import 'package:provider/provider.dart';
-
 import '../../core/provider/onboarding_load_widget_state.dart';
 
 class WelcomeColumnWidget extends StatelessWidget {
@@ -10,6 +10,8 @@ class WelcomeColumnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final signupState = Provider.of<SignUpState>(context, listen: false);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
@@ -20,18 +22,21 @@ class WelcomeColumnWidget extends StatelessWidget {
           child: Text(
               'Create a commitment-free profile to explore financial products and rewards.'),
         ),
-        const Padding(
-          padding: EdgeInsets.symmetric(vertical: 20),
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20),
+          //TODO: Form component will add
           child: TextField(
-            decoration: InputDecoration(
+            onChanged: (value) => {signupState.setEmail(value)},
+            decoration: const InputDecoration(
               labelText: "Email",
               fillColor: Colors.black12,
               filled: true,
             ),
           ),
         ),
-        const TextField(
-          decoration: InputDecoration(
+        TextField(
+          onChanged: (value) => {signupState.setPassword(value)},
+          decoration: const InputDecoration(
             labelText: "Password",
             fillColor: Colors.black12,
             filled: true,

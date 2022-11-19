@@ -37,6 +37,7 @@ class _OnboardingNestedScrollViewWidgetState
                   TextButton(
                     child: Text(widget.sliverBarLeftButtonName),
                     onPressed: () {
+                      //TODO: Here will be in provider
                       setState(() {
                         widget.imgUrl =
                             'assets/images/onboarding-background1.jpg';
@@ -49,10 +50,12 @@ class _OnboardingNestedScrollViewWidgetState
                   TextButton(
                     child: Text(widget.sliverBarRightButtonName),
                     onPressed: () {
+                      //TODO: Here will be in provider
                       setState(() {
                         widget.imgUrl =
                             'assets/images/onboarding-background2.jpg';
                         widget.headlineText = 'Earn 2.25%* on every dollar ';
+                        //TODO: onSubmit will add
                         widget.bodyText =
                             'An account that actually earns you money. Earn more interest with no monthly fees and unlimited free transactions. Your money is yours -anytime. ⓘ';
                       });
@@ -81,10 +84,13 @@ class _OnboardingNestedScrollViewWidgetState
             Text(widget.bodyText,
                 style: Theme.of(context).textTheme.bodyMedium),
             const Spacer(),
+            // icon size
             Center(
               child: Column(
                 children: [
+                  //TODO: Arrow icon will be update as long arrow
                   const Icon(Icons.keyboard_arrow_up),
+                  //TODO: when click the learn more, page will slide and arrow will be invisible
                   OutlinedButton(
                       onPressed: () {}, child: const Text('Learn more')),
                 ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//TODO: Promo side will add to MockApi and Onboard class will be update
 class PromocodeColumnWidget extends StatefulWidget {
   const PromocodeColumnWidget({super.key});
 
