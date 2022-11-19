@@ -15,8 +15,6 @@ class CustomMethods {
         builder: (context) => Container(
             height: 630,
             padding: const EdgeInsetsDirectional.only(
-              start: 20,
-              end: 20,
               bottom: 30,
               top: 8,
             ),

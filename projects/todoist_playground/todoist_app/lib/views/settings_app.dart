@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/core/themes/custom_themes.dart';
+import 'package:todoist_app/views/account_settings_view.dart';
+
+import '../widgets/custom_methods.dart';
 
 class SettingsApp extends StatefulWidget {
   const SettingsApp({Key? key}) : super(key: key);
@@ -23,7 +26,9 @@ class _SettingsAppState extends State<SettingsApp> {
         backgroundColor: Colors.white,
         actions: [
           TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
               child: Text("Done",
                   style: CustomTheme.customLightThemeData()
                       .textTheme
@@ -37,35 +42,43 @@ class _SettingsAppState extends State<SettingsApp> {
           itemCount: 1,
           itemBuilder: (context, index) {
             return Center(
-              child: Column(
-                children: [
-                  const CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      top: 20.0,
-                      bottom: 20,
+              child: Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  start: 20,
+                  end: 20,
+                  bottom: 30,
+                  top: 8,
+                ),
+                child: Column(
+                  children: [
+                    const CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        top: 20.0,
+                        bottom: 20,
+                      ),
+                      child: CustomForListCard(),
                     ),
-                    child: CustomForListCard(),
-                  ),
-                  const CustomToCard(),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 23,
+                    const CustomToCard(),
+                    const Padding(
+                      padding: EdgeInsets.only(
+                        bottom: 23,
+                      ),
+                      child: CustomHelpListCard(),
                     ),
-                    child: CustomHelpListCard(),
-                  ),
-                  const CustomLogOutCard(),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      top: 20.0,
-                      bottom: 20,
-                    ),
-                    child: Text(
-                      "Logged in as: nur@gmail.com",
-                      style: CustomTheme.customLightThemeData().textTheme.subtitle1,
-                    ),
-                  )
-                ],
+                    const CustomLogOutCard(redText: "Log Out"),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        top: 20.0,
+                        bottom: 20,
+                      ),
+                      child: Text(
+                        "Logged in as: nur@gmail.com",
+                        style: CustomTheme.customLightThemeData().textTheme.subtitle1,
+                      ),
+                    )
+                  ],
+                ),
               ),
             );
           },
@@ -158,7 +171,9 @@ class CustomOneCard extends StatelessWidget {
 class CustomLogOutCard extends StatelessWidget {
   const CustomLogOutCard({
     Key? key,
+    required this.redText,
   }) : super(key: key);
+  final String redText;
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -174,7 +189,7 @@ class CustomLogOutCard extends StatelessWidget {
           height: 50,
           child: TextButton(
             onPressed: () {},
-            child: Text("Log Out",
+            child: Text(redText,
                 textAlign: TextAlign.center,
                 style:
                     CustomTheme.customLightThemeData().textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)),
@@ -216,15 +231,20 @@ class CustomForList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       children: ListTile.divideTiles(context: context, tiles: [
-        const ListTile(
-            leading: Icon(
-              Icons.account_circle_outlined,
-              color: Colors.red,
-            ),
-            title: Text('Account'),
-            trailing: Icon(
-              Icons.arrow_forward_ios_rounded,
-            )),
+        GestureDetector(
+          onTap: () {
+            CustomMethods.settingModalBottomSheet(context, const AccountSettingView());
+          },
+          child: const ListTile(
+              leading: Icon(
+                Icons.account_circle_outlined,
+                color: Colors.red,
+              ),
+              title: Text('Account'),
+              trailing: Icon(
+                Icons.arrow_forward_ios_rounded,
+              )),
+        ),
         const ListTile(
             leading: Icon(
               Icons.settings_applications_outlined,
