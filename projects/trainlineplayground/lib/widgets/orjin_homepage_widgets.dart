@@ -387,8 +387,9 @@ class GlobalCustomNavigationBar extends StatelessWidget {
             label: 'My Tickets'),
         BottomNavigationBarItem(
             icon: IconButton(onPressed: () {
-              Navigator.of(context).pushNamed('/rightpage');
-
+              Navigator.of(context).pushNamed('/rightpage');  
+              // kontrol sağla eğer giriş yapıldıysa account page y egitsin
+              // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
             },
              icon: const Icon(Icons.person)),
             label: 'Sign In'),

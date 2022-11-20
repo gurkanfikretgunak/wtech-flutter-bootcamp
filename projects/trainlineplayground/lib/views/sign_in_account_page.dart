@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:trainlineplayground/widgets/orjin_homepage_widgets.dart';
 
 class SignInAccountPage extends StatefulWidget {
   const SignInAccountPage({super.key});
@@ -158,6 +159,23 @@ class SignInAccountPageState extends State<SignInAccountPage> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(items: [
+        BottomNavigationBarItem(
+            icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+            label: 'Search'),
+        BottomNavigationBarItem(
+            icon: IconButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed("/");
+                },
+                icon: const Icon(Icons.airplane_ticket_outlined)),
+            label: 'My Tickets'),
+        BottomNavigationBarItem(
+            icon: IconButton(onPressed: () {},
+             icon: const Icon(Icons.person)),
+            label: 'Sign In'),
+      ]
+      )
     );
   }
 }   
