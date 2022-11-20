@@ -35,57 +35,61 @@ class _CustomInputDecorationState extends State<CustomInputDecoration> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      height: 45,
-      child: TextFormField(
-        inputFormatters: widget.inputFormatters,
-        onChanged: widget.onChanged,
-        validator: widget.validator,
-        controller: widget.controller,
-        obscureText: obscureText,
-        autofocus: true,
-        // keyboardType: TextInputType.visiblePassword,
-        decoration: InputDecoration(
-          errorText: widget.errorText,
-          errorStyle: const TextStyle(
-            fontSize: 16.0,
-          ),
-          labelText: widget.labelText,
-          labelStyle: TextStyle(
-            color: Colors.grey[350],
-            fontSize: 14,
-          ),
-          enabledBorder: const OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
-          focusedBorder: const OutlineInputBorder(
-            borderSide: BorderSide(
-              width: 2,
-              color: Colors.red,
+    return Wrap(
+      children: [
+        Container(
+          color: Colors.white,
+          height: 45,
+          child: TextFormField(
+            inputFormatters: widget.inputFormatters,
+            onChanged: widget.onChanged,
+            validator: widget.validator,
+            controller: widget.controller,
+            obscureText: obscureText,
+            autofocus: true,
+            // keyboardType: TextInputType.visiblePassword,
+            decoration: InputDecoration(
+              labelText: widget.labelText,
+              labelStyle: TextStyle(
+                color: Colors.grey[350],
+                fontSize: 14,
+              ),
+              errorText: widget.errorText,
+              errorStyle: const TextStyle(
+                fontSize: 14.0,
+              ),
+              enabledBorder: const OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
+              focusedBorder: const OutlineInputBorder(
+                borderSide: BorderSide(
+                  width: 2,
+                  color: Colors.red,
+                ),
+              ),
+              suffixIcon: GestureDetector(
+                  onTap: () {
+                    if (widget.deneme) {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    } else {
+                      widget.controller!.clear();
+                    }
+                  },
+                  child: widget.deneme
+                      ? obscureText
+                          ? Icon(
+                              widget.unInputIcon,
+                              color: Colors.grey,
+                            )
+                          : Icon(widget.inputIcon)
+                      : _CustomClearSuffixIcon(
+                          controller: widget.controller,
+                        )),
             ),
           ),
-          suffixIcon: GestureDetector(
-              onTap: () {
-                if (widget.deneme) {
-                  setState(() {
-                    obscureText = !obscureText;
-                  });
-                } else {
-                  widget.controller!.clear();
-                }
-              },
-              child: widget.deneme
-                  ? obscureText
-                      ? Icon(
-                          widget.unInputIcon,
-                          color: Colors.grey,
-                        )
-                      : Icon(widget.inputIcon)
-                  : _CustomClearSuffixIcon(
-                      controller: widget.controller,
-                    )),
         ),
-      ),
+      ],
     );
   }
 }

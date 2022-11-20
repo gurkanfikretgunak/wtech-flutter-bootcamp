@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 
-import '../../core/themes/custom_themes.dart';
-
 class AccountSettingView extends StatefulWidget {
   const AccountSettingView({Key? key}) : super(key: key);
 
@@ -15,8 +13,8 @@ class _AccountSettingViewState extends State<AccountSettingView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Account",
-            style: CustomTheme.customLightThemeData().textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
+        title:
+            Text("Account", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
         centerTitle: true,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
@@ -27,11 +25,8 @@ class _AccountSettingViewState extends State<AccountSettingView> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Done",
-                  style: CustomTheme.customLightThemeData()
-                      .textTheme
-                      .headline2
-                      ?.copyWith(fontSize: 17, color: Colors.red)))
+              child:
+                  Text("Done", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)))
         ],
       ),
       body: Padding(
@@ -59,7 +54,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                     ),
                     child: Center(
                         child: Text("NP",
-                            style: CustomTheme.customLightThemeData()
+                            style: Theme.of(context)
                                 .textTheme
                                 .subtitle1
                                 ?.copyWith(fontSize: 40, color: Colors.green[800]))),
@@ -76,8 +71,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                   children: [
                     SizedBox(
                       width: 340,
-                      child: Text("FULL NAME",
-                          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 14)),
+                      child: Text("FULL NAME", style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14)),
                     ),
                     const CustomAccountCard(
                       iconText: "Nur Perker",
@@ -89,8 +83,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                 children: [
                   SizedBox(
                       width: 340,
-                      child: Text("EMAIL",
-                          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 14))),
+                      child: Text("EMAIL", style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14))),
                   const CustomAccountCard(iconText: "nur@gmail.com"),
                 ],
               ),
@@ -100,8 +93,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                   children: [
                     SizedBox(
                       width: 340,
-                      child: Text("PASSWORD",
-                          style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 14)),
+                      child: Text("PASSWORD", style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14)),
                     ),
                     const CustomAccountCard(iconText: "Change Password"),
                   ],
@@ -139,10 +131,7 @@ class CustomAccountCard extends StatelessWidget {
           padding: const EdgeInsets.only(top: 13.0, left: 15.0),
           child: Text(
             iconText,
-            style: CustomTheme.customLightThemeData()
-                .textTheme
-                .headline2
-                ?.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
+            style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 16, fontWeight: FontWeight.normal),
           ),
         ),
       ),

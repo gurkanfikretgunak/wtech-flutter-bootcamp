@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
 import '../constants/custom_constants.dart';
@@ -30,7 +29,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                         padding: const EdgeInsets.only(top: 15.0),
                         child: Text(
                           CustomTextConstants.welcomeText,
-                          style: CustomTheme.customLightThemeData().textTheme.headline1,
+                          style: Theme.of(context).textTheme.headline1,
                         ))
                   ],
                 ),
@@ -64,7 +63,7 @@ class _WelcomeToAppState extends State<WelcomeToApp> {
                       Padding(
                         padding: const EdgeInsets.only(bottom: 20.0, left: 30, right: 30),
                         child: Text(CustomTextConstants.agreeText,
-                            style: CustomTheme.customLightThemeData().textTheme.subtitle1, textAlign: TextAlign.center),
+                            style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.center),
                       ),
                     ],
                   ),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
-import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
-import 'package:todoist_app/views/welcome_page_view.dart';
 
 import '../widgets/custom_methods.dart';
 
@@ -26,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: const Text("Today"),
         actions: [
@@ -104,10 +102,7 @@ class CustomOutlineButton extends StatelessWidget {
               ),
               Text(
                 "Establish a daily habit",
-                style: CustomTheme.customLightThemeData()
-                    .textTheme
-                    .headline2!
-                    .copyWith(fontSize: 16, fontWeight: FontWeight.w400),
+                style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
               )
             ],
           ),

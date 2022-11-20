@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/core/themes/custom_themes.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
 
 import '../../widgets/custom_methods.dart';
@@ -16,8 +15,8 @@ class _SettingsAppState extends State<SettingsApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Settings",
-            style: CustomTheme.customLightThemeData().textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
+        title:
+            Text("Settings", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -29,11 +28,8 @@ class _SettingsAppState extends State<SettingsApp> {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Done",
-                  style: CustomTheme.customLightThemeData()
-                      .textTheme
-                      .headline2
-                      ?.copyWith(fontSize: 17, color: Colors.red)))
+              child:
+                  Text("Done", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)))
         ],
       ),
       body: Padding(
@@ -77,7 +73,7 @@ class _SettingsAppState extends State<SettingsApp> {
                       ),
                       child: Text(
                         "Logged in as: nur@gmail.com",
-                        style: CustomTheme.customLightThemeData().textTheme.subtitle1,
+                        style: Theme.of(context).textTheme.subtitle1,
                       ),
                     )
                   ],
@@ -194,8 +190,7 @@ class CustomLogOutCard extends StatelessWidget {
             onPressed: () {},
             child: Text(redText,
                 textAlign: TextAlign.center,
-                style:
-                    CustomTheme.customLightThemeData().textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)),
+                style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)),
           )),
     );
   }

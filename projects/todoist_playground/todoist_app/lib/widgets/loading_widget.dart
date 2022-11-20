@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 import '../constants/custom_constants.dart';
-import '../core/themes/custom_themes.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({Key? key, required this.logText}) : super(key: key);
@@ -29,10 +28,7 @@ class _LoadingPageState extends State<LoadingPage> {
             padding: const EdgeInsets.all(40.0),
             child: Text(
               widget.logText,
-              style: CustomTheme.customLightThemeData()
-                  .textTheme
-                  .subtitle1
-                  ?.copyWith(fontSize: 18, fontWeight: FontWeight.normal),
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18, fontWeight: FontWeight.normal),
               textAlign: TextAlign.center,
             ),
           ),

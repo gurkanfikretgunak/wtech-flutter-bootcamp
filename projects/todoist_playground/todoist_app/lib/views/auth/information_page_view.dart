@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
-import 'package:todoist_app/core/themes/custom_themes.dart';
 import '../../widgets/button_widgets/no_sheet_button.dart';
 import '../home_page_view.dart';
 
@@ -31,14 +30,14 @@ class InformationApp extends StatelessWidget {
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
                     "New and improved task view",
-                    style: CustomTheme.customLightThemeData().textTheme.headline1,
+                    style: Theme.of(context).textTheme.headline1,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "You have a new task view! See all your task's info - including sub-tasks, comments, due date(and more), all in one place.",
-                    style: CustomTheme.customLightThemeData().textTheme.subtitle1!.copyWith(fontSize: 18),
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
                 ),
@@ -56,7 +55,7 @@ class InformationApp extends StatelessWidget {
                 },
                 child: Text(
                   "Continue",
-                  style: CustomTheme.customLightThemeData().textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.subtitle1,
                 ))
           ],
         ),

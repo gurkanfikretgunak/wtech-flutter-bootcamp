@@ -4,7 +4,6 @@ import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';
-import '../../core/themes/custom_themes.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/custom_methods.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
@@ -48,7 +47,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                 child: const Text(CustomTextConstants.sheetCloseText,
                     style: TextStyle(color: Colors.red, fontSize: 18), textAlign: TextAlign.left),
               ),
-              Text(CustomTextConstants.whatEmailText, style: CustomTheme.customLightThemeData().textTheme.headline1),
+              Text(CustomTextConstants.whatEmailText, style: Theme.of(context).textTheme.headline1),
             ]),
           ),
           SizedBox(
@@ -57,8 +56,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(yourEmailText,
-                    style: CustomTheme.customLightThemeData().textTheme.subtitle1, textAlign: TextAlign.left),
+                Text(yourEmailText, style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
                 CustomInputDecoration(
                   labelText: "Email",
                   controller: emailController,

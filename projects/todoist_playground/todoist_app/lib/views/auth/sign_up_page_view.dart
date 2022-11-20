@@ -2,20 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
-import 'package:todoist_app/views/home_page_view.dart';
+import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/login_with_email_view.dart';
-import 'package:todoist_app/views/welcome_page_view.dart';
 import 'package:todoist_app/widgets/loading_widget.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/validation_provider.dart';
-import '../../core/themes/custom_themes.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/custom_methods.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
-import 'information_page_view.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({Key? key}) : super(key: key);
@@ -62,14 +58,14 @@ class _SignInViewState extends State<SignInView> {
                     icon: const Icon(Icons.arrow_back_ios)),
                 Text(
                   "Sign Up",
-                  style: CustomTheme.customLightThemeData().textTheme.headline1,
+                  style: Theme.of(context).textTheme.headline1,
                 ),
               ]),
             ),
             Text(
               //userEmailText ?? "data"
               userEmailText,
-              style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 50.0),
@@ -81,7 +77,7 @@ class _SignInViewState extends State<SignInView> {
                   children: [
                     Text(
                       CustomTextConstants.yourNameText,
-                      style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(),
                     ),
                     CustomInputDecoration(
                       labelText: "Name",
@@ -97,7 +93,7 @@ class _SignInViewState extends State<SignInView> {
                     ),
                     Text(
                       CustomTextConstants.yourPasswordText,
-                      style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(),
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(),
                     ),
                     CustomInputDecoration(
                       controller: passwordTextController,
@@ -128,7 +124,7 @@ class _SignInViewState extends State<SignInView> {
                                       ));
                                       await loginAction();
                                       // ignore: use_build_context_synchronously
-                                      CustomMethods.settingModalBottomSheet(context, const InformationApp());
+                                      CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());
                                     } else {
                                       // ignore: use_build_context_synchronously
                                       CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());

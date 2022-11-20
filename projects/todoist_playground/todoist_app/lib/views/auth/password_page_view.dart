@@ -5,7 +5,6 @@ import 'package:todoist_app/widgets/loading_widget.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';
-import '../../core/themes/custom_themes.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
 
@@ -42,13 +41,13 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                   icon: const Icon(Icons.arrow_back_ios)),
               Text(
                 CustomTextConstants.logWithPasswordText,
-                style: CustomTheme.customLightThemeData().textTheme.headline1,
+                style: Theme.of(context).textTheme.headline1,
               ),
             ]),
           ),
           Text(
             usersText,
-            style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 18),
+            style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 50.0),
@@ -60,7 +59,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 children: [
                   Text(
                     CustomTextConstants.yourPasswordText,
-                    style: CustomTheme.customLightThemeData().textTheme.subtitle1,
+                    style: Theme.of(context).textTheme.subtitle1,
                   ),
                   const CustomInputDecoration(
                     labelText: CustomTextConstants.passwordLabelText,
@@ -100,7 +99,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                           onPressed: () {},
                           child: Text(
                             CustomTextConstants.forgotPasswordText,
-                            style: CustomTheme.customLightThemeData().textTheme.subtitle1?.copyWith(fontSize: 13),
+                            style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 13),
                           )))
                 ],
               ),
