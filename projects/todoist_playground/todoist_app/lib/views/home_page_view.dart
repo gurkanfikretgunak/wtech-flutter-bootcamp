@@ -24,7 +24,6 @@ class _MyHomePageState extends State<MyHomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
         title: const Text("Today"),
         actions: [

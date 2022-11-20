@@ -12,14 +12,14 @@ class _AccountSettingViewState extends State<AccountSettingView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        title:
-            Text("Account", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
+        title: Text("Account", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19)),
         centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
         ),
-        backgroundColor: Colors.white,
         actions: [
           TextButton(
               onPressed: () {
@@ -118,11 +118,8 @@ class CustomAccountCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: SizedBox(
         width: 400,

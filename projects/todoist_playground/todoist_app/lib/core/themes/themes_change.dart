@@ -4,17 +4,15 @@ ThemeData buildLightTheme() {
   final ThemeData base = ThemeData.light();
   return base.copyWith(
     // ignore: deprecated_member_use
-
-    cardColor: Colors.white,
-    backgroundColor: Colors.white,
-    primaryColor: Colors.red,
+    backgroundColor: Colors.grey[100],
+    primaryColor: Colors.white,
     // ignore: deprecated_member_use
-    accentColor: Colors.redAccent,
+    accentColor: Colors.red,
     scaffoldBackgroundColor: Colors.white,
     iconTheme: const IconThemeData(
       color: Colors.red,
     ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.black),
+    floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.red),
     appBarTheme: const AppBarTheme(backgroundColor: Colors.red),
     textTheme: TextTheme(
         headline1: TextStyle(
@@ -42,37 +40,38 @@ ThemeData buildLightTheme() {
 ThemeData buildDarkTheme() {
   final ThemeData base = ThemeData.dark();
   return base.copyWith(
+    primaryColor: Colors.grey[850],
+    backgroundColor: Colors.grey[900],
+
+    scaffoldBackgroundColor: Colors.grey[900],
     // ignore: deprecated_member_use
-    buttonColor: Colors.red,
-    cardColor: Colors.grey[800],
-    backgroundColor: Colors.grey[800],
-    primaryColor: Colors.grey,
-    // ignore: deprecated_member_use
-    accentColor: Colors.blueAccent,
-    scaffoldBackgroundColor: Colors.grey,
-    iconTheme: IconThemeData(
-      color: Colors.grey[600],
+    colorScheme: const ColorScheme.dark(),
+    appBarTheme: AppBarTheme(
+      backgroundColor: Colors.grey[850],
     ),
-    floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.red),
-    appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
+    iconTheme: IconThemeData(
+      color: Colors.red[800],
+    ),
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData(backgroundColor: Colors.red[800], foregroundColor: Colors.white),
     textTheme: TextTheme(
         headline1: TextStyle(
-          color: Colors.black.withOpacity(0.8),
+          color: Colors.white.withOpacity(0.8),
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),
         headline2: TextStyle(
-          color: Colors.black.withOpacity(0.8),
+          color: Colors.white.withOpacity(0.8),
           fontSize: 25,
           fontWeight: FontWeight.bold,
         ),
         caption: TextStyle(color: Colors.black.withOpacity(0.9), fontSize: 20, fontWeight: FontWeight.bold),
         headline3: TextStyle(
-          color: Colors.black.withOpacity(0.7),
+          color: Colors.white.withOpacity(0.7),
           fontSize: 16,
         ),
-        subtitle1: TextStyle(
-          color: Colors.grey[600],
+        subtitle1: const TextStyle(
+          color: Colors.white,
           fontSize: 15,
         )),
   );

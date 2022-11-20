@@ -34,7 +34,7 @@ class ThemeSwitcher extends StatelessWidget {
                 style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 20, color: Colors.black)),
           ),
           Text("Make Todoist yours.Pick a theme:",
-              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 15)),
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 15, color: Colors.grey[600])),
           Padding(
             padding: const EdgeInsets.only(top: 10.0),
             child: Stack(
@@ -52,14 +52,11 @@ class ThemeSwitcher extends StatelessWidget {
                       ),
                     )),
                 Positioned(
-                    right: 25,
-                    bottom: 22,
+                    right: 24,
+                    bottom: 24,
                     child: appModel.darkTheme
-                        ? Icon(
-                            Icons.check,
-                            color: Colors.red,
-                          )
-                        : Icon(Icons.check_circle))
+                        ? Container(width: 30, height: 30, color: Colors.white)
+                        : const Icon(Icons.check_circle))
               ],
             ),
           ),
@@ -83,8 +80,8 @@ class ThemeSwitcher extends StatelessWidget {
                     right: 25,
                     bottom: 22,
                     child: !appModel.darkTheme
-                        ? SizedBox()
-                        : Icon(
+                        ? const SizedBox()
+                        : const Icon(
                             Icons.check_circle,
                             color: Colors.grey,
                           ))
