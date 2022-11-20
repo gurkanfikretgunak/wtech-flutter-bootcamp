@@ -6,7 +6,6 @@ import 'package:todoist_app/core/provider/theme_change_provider.dart';
 import 'package:todoist_app/core/provider/validation_provider.dart';
 import 'package:todoist_app/core/themes/themes_change.dart';
 import 'package:todoist_app/router/router.dart';
-import 'package:todoist_app/views/splash/splash_screen_view.dart';
 
 void main() {
   runApp(const MyApp());

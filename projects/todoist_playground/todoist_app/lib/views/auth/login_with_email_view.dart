@@ -19,10 +19,10 @@ class LoginWithEmail extends StatefulWidget {
 class _LoginWithEmailState extends State<LoginWithEmail> {
   TextEditingController emailController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  late FormProvider _formProvider;
 
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
 
     var yourEmailText = "YOUR EMAIL";

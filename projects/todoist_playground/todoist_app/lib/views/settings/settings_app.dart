@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
-import 'package:todoist_app/views/home_page_view.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
-import 'package:todoist_app/views/welcome_page_view.dart';
-
 import '../../widgets/custom_methods.dart';
 
 class SettingsApp extends StatefulWidget {

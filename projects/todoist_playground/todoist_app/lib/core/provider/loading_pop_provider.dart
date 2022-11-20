@@ -15,6 +15,7 @@ class LoginRiverpod extends ChangeNotifier {
             baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
         .getUsers()
         .then((value) {
+      // ignore: unnecessary_null_comparison
       if (value != null) {
         Grock.back();
         Grock.toRemove(const MyHomePage());

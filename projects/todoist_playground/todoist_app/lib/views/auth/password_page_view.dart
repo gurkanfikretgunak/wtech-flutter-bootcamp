@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
-import 'package:todoist_app/widgets/loading_widget.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';

@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +5,6 @@ import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/login_with_email_view.dart';
-import 'package:todoist_app/widgets/loading_widget.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
@@ -34,7 +31,7 @@ class _SignInViewState extends State<SignInView> {
 
   @override
   Widget build(BuildContext context) {
-    FormProvider _formProvider = Provider.of<FormProvider>(context);
+    FormProvider formProvider = Provider.of<FormProvider>(context);
 
     var userEmailText = "Using nur@gmail.com to log in.";
     return Form(
@@ -89,8 +86,8 @@ class _SignInViewState extends State<SignInView> {
                           RegExp(r"[a-zA-Z]+|\s"),
                         )
                       ],
-                      onChanged: _formProvider.validateName,
-                      errorText: _formProvider.name.error,
+                      onChanged: formProvider.validateName,
+                      errorText: formProvider.name.error,
                     ),
                     Text(
                       CustomTextConstants.yourPasswordText,
@@ -102,8 +99,8 @@ class _SignInViewState extends State<SignInView> {
                       inputIcon: Icons.visibility_rounded,
                       unInputIcon: Icons.visibility_off_rounded,
                       deneme: true,
-                      onChanged: _formProvider.validatePassword,
-                      errorText: _formProvider.password.error,
+                      onChanged: formProvider.validatePassword,
+                      errorText: formProvider.password.error,
                     ),
                     Consumer<ServiceProvider>(
                       builder: (context, data, child) {

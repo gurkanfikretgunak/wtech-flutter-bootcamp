@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
-import 'package:todoist_app/views/home_page_view.dart';
 import '../../constants/custom_constants.dart';
 import '../../core/provider/theme_change_provider.dart';
 import '../../widgets/button_widgets/no_sheet_button.dart';

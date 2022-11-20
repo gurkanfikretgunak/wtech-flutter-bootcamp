@@ -9,7 +9,7 @@ class CustomAuthButton extends StatelessWidget {
     required this.onPressed,
   }) : super(key: key);
   final String buttonTexts;
-  final Future<Null> Function() onPressed;
+  final Future<void> Function() onPressed;
 
   @override
   Widget build(BuildContext context) {

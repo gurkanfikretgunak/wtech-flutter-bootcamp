@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/views/auth/information_page_view.dart';
-import 'package:todoist_app/views/auth/login_with_email_view.dart';
 import 'package:todoist_app/views/auth/password_page_view.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
