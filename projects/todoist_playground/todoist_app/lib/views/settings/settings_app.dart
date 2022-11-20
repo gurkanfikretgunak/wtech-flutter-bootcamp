@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/views/home_page_view.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
+import 'package:todoist_app/views/welcome_page_view.dart';
 
 import '../../widgets/custom_methods.dart';
 
@@ -14,15 +16,15 @@ class _SettingsAppState extends State<SettingsApp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: AppBar(
-        title:
-            Text("Settings", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19, color: Colors.black)),
+        title: Text("Settings", style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19)),
         centerTitle: true,
+        backgroundColor: Theme.of(context).primaryColor,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(topLeft: Radius.circular(15), topRight: Radius.circular(15)),
         ),
-        backgroundColor: Colors.white,
         actions: [
           TextButton(
               onPressed: () {
@@ -47,9 +49,9 @@ class _SettingsAppState extends State<SettingsApp> {
                 ),
                 child: Column(
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8.0),
-                      child: const CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 8.0),
+                      child: CustomOneCard(icon: Icons.star_border_outlined, iconText: 'Todoist Pro'),
                     ),
                     const Padding(
                       padding: EdgeInsets.only(
@@ -96,11 +98,8 @@ class CustomToCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: SizedBox(
         width: 400,
@@ -144,11 +143,8 @@ class CustomOneCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: SizedBox(
         width: 400,
@@ -177,17 +173,18 @@ class CustomLogOutCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 0,
-      shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
       child: SizedBox(
           width: 400,
           height: 50,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const WelcomeToApp(),
+              ));
+            },
             child: Text(redText,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)),
@@ -203,15 +200,12 @@ class CustomForListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
-      child: const SizedBox(
+      child: SizedBox(
         width: 400,
         height: 220,
         child: CustomForList(),
@@ -282,15 +276,12 @@ class CustomHelpListCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return const Card(
       elevation: 0,
       shape: RoundedRectangleBorder(
-        side: BorderSide(
-          color: Theme.of(context).colorScheme.outline,
-        ),
-        borderRadius: const BorderRadius.all(Radius.circular(12)),
+        borderRadius: BorderRadius.all(Radius.circular(12)),
       ),
-      child: const SizedBox(
+      child: SizedBox(
         width: 400,
         height: 220,
         child: CustomHelpList(),
