@@ -19,17 +19,48 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
 
   final onboardingPagesList = [
     PageModel(
-      widget: Center(
-        child: DecoratedBox(
-          decoration: BoxDecoration(),
+      widget: SafeArea(
+        child: Center(
+          child: DecoratedBox(
+            decoration: BoxDecoration(),
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              child: Column(
+                children: [
+                  Container(
+                    height: 15,
+                    width: double.infinity,
+                    color: Color.fromARGB(255, 239, 240, 251),
+                  ),
+                  Image.asset("images/photo/2.png"),
+                  MyText("Take tests to know\nyourself better"),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 12),
+                    child: OnboardingButton(),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+    PageModel(
+      widget: SafeArea(
+        child: Center(
           child: SingleChildScrollView(
             controller: ScrollController(),
             child: Column(
               children: [
-                //Image.asset("images/deleteImages/lambo.jpg", height: 300, width: 300),
-                MyText("Take tests to know\nyourself better"),
+                Container(
+                  height: 15,
+                  width: double.infinity,
+                  color: Color.fromARGB(255, 239, 240, 251),
+                ),
+                Image.asset("images/photo/3.png"),
+                MyText("Gain knowledge about\nyour mental health"),
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
+                  padding: const EdgeInsets.only(top: 12),
                   child: OnboardingButton(),
                 ),
               ],
@@ -44,25 +75,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           controller: ScrollController(),
           child: Column(
             children: [
-              MyText("Gain knowledge about\nyour mental health"),
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: OnboardingButton(),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ),
-    PageModel(
-      widget: Center(
-        child: SingleChildScrollView(
-          controller: ScrollController(),
-          child: Column(
-            children: [
+              Container(
+                  height: 15,
+                  width: double.infinity,
+                  color: Color.fromARGB(255, 239, 240, 251),
+                ),
+              Image.asset("images/photo/4.png"),
               MyText("Explore your\nfeelings"),
               Padding(
-                padding: const EdgeInsets.only(top: 50),
+                padding: const EdgeInsets.only(top: 12),
                 child: OnboardingButton(),
               ),
             ],
@@ -76,6 +97,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           controller: ScrollController(),
           child: Column(
             children: [
+              Image.asset("images/photo/5.png"),
               Padding(
                 padding: const EdgeInsets.only(bottom: 15),
                 child: MyText("Make Breeze\na habit"),
@@ -172,6 +194,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           controller: ScrollController(),
           child: Column(
             children: [
+              Container(
+                  height: 15,
+                  width: double.infinity,
+                  color: Color.fromARGB(255, 239, 240, 251),
+                ),
+              Image.asset("images/photo/6.png"),
               MyText("Turn on notifications\nto stay tuned"),
               Padding(
                 padding: const EdgeInsets.only(top: 10),
@@ -185,7 +213,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 50),
+                padding: const EdgeInsets.only(top: 12),
                 child: OnboardingContinueButton(),
               ),
             ],
@@ -200,6 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     return SafeArea(
       bottom: false,
       child: Scaffold(
+        backgroundColor: Color.fromARGB(255, 250, 250, 252),
         body: Onboarding(
           pages: onboardingPagesList,
           onPageChange: (int pageIndex) {

@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   onboarding: ^3.1.0
   flutter_onboarding_slider: ^1.0.8
+  tutorial_coach_mark: ^1.2.4
 
 dev_dependencies:
   flutter_test:
@@ -63,6 +64,26 @@ flutter:
   assets:
     - images/happycloud.png
     - images/g_icon.png
+    - images/award.png
+    - images/normalcloud.png
+    - images/sadcloud.png
+    - images/unhappycloud.png
+    - images/goodcloud.png
+    - images/photo/1.png
+    - images/photo/2.png
+    - images/photo/3.png
+    - images/photo/4.png
+    - images/photo/5.png
+    - images/photo/6.png
+    - images/photo/c.jpg
+    - images/photo/e.jpg
+    - images/photo/f.png
+    - images/steps/1.png
+    - images/steps/2.png
+    - images/steps/3.png
+    - images/steps/4.png
+    - images/steps/5.png
+    - images/steps/6.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
