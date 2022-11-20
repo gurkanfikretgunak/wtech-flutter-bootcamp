@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/model/user.dart';
+import '../../core/model/user/user.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

@@ -5,11 +5,12 @@ import 'package:eventbrite_app/core/model/validation/validation_item.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginNotifier extends ChangeNotifier {
+  final _dio = Dio();
   ValidationItem _email = ValidationItem(value: null, error: null);
   ValidationItem get email => _email;
-  final dio = Dio();
 
   bool get isValid {
     if (_email.value != null && _email.error == null) {
@@ -31,7 +32,7 @@ class LoginNotifier extends ChangeNotifier {
   }
 
   void isEmailExist(String email) {
-    NetworkService(dio).getUsers().then((value) {
+    NetworkService(_dio).getUsers().then((value) {
       var response = value.map((e) => e.email).toList().contains(email);
       Logger().i(response);
       if (!response) {
@@ -42,5 +43,10 @@ class LoginNotifier extends ChangeNotifier {
             .navigateToPage(routeName: NavigationConstants.homePage);
       }
     });
+  }
+
+  Future<void> saveToSP({required String key, required String value}) async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    preferences.setString(key, value);
   }
 }

@@ -11,7 +11,8 @@ class RegisterView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<RegisterNotifier>(context);
+    RegisterNotifier provider = Provider.of<RegisterNotifier>(context);
+    context.read<RegisterNotifier>().setEmail();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -32,18 +33,21 @@ class RegisterView extends StatelessWidget {
                       children: [
                         Padding(
                           padding: PaddingConstants.defaultBottomPadding * 2,
-                          child: const CustomTextFormField(
+                          child: CustomTextFormField(
                             enabled: false,
-                            initialValue: "melihcelik0909@gmail.com",
+                            initialValue: provider.email,
                             textColor: Colors.grey,
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             labelText: 'Email',
                           ),
                         ),
                         CustomTextFormField(
-                          onChanged: (value) => debugPrint(value),
+                          onChanged: (value) {
+                            provider.validateEmail(value);
+                          },
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: 'Confirm Email',
+                          errorText: provider.confirmEmail.error,
                           hintText: 'Confirm Email',
                           keyboardType: TextInputType.emailAddress,
                         ),
@@ -54,9 +58,13 @@ class RegisterView extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: CustomTextFormField(
-                                  onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  onChanged: (value) {
+                                    provider.validateFirstName(value);
+                                  },
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
                                   labelText: 'First Name',
+                                  errorText: provider.firstName.error,
                                   hintText: 'Enter first name',
                                   keyboardType: TextInputType.name,
                                 ),
@@ -64,9 +72,13 @@ class RegisterView extends StatelessWidget {
                               const SizedBox(width: 20),
                               Expanded(
                                 child: CustomTextFormField(
-                                  onChanged: (value) => debugPrint(value),
-                                  floatingLabelBehavior: FloatingLabelBehavior.always,
+                                  onChanged: (value) {
+                                    provider.validateLastName(value);
+                                  },
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
                                   labelText: 'Surname',
+                                  errorText: provider.lastName.error,
                                   hintText: 'Enter surname',
                                   keyboardType: TextInputType.name,
                                 ),
@@ -75,12 +87,16 @@ class RegisterView extends StatelessWidget {
                           ),
                         ),
                         CustomTextFormField(
-                          onChanged: (value) => provider.checkPassword(value),
+                          onChanged: (value) {
+                            provider.checkPassword(value);
+                          },
                           suffixIcon: IconButton(
                             onPressed: () {
                               provider.isObsecure();
                             },
-                            icon: Icon(provider.isObscure ? Icons.visibility : Icons.visibility_off),
+                            icon: Icon(provider.isObscure
+                                ? Icons.visibility
+                                : Icons.visibility_off),
                           ),
                           helperText: provider.helperText,
                           obscureText: provider.isObscure,
@@ -97,7 +113,8 @@ class RegisterView extends StatelessWidget {
                                         value: provider.strength,
                                         minHeight: 10,
                                         backgroundColor: Colors.grey[300],
-                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                        valueColor:
+                                            AlwaysStoppedAnimation<Color>(
                                           provider.strength < 0.3
                                               ? Colors.red
                                               : provider.strength < 0.6
@@ -124,11 +141,17 @@ class RegisterView extends StatelessWidget {
                   padding: PaddingConstants.defaultPadding,
                   child: CustomElevatedButton(
                     text: 'Sign Up',
-                    onPressed: () {
-                      showModalBottomSheet(context: context, builder: (context) => const TermsConditionWidget());
-                    },
+                    onPressed: provider.isValid
+                        ? () {
+                            showModalBottomSheet(
+                                context: context,
+                                builder: (context) =>
+                                    const TermsConditionWidget());
+                          }
+                        : null,
                     color: Theme.of(context).primaryColor,
-                    textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
+                    textStyle:
+                        Theme.of(context).textTheme.button ?? const TextStyle(),
                   ),
                 ),
               ],

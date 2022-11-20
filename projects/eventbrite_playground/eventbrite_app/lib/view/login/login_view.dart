@@ -1,17 +1,9 @@
-import 'dart:convert';
-
-import 'package:dio/dio.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
-import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
-
-import '../../core/constants/navigation/navigation_constants.dart';
-import '../../core/init/navigation/navigation_service.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -97,6 +89,10 @@ class LoginView extends StatelessWidget {
                     border: true,
                     onPressed: provider.isValid
                         ? () {
+                            provider.saveToSP(
+                              key: 'email',
+                              value: provider.email.value!,
+                            );
                             provider.isEmailExist(provider.email.value!);
                           }
                         : null,

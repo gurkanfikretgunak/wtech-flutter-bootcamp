@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:eventbrite_app/core/model/user.dart';
+import 'package:eventbrite_app/core/model/user/user.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'network_service.g.dart';
