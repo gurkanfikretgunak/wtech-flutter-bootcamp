@@ -12,6 +12,6 @@ class CustomMethods {
             topStart: Radius.circular(10),
           ),
         ),
-        builder: (context) => Container(height: 600, child: wid));
+        builder: (context) => SizedBox(height: 600, child: wid));
   }
 }

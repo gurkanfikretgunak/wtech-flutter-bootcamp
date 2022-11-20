@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/custom_constants.dart';
+import 'package:todoist_app/constants/router_name_constants.dart';
 import '../../widgets/button_widgets/no_sheet_button.dart';
 import '../home_page_view.dart';
 
@@ -45,13 +46,11 @@ class InformationApp extends StatelessWidget {
             ),
             const Padding(
               padding: EdgeInsets.only(top: 25.0),
-              child: NoSheetButton(widName: MyHomePage(), text: CustomTextConstants.learnMoreText),
+              child: NoSheetButton(widName: homeRoute, text: CustomTextConstants.learnMoreText),
             ),
             TextButton(
                 onPressed: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const MyHomePage(),
-                  ));
+                  Navigator.pushNamed(context, homeRoute);
                 },
                 child: Text(
                   "Continue",

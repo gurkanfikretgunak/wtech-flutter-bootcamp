@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/login_with_email_view.dart';
@@ -117,11 +118,8 @@ class _SignInViewState extends State<SignInView> {
                                     bool isCheck = await data.postUser(emailTextController, passwordTextController);
                                     if (isCheck) {
                                       // ignore: use_build_context_synchronously
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => const LoadingPage(
-                                            logText:
-                                                "If you don't know where you are going,you might wind up someplace else. -YOGI BERRA"),
-                                      ));
+                                      Navigator.pushNamed(context, loadingRoute);
+
                                       await loginAction();
                                       // ignore: use_build_context_synchronously
                                       CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/views/home_page_view.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
 import 'package:todoist_app/views/welcome_page_view.dart';
@@ -181,9 +182,7 @@ class CustomLogOutCard extends StatelessWidget {
           height: 50,
           child: TextButton(
             onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => const WelcomeToApp(),
-              ));
+              Navigator.pushNamed(context, welcomeRoute);
             },
             child: Text(redText,
                 textAlign: TextAlign.center,

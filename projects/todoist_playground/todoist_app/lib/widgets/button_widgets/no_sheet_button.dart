@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 class NoSheetButton extends StatelessWidget {
   const NoSheetButton({
     Key? key,
-    required this.widName,
     required this.text,
+    required this.widName,
   }) : super(key: key);
-  final Widget widName;
   final String text;
-
+  final String widName;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -16,7 +15,7 @@ class NoSheetButton extends StatelessWidget {
       width: 350,
       child: ElevatedButton(
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(builder: (context) => widName));
+          Navigator.pushNamed(context, widName);
         },
         style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.red),

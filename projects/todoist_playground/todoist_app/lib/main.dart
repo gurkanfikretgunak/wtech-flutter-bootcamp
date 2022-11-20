@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/core/provider/theme_change_provider.dart';
 import 'package:todoist_app/core/provider/validation_provider.dart';
 import 'package:todoist_app/core/themes/themes_change.dart';
+import 'package:todoist_app/router/router.dart';
 import 'package:todoist_app/views/splash/splash_screen_view.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeChangeProvider appModel = new ThemeChangeProvider();
+  ThemeChangeProvider appModel = ThemeChangeProvider();
 
   @override
   void initState() {
@@ -45,7 +47,8 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               title: 'Todoist App',
               theme: value.darkTheme ? buildDarkTheme() : buildLightTheme(),
-              home: const SplashScreen(),
+              initialRoute: splashRoute,
+              onGenerateRoute: CustomRouter.generateRoute,
             );
           },
         ));

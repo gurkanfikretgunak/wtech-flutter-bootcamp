@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import 'package:todoist_app/widgets/loading_widget.dart';
 import '../../constants/custom_constants.dart';
@@ -78,11 +79,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                               if (value.passwordValidate) {
                                 if (isCheck) {
                                   // ignore: use_build_context_synchronously
-                                  CustomMethods.settingModalBottomSheet(
-                                      context,
-                                      const LoadingPage(
-                                        logText: "deneme",
-                                      ));
+                                  Navigator.pushNamed(context, loadingRoute);
                                 } else {
                                   // ignore: use_build_context_synchronously
                                   CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());
