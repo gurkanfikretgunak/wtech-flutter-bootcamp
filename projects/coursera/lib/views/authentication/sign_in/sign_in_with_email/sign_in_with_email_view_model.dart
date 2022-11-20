@@ -1,32 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/provider/sign_up_state.dart';
+import '../../../../core/provider/sign_in_state.dart';
 
-class SignUpViewModel {
+class SignInWithEmailViewModel {
   static buildTextFormFieldValue(BuildContext context) {
     var textFormFieldValueList = [
       {
-        'controller': context.watch<SignUpState>().nameController,
-        'onChanged': (value) {
-          context
-              .read<SignUpState>()
-              .controlControllerLength(value, validateType: 'name');
-        },
-        "hintText": 'Full nasssme (Required)',
-        "validator": (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid name!';
-          }
-          return null;
-        },
-      },
-      {
-        'controller': context.watch<SignUpState>().emailController,
+        'controller': context.watch<SignInState>().emailController,
         "hintText": 'Email (Required)',
         'onChanged': (value) {
           context
-              .read<SignUpState>()
+              .read<SignInState>()
               .controlControllerLength(value, validateType: 'email');
         },
         "validator": (value) {
@@ -37,10 +22,10 @@ class SignUpViewModel {
         },
       },
       {
-        'controller': context.watch<SignUpState>().passwordController,
+        'controller': context.watch<SignInState>().passwordController,
         'onChanged': (value) {
           context
-              .read<SignUpState>()
+              .read<SignInState>()
               .controlControllerLength(value, validateType: 'password');
         },
         "validator": (value) {
@@ -49,15 +34,15 @@ class SignUpViewModel {
           }
           return null;
         },
-        'obscureText': context.watch<SignUpState>().obscureText,
+        'obscureText': context.watch<SignInState>().obscureText,
         "hintText": 'Password (Required)',
         'hintTextColor': Colors.black38,
         'suffixIcon': IconButton(
           splashRadius: 10,
           onPressed: () {
-            context.read<SignUpState>().changeObscureTextState();
+            context.read<SignInState>().changeObscureTextState();
           },
-          icon: context.watch<SignUpState>().obscureText
+          icon: context.watch<SignInState>().obscureText
               ? const Icon(Icons.visibility_off)
               : const Icon(Icons.visibility),
         ),

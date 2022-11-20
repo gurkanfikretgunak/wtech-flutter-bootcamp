@@ -1,10 +1,10 @@
-import '../../../widgets/custom_viewer_image.dart';
+import '../../../../widgets/custom_viewer_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:kartal/kartal.dart';
-import '../../../core/constants/constant_libary.dart';
+import '../../../../core/constants/constant_libary.dart';
 
-class SignInViewModel {
+class SignInWithOrganizationViewModel {
   static buildButtonValue(BuildContext context) {
     List buttonValueList = [
       {
@@ -45,28 +45,5 @@ class SignInViewModel {
     ];
 
     return buttonValueList;
-  }
-
-  loginWithEmailTextFormValueList(BuildContext context) {}
-
-  static buildLoginWithEmailTextFormFieldValue() {
-    return [
-      {
-        "hintText": 'Full name (Required)',
-        "suffixIcon": null,
-        "errorText": ' validationService.firstName.error',
-        "onChanged": (String value) {
-          // validationService.nameValidation(value);
-        },
-      },
-      {
-        "hintText": 'Full name (Required)',
-        "suffixIcon": null,
-        "errorText": 'validationService.firstName.error',
-        "onChanged": (String value) {
-          //    validationService.nameValidation(value);
-        },
-      },
-    ];
   }
 }

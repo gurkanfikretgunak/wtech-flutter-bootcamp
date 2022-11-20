@@ -1,3 +1,5 @@
+import 'package:coursera/core/provider/sign_in_state.dart';
+
 import 'provider/sign_up_state.dart';
 import 'themes/custom_theme.dart';
 import 'provider/bottom_nav_bar_state.dart';
@@ -18,6 +20,9 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => SignUpState(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => SignInState(),
         ),
       ],
       child: MaterialApp(

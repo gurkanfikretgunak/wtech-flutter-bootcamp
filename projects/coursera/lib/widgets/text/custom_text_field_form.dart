@@ -1,8 +1,6 @@
-import 'package:coursera/widgets/text/text_libary.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../core/constants/constant_libary.dart';
-import '../button/button_libary.dart';
 
 class CustomTextFormField extends StatelessWidget {
   const CustomTextFormField({
@@ -75,7 +73,7 @@ class CustomTextFormField extends StatelessWidget {
   final String? errorText;
   final double? borderRadius;
   final FocusNode? focusNode;
-  final autovalidateMode;
+  final AutovalidateMode? autovalidateMode;
   @override
   Widget build(BuildContext context) {
     return Column(

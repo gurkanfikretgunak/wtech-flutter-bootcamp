@@ -1,5 +1,5 @@
-import '../../views/authentication/sign_in/sign_in_with_organization.view.dart';
-import '../../views/authentication/sign_in/sign_in_with_email_view.dart';
+import '../../views/authentication/sign_in/sign_in_with_organization/sign_in_with_organization.view.dart';
+import '../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view.dart';
 import '../../views/authentication/sign_up/sign_up_view.dart';
 import '../../views/home_view.dart';
 import '../../views/splash_view.dart';
@@ -31,7 +31,7 @@ class CustomRouter {
         return _buildMaterialPageRoute(const SignInView());
 
       case "/SignInWithEmail":
-        return _buildMaterialPageRoute(const SignInWithEmail());
+        return _buildMaterialPageRoute(const SignInWithEmailView());
 
       case "/SignUpView":
         return _buildMaterialPageRoute(const SignUpView());
