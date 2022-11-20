@@ -1,7 +1,9 @@
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class TermsConditionWidget extends StatelessWidget {
   const TermsConditionWidget({super.key});
@@ -63,6 +65,7 @@ class TermsConditionWidget extends StatelessWidget {
                 text: 'Accept',
                 onPressed: () {
                   //Post to API
+                  context.read<RegisterNotifier>().createUser();
                 },
                 border: true,
                 color: Theme.of(context).backgroundColor,

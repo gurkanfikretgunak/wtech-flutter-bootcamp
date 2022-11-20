@@ -22,8 +22,11 @@ dependencies:
   dio: ^4.0.6
   #Logging
   logger: ^1.1.0
+  #Local Data
   shared_preferences: ^2.0.15
+  #Equatable
   equatable: ^2.0.5
+  #Json Annotation
   json_annotation: ^4.7.0
 
 dev_dependencies:

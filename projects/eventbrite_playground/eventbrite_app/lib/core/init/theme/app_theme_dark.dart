@@ -50,6 +50,7 @@ class AppThemeDark extends AppTheme {
           headline2: TextStyle(fontSize: 20, fontWeight: FontWeight.w400, color: Colors.white),
           headline3: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, color: Colors.white),
           headline4: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.grey),
+          headline5: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
           bodyText1: TextStyle(fontSize: 16, fontWeight: FontWeight.w400, color: Colors.white),
           caption: TextStyle(fontSize: 14, color: Colors.black, fontWeight: FontWeight.w600),
           button: TextStyle(fontWeight: FontWeight.w900, color: Colors.white),

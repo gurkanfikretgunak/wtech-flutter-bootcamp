@@ -8,5 +8,6 @@ class NavigationConstants {
   static const getStartedPage = '/getStarted';
   static const registerPage = '/signUp';
   static const loginPage = '/login';
+  static const passwordPage = '/password';
   static const errorPage = '/error';
 }

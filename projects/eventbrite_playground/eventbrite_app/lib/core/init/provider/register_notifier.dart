@@ -1,9 +1,15 @@
+import 'package:dio/dio.dart';
+import 'package:eventbrite_app/core/model/user/user.dart';
 import 'package:eventbrite_app/core/model/validation/validation_item.dart';
+import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../constants/navigation/navigation_constants.dart';
+import '../navigation/navigation_service.dart';
 
 class RegisterNotifier extends ChangeNotifier {
+  final _dio = Dio();
   ValidationItem _confirmEmail = ValidationItem(value: null, error: null);
   ValidationItem get confirmEmail => _confirmEmail;
   ValidationItem _firstName = ValidationItem(value: null, error: null);
@@ -12,11 +18,12 @@ class RegisterNotifier extends ChangeNotifier {
   ValidationItem get lastName => _lastName;
   ValidationItem _password = ValidationItem(value: null, error: null);
   ValidationItem get value => _password;
-
-  RegExp regex =
-      RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
-
-  late SharedPreferences _preferences;
+  // should contain at least one upper case
+  // should contain at least one lower case
+  // should contain at least one digit
+  // should contain at least one special character
+  // Must be at least 8 characters in length
+  RegExp regex = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   double _strength = 0;
   double get strength => _strength;
@@ -26,9 +33,6 @@ class RegisterNotifier extends ChangeNotifier {
 
   bool _isObscure = true;
   bool get isObscure => _isObscure;
-
-  String _email = '';
-  String get email => _email;
 
   bool get isValid {
     if (_confirmEmail.value != null &&
@@ -42,29 +46,20 @@ class RegisterNotifier extends ChangeNotifier {
     }
   }
 
-  void setEmail() async {
-    _preferences = await SharedPreferences.getInstance();
-    _email = _preferences.getString('email') ?? 'Boş';
-    Logger().i(_email);
-  }
-
-  void validateEmail(String value) {
-    if (value.isEmpty) {
-      _confirmEmail =
-          ValidationItem(value: value, error: 'Email cannot be empty');
-    } else if (_email != value) {
-      _confirmEmail =
-          ValidationItem(value: value, error: 'Emails do not match');
+  void validateEmail(String? email, String confirm) {
+    if (confirm.isEmpty) {
+      _confirmEmail = ValidationItem(value: confirm, error: 'Email cannot be empty');
+    } else if (email != confirm) {
+      _confirmEmail = ValidationItem(value: confirm, error: 'Emails do not match');
     } else {
-      _confirmEmail = ValidationItem(value: value, error: null);
+      _confirmEmail = ValidationItem(value: confirm, error: null);
     }
     notifyListeners();
   }
 
   void validateFirstName(String value) {
     if (value.isEmpty) {
-      _firstName =
-          ValidationItem(value: value, error: 'First name cannot be empty');
+      _firstName = ValidationItem(value: value, error: 'First name cannot be empty');
     } else {
       _firstName = ValidationItem(value: value, error: null);
     }
@@ -73,8 +68,7 @@ class RegisterNotifier extends ChangeNotifier {
 
   void validateLastName(String value) {
     if (value.isEmpty) {
-      _lastName =
-          ValidationItem(value: value, error: 'Last name cannot be empty');
+      _lastName = ValidationItem(value: value, error: 'Last name cannot be empty');
     } else {
       _lastName = ValidationItem(value: value, error: null);
     }
@@ -91,8 +85,7 @@ class RegisterNotifier extends ChangeNotifier {
     if (value.isEmpty) {
       _strength = 0;
       _helperText = 'Password must have at least 8 characters.';
-      _password =
-          ValidationItem(value: value, error: 'Password cannot be empty');
+      _password = ValidationItem(value: value, error: 'Password cannot be empty');
       notifyListeners();
     } else if (value.length < 8) {
       _strength = 0.25;
@@ -113,9 +106,18 @@ class RegisterNotifier extends ChangeNotifier {
       }
     }
   }
+
+  void createUser() {
+    User newUser = User(
+      createdAt: DateTime.now().millisecondsSinceEpoch,
+      email: confirmEmail.value!,
+      name: firstName.value!,
+      surname: lastName.value!,
+      password: value.value!,
+    );
+    NetworkService(_dio).createUser(newUser).then((value) {
+      Logger().i('User created successfully with id: ${value.email}');
+      NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+    });
+  }
 }
-   // should contain at least one upper case
-    // should contain at least one lower case
-    // should contain at least one digit
-    // should contain at least one special character
-    // Must be at least 8 characters in length

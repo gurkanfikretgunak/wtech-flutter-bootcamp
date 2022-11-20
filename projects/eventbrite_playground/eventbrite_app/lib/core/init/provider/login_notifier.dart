@@ -5,7 +5,6 @@ import 'package:eventbrite_app/core/model/validation/validation_item.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginNotifier extends ChangeNotifier {
   final _dio = Dio();
@@ -36,17 +35,10 @@ class LoginNotifier extends ChangeNotifier {
       var response = value.map((e) => e.email).toList().contains(email);
       Logger().i(response);
       if (!response) {
-        NavigationService.instance
-            .navigateToPage(routeName: NavigationConstants.registerPage);
+        NavigationService.instance.navigateToPage(routeName: NavigationConstants.registerPage);
       } else {
-        NavigationService.instance
-            .navigateToPage(routeName: NavigationConstants.homePage);
+        NavigationService.instance.navigateToPage(routeName: NavigationConstants.passwordPage);
       }
     });
-  }
-
-  Future<void> saveToSP({required String key, required String value}) async {
-    SharedPreferences preferences = await SharedPreferences.getInstance();
-    preferences.setString(key, value);
   }
 }

@@ -1,4 +1,5 @@
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
@@ -12,7 +13,6 @@ class RegisterView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     RegisterNotifier provider = Provider.of<RegisterNotifier>(context);
-    context.read<RegisterNotifier>().setEmail();
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +35,7 @@ class RegisterView extends StatelessWidget {
                           padding: PaddingConstants.defaultBottomPadding * 2,
                           child: CustomTextFormField(
                             enabled: false,
-                            initialValue: provider.email,
+                            initialValue: context.read<LoginNotifier>().email.value,
                             textColor: Colors.grey,
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             labelText: 'Email',
@@ -43,7 +43,7 @@ class RegisterView extends StatelessWidget {
                         ),
                         CustomTextFormField(
                           onChanged: (value) {
-                            provider.validateEmail(value);
+                            provider.validateEmail(context.read<LoginNotifier>().email.value, value);
                           },
                           floatingLabelBehavior: FloatingLabelBehavior.always,
                           labelText: 'Confirm Email',
@@ -61,8 +61,7 @@ class RegisterView extends StatelessWidget {
                                   onChanged: (value) {
                                     provider.validateFirstName(value);
                                   },
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.always,
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
                                   labelText: 'First Name',
                                   errorText: provider.firstName.error,
                                   hintText: 'Enter first name',
@@ -75,8 +74,7 @@ class RegisterView extends StatelessWidget {
                                   onChanged: (value) {
                                     provider.validateLastName(value);
                                   },
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.always,
+                                  floatingLabelBehavior: FloatingLabelBehavior.always,
                                   labelText: 'Surname',
                                   errorText: provider.lastName.error,
                                   hintText: 'Enter surname',
@@ -94,9 +92,7 @@ class RegisterView extends StatelessWidget {
                             onPressed: () {
                               provider.isObsecure();
                             },
-                            icon: Icon(provider.isObscure
-                                ? Icons.visibility
-                                : Icons.visibility_off),
+                            icon: Icon(provider.isObscure ? Icons.visibility : Icons.visibility_off),
                           ),
                           helperText: provider.helperText,
                           obscureText: provider.isObscure,
@@ -113,8 +109,7 @@ class RegisterView extends StatelessWidget {
                                         value: provider.strength,
                                         minHeight: 10,
                                         backgroundColor: Colors.grey[300],
-                                        valueColor:
-                                            AlwaysStoppedAnimation<Color>(
+                                        valueColor: AlwaysStoppedAnimation<Color>(
                                           provider.strength < 0.3
                                               ? Colors.red
                                               : provider.strength < 0.6
@@ -143,15 +138,11 @@ class RegisterView extends StatelessWidget {
                     text: 'Sign Up',
                     onPressed: provider.isValid
                         ? () {
-                            showModalBottomSheet(
-                                context: context,
-                                builder: (context) =>
-                                    const TermsConditionWidget());
+                            showModalBottomSheet(context: context, builder: (context) => const TermsConditionWidget());
                           }
                         : null,
                     color: Theme.of(context).primaryColor,
-                    textStyle:
-                        Theme.of(context).textTheme.button ?? const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                   ),
                 ),
               ],

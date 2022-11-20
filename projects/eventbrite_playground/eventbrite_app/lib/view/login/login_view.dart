@@ -14,8 +14,7 @@ class LoginView extends StatelessWidget {
     final LoginNotifier provider = Provider.of<LoginNotifier>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Log in or Sign up',
-            style: Theme.of(context).textTheme.headline3),
+        title: Text('Log in or Sign up', style: Theme.of(context).textTheme.headline3),
         elevation: 3,
       ),
       body: SizedBox(
@@ -51,8 +50,7 @@ class LoginView extends StatelessWidget {
               children: [
                 const Spacer(),
                 Padding(
-                  padding: PaddingConstants.defaultHorizontalPadding +
-                      PaddingConstants.defaultRightPadding * 6,
+                  padding: PaddingConstants.defaultHorizontalPadding + PaddingConstants.defaultRightPadding * 6,
                   child: Row(
                     children: [
                       Container(
@@ -75,9 +73,7 @@ class LoginView extends StatelessWidget {
                           Icons.confirmation_number_outlined,
                         ),
                       ),
-                      const Expanded(
-                          child: Text(
-                              'Sign in with the same email address you used to get your tickets.')),
+                      const Expanded(child: Text('Sign in with the same email address you used to get your tickets.')),
                     ],
                   ),
                 ),
@@ -89,16 +85,16 @@ class LoginView extends StatelessWidget {
                     border: true,
                     onPressed: provider.isValid
                         ? () {
-                            provider.saveToSP(
-                              key: 'email',
-                              value: provider.email.value!,
-                            );
+                            // provider.saveToSP(
+                            //   key: 'email',
+                            //   value: provider.email.value!,
+                            // );
+                            // provider.saveEmail(provider.email.value!);
                             provider.isEmailExist(provider.email.value!);
                           }
                         : null,
                     color: Theme.of(context).backgroundColor,
-                    textStyle: Theme.of(context).textTheme.caption ??
-                        const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                   ),
                 ),
               ],
