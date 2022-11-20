@@ -5,14 +5,13 @@ class CustomMethods {
     showModalBottomSheet(
         isScrollControlled: true,
         context: context,
-        backgroundColor: Colors.grey[50],
+        backgroundColor: Colors.grey[100],
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadiusDirectional.only(
             topEnd: Radius.circular(10),
             topStart: Radius.circular(10),
           ),
         ),
-        builder: (context) =>
-            Container(height: 630, padding: const EdgeInsetsDirectional.only(bottom: 30, top: 3), child: wid));
+        builder: (context) => Container(height: 600, child: wid));
   }
 }

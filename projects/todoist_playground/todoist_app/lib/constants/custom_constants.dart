@@ -24,6 +24,8 @@ class CustomImagePathConstants {
   static const learnMorePath = "assets/images/png/learn_more.png";
   static const homePagePath = "assets/images/png/home.png";
   static const lampPath = "assets/images/png/lamp.png";
+  static const lightThemePath = "assets/images/png/light_themes1.png";
+  static const darkThemePath = "assets/images/png/dark_themes1.png";
 }
 
 class CustomColorConstants {}

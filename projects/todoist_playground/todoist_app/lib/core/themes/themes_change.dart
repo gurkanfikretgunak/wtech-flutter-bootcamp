@@ -46,12 +46,12 @@ ThemeData buildDarkTheme() {
     buttonColor: Colors.red,
     cardColor: Colors.grey[800],
     backgroundColor: Colors.grey[800],
-    primaryColor: Colors.red,
+    primaryColor: Colors.grey,
     // ignore: deprecated_member_use
     accentColor: Colors.blueAccent,
-    scaffoldBackgroundColor: Colors.grey[900],
-    iconTheme: const IconThemeData(
-      color: Colors.red,
+    scaffoldBackgroundColor: Colors.grey,
+    iconTheme: IconThemeData(
+      color: Colors.grey[600],
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(backgroundColor: Colors.red),
     appBarTheme: const AppBarTheme(backgroundColor: Colors.black),
