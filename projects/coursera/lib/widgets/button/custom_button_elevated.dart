@@ -20,6 +20,7 @@ class CustomElevatedButton extends StatelessWidget {
     this.child,
     this.fontWeight,
     this.iconWidget,
+    this.disabledBackgroundColor,
   }) : super(key: key);
 
   final String text;
@@ -35,12 +36,16 @@ class CustomElevatedButton extends StatelessWidget {
   final VoidCallback? onPressed;
   final Widget? child;
   final Widget? iconWidget;
+  final Color? disabledBackgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
+        disabledBackgroundColor:
+            disabledBackgroundColor ?? ColorConstant.instance.appGreyLight,
+        //  onSurface: Colors.pink,
         elevation: 0,
         shadowColor: shadowColor,
         shape: RoundedRectangleBorder(

@@ -26,7 +26,7 @@ class SignInWithEmail extends StatelessWidget {
           CustomTextFormField(
             hintText: 'Password(Required)',
             onChanged: (p0) {},
-            suffixIcon: FontAwesomeIcons.eyeSlash,
+            suffixIcon: Icon(FontAwesomeIcons.eyeSlash),
             suffixIconSize: 18,
           ),
           Align(

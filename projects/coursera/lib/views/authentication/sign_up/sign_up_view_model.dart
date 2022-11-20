@@ -1,37 +1,66 @@
-import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/provider/sign_up_state.dart';
 
 class SignUpViewModel {
   static buildTextFormFieldValue(BuildContext context) {
-    final validationService = Provider.of<SignUpState>(context);
-
     var textFormFieldValueList = [
       {
-        "hintText": 'Full name (Required)',
-        "suffixIcon": null,
-        "errorText": validationService.firstName.error,
-        "onChanged": (String value) {
-          validationService.nameValidation(value);
+        'controller': context.watch<SignUpState>().nameController,
+        'onChanged': (value) {
+          context
+              .read<SignUpState>()
+              .controlControllerLength(value, validateType: 'name');
+        },
+        "hintText": 'Full nasssme (Required)',
+        "validator": (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter a valid name!';
+          }
+          return null;
         },
       },
       {
+        'controller': context.watch<SignUpState>().emailController,
         "hintText": 'Email (Required)',
-        "suffixIcon": null,
-        "errorText": validationService.email.error,
-        "onChanged": (String value) {
-          validationService.emailValidation(value);
+        'onChanged': (value) {
+          context
+              .read<SignUpState>()
+              .controlControllerLength(value, validateType: 'email');
+        },
+        "validator": (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please enter a valid email!';
+          }
+          return null;
         },
       },
       {
-        "hintText": 'Password (Required)',
-        "suffixIcon": FontAwesomeIcons.eyeSlash,
-        "errorText": validationService.password.error,
-        "onChanged": (String value) {
-          validationService.passwordValidation(value);
+        'controller': context.watch<SignUpState>().passwordController,
+        'onChanged': (value) {
+          context
+              .read<SignUpState>()
+              .controlControllerLength(value, validateType: 'password');
         },
+        "validator": (value) {
+          if (value!.length < 6 || value.isEmpty) {
+            return 'Password must be at least 6 characters!';
+          }
+          return null;
+        },
+        'obscureText': context.watch<SignUpState>().obscureText,
+        "hintText": 'Password (Required)',
+        'hintTextColor': Colors.black38,
+        'suffixIcon': IconButton(
+          splashRadius: 10,
+          onPressed: () {
+            context.read<SignUpState>().changeObscureTextState();
+          },
+          icon: context.watch<SignUpState>().obscureText
+              ? const Icon(Icons.visibility_off)
+              : const Icon(Icons.visibility),
+        ),
       }
     ];
     return textFormFieldValueList;
