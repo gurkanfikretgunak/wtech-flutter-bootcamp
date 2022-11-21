@@ -24,11 +24,11 @@ class RegisterEmailTextField extends StatelessWidget {
           child: TextField(
               controller: provider.registerTextControllerEmail,
               onChanged: (e){
-                provider.registerCheckSufficIcon(e);
+                provider.registerEmailCheckSufficIcon(e);
               },
               decoration: InputDecoration(
                 alignLabelWithHint: true,
-                suffixIcon: provider.registerSuffixIcon,
+                suffixIcon: provider.registerEmailSuffixIcon,
                 focusedBorder: LoginStyle.textFieldFocusedBorder,
                 enabledBorder: LoginStyle.textFieldEnabledBorder,
               )),

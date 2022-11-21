@@ -1,6 +1,7 @@
 class RegisterTextConstants {
   static const String emailWidgetTopText = "Enter your email \naddress";
   static const String yourEmail = "Your email";
+  static const String country = "Country";
   static const String nextButtonText = "Next";
   static const List<String> bottomTextList = [
     "By signing up you agree to our",
@@ -24,6 +25,9 @@ class RegisterTextConstants {
 
   static const String accountTypeWidgetTopTextTitle =
       "What kind of account \nwould you like to open \ntoday?";
+
+  static const String selectCountryWidgetTopTextTitle =
+      "Your country of primary\nresidence";
 
   static const String accountTypeWidgetTopTextContent =
       "You can add another account later on, too.";

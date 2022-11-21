@@ -65,29 +65,60 @@ class UnitProvider extends ChangeNotifier {
 
   //#region Sign Up Page
 
+  //Get Email Widget
   final TextEditingController _registerTextControllerEmail =
-      TextEditingController();
+  TextEditingController();
   TextEditingController get registerTextControllerEmail =>
-      _loginTextControllerEmail;
+      _registerTextControllerEmail;
 
-  static Widget? _registerSuffixIcon =
+  static Widget? _registerEmailSuffixIcon =
       SizedBox(width: 0.1, height: 0.1, child: Container());
-  Widget get registerSuffixIcon => _registerSuffixIcon!;
+  Widget get registerEmailSuffixIcon => _registerEmailSuffixIcon!;
 
-  void registerCheckSufficIcon(String emailText) {
+  void registerEmailCheckSufficIcon(String emailText) {
     if (registerTextControllerEmail.text != "") {
-      _registerSuffixIcon = IconButton(
+      _registerEmailSuffixIcon = IconButton(
           onPressed: () {
             if (kDebugMode) {
               registerTextControllerEmail.text = "";
-              registerCheckSufficIcon("");
+              registerEmailCheckSufficIcon("");
             }
           },
-          icon: const Icon(Icons.cancel));
+          icon: const Icon(Icons.cancel,size: 20,));
     } else {
-      _registerSuffixIcon =
+      _registerEmailSuffixIcon =
           SizedBox(width: 0.1, height: 0.1, child: Container());
       registerTextControllerEmail.text = emailText;
+    }
+    notifyListeners();
+  }
+
+
+  //Select Country Widget
+  final TextEditingController _registerTextControllerSelectCountry =
+  TextEditingController();
+  TextEditingController get registerTextControllerSelectCountry =>
+      _registerTextControllerSelectCountry;
+
+  static Widget? _registerSelectCountrySuffixIcon =
+  SizedBox(width: 0.1, height: 0.1, child: Container());
+  Widget get registerSelectCountrySuffixIcon => _registerSelectCountrySuffixIcon!;
+
+
+  void registerSelectCountryCheckSufficIcon(String emailText) {
+    if (_registerTextControllerSelectCountry.text != "") {
+      _registerSelectCountrySuffixIcon = IconButton(
+          onPressed: () {
+            if (kDebugMode) {
+              _registerTextControllerSelectCountry.text = "";
+              registerSelectCountryCheckSufficIcon("");
+            }
+          },
+          icon: const Icon(Icons.cancel,size: 20,));
+    } else {
+      _registerSelectCountrySuffixIcon =
+          SizedBox(width: 0.1, height: 0.1, child: Container());
+      _registerTextControllerSelectCountry.text = emailText;
     }
     notifyListeners();
   }
