@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/provider/registerProvider.dart';
+
 import 'package:patreon_app/widgets/customTextButton.dart';
+import 'package:provider/provider.dart';
 import '../widgets/customTextFormField.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -73,6 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
+    RegisterProvider provider = Provider.of<RegisterProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -94,18 +98,27 @@ class _RegisterPageState extends State<RegisterPage> {
             obscure: false,
             controller: nameController,
             otoFocus: true,
+            onCha: (p0) {
+              provider.validateName(nameController.text);
+            },
           ),
           CustomTextField(
             textLabel: "Email",
             obscure: false,
             controller: emailController,
             otoFocus: false,
+            onCha: (p0) {
+              provider.validateEmail(emailController.text);
+            },
           ),
           CustomTextField(
             textLabel: "Password",
             obscure: true,
             controller: passwordController,
             otoFocus: false,
+            onCha: (p0) {
+              provider.validatePassword(passwordController.text);
+            },
           ),
           CustomTextField(
             textLabel: "Confirm Password",
@@ -119,7 +132,12 @@ class _RegisterPageState extends State<RegisterPage> {
               return CustomTextButton(
                 text: "Sign Up",
                 buttonColor: Colors.red,
-                onPress: value ? () {} : null,
+                onPress: value
+                    ? () {
+                        provider.createUser();
+                        Navigator.pushNamed(context, '/home');
+                      }
+                    : null,
                 disabledColor: Colors.red.shade200,
               );
             },

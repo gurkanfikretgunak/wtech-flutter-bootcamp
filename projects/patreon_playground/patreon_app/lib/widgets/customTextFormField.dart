@@ -11,6 +11,7 @@ class CustomTextField extends StatelessWidget {
     this.onTouch,
     this.textFieldInputType = TextInputType.text,
     required this.otoFocus,
+    this.onCha,
   }) : super(key: key);
   final String? textLabel;
   final bool obscure;
@@ -19,12 +20,14 @@ class CustomTextField extends StatelessWidget {
   final Function()? onTouch;
   final TextInputType? textFieldInputType;
   final bool otoFocus;
+  final Function(String)? onCha;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(5.0),
       child: TextFormField(
+        onChanged: onCha,
         autofocus: otoFocus,
         keyboardType: textFieldInputType,
         onTap: onTouch,

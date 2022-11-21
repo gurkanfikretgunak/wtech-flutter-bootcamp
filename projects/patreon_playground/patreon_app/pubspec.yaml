@@ -31,11 +31,15 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.2
   dio: ^4.0.6
+  equatable: ^2.0.5
   flappy_search_bar_ns: ^2.0.2
   flutter:
     sdk: flutter
   flutter_native_splash: ^2.2.14
   font_awesome_flutter: ^10.2.1
+  json_annotation: ^4.7.0
+  provider: ^6.0.4
+  retrofit: ^3.3.1
   url_launcher: ^6.1.6
 
 dev_dependencies:
