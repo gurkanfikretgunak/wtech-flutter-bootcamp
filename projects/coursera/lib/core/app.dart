@@ -1,10 +1,6 @@
-import 'package:coursera/core/provider/sign_in_state.dart';
-
-import 'provider/sign_up_state.dart';
+import 'package:coursera/core/provider/multi_provider_init.dart';
 import 'themes/custom_theme.dart';
-import 'provider/bottom_nav_bar_state.dart';
 import 'routes/on_generate_routes.dart';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -14,17 +10,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => BottomNavigationBarState(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => SignUpState(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => SignInState(),
-        ),
-      ],
+      providers: MultiProviderInit().providers,
       child: MaterialApp(
         onGenerateRoute: CustomRouter.generateRoute,
         // onUnknownRoute: CustomRouter.unknownRoute,
