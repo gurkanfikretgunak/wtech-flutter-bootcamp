@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
 import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/core/model/validation/validation_item.dart';
@@ -7,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 class LoginNotifier extends ChangeNotifier {
-  final _dio = Dio();
   ValidationItem _email = ValidationItem(value: null, error: null);
   ValidationItem get email => _email;
 
@@ -31,10 +29,9 @@ class LoginNotifier extends ChangeNotifier {
   }
 
   void isEmailExist(String email) {
-    NetworkService(_dio).getUsers().then((value) {
-      var response = value.map((e) => e.email).toList().contains(email);
-      Logger().i(response);
-      if (!response) {
+    Service.instance.isEmailExist(email: email).then((value) {
+      Logger().i(value ? 'Email exist => $email' : 'Email not exist => $email');
+      if (!value) {
         NavigationService.instance.navigateToPage(routeName: NavigationConstants.registerPage);
       } else {
         NavigationService.instance.navigateToPage(routeName: NavigationConstants.passwordPage);

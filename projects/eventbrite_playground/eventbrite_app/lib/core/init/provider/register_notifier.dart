@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:eventbrite_app/core/model/user/user.dart';
 import 'package:eventbrite_app/core/model/validation/validation_item.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
@@ -9,7 +8,6 @@ import '../../constants/navigation/navigation_constants.dart';
 import '../navigation/navigation_service.dart';
 
 class RegisterNotifier extends ChangeNotifier {
-  final _dio = Dio();
   ValidationItem _confirmEmail = ValidationItem(value: null, error: null);
   ValidationItem get confirmEmail => _confirmEmail;
   ValidationItem _firstName = ValidationItem(value: null, error: null);
@@ -115,9 +113,13 @@ class RegisterNotifier extends ChangeNotifier {
       surname: lastName.value!,
       password: value.value!,
     );
-    NetworkService(_dio).createUser(newUser).then((value) {
-      Logger().i('User created successfully with id: ${value.email}');
-      NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+    Service.instance.createUser(user: newUser).then((value) {
+      if (value) {
+        Logger().i('User created successfully with id: ${newUser.email}');
+        NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+      } else {
+        Logger().e('Error creating user');
+      }
     });
   }
 }

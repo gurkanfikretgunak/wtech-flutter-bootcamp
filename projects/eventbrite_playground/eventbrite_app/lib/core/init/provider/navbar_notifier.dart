@@ -1,8 +1,8 @@
 import 'package:eventbrite_app/view/favorite/favorite_view.dart';
+import 'package:eventbrite_app/view/home/home_view.dart';
 import 'package:eventbrite_app/view/profile/profile_view.dart';
 import 'package:eventbrite_app/view/search/search_view.dart';
 import 'package:eventbrite_app/view/ticket/ticket_view.dart';
-import 'package:eventbrite_app/view/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
 
 class NavbarNotifier extends ChangeNotifier {
@@ -19,7 +19,7 @@ class NavbarNotifier extends ChangeNotifier {
     NavbarProvider(
       icon: Icons.home_outlined,
       name: 'Home',
-      widget: const WelcomeView(),
+      widget: const HomeView(),
     ),
     NavbarProvider(
       icon: Icons.search,
