@@ -31,7 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
               onPressed: () {
                 provider.changeTheme();
               },
-              child: Text("Tema Değiş"),
+              child:const Text("Tema Değiş"),
             ),
           ),
         ],

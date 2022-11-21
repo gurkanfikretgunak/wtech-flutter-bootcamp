@@ -10,8 +10,12 @@ class ThemeProvider extends ChangeNotifier {
   IconThemeData _appBarButtonColor = const IconThemeData(color: Colors.blue);
   IconThemeData get appBarButtonColor => _appBarButtonColor;
 
-  Color _topLoginTextColor =const Color.fromRGBO(66, 79, 125, 1);
+  Color _topLoginTextColor = const Color.fromRGBO(66, 79, 125, 1);
   Color get topLoginTextColor => _topLoginTextColor;
+
+  Color _registerAccountTypeContentTextColor = Colors.grey.shade600;
+  Color get registerAccountTypeContentTextColor =>
+      _registerAccountTypeContentTextColor;
 
   Color _loginEmailTextColor = Colors.black45;
   Color get loginEmailTextColor => _loginEmailTextColor;
@@ -19,7 +23,7 @@ class ThemeProvider extends ChangeNotifier {
   Color _loginPasswordTextColor = Colors.black45;
   Color get loginPasswordTextColor => _loginPasswordTextColor;
 
-  Color _loginOtherOptionsTextColor =  const Color.fromRGBO(81, 106, 109, 1);
+  Color _loginOtherOptionsTextColor = const Color.fromRGBO(81, 106, 109, 1);
   Color get loginOtherOptionsTextColor => _loginOtherOptionsTextColor;
 
   Color _elevationButtonBackgroundColor =
@@ -39,6 +43,7 @@ class ThemeProvider extends ChangeNotifier {
       _theme = ThemeData.light();
       _appBarButtonColor = const IconThemeData(color: Colors.blue);
       _topLoginTextColor = const Color.fromRGBO(66, 79, 125, 1);
+      _registerAccountTypeContentTextColor = Colors.grey.shade600;
       _loginEmailTextColor = Colors.black45;
       _loginPasswordTextColor = Colors.black45;
       _loginOtherOptionsTextColor = const Color.fromRGBO(81, 106, 109, 1);
@@ -52,6 +57,7 @@ class ThemeProvider extends ChangeNotifier {
       _appBarButtonColor = const IconThemeData(color: Colors.white);
       _topLoginTextColor = Colors.blue;
       _loginEmailTextColor = Colors.white;
+      _registerAccountTypeContentTextColor = Colors.white;
       _loginPasswordTextColor = Colors.white;
       _loginOtherOptionsTextColor = Colors.white;
       _elevationButtonBackgroundColor =

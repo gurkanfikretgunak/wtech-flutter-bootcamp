@@ -1,4 +1,5 @@
 import 'package:wise_app/unit/imports.dart';
+import 'package:wise_app/widgets/register/account_type_widget.dart';
 
 class RegisterEmailNextButton extends StatelessWidget {
   const RegisterEmailNextButton({
@@ -15,7 +16,9 @@ class RegisterEmailNextButton extends StatelessWidget {
       height: 50,
       child: ElevatedButton(
           style: RegisterStyle.nextButtonStyle,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountTypeWidget()));
+          },
           child: Text(
             RegisterTextConstants.nextButtonText,
             style: RegisterStyle.nextButtonTextStyle,

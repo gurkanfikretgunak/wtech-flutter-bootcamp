@@ -30,3 +30,5 @@ export 'package:wise_app/widgets/register/email_widget_bottom_text.dart';
 export 'package:wise_app/widgets/register/email_widget_next_button.dart';
 export 'package:wise_app/widgets/register/email_widget_textfield.dart';
 export 'package:wise_app/widgets/register/email_widget_top_text.dart';
+export 'package:wise_app/widgets/register/account_type_item.dart';
+export 'package:wise_app/widgets/register/account_type_top_text.dart';

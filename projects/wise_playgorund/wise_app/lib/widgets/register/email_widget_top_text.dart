@@ -11,8 +11,8 @@ class RegisterEmailTopText extends StatelessWidget {
     return Row(
       children: [
         Text(
-          RegisterTextConstants.topText,
-          style: RegisterStyle.emailPageTopTextStyle(provider),
+          RegisterTextConstants.emailWidgetTopText,
+          style: RegisterStyle.emailPageTopTitleTextStyle(provider),
         ),
       ],
     );
