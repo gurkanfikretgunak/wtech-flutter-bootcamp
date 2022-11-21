@@ -10,6 +10,7 @@ import '../views/orjin_home_page.dart';
 import '../views/register_page.dart';
 import '../views/sign_in_account_page.dart';
 import 'data/provider/home_page_state.dart';
+import 'data/provider/register_page_state.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -20,10 +21,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: <SingleChildWidget>[
-        ChangeNotifierProvider(create: (BuildContext context)=>HomePageState(),),
-        FutureProvider(create: (BuildContext context) {  }, initialData: null,)],
+    return ChangeNotifierProvider(
+      
+      create: (BuildContext context) => TextFormStateProvider(),
       child: MaterialApp(
         initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
