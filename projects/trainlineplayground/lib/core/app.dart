@@ -7,6 +7,7 @@ import 'package:trainlineplayground/routes/routes.dart';
 
 import '../views/home_ticket_page.dart';
 import '../views/orjin_home_page.dart';
+import '../views/register_page.dart';
 import '../views/sign_in_account_page.dart';
 import 'data/provider/home_page_state.dart';
 
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const OriginalHomePage(),
+        home: const RegisterPage(),
       ),
       
     );
