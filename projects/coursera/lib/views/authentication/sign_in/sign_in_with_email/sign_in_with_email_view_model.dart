@@ -1,54 +1,38 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../core/provider/sign_in_state.dart';
+class SignInWithEmailViewModel with ChangeNotifier {
+  bool _obscureText = true;
+  bool get obscureText => _obscureText;
 
-class SignInWithEmailViewModel {
-  static buildTextFormFieldValue(BuildContext context) {
-    var textFormFieldValueList = [
-      {
-        'controller': context.watch<SignInState>().emailController,
-        "hintText": 'Email (Required)',
-        'onChanged': (value) {
-          context
-              .read<SignInState>()
-              .controlControllerLength(value, validateType: 'email');
-        },
-        "validator": (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid email!';
-          }
-          return null;
-        },
-      },
-      {
-        'controller': context.watch<SignInState>().passwordController,
-        'onChanged': (value) {
-          context
-              .read<SignInState>()
-              .controlControllerLength(value, validateType: 'password');
-        },
-        "validator": (value) {
-          if (value!.length < 6 || value.isEmpty) {
-            return 'Password must be at least 6 characters!';
-          }
-          return null;
-        },
-        'obscureText': context.watch<SignInState>().obscureText,
-        "hintText": 'Password (Required)',
-        'hintTextColor': Colors.black38,
-        'suffixIcon': IconButton(
-          splashRadius: 10,
-          onPressed: () {
-            context.read<SignInState>().changeObscureTextState();
-          },
-          icon: context.watch<SignInState>().obscureText
-              ? const Icon(Icons.visibility_off)
-              : const Icon(Icons.visibility),
-        ),
-      }
-    ];
+  bool _isFormValidateEmail = false;
+  bool get isFormValidateEmail => _isFormValidateEmail;
 
-    return textFormFieldValueList;
+  bool _isFormValidatePassword = false;
+  bool get isFormValidatePassword => _isFormValidatePassword;
+
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  changeObscureTextState() {
+    _obscureText = !_obscureText;
+    notifyListeners();
+  }
+
+  controlControllerLength(value, {required String validateType}) {
+    switch (validateType) {
+      case 'email':
+        _isFormValidateEmail = control(value);
+        notifyListeners();
+        break;
+      case 'password':
+        _isFormValidatePassword = control(value);
+        notifyListeners();
+        break;
+      default:
+    }
+  }
+
+  control(value) {
+    return (value.length > 0) ? true : false;
   }
 }

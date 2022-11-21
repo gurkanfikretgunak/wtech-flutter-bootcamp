@@ -1,6 +1,6 @@
 import 'package:coursera/views/authentication/authentication_custom_widget/authentication_form.dart';
 import 'package:coursera/views/authentication/authentication_view.dart';
-import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
+import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_text_form_field_model.dart';
 import 'package:coursera/widgets/custom_app_bar.dart';
 import 'package:coursera/widgets/custom_or_text.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +38,7 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
               isLogin: true,
               formKey: formKey,
               modelList:
-                  SignInWithEmailViewModel.buildTextFormFieldValue(context),
+                  SignInTextFormFieldModel.buildTextFormFieldValue(context),
               forgotPasswordButton: Expanded(
                 child: Column(
                   children: [

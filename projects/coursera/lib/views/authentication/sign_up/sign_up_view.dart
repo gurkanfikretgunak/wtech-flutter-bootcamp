@@ -1,5 +1,5 @@
 import 'package:coursera/views/authentication/authentication_custom_widget/authentication_form.dart';
-import 'package:coursera/views/authentication/sign_up/sign_up_view_model.dart';
+import 'package:coursera/views/authentication/sign_up/sign_up_text_form_field_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../widgets/button/button_libary.dart';
@@ -38,7 +38,8 @@ class _SignUpViewState extends State<SignUpView> {
             flex: 5,
             child: RepetitiveWidget(
               formKey: formKey,
-              modelList: SignUpViewModel.buildTextFormFieldValue(context),
+              modelList:
+                  SignUpTextFormFiledModel.buildTextFormFieldValue(context),
             ),
           ),
           context.emptySizedHeightBoxLow,

@@ -1,14 +1,14 @@
+import 'package:coursera/views/authentication/sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
-
 import '../../../core/constants/constant_libary.dart';
-import '../../../core/provider/sign_in_state.dart';
-import '../../../core/provider/sign_up_state.dart';
+import '../../../core/routes/custom_navigator.dart';
 import '../../../widgets/button/button_libary.dart';
 import '../../../widgets/text/text_libary.dart';
+import '../sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
 
-class RepetitiveWidget extends StatelessWidget {
+class RepetitiveWidget extends StatefulWidget {
   const RepetitiveWidget({
     super.key,
     required this.modelList,
@@ -22,21 +22,26 @@ class RepetitiveWidget extends StatelessWidget {
   final Widget? forgotPasswordButton;
 
   @override
+  State<RepetitiveWidget> createState() => _RepetitiveWidgetState();
+}
+
+class _RepetitiveWidgetState extends State<RepetitiveWidget> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Form(
-          key: formKey,
+          key: widget.formKey,
           child: Expanded(
-            flex: isLogin == null ? 4 : 3,
+            flex: widget.isLogin == null ? 4 : 3,
             child: ListView.separated(
               physics: const NeverScrollableScrollPhysics(),
               separatorBuilder: (context, index) => SizedBox(
                 height: context.dynamicHeight(0.02),
               ),
-              itemCount: modelList.length,
+              itemCount: widget.modelList.length,
               itemBuilder: (context, index) {
-                var listItem = modelList[index];
+                var listItem = widget.modelList[index];
                 return CustomTextFormField(
                   controller: listItem['controller'],
                   hintText: listItem['hintText'],
@@ -50,40 +55,38 @@ class RepetitiveWidget extends StatelessWidget {
             ),
           ),
         ),
-        isLogin == null
+        widget.isLogin == null
             ? const SizedBox()
-            : forgotPasswordButton ?? const SizedBox(),
+            : widget.forgotPasswordButton ?? const SizedBox(),
         Flexible(
           child: CustomElevatedButton(
             primary: isActiveButtonControl(context)
                 ? ColorConstant.instance.appBlue
                 : ColorConstant.instance.appGreyLight,
-            onPressed: isActiveButtonControl(context)
-                ? () {
-                    // Validate returns true if the form is valid, or false otherwise.
-                    if (formKey.currentState.validate()) {
-                      // If the form is valid, display a snackbar. In the real world,
-                      // you'd often call a server or save the information in a database.
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Processing Data')),
-                      );
-                    }
-                  }
-                : null,
-            text: isLogin == null ? 'Create an Account' : 'Login',
+            onPressed: isActiveButtonControl(context) ? buttonOnPressed : null,
+            text: widget.isLogin == null ? 'Create an Account' : 'Login',
           ),
         ),
       ],
     );
   }
 
+  VoidCallback? buttonOnPressed() {
+    if (widget.formKey.currentState.validate()) {
+      CustomNavigator.goToScreen(context, "/HomeView");
+    }
+    return null;
+  }
+
   bool isActiveButtonControl(BuildContext context) {
-    return isLogin == null
-        ? (context.watch<SignUpState>().isFormValidateName &&
-            context.watch<SignUpState>().isFormValidateEmail &&
-            context.watch<SignUpState>().isFormValidatePassword)
-        : (context.watch<SignInState>().isFormValidateEmail &&
-                context.watch<SignInState>().isFormValidatePassword)
+    return widget.isLogin == null
+        ? (context.watch<SignUpViewModel>().isFormValidateName &&
+            context.watch<SignUpViewModel>().isFormValidateEmail &&
+            context.watch<SignUpViewModel>().isFormValidatePassword)
+        : (context.watch<SignInWithEmailViewModel>().isFormValidateEmail &&
+                context
+                    .watch<SignInWithEmailViewModel>()
+                    .isFormValidatePassword)
             ? true
             : false;
   }
