@@ -14,4 +14,13 @@ class CustomMethods {
         ),
         builder: (context) => SizedBox(height: 600, child: wid));
   }
+
+  static EdgeInsetsDirectional sheetBottomValue() {
+    return const EdgeInsetsDirectional.only(
+      start: 20,
+      end: 20,
+      bottom: 30,
+      top: 8,
+    );
+  }
 }

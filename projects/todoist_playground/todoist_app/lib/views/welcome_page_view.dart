@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
-import '../constants/custom_constants.dart';
+import '../constants/image/image_path_constants.dart';
+import '../constants/text/auth_constants.dart';
 import 'auth/login_with_email_view.dart';
 
 class WelcomeToApp extends StatefulWidget {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/core/provider/user_profile_provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/core/provider/theme_change_provider.dart';
@@ -39,6 +40,7 @@ class _MyAppState extends State<MyApp> {
           ChangeNotifierProvider(create: (_) => ServiceProvider()),
           ChangeNotifierProvider(create: (_) => FormProvider()),
           ChangeNotifierProvider(create: (_) => ThemeChangeProvider()),
+          ChangeNotifierProvider(create: (_) => UserProfilePrefProvider()),
         ],
         child: Consumer<ThemeChangeProvider>(
           builder: (context, value, child) {

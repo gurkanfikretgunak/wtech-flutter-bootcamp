@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-
-import '../constants/custom_constants.dart';
+import '../constants/image/image_path_constants.dart';
 
 class LoadingPage extends StatefulWidget {
   const LoadingPage({Key? key, required this.logText}) : super(key: key);

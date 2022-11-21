@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:todoist_app/constants/custom_constants.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
+import '../constants/image/image_path_constants.dart';
+import '../constants/text/home_page_contants.dart';
 import '../widgets/custom_methods.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -17,12 +18,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Today"),
+        title: const Text(CustomHomeText.todayText),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.search_rounded),
-          ),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
           IconButton(
               onPressed: () {
                 CustomMethods.settingModalBottomSheet(context, const SettingsApp());
@@ -33,17 +31,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: <Widget>[
           SizedBox(
-            height: size.height / 2,
-            width: size.width,
-            child: Image.asset(
-              CustomImagePathConstants.homePagePath,
-              fit: BoxFit.fill,
-            ),
-          ),
+              height: size.height / 2,
+              width: size.width,
+              child: Image.asset(CustomImagePathConstants.homePagePath, fit: BoxFit.fill)),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Get a clear view of the day ahead ',
+              CustomHomeText.getClearText,
               style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 20),
               textAlign: TextAlign.center,
             ),
@@ -51,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Padding(
             padding: const EdgeInsets.only(left: 30.0, right: 30.0),
             child: Text(
-              'All your tasks that are due today will show up here.Tap + to add a task',
+              CustomHomeText.hereTapText,
               style: Theme.of(context).textTheme.subtitle1,
               textAlign: TextAlign.center,
             ),
@@ -61,7 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
@@ -92,7 +85,7 @@ class CustomOutlineButton extends StatelessWidget {
                 color: Colors.orange[400],
               ),
               Text(
-                "Establish a daily habit",
+                CustomHomeText.establishDailyText,
                 style: Theme.of(context).textTheme.headline2!.copyWith(fontSize: 16, fontWeight: FontWeight.w400),
               )
             ],

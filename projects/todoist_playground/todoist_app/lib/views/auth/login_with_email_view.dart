@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
-import '../../constants/custom_constants.dart';
+import '../../constants/text/auth_constants.dart';
 import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
@@ -25,15 +25,8 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
 
-    var yourEmailText = "YOUR EMAIL";
-
     return Padding(
-      padding: const EdgeInsetsDirectional.only(
-        start: 20,
-        end: 20,
-        bottom: 30,
-        top: 8,
-      ),
+      padding: CustomMethods.sheetBottomValue(),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,12 +34,11 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
             height: 120,
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(CustomTextConstants.sheetCloseText,
-                    style: TextStyle(color: Colors.red, fontSize: 18), textAlign: TextAlign.left),
-              ),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(CustomTextConstants.sheetCloseText,
+                      style: TextStyle(color: Colors.red, fontSize: 18), textAlign: TextAlign.left)),
               Text(CustomTextConstants.whatEmailText, style: Theme.of(context).textTheme.headline1),
             ]),
           ),
@@ -56,12 +48,12 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(yourEmailText, style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
+                Text(CustomTextConstants.yourEmailText,
+                    style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
                 CustomInputDecoration(
                   labelText: "Email",
                   controller: emailController,
                   deneme: false,
-                  keyForm: formKey,
                   onChanged: _formProvider.validateEmail,
                   errorText: _formProvider.email.error,
                 ),

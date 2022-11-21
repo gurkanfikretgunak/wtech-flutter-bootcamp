@@ -9,7 +9,6 @@ class CustomInputDecoration extends StatefulWidget {
     this.unInputIcon,
     this.controller,
     required this.deneme,
-    this.keyForm,
     this.validator,
     this.errorText,
     this.onChanged,
@@ -25,7 +24,6 @@ class CustomInputDecoration extends StatefulWidget {
   final Function(String?)? onChanged;
   final List<TextInputFormatter>? inputFormatters;
 
-  final GlobalKey<FormState>? keyForm;
   @override
   State<CustomInputDecoration> createState() => _CustomInputDecorationState();
 }
