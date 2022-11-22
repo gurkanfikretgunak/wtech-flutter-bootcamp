@@ -1,12 +1,12 @@
-import 'package:coursera/views/authentication/authentication_custom_widget/authentication_form.dart';
-import 'package:coursera/views/authentication/authentication_view.dart';
-import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_text_form_field_model.dart';
-import 'package:coursera/widgets/custom_app_bar.dart';
-import 'package:coursera/widgets/custom_or_text.dart';
+import '../../authentication_custom_widget/authentication_form.dart';
+import '../../authentication_view.dart';
+import 'sign_in_text_form_field_model.dart';
+import '../../../../core/components/custom_app_bar.dart';
+import '../../../../core/components/custom_or_text.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/constant_libary.dart';
-import '../../../../widgets/button/button_libary.dart';
-import '../../../../widgets/text/text_libary.dart';
+import '../../../../core/components/button/button_libary.dart';
+import '../../../../core/components/text/text_libary.dart';
 
 class SignInWithEmailView extends StatefulWidget {
   const SignInWithEmailView({super.key});

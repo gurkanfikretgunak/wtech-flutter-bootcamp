@@ -1,11 +1,11 @@
-import 'package:coursera/views/authentication/authentication_custom_widget/authentication_form.dart';
-import 'package:coursera/views/authentication/sign_up/sign_up_text_form_field_model.dart';
+import '../authentication_custom_widget/authentication_form.dart';
+import 'sign_up_text_form_field_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-import '../../../widgets/button/button_libary.dart';
-import '../../../widgets/custom_app_bar.dart';
-import '../../../widgets/custom_or_text.dart';
-import '../../../widgets/text/text_libary.dart';
+import '../../../core/components/button/button_libary.dart';
+import '../../../core/components/custom_app_bar.dart';
+import '../../../core/components/custom_or_text.dart';
+import '../../../core/components/text/text_libary.dart';
 import '../authentication_view.dart';
 
 class SignUpView extends StatefulWidget {

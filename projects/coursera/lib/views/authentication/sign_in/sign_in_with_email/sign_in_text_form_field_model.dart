@@ -1,6 +1,7 @@
-import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'sign_in_with_email_view_model.dart';
 
 class SignInTextFormFieldModel {
   static buildTextFormFieldValue(BuildContext context) {

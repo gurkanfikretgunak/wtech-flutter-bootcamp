@@ -1,6 +1,6 @@
-import '../../views/explore/explore_view.dart';
-import '../../views/learn_view.dart';
-import '../../views/profile_view.dart';
+import '../../views/home/explore/explore_view.dart';
+import '../../views/home/learn/learn_view.dart';
+import '../../views/home/profile/profile_view.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

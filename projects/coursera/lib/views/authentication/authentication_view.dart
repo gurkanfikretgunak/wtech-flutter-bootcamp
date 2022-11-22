@@ -1,10 +1,10 @@
 import 'authentication_custom_widget/terms_text.dart';
-import '../../widgets/custom_app_bar.dart';
-import '../../widgets/custom_logo.dart';
+import '../../core/components/custom_app_bar.dart';
+import '../../core/components/custom_logo.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
-import '../../widgets/button/button_libary.dart';
+import '../../core/components/button/button_libary.dart';
 
 class AuthenticationView extends StatelessWidget {
   const AuthenticationView({

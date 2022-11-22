@@ -1,6 +1,6 @@
-import 'package:coursera/core/provider/multi_provider_init.dart';
-import 'themes/custom_theme.dart';
-import 'routes/on_generate_routes.dart';
+import 'provider/multi_provider_init.dart';
+import 'init/themes/custom_theme.dart';
+import 'init/routes/on_generate_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -12,9 +12,7 @@ class App extends StatelessWidget {
     return MultiProvider(
       providers: MultiProviderInit().providers,
       child: MaterialApp(
-        onGenerateRoute: CustomRouter.generateRoute,
-        // onUnknownRoute: CustomRouter.unknownRoute,
-        initialRoute: "/",
+        onGenerateRoute: NavigationRoute.instance.generateRoute,
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: CustomTheme.customThemeData(context),
