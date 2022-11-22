@@ -13,14 +13,14 @@ abstract class RestClient {
   factory RestClient(Dio dio, {String baseUrl}) = _RestClient;
 
   @GET("/topic")
-  Future<List<Topic>> getTopics();
+  Future<List<Topic>> getAllTopics();
 
   @GET("/topic/{id}")
-  Future<Topic> getTopic(@Path("id") String id);
+  Future<Topic> topicGetById(@Path("id") String id);
 
   @GET("/course")
-  Future<List<Course>> getCourses();
+  Future<List<Course>> getAllCourses();
 
   @GET("/course/{id}")
-  Future<Course> getCourse(@Path("id") String id);
+  Future<Course> courseGetByIs(@Path("id") String id);
 }
