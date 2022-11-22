@@ -1,9 +1,10 @@
+import 'package:coursera/core/data/network/services/topic_service.dart';
+
 import '../../../../core/components/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../../core/data/model/topic.dart';
 import '../../../../core/components/text/text_libary.dart';
-import '../../../../core/data/network/services/service.dart';
 
 class TopicList extends StatefulWidget {
   const TopicList({super.key});
@@ -17,7 +18,7 @@ class _TopicListState extends State<TopicList> {
   @override
   void initState() {
     super.initState();
-    futureTopics = TopicServiceRetrofit().getTopics();
+    futureTopics = TopicService().getAll();
   }
 
   @override

@@ -1,3 +1,5 @@
+import 'package:coursera/core/data/network/services/course_service.dart';
+
 import '../../../../core/components/custom_circular_progress_indicator.dart';
 
 import '../../../../core/data/model/course.dart';
@@ -7,7 +9,6 @@ import 'package:kartal/kartal.dart';
 import '../../../../core/constants/constant_libary.dart';
 
 import '../../../../core/components/text/text_libary.dart';
-import '../../../../core/data/network/services/service.dart';
 
 class MostPopularCertificatesList extends StatefulWidget {
   const MostPopularCertificatesList({super.key});
@@ -23,7 +24,9 @@ class _MostPopularCertificatesListState
   @override
   void initState() {
     super.initState();
-    futureCourse = TopicServiceRetrofit().getCourses();
+    futureCourse = CourseService().getAll();
+
+    //  TopicServiceRetrofit().getCourses();
   }
 
   @override

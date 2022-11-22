@@ -21,7 +21,7 @@ class _RestClient implements RestClient {
   String? baseUrl;
 
   @override
-  Future<List<Topic>> getTopics() async {
+  Future<List<Topic>> getAllTopics() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -46,7 +46,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<Topic> getTopic(id) async {
+  Future<Topic> topicGetById(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -69,7 +69,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<List<Course>> getCourses() async {
+  Future<List<Course>> getAllCourses() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -94,7 +94,7 @@ class _RestClient implements RestClient {
   }
 
   @override
-  Future<Course> getCourse(id) async {
+  Future<Course> courseGetByIs(id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
