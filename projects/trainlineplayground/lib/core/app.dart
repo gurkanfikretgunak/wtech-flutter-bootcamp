@@ -5,6 +5,7 @@ import 'package:trainlineplayground/routes/routes.dart';
 
 
 
+import '../views/account_page.dart';
 import '../views/home_ticket_page.dart';
 import '../views/orjin_home_page.dart';
 import '../views/register_page.dart';
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const RegisterPage(),
+        home: const AccountPage(),
       ),
       
     );
