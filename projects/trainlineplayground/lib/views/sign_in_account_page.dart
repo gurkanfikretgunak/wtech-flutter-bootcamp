@@ -98,7 +98,9 @@ class SignInAccountPageState extends State<SignInAccountPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   const Text("New Customer?"),
-                  TextButton(onPressed: () {},
+                  TextButton(onPressed: () {
+                    Navigator.of(context).pushNamed('/createAccountpage');
+                  },
                    child:const Text("Create an account",style: TextStyle(color: Colors.purple),))
                 ],
               )
@@ -106,7 +108,7 @@ class SignInAccountPageState extends State<SignInAccountPage> {
             ),
           ),
           Container(
-            height: 90,
+            height: 65,
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -124,7 +126,7 @@ class SignInAccountPageState extends State<SignInAccountPage> {
           ),
           
           Container(
-            height: 90,
+            height: 65,
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,

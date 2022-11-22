@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../views/orjin_home_page.dart';
+import '../views/register_page.dart';
 import '../views/sign_in_account_page.dart';
 
 class RouteGenerator {
@@ -14,6 +15,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OriginalHomePage());
       case '/rightpage':
         return MaterialPageRoute(builder: (_) => const SignInAccountPage());
+      case '/createAccountpage':
+        return MaterialPageRoute(builder: (_) => const RegisterPage());
       default: 
         return _errorRoute(); 
     }

@@ -22,9 +22,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return MultiProvider(
       
-      create: (BuildContext context) => TextFormStateProvider(),
+      
+      providers: [
+        ChangeNotifierProvider(create: (context) =>TextFormStateProvider()),
+        ChangeNotifierProvider(create: (context) => HomePageState()),
+      ],
       child: MaterialApp(
         initialRoute: '/',
         onGenerateRoute: RouteGenerator.generateRoute,
@@ -34,7 +38,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const AccountPage(),
+        home: const OriginalHomePage(),
       ),
       
     );

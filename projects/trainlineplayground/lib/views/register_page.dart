@@ -51,84 +51,87 @@ class RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     TextFormStateProvider confirmInfo = Provider.of<TextFormStateProvider>(context);
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Column(
-        children: [
-          Container(
-            alignment: Alignment.bottomLeft,
-            color: Colors.purple,
-            height: 100,
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.arrow_left_rounded),
-                color: Colors.white,
-              ),
-              const Text(
-                "New customer",
-                style: TextStyle(fontSize: 20, color: Colors.white),
-              )
-            ]),
-          ),
-          ListView.builder(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              itemCount: textfieldItems.length,
-              itemBuilder: (context, index) {
-                return Expanded(
-                  child: TextFormField(
-                    controller: mycontrollers[index],
-                    decoration:
-                        InputDecoration(labelText: textfieldItems[index].title),
-                  ),
-                );
-              }),
-          const Padding(padding: EdgeInsets.only(top: 20)),
-          Container(
-            height: 100,
-            width: 350,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const [
-                    Text("Be first to hear"),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    const Flexible(
-                        child: Text(
-                            "Yes, ı want great discounts,sales,offers and more from Trainline.")),
-                    Consumer<TextFormStateProvider>(
-                      builder: (context,TextFormStateProvider isOkey, child) => 
-                       IconButton(
-                          onPressed: () {
-                            isOkey.changeButton();
-                          },
-                          icon: isOkey.isOk? const Icon(Icons.offline_pin_outlined):const Icon(Icons.offline_pin_rounded)
-                          
-                          ),
-                    )
-                  ],
-                ),
-              ],
-            ),
-          ),
-          
-          Consumer<TextFormStateProvider>(
-            
-            builder: (context, myvalue, child) => 
+    return ChangeNotifierProvider(
+      create: (context) =>TextFormStateProvider(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Column(
+          children: [
             Container(
-              
-              child:const AcceptButton()
+              alignment: Alignment.bottomLeft,
+              color: Colors.purple,
+              height: 100,
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.arrow_left_rounded),
+                  color: Colors.white,
+                ),
+                const Text(
+                  "New customer",
+                  style: TextStyle(fontSize: 20, color: Colors.white),
+                )
+              ]),
             ),
-          )
-        ],
+            ListView.builder(
+                padding: const EdgeInsets.only(left: 15, right: 15),
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: textfieldItems.length,
+                itemBuilder: (context, index) {
+                  return Expanded(
+                    child: TextFormField(
+                      controller: mycontrollers[index],
+                      decoration:
+                          InputDecoration(labelText: textfieldItems[index].title),
+                    ),
+                  );
+                }),
+            const Padding(padding: EdgeInsets.only(top: 20)),
+            Container(
+              height: 100,
+              width: 350,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: const [
+                      Text("Be first to hear"),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      const Flexible(
+                          child: Text(
+                              "Yes, ı want great discounts,sales,offers and more from Trainline.")),
+                      Consumer<TextFormStateProvider>(
+                        builder: (context,TextFormStateProvider isOkey, child) => 
+                         IconButton(
+                            onPressed: () {
+                              isOkey.changeButton();
+                            },
+                            icon: isOkey.isOk? const Icon(Icons.offline_pin_outlined):const Icon(Icons.offline_pin_rounded)
+                            
+                            ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            
+            Consumer<TextFormStateProvider>(
+              
+              builder: (context, myvalue, child) => 
+              Container(
+                
+                child:const AcceptButton()
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
