@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/custom_bottom_navigation_bar_widget.dart';
-import '../../widgets/custom_card_widget.dart';
+import '../widgets/custom_card_widget.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});

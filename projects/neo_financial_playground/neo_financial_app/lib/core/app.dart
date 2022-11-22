@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/provider/bottom_navigation_bar_state.dart';
 import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
 import 'package:neo_financial_app/core/provider/sign_up_state.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,12 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(
             create: ((context) => OnboardingLoadWidgetState())),
-        ChangeNotifierProvider(create: ((context) => SignUpState()))
+        ChangeNotifierProvider(
+          create: ((context) => SignUpState()),
+        ),
+        ChangeNotifierProvider(
+          create: ((context) => BottomNavigationBarState()),
+        )
       ],
       child: MaterialApp(
         title: 'Neo Financial',

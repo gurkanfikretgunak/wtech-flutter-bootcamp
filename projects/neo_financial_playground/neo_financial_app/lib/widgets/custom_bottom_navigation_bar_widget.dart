@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/provider/bottom_navigation_bar_state.dart';
+import 'package:provider/provider.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
   const CustomBottomNavBar({super.key});
@@ -8,13 +10,21 @@ class CustomBottomNavBar extends StatefulWidget {
 }
 
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
-  int curIndex = 0;
   @override
   Widget build(BuildContext context) {
+    var state = Provider.of<BottomNavigationBarState>(context, listen: false);
     return BottomNavigationBar(
-        currentIndex: curIndex,
+        currentIndex: context.watch<BottomNavigationBarState>().currentPage,
         type: BottomNavigationBarType.fixed,
-        onTap: (value) => curIndex = value,
+        onTap: (value) {
+          if (state.currentPage != value) {
+            state.changePage(value);
+            Navigator.pushNamed(
+              context,
+              '/${state.pages.elementAt(state.currentPage)}',
+            );
+          }
+        },
         items: const [
           BottomNavigationBarItem(
             label: 'Accounts',
