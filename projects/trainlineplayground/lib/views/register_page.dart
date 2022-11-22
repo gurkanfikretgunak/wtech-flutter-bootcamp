@@ -31,10 +31,9 @@ class RegisterPageState extends State<RegisterPage> {
     nameController,
     surnameController
   ];
-  late bool isConfirmed = TextFormStateProvider().checkConfirm();
-  Color mycolor = Colors.black;
-  Color acceptColor = Colors.greenAccent;
-  Color declineColor = Colors.blue;
+  late bool isConfirmed = true;
+  late bool isOk;
+  
 
   @override
   void initState() {
@@ -44,6 +43,8 @@ class RegisterPageState extends State<RegisterPage> {
     surnameController = TextEditingController();
     mycontrollers;
     isConfirmed = TextFormStateProvider().isConfirmed;
+    isOk = TextFormStateProvider().isOk;
+
     super.initState();
   }
 
@@ -103,17 +104,29 @@ class RegisterPageState extends State<RegisterPage> {
                     const Flexible(
                         child: Text(
                             "Yes, ı want great discounts,sales,offers and more from Trainline.")),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.offline_pin_outlined))
+                    Consumer<TextFormStateProvider>(
+                      builder: (context,TextFormStateProvider isOkey, child) => 
+                       IconButton(
+                          onPressed: () {
+                            isOkey.changeButton();
+                          },
+                          icon: isOkey.isOk? const Icon(Icons.offline_pin_outlined):const Icon(Icons.offline_pin_rounded)
+                          
+                          ),
+                    )
                   ],
                 ),
               ],
             ),
           ),
           
-          Container(
-            child:confirmInfo.isConfirmed ? DeclineButton():AcceptButton(),
+          Consumer<TextFormStateProvider>(
+            
+            builder: (context, myvalue, child) => 
+            Container(
+              
+              child:const AcceptButton()
+            ),
           )
         ],
       ),

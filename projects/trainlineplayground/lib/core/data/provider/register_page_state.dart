@@ -6,20 +6,16 @@ import 'package:trainlineplayground/views/register_page.dart';
 class TextFormStateProvider with ChangeNotifier {
   late bool isConfirmed = false;
   
-  bool get _isConfirmed => isConfirmed;
+  late bool _isOk = false;
 
-  late List<TextEditingController> _mycontrollers;
+  bool get isOk => _isOk;
 
-  List<TextEditingController> get mycontrollers => RegisterPageState().mycontrollers;
-
-  set mycontrollers(List<TextEditingController> mycontrollers) {
-    _mycontrollers = mycontrollers;
+  set isOk(bool isOk) {
+    _isOk = isOk;
   }
 
-  
-
-  void changeConfirm(){
-    isConfirmed = !isConfirmed;
+  void changeButton(){
+    isOk = !isOk;
     notifyListeners();
   }
 
