@@ -19,9 +19,9 @@ class LoginPasswordView extends StatefulWidget {
 
 class _LoginPasswordViewState extends State<LoginPasswordView> {
   TextEditingController passwordController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    FormProvider _formProvider = Provider.of<FormProvider>(context);
     const String usersText = "Using nur@gmail.com to log in.";
     return Padding(
       padding: CustomMethods.sheetBottomValue(),
@@ -52,25 +52,29 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(CustomTextConstants.yourPasswordText, style: Theme.of(context).textTheme.subtitle1),
-                  const CustomInputDecoration(
-                      labelText: CustomTextConstants.passwordLabelText,
-                      inputIcon: Icons.visibility_rounded,
-                      unInputIcon: Icons.visibility_off_rounded,
-                      deneme: true),
+                  CustomInputDecoration(
+                    labelText: CustomTextConstants.passwordLabelText,
+                    inputIcon: Icons.visibility_rounded,
+                    unInputIcon: Icons.visibility_off_rounded,
+                    deneme: true,
+                    onChanged: _formProvider.validatePassword,
+                    errorText: _formProvider.password.error,
+                  ),
                   Consumer<ServiceProvider>(builder: (context, data, child) {
                     return Consumer<FormProvider>(builder: (context, value, child) {
                       return CustomAuthButton(
                           buttonTexts: CustomTextConstants.buttonTextEmail,
                           onPressed: () async {
-                            bool isCheck =
-                                await data.userPasswordController(passwordController, widget.emailController);
                             if (value.passwordValidate) {
+                              bool isCheck =
+                                  await data.fetchUser(widget.emailController!.text, passwordController.text);
+
                               if (isCheck) {
                                 // ignore: use_build_context_synchronously
                                 Navigator.pushNamed(context, loadingRoute);
                                 await loginAction();
                                 // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(context, const MyHomePage());
+                                Navigator.pushNamed(context, homeRoute);
                               } else {
                                 // ignore: use_build_context_synchronously
                                 CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());

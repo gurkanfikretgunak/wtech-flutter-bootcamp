@@ -25,8 +25,6 @@ class _SignInViewState extends State<SignInView> {
   @override
   void initState() {
     super.initState();
-    final dataProvider = Provider.of<ServiceProvider>(context, listen: false);
-    dataProvider.fetchUser();
   }
 
   @override
@@ -91,9 +89,9 @@ class _SignInViewState extends State<SignInView> {
                                         onPressed: () async {
                                           if (value.signUpValidate) {
                                             bool isCheck = await data.postUser(
-                                              widget.emailController,
-                                              nameTextController,
-                                              passwordTextController,
+                                              widget.emailController!.text.toString().replaceAll(" ", ""),
+                                              nameTextController.text.toString().replaceAll(" ", ""),
+                                              passwordTextController.text.toString().replaceAll(" ", ""),
                                             );
                                             if (isCheck) {
                                               // ignore: use_build_context_synchronously

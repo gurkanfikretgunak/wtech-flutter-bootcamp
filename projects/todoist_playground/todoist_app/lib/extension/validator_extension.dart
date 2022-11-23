@@ -5,12 +5,12 @@ extension InputValidation on String {
   }
 
   bool get isValidName {
-    final nameRegExp = RegExp(r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$");
+    final nameRegExp = RegExp(r"^\s*([A-Za-z]{1,})+\.?$");
     return nameRegExp.hasMatch(this);
   }
 
   bool get isValidPassword {
-    final passwordRegExp = RegExp(r"^\s*([A-Za-z]{1,}([\.,] |[-']| ))+[A-Za-z]+\.?\s*$");
+    final passwordRegExp = RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!]).{8,}');
     return passwordRegExp.hasMatch(this);
   }
 

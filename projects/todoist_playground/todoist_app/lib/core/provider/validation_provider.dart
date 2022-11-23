@@ -5,7 +5,7 @@ import 'package:todoist_app/model/validator/validation_model.dart';
 class FormProvider extends ChangeNotifier {
   ValidationModel _email = ValidationModel(null, null);
   ValidationModel _password = ValidationModel(null, null);
-  late ValidationModel _name = ValidationModel(null, null);
+  ValidationModel _name = ValidationModel(null, null);
   ValidationModel get email => _email;
   ValidationModel get password => _password;
   ValidationModel get name => _name;

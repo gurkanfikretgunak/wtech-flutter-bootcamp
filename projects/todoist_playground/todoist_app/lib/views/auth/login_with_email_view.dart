@@ -18,13 +18,15 @@ class LoginWithEmail extends StatefulWidget {
 
 class _LoginWithEmailState extends State<LoginWithEmail> {
   TextEditingController emailController = TextEditingController();
-  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
-
     return Padding(
       padding: CustomMethods.sheetBottomValue(),
       child: Column(
@@ -64,22 +66,16 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                         return CustomAuthButton(
                           buttonTexts: CustomTextConstants.buttonTextEmail,
                           onPressed: () async {
-                            bool isCheck = await data.userEmailController(emailController);
                             if (value.emailValidate) {
+                              bool isCheck = await data.fetchUser(emailController.text, null);
                               if (isCheck) {
                                 // ignore: use_build_context_synchronously
                                 CustomMethods.settingModalBottomSheet(
-                                    context,
-                                    LoginPasswordView(
-                                      emailController: emailController,
-                                    ));
+                                    context, LoginPasswordView(emailController: emailController));
                               } else {
                                 // ignore: use_build_context_synchronously
                                 CustomMethods.settingModalBottomSheet(
-                                    context,
-                                    SignInView(
-                                      emailController: emailController,
-                                    ));
+                                    context, SignInView(emailController: emailController));
                               }
                             }
                           },
