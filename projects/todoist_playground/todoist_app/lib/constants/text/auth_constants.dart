@@ -18,5 +18,4 @@ class CustomTextConstants {
   static const String yourEmailText = "YOUR EMAIL";
   static const String pickThemeText = "Make Todoist yours.Pick a theme:";
   static const String hiNameText = "Hi Nur!";
-  static const userEmailTLogInext = "Using nur@gmail.com to log in.";
 }

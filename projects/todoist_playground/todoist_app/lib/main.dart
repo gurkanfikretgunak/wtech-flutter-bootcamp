@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'Todoist App',
-              theme: value.darkTheme ? buildDarkTheme() : buildLightTheme(),
+              theme: value.darkTheme ? CustomTheme.buildDarkTheme() : CustomTheme.buildLightTheme(),
               initialRoute: splashRoute,
               onGenerateRoute: CustomRouter.generateRoute,
             );

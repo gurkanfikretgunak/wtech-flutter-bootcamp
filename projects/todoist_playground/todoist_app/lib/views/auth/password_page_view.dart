@@ -8,7 +8,6 @@ import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
-import '../home_page_view.dart';
 
 class LoginPasswordView extends StatefulWidget {
   const LoginPasswordView({Key? key, this.emailController}) : super(key: key);
@@ -21,8 +20,8 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
-    const String usersText = "Using nur@gmail.com to log in.";
     return Padding(
       padding: CustomMethods.sheetBottomValue(),
       child: Column(
@@ -42,7 +41,15 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
               ),
             ]),
           ),
-          Text(usersText, style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+          Text.rich(
+            TextSpan(
+                text: 'Using ', // default text style
+                children: <TextSpan>[
+                  TextSpan(text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
+                  const TextSpan(text: ' to log in.'),
+                ],
+                style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: SizedBox(

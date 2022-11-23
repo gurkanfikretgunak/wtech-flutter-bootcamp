@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import '../constants/image/image_path_constants.dart';
 import '../constants/text/home_page_contants.dart';
@@ -54,7 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());
+        },
         child: const Icon(Icons.add),
       ),
     );

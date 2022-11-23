@@ -30,7 +30,6 @@ class _SignInViewState extends State<SignInView> {
   @override
   Widget build(BuildContext context) {
     FormProvider formProvider = Provider.of<FormProvider>(context);
-    //List<String> listele = [];
     return Form(
         key: formKey,
         child: Padding(
@@ -51,8 +50,15 @@ class _SignInViewState extends State<SignInView> {
                         icon: const Icon(Icons.arrow_back_ios)),
                     Text("Sign Up", style: Theme.of(context).textTheme.headline1)
                   ])),
-              Text(CustomTextConstants.userEmailTLogInext,
-                  style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+              Text.rich(
+                TextSpan(
+                    text: 'Using ', // default text style
+                    children: <TextSpan>[
+                      TextSpan(text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
+                      const TextSpan(text: ' to log in.'),
+                    ],
+                    style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+              ),
               Padding(
                   padding: const EdgeInsets.only(top: 50.0),
                   child: SizedBox(

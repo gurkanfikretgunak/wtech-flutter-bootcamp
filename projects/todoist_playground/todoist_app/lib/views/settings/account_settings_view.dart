@@ -1,5 +1,8 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import '../../constants/text/settings_page_custom.dart';
 import '../../core/provider/user_profile_provider.dart';
@@ -15,6 +18,9 @@ class AccountSettingView extends StatefulWidget {
 class _AccountSettingViewState extends State<AccountSettingView> {
   @override
   Widget build(BuildContext context) {
+    // ignore: unused_local_variable
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: const PreferredSize(
@@ -36,7 +42,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                             width: 340,
                             child: Text(CustomSettingsText.fullNameText,
                                 style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14))),
-                        const CustomAccountCard(redButton: CustomSettingsText.nurNameText)
+                        CustomAccountCard(redButton: _serviceProvider.userName)
                       ],
                     ),
                   ),
@@ -45,7 +51,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                         width: 340,
                         child: Text(CustomSettingsText.emailText,
                             style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14))),
-                    const CustomAccountCard(redButton: CustomSettingsText.nurEmailText)
+                    CustomAccountCard(redButton: _serviceProvider.userEmail)
                   ]),
                   Padding(
                       padding: const EdgeInsets.only(bottom: 23, top: 10),

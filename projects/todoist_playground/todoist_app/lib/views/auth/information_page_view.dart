@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/text/auth_constants.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import '../../constants/image/image_path_constants.dart';
+import '../../core/themes/themes_change.dart';
 import '../../widgets/button_widgets/no_sheet_button.dart';
 
 class InformationApp extends StatelessWidget {
@@ -25,12 +26,13 @@ class InformationApp extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Text(CustomTextConstants.newTasViewText, style: Theme.of(context).textTheme.headline1),
+                child:
+                    Text(CustomTextConstants.newTasViewText, style: CustomTheme.buildLightTheme().textTheme.headline1),
               ),
               Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(CustomTextConstants.homeTaskInfoText,
-                      style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 18),
+                      style: CustomTheme.buildLightTheme().textTheme.subtitle1!.copyWith(fontSize: 18),
                       textAlign: TextAlign.center)),
             ],
           ),
@@ -42,7 +44,7 @@ class InformationApp extends StatelessWidget {
               onPressed: () {
                 Navigator.pushNamed(context, homeRoute);
               },
-              child: Text(CustomTextConstants.continueText, style: Theme.of(context).textTheme.subtitle1))
+              child: Text(CustomTextConstants.continueText, style: CustomTheme.buildLightTheme().textTheme.subtitle1))
         ],
       ),
     );

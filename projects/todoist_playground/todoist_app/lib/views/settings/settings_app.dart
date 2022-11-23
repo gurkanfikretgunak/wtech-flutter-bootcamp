@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
+import 'package:todoist_app/core/provider/service_provider.dart';
 import '../../constants/icon_text_model.dart';
 import '../../constants/text/settings_page_custom.dart';
 import '../../widgets/preferred_app_bar_widgets.dart';
@@ -53,9 +55,19 @@ class _SettingsAppState extends State<SettingsApp> {
                               const CustomLogOutCard(redText: CustomSettingsText.logOutText),
                               Padding(
                                 padding: const EdgeInsets.only(top: 20.0),
-                                child: Text(
-                                  CustomSettingsText.loggedInAsText,
-                                  style: Theme.of(context).textTheme.subtitle1,
+                                child: Consumer<ServiceProvider>(
+                                  builder: (context, value, child) {
+                                    return Text.rich(
+                                      TextSpan(
+                                          text: 'Logged in as: ', // default text style
+                                          children: <TextSpan>[
+                                            TextSpan(
+                                                text: value.userEmail,
+                                                style: const TextStyle(fontWeight: FontWeight.bold)),
+                                          ],
+                                          style: Theme.of(context).textTheme.subtitle1),
+                                    );
+                                  },
                                 ),
                               )
                             ],
@@ -72,6 +84,9 @@ class CustomLogOutCard extends StatelessWidget {
   final String redText;
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
     return Card(
       elevation: 0,
       shape: const RoundedRectangleBorder(
@@ -82,6 +97,7 @@ class CustomLogOutCard extends StatelessWidget {
           height: 50,
           child: TextButton(
             onPressed: () {
+              _serviceProvider.userName = " ";
               Navigator.pushNamed(context, welcomeRoute);
             },
             child: Text(redText,
