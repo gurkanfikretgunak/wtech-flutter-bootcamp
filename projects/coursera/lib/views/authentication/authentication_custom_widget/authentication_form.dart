@@ -1,31 +1,37 @@
+import 'package:logger/logger.dart';
+
+import '../../../core/data/model/user.dart';
+import '../../../core/data/network/services/user_service.dart';
 import '../sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:provider/provider.dart';
 import '../../../core/constants/constant_libary.dart';
-import '../../../core/init/routes/custom_navigator.dart';
 import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/text/text_libary.dart';
 import '../sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
 
-class RepetitiveWidget extends StatefulWidget {
-  const RepetitiveWidget({
+class AuthenticationFormWidget extends StatefulWidget {
+  const AuthenticationFormWidget({
     super.key,
     required this.modelList,
     required this.formKey,
     this.isLogin,
     this.forgotPasswordButton,
+    required this.buttonOnPressed,
   });
   final List modelList;
   final dynamic formKey;
   final bool? isLogin;
   final Widget? forgotPasswordButton;
-
+  final VoidCallback buttonOnPressed;
   @override
-  State<RepetitiveWidget> createState() => _RepetitiveWidgetState();
+  State<AuthenticationFormWidget> createState() =>
+      _AuthenticationFormWidgetState();
 }
 
-class _RepetitiveWidgetState extends State<RepetitiveWidget> {
+class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget> {
+  Logger logger = Logger();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -73,7 +79,7 @@ class _RepetitiveWidgetState extends State<RepetitiveWidget> {
 
   VoidCallback? buttonOnPressed() {
     if (widget.formKey.currentState.validate()) {
-      CustomNavigator.goToScreen(context, "/HomeView");
+      widget.buttonOnPressed();
     }
     return null;
   }

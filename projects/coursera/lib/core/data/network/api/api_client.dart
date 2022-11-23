@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 
 import '../../model/course.dart';
 import '../../model/topic.dart';
+import '../../model/user.dart';
 
 part 'api_client.g.dart';
 
@@ -23,4 +24,7 @@ abstract class RestClient {
 
   @GET("/course/{id}")
   Future<Course> courseGetByIs(@Path("id") String id);
+
+  @POST("/users")
+  Future<User> createUser(@Body() User user);
 }

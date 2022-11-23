@@ -15,4 +15,8 @@ abstract class IRetrofitService<T> {
   Future<T>? getById(String id) {
     return null;
   }
+
+  Future<T>? createEntity(T entity) {
+    return null;
+  }
 }

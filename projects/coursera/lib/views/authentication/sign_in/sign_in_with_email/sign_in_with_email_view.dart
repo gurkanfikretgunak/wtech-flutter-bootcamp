@@ -34,7 +34,7 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
           ),
           Flexible(
             flex: 7,
-            child: RepetitiveWidget(
+            child: AuthenticationFormWidget(
               isLogin: true,
               formKey: formKey,
               modelList:
@@ -56,6 +56,7 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                   ],
                 ),
               ),
+              buttonOnPressed: () {},
             ),
           ),
           const Expanded(flex: 2, child: CustomOrText()),

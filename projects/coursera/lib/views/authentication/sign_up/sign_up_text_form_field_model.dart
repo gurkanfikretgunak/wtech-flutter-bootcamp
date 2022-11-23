@@ -4,66 +4,76 @@ import 'package:provider/provider.dart';
 import 'sign_up_view_model.dart';
 
 class SignUpTextFormFiledModel {
-  static buildTextFormFieldValue(BuildContext context) {
+  buildTextFormFieldValue(BuildContext context) {
+    final providerFL = Provider.of<SignUpViewModel>(context, listen: false);
+    final provider = Provider.of<SignUpViewModel>(context);
+
     var textFormFieldValueList = [
       {
-        'controller': context.watch<SignUpViewModel>().nameController,
-        'onChanged': (value) {
-          context
-              .read<SignUpViewModel>()
-              .controlControllerLength(value, validateType: 'name');
-        },
+        'controller': provider.nameController,
         "hintText": 'Full nasssme (Required)',
-        "validator": (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid name!';
-          }
-          return null;
+        "validator": nameValidator,
+        'onChanged': (value) {
+          providerFL.controlControllerLength(value, validateType: 'name');
         },
       },
       {
-        'controller': context.watch<SignUpViewModel>().emailController,
+        'controller': provider.emailController,
         "hintText": 'Email (Required)',
+        "validator": emailValidator,
         'onChanged': (value) {
-          context
-              .read<SignUpViewModel>()
-              .controlControllerLength(value, validateType: 'email');
-        },
-        "validator": (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid email!';
-          }
-          return null;
+          providerFL.controlControllerLength(value, validateType: 'email');
         },
       },
       {
-        'controller': context.watch<SignUpViewModel>().passwordController,
-        'onChanged': (value) {
-          context
-              .read<SignUpViewModel>()
-              .controlControllerLength(value, validateType: 'password');
-        },
-        "validator": (value) {
-          if (value!.length < 6 || value.isEmpty) {
-            return 'Password must be at least 6 characters!';
-          }
-          return null;
-        },
-        'obscureText': context.watch<SignUpViewModel>().obscureText,
+        'controller': provider.passwordController,
+        "validator": passwordValidator,
+        'obscureText': provider.obscureText,
         "hintText": 'Password (Required)',
         'hintTextColor': Colors.black38,
-        'suffixIcon': IconButton(
-          splashRadius: 10,
-          onPressed: () {
-            context.read<SignUpViewModel>().changeObscureTextState();
-          },
-          icon: context.watch<SignUpViewModel>().obscureText
-              ? const Icon(Icons.visibility_off)
-              : const Icon(Icons.visibility),
-        ),
+        'suffixIcon': obscureTextIcon(context),
+        'onChanged': (value) {
+          providerFL.controlControllerLength(value, validateType: 'password');
+        },
       }
     ];
-
     return textFormFieldValueList;
+  }
+
+  IconButton obscureTextIcon(BuildContext context) {
+    return IconButton(
+      splashRadius: 10,
+      onPressed: () {
+        context.read<SignUpViewModel>().changeObscureTextState();
+      },
+      icon: context.watch<SignUpViewModel>().obscureText
+          ? const Icon(Icons.visibility_off)
+          : const Icon(Icons.visibility),
+    );
+  }
+
+  String? nameValidator(String? value) {
+    if (value!.length < 2 ||
+        value.contains(RegExp(r'[0-9]')) ||
+        value.isEmpty) {
+      return 'Please enter a valid name!';
+    }
+    return null;
+  }
+
+  String? emailValidator(value) {
+    if (value!.length < 2 ||
+        !value.contains(RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')) ||
+        value.isEmpty) {
+      return 'Please enter a valid email!';
+    }
+    return null;
+  }
+
+  String? passwordValidator(value) {
+    if (value!.length < 6 || value.isEmpty) {
+      return 'Password must be at least 6 characters!';
+    }
+    return null;
   }
 }
