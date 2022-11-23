@@ -1,5 +1,8 @@
+// ignore_for_file: no_leading_underscores_for_local_identifiers, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/auth/information_page_view.dart';
 import 'package:todoist_app/widgets/button_widgets/welcome_button.dart';
 import '../../constants/image/image_path_constants.dart';
@@ -12,6 +15,7 @@ class ThemeSwitcher extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final appModel = Provider.of<ThemeChangeProvider>(context);
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
 
     return Consumer<ThemeChangeProvider>(
         builder: (c, themeProvider, _) => Column(children: [
@@ -30,7 +34,7 @@ class ThemeSwitcher extends StatelessWidget {
                   ])),
               Padding(
                   padding: const EdgeInsets.only(top: 20.0, bottom: 15),
-                  child: Text(CustomTextConstants.hiNameText,
+                  child: Text("Hi ${_serviceProvider.userName}",
                       style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 20, color: Colors.black))),
               Text(CustomTextConstants.pickThemeText,
                   style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 15, color: Colors.grey[600])),

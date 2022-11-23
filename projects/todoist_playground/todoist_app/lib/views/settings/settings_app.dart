@@ -98,6 +98,8 @@ class CustomLogOutCard extends StatelessWidget {
           child: TextButton(
             onPressed: () {
               _serviceProvider.userName = " ";
+              _serviceProvider.userEmail = " ";
+
               Navigator.pushNamed(context, welcomeRoute);
             },
             child: Text(redText,
