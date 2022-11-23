@@ -1,4 +1,4 @@
-import 'package:duolingo_math/pages/get_started_page.dart';
+import 'package:duolingo_math/pages/get_started_pages/get_started_page_1.dart';
 import 'package:flutter/material.dart';
 
 class Page4 extends StatelessWidget {

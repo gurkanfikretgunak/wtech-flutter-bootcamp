@@ -1,4 +1,4 @@
-import 'package:duolingo_math/app.dart';
+import 'package:duolingo_math/core/app.dart';
 import 'package:flutter/material.dart';
 
 void main() {

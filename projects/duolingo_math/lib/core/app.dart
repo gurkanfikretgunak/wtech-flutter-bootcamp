@@ -1,4 +1,4 @@
-import 'package:duolingo_math/pages/onboarding_pages.dart';
+import 'package:duolingo_math/pages/onboarding_pages/onboarding_pages.dart';
 import 'package:duolingo_math/navigator/route_generator.dart';
 import 'package:flutter/material.dart';
 

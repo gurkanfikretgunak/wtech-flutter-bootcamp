@@ -1,7 +1,7 @@
-import 'package:duolingo_math/onboarding_pages/page1.dart';
-import 'package:duolingo_math/onboarding_pages/page2.dart';
-import 'package:duolingo_math/onboarding_pages/page3.dart';
-import 'package:duolingo_math/onboarding_pages/page4.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page1.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page2.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page3.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page4.dart';
 import 'package:flutter/material.dart';
 
 class OnBoardingScreen extends StatefulWidget {

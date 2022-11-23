@@ -1,9 +1,11 @@
-import 'package:duolingo_math/pages/onboarding_pages.dart';
-import 'package:duolingo_math/onboarding_pages/page1.dart';
-import 'package:duolingo_math/onboarding_pages/page2.dart';
-import 'package:duolingo_math/onboarding_pages/page3.dart';
-import 'package:duolingo_math/onboarding_pages/page4.dart';
-import 'package:duolingo_math/pages/get_started_page.dart';
+import 'package:duolingo_math/pages/get_started_pages/get_started_page_3.dart';
+import 'package:duolingo_math/pages/get_started_pages/get_started_page_2.dart';
+import 'package:duolingo_math/pages/onboarding_pages/onboarding_pages.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page1.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page2.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page3.dart';
+import 'package:duolingo_math/pages/onboarding_pages/page4.dart';
+import 'package:duolingo_math/pages/get_started_pages/get_started_page_1.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +35,11 @@ class RouteGenerator {
       case '/':
         return _routeOlustur(OnBoardingScreen(), settings);
       case '/getstarted':
-        return _routeOlustur(Page5(), settings);
+        return _routeOlustur(Get_Started_Page_1(), settings);
+      case '/getstarted_2':
+        return _routeOlustur(Get_Started_Page_2(), settings);
+      case '/getstarted_3':
+        return _routeOlustur(Get_Started_Page_3(), settings);
 
       default:
         return MaterialPageRoute(
