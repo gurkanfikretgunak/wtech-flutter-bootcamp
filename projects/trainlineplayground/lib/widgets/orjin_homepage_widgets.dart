@@ -354,9 +354,14 @@ class AddPassangerWidget extends StatelessWidget {
                     ],
                   ),
                   const Padding(padding: EdgeInsets.only(top: 8.0)),
-                  const Text(
-                    "Add loyalyty cards & vouchers",
-                    style: TextStyle(fontSize: 15),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children:const[ 
+                       Text(
+                      "Add loyalyty cards & vouchers",
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    ]
                   ),
                 ],
               ),

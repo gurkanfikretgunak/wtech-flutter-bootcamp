@@ -21,7 +21,8 @@ class AccountPageState extends State<AccountPage> {
           width: double.infinity,
           decoration: const BoxDecoration(
             borderRadius: BorderRadius.only(bottomRight: Radius.circular(20)),
-            color: Colors.purple
+            color: Colors.purple,
+            
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -46,7 +47,9 @@ class AccountPageState extends State<AccountPage> {
         ),
         Container(
           height: 70,
-          decoration: const BoxDecoration(),
+          decoration:  BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
           child: Row(
             
             children: [
@@ -71,7 +74,11 @@ class AccountPageState extends State<AccountPage> {
              Text("Booking preferences",style: TextStyle(fontSize: 22),),
           ],
         ),
+        
         Container(
+          decoration: BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
           height: 50,
           width: double.infinity,
           child: Row(children:const [
@@ -85,6 +92,9 @@ class AccountPageState extends State<AccountPage> {
         Container(
           height: 50,
           width: double.infinity,
+          decoration: BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
           child: Row(children:const [
             Padding(padding: EdgeInsets.only(left: 15)),
             Icon(Icons.chrome_reader_mode_outlined),
@@ -103,6 +113,9 @@ class AccountPageState extends State<AccountPage> {
         Container(
           height: 50,
           width: double.infinity,
+          decoration: BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
           child: Row(children:const [
             Padding(padding: EdgeInsets.only(left: 15)),
             Icon(Icons.business_center),
@@ -121,6 +134,9 @@ class AccountPageState extends State<AccountPage> {
         Container(
           height: 50,
           width: double.infinity,
+          decoration: BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
           child: Row(children: [
             const Padding(padding: EdgeInsets.only(left: 15)),
             const Icon(Icons.attach_money_rounded),
@@ -139,6 +155,9 @@ class AccountPageState extends State<AccountPage> {
         Container(
            height: 50,
            width: double.infinity,
+           decoration: BoxDecoration(
+            border: _bottomBorderSideWidget()
+          ),
            child: Row(children:const [
              Padding(padding: EdgeInsets.only(left: 15)),
               Icon(Icons.lock),
@@ -179,5 +198,13 @@ class AccountPageState extends State<AccountPage> {
       ]),
     );
     
+  }
+
+  Border _bottomBorderSideWidget() {
+    return  Border(bottom: BorderSide(
+            color: Colors.blue.shade100,
+            width: 1.0
+            
+          ));
   }
 }
