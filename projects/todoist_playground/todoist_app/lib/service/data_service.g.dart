@@ -72,6 +72,7 @@ class _RestClient implements RestClient {
   Future<Users> loginPage(
     emailId,
     passwordId,
+    name,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -79,6 +80,7 @@ class _RestClient implements RestClient {
     final _data = {
       'email': emailId,
       'password': passwordId,
+      'name': name,
     };
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Users>(Options(

@@ -64,14 +64,22 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                         return CustomAuthButton(
                           buttonTexts: CustomTextConstants.buttonTextEmail,
                           onPressed: () async {
-                            bool isCheck = await data.userController(emailController);
+                            bool isCheck = await data.userEmailController(emailController);
                             if (value.emailValidate) {
                               if (isCheck) {
                                 // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());
+                                CustomMethods.settingModalBottomSheet(
+                                    context,
+                                    LoginPasswordView(
+                                      emailController: emailController,
+                                    ));
                               } else {
                                 // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(context, const SignInView());
+                                CustomMethods.settingModalBottomSheet(
+                                    context,
+                                    SignInView(
+                                      emailController: emailController,
+                                    ));
                               }
                             }
                           },

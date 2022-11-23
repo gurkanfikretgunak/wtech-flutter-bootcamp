@@ -14,7 +14,7 @@ class ServiceProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  Future<bool> userController(email) async {
+  Future<bool> userEmailController(email) async {
     for (var item in response) {
       if (item.email == email.text) {
         return true;
@@ -23,15 +23,25 @@ class ServiceProvider with ChangeNotifier {
     return false;
   }
 
-  Future<bool> postUser(email, password) async {
+  Future<bool> userPasswordController(email, password) async {
     for (var item in response) {
-      if (item.email == email.text && item.password == password.text) {
+      if (item.password == password.text && item.email == email.text) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> postUser(email, password, name) async {
+    for (var item in response) {
+      if (item.email == email.text) {
         return false;
       }
     }
+
     RestClient(Dio(BaseOptions(contentType: "application/json")),
             baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
-        .loginPage(email.text, password.text);
+        .loginPage(email.text, password.text, name.text);
     return true;
   }
 }

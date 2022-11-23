@@ -12,14 +12,14 @@ import '../../widgets/custom_methods.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
 
 class SignInView extends StatefulWidget {
-  const SignInView({Key? key}) : super(key: key);
-
+  const SignInView({Key? key, this.emailController}) : super(key: key);
+  final TextEditingController? emailController;
   @override
   State<SignInView> createState() => _SignInViewState();
 }
 
 class _SignInViewState extends State<SignInView> {
-  TextEditingController emailTextController = TextEditingController();
+  TextEditingController nameTextController = TextEditingController();
   TextEditingController passwordTextController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
@@ -67,7 +67,7 @@ class _SignInViewState extends State<SignInView> {
                                 style: Theme.of(context).textTheme.subtitle1?.copyWith()),
                             CustomInputDecoration(
                                 labelText: "Name",
-                                controller: emailTextController,
+                                controller: nameTextController,
                                 deneme: true,
                                 inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z]+|\s"))],
                                 onChanged: formProvider.validateName,
@@ -90,8 +90,11 @@ class _SignInViewState extends State<SignInView> {
                                         buttonTexts: CustomTextConstants.buttonTextEmail,
                                         onPressed: () async {
                                           if (value.signUpValidate) {
-                                            bool isCheck =
-                                                await data.postUser(emailTextController, passwordTextController);
+                                            bool isCheck = await data.postUser(
+                                              widget.emailController,
+                                              nameTextController,
+                                              passwordTextController,
+                                            );
                                             if (isCheck) {
                                               // ignore: use_build_context_synchronously
                                               Navigator.pushNamed(context, loadingRoute);

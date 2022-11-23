@@ -14,5 +14,5 @@ abstract class RestClient {
   Future<Users> postUsers(@Path("id") String id);
   @POST("/users")
   @FormUrlEncoded()
-  Future<Users> loginPage(@Field("email") emailId, @Field("password") passwordId);
+  Future<Users> loginPage(@Field("email") emailId, @Field("password") passwordId, @Field("name") name);
 }

@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
+import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import '../../constants/text/auth_constants.dart';
 import '../../core/provider/service_provider.dart';
 import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import '../home_page_view.dart';
 
 class LoginPasswordView extends StatefulWidget {
-  const LoginPasswordView({Key? key}) : super(key: key);
-
+  const LoginPasswordView({Key? key, this.emailController}) : super(key: key);
+  final TextEditingController? emailController;
   @override
   State<LoginPasswordView> createState() => _LoginPasswordViewState();
 }
@@ -60,11 +62,15 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                       return CustomAuthButton(
                           buttonTexts: CustomTextConstants.buttonTextEmail,
                           onPressed: () async {
-                            bool isCheck = await data.userController(passwordController);
+                            bool isCheck =
+                                await data.userPasswordController(passwordController, widget.emailController);
                             if (value.passwordValidate) {
                               if (isCheck) {
                                 // ignore: use_build_context_synchronously
                                 Navigator.pushNamed(context, loadingRoute);
+                                await loginAction();
+                                // ignore: use_build_context_synchronously
+                                CustomMethods.settingModalBottomSheet(context, const MyHomePage());
                               } else {
                                 // ignore: use_build_context_synchronously
                                 CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());
