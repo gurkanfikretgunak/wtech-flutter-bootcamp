@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_bottom_navigation_bar_widget.dart';
 
 class CardView extends StatelessWidget {
   const CardView({super.key});
@@ -12,7 +11,6 @@ class CardView extends StatelessWidget {
           body: Center(
             child: Text('Card Page'),
           ),
-          bottomNavigationBar: CustomBottomNavBar(),
         ));
   }
 }

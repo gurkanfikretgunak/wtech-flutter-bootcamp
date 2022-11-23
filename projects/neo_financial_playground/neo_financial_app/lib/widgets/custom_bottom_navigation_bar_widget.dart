@@ -19,10 +19,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         onTap: (value) {
           if (state.currentPage != value) {
             state.changePage(value);
-            Navigator.pushNamed(
-              context,
-              '/${state.pages.elementAt(state.currentPage)}',
-            );
           }
         },
         items: const [

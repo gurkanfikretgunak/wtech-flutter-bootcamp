@@ -105,7 +105,7 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                           // ignore: use_build_context_synchronously
                           Navigator.pushNamed(
                             context,
-                            '/Homeview',
+                            '/Home',
                           );
                         }
                       },

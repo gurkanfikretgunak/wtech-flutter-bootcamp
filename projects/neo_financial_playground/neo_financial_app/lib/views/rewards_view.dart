@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_bottom_navigation_bar_widget.dart';
 
 class RewardsView extends StatelessWidget {
   const RewardsView({super.key});
@@ -12,7 +11,6 @@ class RewardsView extends StatelessWidget {
           body: Center(
             child: Text('Rewards Page'),
           ),
-          bottomNavigationBar: CustomBottomNavBar(),
         ));
   }
 }

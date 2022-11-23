@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_bottom_navigation_bar_widget.dart';
 
 class PaymentsView extends StatelessWidget {
   const PaymentsView({super.key});
@@ -12,7 +11,6 @@ class PaymentsView extends StatelessWidget {
           body: Center(
             child: Text('Payments Page'),
           ),
-          bottomNavigationBar: CustomBottomNavBar(),
         ));
   }
 }

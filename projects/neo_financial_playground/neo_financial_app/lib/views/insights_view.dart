@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/widgets/custom_bottom_navigation_bar_widget.dart';
 
 class InsightsView extends StatelessWidget {
   const InsightsView({super.key});
@@ -10,7 +9,6 @@ class InsightsView extends StatelessWidget {
         onWillPop: () async => false,
         child: const Scaffold(
           body: Center(child: Text('Insights view')),
-          bottomNavigationBar: CustomBottomNavBar(),
         ));
   }
 }
