@@ -1,7 +1,8 @@
 import 'package:wise_app/unit/imports.dart';
 
-class RegisterSelectCountryNextButton extends StatelessWidget {
-  const RegisterSelectCountryNextButton({
+
+class VerifyPhoneSendButton extends StatelessWidget {
+  const VerifyPhoneSendButton({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -19,10 +20,10 @@ class RegisterSelectCountryNextButton extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const VerifyPhoneWidget()));
+                    builder: (context) => const VerifyPhoneEnterCode()));
           },
           child: Text(
-            RegisterTextConstants.nextButtonText,
+            RegisterTextConstants.sendCodeButtonText,
             style: RegisterStyle.nextButtonTextStyle,
           )),
     );

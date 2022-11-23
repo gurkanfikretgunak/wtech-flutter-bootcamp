@@ -11,7 +11,7 @@ class RegisterSelectCountryTextField extends StatelessWidget {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.only(top: RegisterConstants.topPaddingSize),
+          padding: const EdgeInsets.only(top: RegisterConstants.topPaddingSizeCountry),
           child: Row(
             children: const [
               Text(RegisterTextConstants.country),

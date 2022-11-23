@@ -33,3 +33,9 @@ export 'package:wise_app/widgets/register/email_widgets/email_widget_top_text.da
 export 'package:wise_app/widgets/register/account_type/account_type_item.dart';
 export 'package:wise_app/widgets/register/account_type/account_type_top_text.dart';
 export 'package:wise_app/widgets/register/account_type/account_type_widget.dart';
+export 'package:wise_app/widgets/register/select_country/select_country_bottom_text.dart';
+export 'package:wise_app/widgets/register/select_country/select_country_next_button.dart';
+export 'package:wise_app/widgets/register/select_country/select_country_textfield.dart';
+export 'package:wise_app/widgets/register/select_country/select_country_top_text.dart';
+export 'package:wise_app/widgets/register/verify_phone/verify_phone_widget.dart';
+export 'package:wise_app/widgets/register/verify_phone/verify_phone_enter_code_widget.dart';

@@ -1,8 +1,5 @@
 import 'package:wise_app/unit/imports.dart';
-import 'package:wise_app/widgets/register/select_country/select_country_bottom_text.dart';
-import 'package:wise_app/widgets/register/select_country/select_country_next_button.dart';
-import 'package:wise_app/widgets/register/select_country/select_country_textfield.dart';
-import 'package:wise_app/widgets/register/select_country/select_country_top_text.dart';
+
 
 class SelectCountryWidget extends StatelessWidget {
   const SelectCountryWidget({Key? key}) : super(key: key);
@@ -36,11 +33,8 @@ class SelectCountryWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(18),
               child: Column(
-                children: [
+                children:const [
                   RegisterSelectCountryTopText(),
-                  SizedBox(
-                    height: 20,
-                  ),
                   RegisterSelectCountryTextField(),
 
                 ],

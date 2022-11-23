@@ -7,6 +7,10 @@ class RegisterStyle {
         fontSize: 30,
         color: provider.topLoginTextColor,
       );
+
+  static const TextStyle verifyPhoneEnterCodeContentTextStyle=
+      TextStyle(fontSize: 20,color: Colors.blue);
+
   static TextStyle emailPageTopContentTextStyle(ThemeProvider provider) =>
       TextStyle(fontSize: 17, color: provider.registerAccountTypeContentTextColor);
 

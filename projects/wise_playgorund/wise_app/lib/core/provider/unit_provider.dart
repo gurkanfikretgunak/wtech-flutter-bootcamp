@@ -67,7 +67,7 @@ class UnitProvider extends ChangeNotifier {
 
   //Get Email Widget
   final TextEditingController _registerTextControllerEmail =
-  TextEditingController();
+      TextEditingController();
   TextEditingController get registerTextControllerEmail =>
       _registerTextControllerEmail;
 
@@ -84,7 +84,10 @@ class UnitProvider extends ChangeNotifier {
               registerEmailCheckSufficIcon("");
             }
           },
-          icon: const Icon(Icons.cancel,size: 20,));
+          icon: const Icon(
+            Icons.cancel,
+            size: 20,
+          ));
     } else {
       _registerEmailSuffixIcon =
           SizedBox(width: 0.1, height: 0.1, child: Container());
@@ -93,17 +96,16 @@ class UnitProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-
   //Select Country Widget
   final TextEditingController _registerTextControllerSelectCountry =
-  TextEditingController();
+      TextEditingController();
   TextEditingController get registerTextControllerSelectCountry =>
       _registerTextControllerSelectCountry;
 
   static Widget? _registerSelectCountrySuffixIcon =
-  SizedBox(width: 0.1, height: 0.1, child: Container());
-  Widget get registerSelectCountrySuffixIcon => _registerSelectCountrySuffixIcon!;
-
+      SizedBox(width: 0.1, height: 0.1, child: Container());
+  Widget get registerSelectCountrySuffixIcon =>
+      _registerSelectCountrySuffixIcon!;
 
   void registerSelectCountryCheckSufficIcon(String emailText) {
     if (_registerTextControllerSelectCountry.text != "") {
@@ -114,7 +116,10 @@ class UnitProvider extends ChangeNotifier {
               registerSelectCountryCheckSufficIcon("");
             }
           },
-          icon: const Icon(Icons.cancel,size: 20,));
+          icon: const Icon(
+            Icons.cancel,
+            size: 20,
+          ));
     } else {
       _registerSelectCountrySuffixIcon =
           SizedBox(width: 0.1, height: 0.1, child: Container());
@@ -122,6 +127,102 @@ class UnitProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+
+  //Verify Phone -> number
+
+  final TextEditingController _registerTextControllerVerifyPhoneNumber =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneNumber =>
+      _registerTextControllerVerifyPhoneNumber;
+
+  static Widget? _registerVerifyPhoneNumberSuffixIcon =
+      SizedBox(width: 0.1, height: 0.1, child: Container());
+  Widget get registerVerifyPhoneNumberSuffixIcon =>
+      _registerVerifyPhoneNumberSuffixIcon!;
+
+  void registerVerifyPhoneNumberCheckSufficIcon(String emailText) {
+    if (_registerTextControllerVerifyPhoneNumber.text != "") {
+      _registerVerifyPhoneNumberSuffixIcon = IconButton(
+          onPressed: () {
+            if (kDebugMode) {
+              _registerTextControllerVerifyPhoneNumber.text = "";
+              registerVerifyPhoneNumberCheckSufficIcon("");
+            }
+          },
+          icon: const Icon(
+            Icons.cancel,
+            size: 20,
+          ));
+    } else {
+      _registerVerifyPhoneNumberSuffixIcon =
+          SizedBox(width: 0.1, height: 0.1, child: Container());
+      _registerTextControllerVerifyPhoneNumber.text = emailText;
+    }
+    notifyListeners();
+  }
+
+  //Verify Phone -> country code
+  final TextEditingController _registerTextControllerVerifyPhoneCountryCode =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneCountryCode =>
+      _registerTextControllerVerifyPhoneCountryCode;
+
+  static Widget? _registerVerifyPhoneCountryCodeSuffixIcon =
+      SizedBox(width: 0.1, height: 0.1, child: Container());
+  Widget get registerVerifyPhoneCountryCodeSuffixIcon =>
+      _registerVerifyPhoneCountryCodeSuffixIcon!;
+
+  void registerVerifyPhoneCountryCodeCheckSufficIcon(String emailText) {
+    if (_registerTextControllerVerifyPhoneCountryCode.text != "") {
+      _registerVerifyPhoneCountryCodeSuffixIcon = IconButton(
+          onPressed: () {
+            if (kDebugMode) {
+              _registerTextControllerVerifyPhoneCountryCode.text = "";
+              registerVerifyPhoneCountryCodeCheckSufficIcon("");
+            }
+          },
+          icon: const Icon(
+            Icons.cancel,
+            size: 20,
+          ));
+    } else {
+      _registerVerifyPhoneCountryCodeSuffixIcon =
+          SizedBox(width: 0.1, height: 0.1, child: Container());
+      _registerTextControllerVerifyPhoneCountryCode.text = emailText;
+    }
+    notifyListeners();
+  }
+
+  //enter code page
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode1 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode1 =>
+      _registerTextControllerVerifyPhoneEnterCode1;
+
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode2 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode2 =>
+      _registerTextControllerVerifyPhoneEnterCode2;
+
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode3 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode3 =>
+      _registerTextControllerVerifyPhoneEnterCode3;
+
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode4 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode4 =>
+      _registerTextControllerVerifyPhoneEnterCode4;
+
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode5 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode5 =>
+      _registerTextControllerVerifyPhoneEnterCode5;
+
+  final TextEditingController _registerTextControllerVerifyPhoneEnterCode6 =
+      TextEditingController();
+  TextEditingController get registerTextControllerVerifyPhoneEnterCode6 =>
+      _registerTextControllerVerifyPhoneEnterCode6;
 
   //#endregion
 }
