@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'sign_in_with_email_view_model.dart';
 
 class SignInTextFormFieldModel {
-  static buildTextFormFieldValue(BuildContext context) {
+  buildTextFormFieldValue(BuildContext context) {
     var textFormFieldValueList = [
       {
         'controller': context.watch<SignInWithEmailViewModel>().emailController,
@@ -14,12 +14,7 @@ class SignInTextFormFieldModel {
               .read<SignInWithEmailViewModel>()
               .controlControllerLength(value, validateType: 'email');
         },
-        "validator": (value) {
-          if (value == null || value.isEmpty) {
-            return 'Please enter a valid email!';
-          }
-          return null;
-        },
+        "validator": nameValidator,
       },
       {
         'controller':
@@ -29,27 +24,40 @@ class SignInTextFormFieldModel {
               .read<SignInWithEmailViewModel>()
               .controlControllerLength(value, validateType: 'password');
         },
-        "validator": (value) {
-          if (value!.length < 6 || value.isEmpty) {
-            return 'Password must be at least 6 characters!';
-          }
-          return null;
-        },
+        "validator": passwordValidator,
         'obscureText': context.watch<SignInWithEmailViewModel>().obscureText,
         "hintText": 'Password (Required)',
         'hintTextColor': Colors.black38,
-        'suffixIcon': IconButton(
-          splashRadius: 10,
-          onPressed: () {
-            context.read<SignInWithEmailViewModel>().changeObscureTextState();
-          },
-          icon: context.watch<SignInWithEmailViewModel>().obscureText
-              ? const Icon(Icons.visibility_off)
-              : const Icon(Icons.visibility),
-        ),
+        'suffixIcon': obscureTextIcon(context),
       }
     ];
 
     return textFormFieldValueList;
+  }
+
+  IconButton obscureTextIcon(BuildContext context) {
+    return IconButton(
+      splashRadius: 10,
+      onPressed: () {
+        context.read<SignInWithEmailViewModel>().changeObscureTextState();
+      },
+      icon: context.watch<SignInWithEmailViewModel>().obscureText
+          ? const Icon(Icons.visibility_off)
+          : const Icon(Icons.visibility),
+    );
+  }
+
+  String? passwordValidator(value) {
+    if (value!.length < 6 || value.isEmpty) {
+      return 'Password must be at least 6 characters!';
+    }
+    return null;
+  }
+
+  String? nameValidator(value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter a valid email!';
+    }
+    return null;
   }
 }

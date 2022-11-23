@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 
 class SignUpViewModel with ChangeNotifier {
-  bool _obscureText = true;
-  bool get obscureText => _obscureText;
-
-  changeObscureTextState() {
-    _obscureText = !_obscureText;
-    notifyListeners();
-  }
-
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+
+  bool _obscureText = true;
+  bool get obscureText => _obscureText;
 
   bool _isFormValidateName = false;
   bool get isFormValidateName => _isFormValidateName;
@@ -21,6 +16,11 @@ class SignUpViewModel with ChangeNotifier {
 
   bool _isFormValidatePassword = false;
   bool get isFormValidatePassword => _isFormValidatePassword;
+
+  changeObscureTextState() {
+    _obscureText = !_obscureText;
+    notifyListeners();
+  }
 
   controlControllerLength(value, {required String validateType}) {
     switch (validateType) {

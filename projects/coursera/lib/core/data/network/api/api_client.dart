@@ -27,4 +27,7 @@ abstract class RestClient {
 
   @POST("/users")
   Future<User> createUser(@Body() User user);
+
+  @GET("/users")
+  Future<List<User>> getAllUsers();
 }

@@ -3,7 +3,11 @@ import 'package:kartal/kartal.dart';
 import '../../../../core/constants/constant_libary.dart';
 
 class CustomCircularProgressIndicator extends StatelessWidget {
-  const CustomCircularProgressIndicator({super.key});
+  const CustomCircularProgressIndicator({
+    super.key,
+    this.color,
+  });
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,9 @@ class CustomCircularProgressIndicator extends StatelessWidget {
       child: SizedBox(
         height: context.dynamicHeight(0.05),
         width: context.dynamicWidth(0.1),
-        child: CircularProgressIndicator(color: ColorConstant.instance.appBlue),
+        child: CircularProgressIndicator(
+          color: color ?? ColorConstant.instance.appBlue,
+        ),
       ),
     );
   }

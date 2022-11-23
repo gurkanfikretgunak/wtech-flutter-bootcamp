@@ -1,7 +1,5 @@
 import 'package:logger/logger.dart';
 
-import '../../../core/data/model/user.dart';
-import '../../../core/data/network/services/user_service.dart';
 import '../sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';

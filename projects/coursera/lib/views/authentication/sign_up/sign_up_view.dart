@@ -45,7 +45,7 @@ class _SignUpViewState extends State<SignUpView> {
           Expanded(
             flex: 5,
             child: AuthenticationFormWidget(
-              buttonOnPressed: loginButton,
+              buttonOnPressed: signUpButtonOnPressed,
               formKey: formKey,
               modelList:
                   SignUpTextFormFiledModel().buildTextFormFieldValue(context),
@@ -68,7 +68,8 @@ class _SignUpViewState extends State<SignUpView> {
     );
   }
 
-  loginButton() {
+//ViewModel sayfasına taşıdığımda hatalar alıyorum. Sonra bak
+  void signUpButtonOnPressed() {
     if (context.read<SignUpViewModel>().nameController.text.isNotEmpty &&
         context.read<SignUpViewModel>().emailController.text.isNotEmpty &&
         context.read<SignUpViewModel>().passwordController.text.isNotEmpty) {

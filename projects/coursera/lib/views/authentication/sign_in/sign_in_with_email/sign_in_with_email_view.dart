@@ -1,10 +1,17 @@
+import 'package:coursera/core/data/network/services/user_service.dart';
+import 'package:coursera/core/init/routes/custom_navigator.dart';
+import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_text_form_field_model.dart';
+import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/components/custom_circular_progress_indicator.dart';
+import '../../../../core/constants/color_constant.dart';
+import '../../../../core/data/model/user.dart';
 import '../../authentication_custom_widget/authentication_form.dart';
 import '../../authentication_view.dart';
-import 'sign_in_text_form_field_model.dart';
 import '../../../../core/components/custom_app_bar.dart';
 import '../../../../core/components/custom_or_text.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constants/constant_libary.dart';
 import '../../../../core/components/button/button_libary.dart';
 import '../../../../core/components/text/text_libary.dart';
 
@@ -17,6 +24,15 @@ class SignInWithEmailView extends StatefulWidget {
 
 class _SignInWithEmailViewState extends State<SignInWithEmailView> {
   final formKey = GlobalKey<FormState>();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  late Future<List<User>> futureUsers;
+  @override
+  void initState() {
+    super.initState();
+    futureUsers = UserService().getAll();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +54,7 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
               isLogin: true,
               formKey: formKey,
               modelList:
-                  SignInTextFormFieldModel.buildTextFormFieldValue(context),
+                  SignInTextFormFieldModel().buildTextFormFieldValue(context),
               forgotPasswordButton: Expanded(
                 child: Column(
                   children: [
@@ -56,7 +72,13 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                   ],
                 ),
               ),
-              buttonOnPressed: () {},
+              buttonOnPressed: () async {
+                bool isCheck =
+                    await SignInWithEmailViewModel().loginControl(context);
+                isCheck
+                    ? CustomNavigator.goToScreen(context, '/HomeView')
+                    : CustomNavigator.goToScreen(context, '/SignUpView');
+              },
             ),
           ),
           const Expanded(flex: 2, child: CustomOrText()),

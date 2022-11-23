@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../../../core/data/network/services/user_service.dart';
 
 class SignInWithEmailViewModel with ChangeNotifier {
   bool _obscureText = true;
@@ -16,6 +19,23 @@ class SignInWithEmailViewModel with ChangeNotifier {
   changeObscureTextState() {
     _obscureText = !_obscureText;
     notifyListeners();
+  }
+
+  Future<bool> loginControl(BuildContext context) async {
+    var response = await UserService().getAll();
+
+    for (var item in response) {
+      if (item.email ==
+              context.read<SignInWithEmailViewModel>().emailController.text &&
+          item.password ==
+              context
+                  .read<SignInWithEmailViewModel>()
+                  .passwordController
+                  .text) {
+        return true;
+      }
+    }
+    return false;
   }
 
   controlControllerLength(value, {required String validateType}) {
