@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
-
+import '../../../core/components/custom_scaffold.dart';
 import '../../../core/init/cache/shared_manager.dart';
 import '../../../core/init/routes/custom_navigator.dart';
 import '../../../core/components/custom_logo.dart';
@@ -29,14 +29,10 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: ColorConstant.instance.appBlue,
-        body: Center(
-          child: Logo(
-            color: ColorConstant.instance.appWhite,
-          ),
-        ),
+    return CustomScaffold(
+      backgroundColor: ColorConstant.instance.appBlue,
+      body: Logo(
+        color: ColorConstant.instance.appWhite,
       ),
     );
   }

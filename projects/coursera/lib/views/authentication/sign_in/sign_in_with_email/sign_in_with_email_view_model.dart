@@ -26,8 +26,10 @@ class SignInWithEmailViewModel with ChangeNotifier {
 
     for (var item in response) {
       if (item.email ==
+              // ignore: use_build_context_synchronously
               context.read<SignInWithEmailViewModel>().emailController.text &&
           item.password ==
+              // ignore: use_build_context_synchronously
               context
                   .read<SignInWithEmailViewModel>()
                   .passwordController

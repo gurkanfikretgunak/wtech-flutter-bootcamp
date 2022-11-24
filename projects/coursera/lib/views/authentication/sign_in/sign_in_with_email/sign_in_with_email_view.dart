@@ -78,8 +78,10 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                 if (isCheck) {
                   StorageUtil.setBool(SharedKeys.isLogin,
                       true); //Token olsa burda cache'e kaydetmeliyim.
+                  // ignore: use_build_context_synchronously
                   CustomNavigator.goToScreen(context, '/HomeView');
                 } else {
+                  // ignore: use_build_context_synchronously
                   CustomNavigator.goToScreen(context, '/SignUpView');
                 }
               },
