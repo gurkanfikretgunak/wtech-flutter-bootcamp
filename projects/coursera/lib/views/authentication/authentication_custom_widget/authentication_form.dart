@@ -48,6 +48,7 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget> {
                 var listItem = widget.modelList[index];
                 return CustomTextFormField(
                   controller: listItem['controller'],
+                  keyboardType: listItem['keyboardType'],
                   hintText: listItem['hintText'],
                   onChanged: listItem['onChanged'],
                   suffixIcon: listItem['suffixIcon'],

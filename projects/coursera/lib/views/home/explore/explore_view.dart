@@ -1,3 +1,5 @@
+import 'package:coursera/core/init/cache/shared_manager.dart';
+
 import 'explore_custom_widget/free_courses_list.dart';
 import 'explore_custom_widget/most_popular_certificates_list.dart';
 import 'explore_custom_widget/topic_list.dart';
@@ -31,6 +33,11 @@ class ExploreView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                CustomText(
+                  text: StorageUtil.getBool('isLogin').toString(),
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                ),
                 const CustomText(
                   text: "Explore",
                   fontSize: 28,

@@ -1,4 +1,7 @@
 import 'dart:async';
+import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
+
+import '../../../core/init/cache/shared_manager.dart';
 import '../../../core/init/routes/custom_navigator.dart';
 import '../../../core/components/custom_logo.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +18,13 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2),
-        () => CustomNavigator.goToScreen(context, "/SignInView"));
+
+    Timer(
+      const Duration(seconds: 2),
+      () => StorageUtil.getBool(SharedKeys.isLogin.toString())
+          ? CustomNavigator.goToScreen(context, "/HomeView")
+          : CustomNavigator.goToScreen(context, "/SignInView"),
+    );
   }
 
   @override

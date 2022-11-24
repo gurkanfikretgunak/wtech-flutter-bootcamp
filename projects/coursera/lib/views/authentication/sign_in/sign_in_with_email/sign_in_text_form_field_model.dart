@@ -8,6 +8,7 @@ class SignInTextFormFieldModel {
     var textFormFieldValueList = [
       {
         'controller': context.watch<SignInWithEmailViewModel>().emailController,
+        'keyboardType': TextInputType.emailAddress,
         "hintText": 'Email (Required)',
         'onChanged': (value) {
           context
@@ -19,6 +20,7 @@ class SignInTextFormFieldModel {
       {
         'controller':
             context.watch<SignInWithEmailViewModel>().passwordController,
+        'keyboardType': TextInputType.visiblePassword,
         'onChanged': (value) {
           context
               .read<SignInWithEmailViewModel>()

@@ -12,6 +12,7 @@ class SignUpTextFormFiledModel {
       {
         'controller': provider.nameController,
         "hintText": 'Full nasssme (Required)',
+        'keyboardType': TextInputType.name,
         "validator": nameValidator,
         'onChanged': (value) {
           providerFL.controlControllerLength(value, validateType: 'name');
@@ -19,6 +20,7 @@ class SignUpTextFormFiledModel {
       },
       {
         'controller': provider.emailController,
+        'keyboardType': TextInputType.emailAddress,
         "hintText": 'Email (Required)',
         "validator": emailValidator,
         'onChanged': (value) {
@@ -27,6 +29,7 @@ class SignUpTextFormFiledModel {
       },
       {
         'controller': provider.passwordController,
+        'keyboardType': TextInputType.visiblePassword,
         "validator": passwordValidator,
         'obscureText': provider.obscureText,
         "hintText": 'Password (Required)',

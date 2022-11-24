@@ -1,10 +1,10 @@
+import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
 import 'package:coursera/core/data/network/services/user_service.dart';
+import 'package:coursera/core/init/cache/shared_manager.dart';
 import 'package:coursera/core/init/routes/custom_navigator.dart';
 import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_text_form_field_model.dart';
 import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
-import 'package:provider/provider.dart';
 
-import '../../../../core/components/custom_circular_progress_indicator.dart';
 import '../../../../core/constants/color_constant.dart';
 import '../../../../core/data/model/user.dart';
 import '../../authentication_custom_widget/authentication_form.dart';
@@ -75,9 +75,13 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
               buttonOnPressed: () async {
                 bool isCheck =
                     await SignInWithEmailViewModel().loginControl(context);
-                isCheck
-                    ? CustomNavigator.goToScreen(context, '/HomeView')
-                    : CustomNavigator.goToScreen(context, '/SignUpView');
+                if (isCheck) {
+                  StorageUtil.setBool(SharedKeys.isLogin,
+                      true); //Token olsa burda cache'e kaydetmeliyim.
+                  CustomNavigator.goToScreen(context, '/HomeView');
+                } else {
+                  CustomNavigator.goToScreen(context, '/SignUpView');
+                }
               },
             ),
           ),

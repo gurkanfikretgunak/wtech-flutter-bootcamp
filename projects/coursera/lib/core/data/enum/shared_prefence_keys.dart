@@ -1,0 +1,1 @@
+enum SharedKeys { isLogin }
