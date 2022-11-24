@@ -45,6 +45,7 @@ dependencies:
   draggable_bottom_sheet: ^1.0.2
   flutter_datetime_picker: ^1.5.1
   intl: ^0.17.0
+  sqflite: ^2.2.0+3
 
 dev_dependencies:
   flutter_test:
