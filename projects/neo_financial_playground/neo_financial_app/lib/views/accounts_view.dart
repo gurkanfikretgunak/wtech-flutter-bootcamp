@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../widgets/custom_card_widget.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class AccountsView extends StatelessWidget {
+  const AccountsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,6 @@ class HomeView extends StatelessWidget {
                 onPressed: () {},
               ),
             ),
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            elevation: 0,
             actions: [
               CircleAvatar(
                 backgroundColor: Colors.black12,

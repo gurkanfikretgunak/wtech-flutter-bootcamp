@@ -8,8 +8,10 @@ class CustomTheme {
   static ThemeData customThemeData() {
     return ThemeData(
       useMaterial3: false,
-      appBarTheme: const AppBarTheme(
+      appBarTheme: AppBarTheme(
         systemOverlayStyle: SystemUiOverlayStyle.dark,
+        elevation: 0,
+        backgroundColor: Colors.grey[50],
       ),
       bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: Colors.black,
@@ -44,6 +46,16 @@ class CustomTheme {
           displayLarge: GoogleFonts.ebGaramond(
               fontSize: 90, color: Colors.white, fontWeight: FontWeight.bold)),
       //iconTheme: const IconThemeData(color: Colors.black54),
+      tabBarTheme: const TabBarTheme(
+          labelColor: Colors.black,
+          unselectedLabelColor: Colors.grey,
+          labelStyle: TextStyle(fontWeight: FontWeight.bold),
+          indicator: UnderlineTabIndicator(
+            borderSide: BorderSide(
+              width: 4,
+              color: Colors.black,
+            ),
+          )),
     );
   }
 }
