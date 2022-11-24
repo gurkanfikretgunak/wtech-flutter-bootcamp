@@ -1,7 +1,8 @@
 import 'package:wise_app/unit/imports.dart';
 
-class VerifyPhoneEnterCodeContinueButton extends StatelessWidget {
-  const VerifyPhoneEnterCodeContinueButton({
+
+class CreatePasswordRegisterButton extends StatelessWidget {
+  const CreatePasswordRegisterButton({
     Key? key,
     required this.size,
   }) : super(key: key);
@@ -16,13 +17,10 @@ class VerifyPhoneEnterCodeContinueButton extends StatelessWidget {
       child: ElevatedButton(
           style: RegisterStyle.nextButtonStyle,
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const CreatePasswordWidget()));
+            //Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountTypeWidget()));
           },
           child: Text(
-            RegisterTextConstants.enterCodeButtonText,
+            RegisterTextConstants.registerButtonText,
             style: RegisterStyle.nextButtonTextStyle,
           )),
     );

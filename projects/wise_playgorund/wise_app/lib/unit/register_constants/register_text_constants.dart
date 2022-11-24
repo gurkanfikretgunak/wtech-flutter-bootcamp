@@ -1,9 +1,11 @@
 class RegisterTextConstants {
   static const String emailWidgetTopText = "Enter your email \naddress";
   static const String yourEmail = "Your email";
+  static const String password = "Password";
   static const String country = "Country";
   static const String yourPhone = "Your phone number:";
   static const String nextButtonText = "Next";
+  static const String registerButtonText = "Register";
   static const String sendCodeButtonText = "Send code";
   static const String enterCodeButtonText = "Continue";
   static const List<String> bottomTextList = [
@@ -28,6 +30,9 @@ class RegisterTextConstants {
 
   static const String accountTypeWidgetTopTextTitle =
       "What kind of account \nwould you like to open \ntoday?";
+
+  static const String createPasswordTopTextTitle =
+      "Create your password";
 
   static const String selectCountryWidgetTopTextTitle =
       "Your country of primary\nresidence";

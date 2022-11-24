@@ -21,6 +21,9 @@ export 'package:wise_app/unit/login_constants/login_text_constants.dart';
 export 'package:wise_app/unit/login_constants/login_constants.dart';
 export 'package:wise_app/widgets/login/login_custom_button.dart';
 export 'package:provider/provider.dart';
+export 'package:wise_app/widgets/register/create_password/create_password_register_button.dart';
+export 'package:wise_app/widgets/register/create_password/create_password_textfield.dart';
+export 'package:wise_app/widgets/register/create_password/create_password_top_text.dart';
 export 'package:wise_app/core/provider/unit_provider.dart';
 export 'package:wise_app/widgets/register/email_widgets/email_widget.dart';
 export 'package:wise_app/unit/register_constants/register_text_constants.dart';
@@ -38,4 +41,5 @@ export 'package:wise_app/widgets/register/select_country/select_country_next_but
 export 'package:wise_app/widgets/register/select_country/select_country_textfield.dart';
 export 'package:wise_app/widgets/register/select_country/select_country_top_text.dart';
 export 'package:wise_app/widgets/register/verify_phone/verify_phone_widget.dart';
+export 'package:wise_app/widgets/register/create_password/create_password_widget.dart';
 export 'package:wise_app/widgets/register/verify_phone/verify_phone_enter_code_widget.dart';

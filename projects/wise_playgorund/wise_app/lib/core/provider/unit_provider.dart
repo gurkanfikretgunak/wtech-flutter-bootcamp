@@ -95,6 +95,12 @@ class UnitProvider extends ChangeNotifier {
     }
     notifyListeners();
   }
+  //create password widget
+  final TextEditingController _registerTextControllerCreatePassword =
+  TextEditingController();
+  TextEditingController get registerTextControllerCreatePassword =>
+      _registerTextControllerCreatePassword;
+
 
   //Select Country Widget
   final TextEditingController _registerTextControllerSelectCountry =
