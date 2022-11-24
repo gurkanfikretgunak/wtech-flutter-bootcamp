@@ -14,10 +14,6 @@ abstract class NetworkService {
   Future<List<User>> getUsers();
 
   @POST('/users')
-  @FormUrlEncoded()
-  Future<User> loginUser(@Field('email') email, @Field('password') password);
-
-  @POST('/users')
   Future<User> createUser(@Body() User user);
 
   @GET('/events')
@@ -59,13 +55,16 @@ class Service {
     }
   }
 
-  Future<User> loginUser({required String email, required String password}) async {
+  Future<User?> isLogin(
+      {required String email, required String password}) async {
     try {
-      var response = await _networkService.loginUser(email, password);
-      Logger().i(response);
-      return response;
+      var response = await _networkService.getUsers();
+      return response
+          .where((element) => element.email == email)
+          .where((element) => element.password == password)
+          .first;
     } catch (e) {
-      return throw Exception(e);
+      return null;
     }
   }
 

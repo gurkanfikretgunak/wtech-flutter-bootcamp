@@ -3,12 +3,21 @@ import 'package:eventbrite_app/core/model/event/event.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:eventbrite_app/view/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Future<void> logged() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      String? id = prefs.getString('id');
+      Logger().i(id);
+    }
+
+    logged();
     bool isSelected = true;
     return Scaffold(
       body: isSelected ? const EventsView() : const WelcomeView(),
@@ -161,7 +170,10 @@ class SliverDropdown extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          !isScrolled ? Text('Find events in', style: Theme.of(context).textTheme.headline5) : const SizedBox(),
+          !isScrolled
+              ? Text('Find events in',
+                  style: Theme.of(context).textTheme.headline5)
+              : const SizedBox(),
           DropdownButton(
             value: 1,
             isExpanded: true,
@@ -178,28 +190,3 @@ class SliverDropdown extends StatelessWidget {
     );
   }
 }
-
-
-
-// Material(
-//       child: FutureBuilder(
-//         future: Service.instance.getEvents(),
-//         builder: (context, snapshot) {
-//           if (snapshot.hasData) {
-//             final List<Event>? users = snapshot.data;
-//             return ListView.builder(
-//               itemCount: users!.length,
-//               itemBuilder: (context, index) {
-//                 return ListTile(
-//                   title: Text(users[index].name ?? ''),
-//                 );
-//               },
-//             );
-//           } else {
-//             return const Center(
-//               child: CircularProgressIndicator(),
-//             );
-//           }
-//         },
-//       ),
-//     );
