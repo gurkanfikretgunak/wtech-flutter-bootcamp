@@ -18,14 +18,7 @@ class _LearnViewState extends State<LearnView> {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: CustomAppBar.customAppBar(
-        context: context,
-        leading: CustomTextButton(
-          onPressed: () {},
-          text: "Switch Catalog",
-        ),
-        isTrailing: true,
-      ),
+      isDrawer: true,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,

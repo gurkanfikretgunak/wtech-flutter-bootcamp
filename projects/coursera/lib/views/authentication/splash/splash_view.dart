@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
 
     Timer(
       const Duration(seconds: 2),
-      () => StorageUtil.getBool(SharedKeys.isLogin.toString())
+      () => StorageUtil.getBool(SharedKeys.isLogin)
           ? CustomNavigator.goToScreen(context, "/HomeView")
           : CustomNavigator.goToScreen(context, "/SignInView"),
     );

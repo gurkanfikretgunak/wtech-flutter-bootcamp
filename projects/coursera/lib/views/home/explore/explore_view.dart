@@ -2,7 +2,6 @@ import '../../../core/components/custom_scaffold.dart';
 import 'explore_custom_widget/free_courses_list.dart';
 import 'explore_custom_widget/most_popular_certificates_list.dart';
 import 'explore_custom_widget/topic_list.dart';
-import '../../../core/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/constant_libary.dart';
 
@@ -15,13 +14,7 @@ class ExploreView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: CustomAppBar.customAppBar(
-        leading: CustomTextButton(
-          onPressed: () {},
-          text: "Switch Catalog",
-        ),
-        context: context,
-      ),
+      isDrawer: true,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -61,20 +54,22 @@ class ExploreView extends StatelessWidget {
               color: ColorConstant.instance.appGreyDark,
               fontWeight: FontWeight.w600,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const CustomText(
-                  text: "Most Popular Certificates",
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600,
-                ),
-                CustomTextButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {},
-                  text: "See All",
-                )
-              ],
+            FittedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const CustomText(
+                    text: "Most Popular Certificates",
+                    fontSize: 23,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  CustomTextButton(
+                    padding: EdgeInsets.zero,
+                    onPressed: () {},
+                    text: "See All",
+                  )
+                ],
+              ),
             ),
             const MostPopularCertificatesList(),
             Row(

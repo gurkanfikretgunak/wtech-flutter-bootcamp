@@ -25,8 +25,12 @@ class StorageUtil {
     return _preferences!.setBool(key.toString(), value);
   }
 
-  static bool getBool(String key, {bool defValue = false}) {
+  static bool getBool(SharedKeys key, {bool defValue = false}) {
     if (_preferences == null) return defValue;
-    return _preferences!.getBool(key) ?? defValue;
+    return _preferences!.getBool(key.toString()) ?? defValue;
+  }
+
+  static Future<bool> removeKey(SharedKeys key) {
+    return _preferences!.remove(key.toString());
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../core/components/button/button_libary.dart';
-import '../../../core/components/custom_app_bar.dart';
 import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 
@@ -12,15 +11,7 @@ class ProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      appBar: CustomAppBar.customAppBar(
-        context: context,
-        leading: const SizedBox(),
-        trailing: CustomIconButton(
-          onPressed: () {},
-          icon: Icons.settings_outlined,
-          iconSize: 22,
-        ),
-      ),
+      isDrawer: true,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
