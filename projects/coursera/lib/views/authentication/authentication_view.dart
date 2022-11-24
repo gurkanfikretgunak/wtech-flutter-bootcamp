@@ -1,4 +1,4 @@
-import 'package:coursera/core/components/custom_scaffold.dart';
+import '../../core/components/custom_scaffold.dart';
 
 import 'authentication_custom_widget/terms_text.dart';
 import '../../core/components/custom_app_bar.dart';

@@ -1,4 +1,4 @@
-import 'package:coursera/core/components/custom_scaffold.dart';
+import '../../../core/components/custom_scaffold.dart';
 import 'explore_custom_widget/free_courses_list.dart';
 import 'explore_custom_widget/most_popular_certificates_list.dart';
 import 'explore_custom_widget/topic_list.dart';

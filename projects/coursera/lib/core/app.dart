@@ -1,8 +1,9 @@
-import 'provider/multi_provider_init.dart';
-import 'init/themes/custom_theme.dart';
-import 'init/routes/on_generate_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'init/routes/on_generate_routes.dart';
+import 'init/themes/custom_theme.dart';
+import 'provider/multi_provider_init.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);

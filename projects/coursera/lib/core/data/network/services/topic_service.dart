@@ -1,4 +1,4 @@
-import 'package:coursera/core/base/base_service.dart';
+import '../../../base/base_service.dart';
 
 import '../../model/topic.dart';
 

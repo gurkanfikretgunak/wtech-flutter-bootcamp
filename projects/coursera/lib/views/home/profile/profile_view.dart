@@ -1,10 +1,9 @@
-import 'package:coursera/core/components/custom_scaffold.dart';
-
-import '../../../core/components/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
 import '../../../core/components/button/button_libary.dart';
+import '../../../core/components/custom_app_bar.dart';
+import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 
 class ProfileView extends StatelessWidget {

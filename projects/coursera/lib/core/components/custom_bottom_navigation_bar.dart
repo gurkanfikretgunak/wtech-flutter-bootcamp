@@ -1,6 +1,7 @@
-import '../provider/bottom_nav_bar_state.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../provider/bottom_nav_bar_state.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});

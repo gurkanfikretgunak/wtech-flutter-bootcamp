@@ -1,5 +1,5 @@
-import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
+import 'package:retrofit/retrofit.dart';
 
 import '../../model/course.dart';
 import '../../model/topic.dart';

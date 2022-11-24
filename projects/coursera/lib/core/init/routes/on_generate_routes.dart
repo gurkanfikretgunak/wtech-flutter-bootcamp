@@ -1,9 +1,10 @@
-import '../../../views/authentication/sign_in/sign_in_with_organization/sign_in_with_organization.view.dart';
-import '../../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view.dart';
-import '../../../views/authentication/sign_up/sign_up_view.dart';
-import '../../../views/home/home_view.dart';
-import '../../../views/authentication/splash/splash_view.dart';
 import 'package:flutter/material.dart';
+
+import '../../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view.dart';
+import '../../../views/authentication/sign_in/sign_in_with_organization/sign_in_with_organization.view.dart';
+import '../../../views/authentication/sign_up/sign_up_view.dart';
+import '../../../views/authentication/splash/splash_view.dart';
+import '../../../views/home/home_view.dart';
 
 class NavigationRoute {
   NavigationRoute._init();

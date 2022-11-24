@@ -1,11 +1,13 @@
 import 'dart:async';
-import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
+
+import 'package:flutter/material.dart';
+
+import '../../../../../core/constants/constant_libary.dart';
+import '../../../core/components/custom_logo.dart';
 import '../../../core/components/custom_scaffold.dart';
+import '../../../core/data/enum/shared_prefence_keys.dart';
 import '../../../core/init/cache/shared_manager.dart';
 import '../../../core/init/routes/custom_navigator.dart';
-import '../../../core/components/custom_logo.dart';
-import 'package:flutter/material.dart';
-import '../../../../../core/constants/constant_libary.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});

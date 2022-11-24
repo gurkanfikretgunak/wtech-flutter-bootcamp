@@ -1,4 +1,4 @@
-import 'package:coursera/core/data/network/services/user_service.dart';
+import '../../../core/data/network/services/user_service.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 

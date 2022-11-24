@@ -1,8 +1,8 @@
-import 'custom_divider.dart';
-import 'text/text_libary.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/constant_libary.dart';
+import 'custom_divider.dart';
+import 'text/text_libary.dart';
 
 class CustomOrText extends StatelessWidget {
   const CustomOrText({super.key});

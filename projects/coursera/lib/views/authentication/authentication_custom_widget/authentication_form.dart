@@ -1,13 +1,13 @@
-import 'package:logger/logger.dart';
-
-import '../sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
-import '../../../core/constants/constant_libary.dart';
+
 import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/text/text_libary.dart';
+import '../../../core/constants/constant_libary.dart';
 import '../sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
+import '../sign_up/sign_up_view_model.dart';
 
 class AuthenticationFormWidget extends StatefulWidget {
   const AuthenticationFormWidget({

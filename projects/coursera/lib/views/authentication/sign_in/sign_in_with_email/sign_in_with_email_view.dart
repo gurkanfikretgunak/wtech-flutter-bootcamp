@@ -1,9 +1,9 @@
-import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
-import 'package:coursera/core/data/network/services/user_service.dart';
-import 'package:coursera/core/init/cache/shared_manager.dart';
-import 'package:coursera/core/init/routes/custom_navigator.dart';
-import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_text_form_field_model.dart';
-import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
+import '../../../../core/data/enum/shared_prefence_keys.dart';
+import '../../../../core/data/network/services/user_service.dart';
+import '../../../../core/init/cache/shared_manager.dart';
+import '../../../../core/init/routes/custom_navigator.dart';
+import 'sign_in_text_form_field_model.dart';
+import 'sign_in_with_email_view_model.dart';
 
 import '../../../../core/constants/color_constant.dart';
 import '../../../../core/data/model/user.dart';
