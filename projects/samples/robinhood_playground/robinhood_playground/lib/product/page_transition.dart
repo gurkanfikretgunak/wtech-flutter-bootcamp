@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:robinhood_playground/provider/page_transition_provider.dart';
+
+import '../core/constant/page_transicition_page_name.dart';
 
 class PageTransition extends StatefulWidget {
   const PageTransition({super.key});
@@ -10,11 +14,16 @@ class PageTransition extends StatefulWidget {
 class _PageTransitionState extends State<PageTransition> {
   @override
   Widget build(BuildContext context) {
+    int currentIndex = context.watch<PageTransicitionProvider>().currentIndex;
     return ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount: 4,
+      itemCount: PageTranscitionPageName.path.length,
       itemBuilder: (context, index) {
-        return _FillContainer(color: PageTranitionColor.grey.getColor());
+        return _FillContainer(
+          color: index == currentIndex
+              ? PageTranitionColor.black.getColor()
+              : PageTranitionColor.grey.getColor(),
+        );
       },
     );
   }

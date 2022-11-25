@@ -1,1 +1,1 @@
-enum NavigateRoutes { onboarding, enterview, emailsignup, passwordsignup, firslastname }
+enum NavigateRoutes { onboarding, enterview, emailsignup, passwordsignup, firslastname, telephonenumber}

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:robinhood_playground/views/onboarding_pageview/cover_onboarding.dart';
-import 'package:robinhood_playground/views/onboarding_pageview/investing_onboarding.dart';
-import 'package:robinhood_playground/views/onboarding_pageview/start_onboarding.dart';
-import 'package:robinhood_playground/views/onboarding_pageview/welcome_onboarding.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/constant/page_transicition_page_name.dart';
+import '../../provider/page_transition_provider.dart';
 
 class EnterView extends StatefulWidget {
   const EnterView({super.key});
@@ -13,28 +13,23 @@ class EnterView extends StatefulWidget {
 
 class _EnterViewState extends State<EnterView> {
   final _pageController = PageController(viewportFraction: 1);
-  int _currentPageIndex = 0;
-
-  void _updatePageIndex(int index) {
-    setState(() {
-      _currentPageIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return PageView(
+    return PageView.builder(
       scrollDirection: Axis.horizontal,
       padEnds: true,
       pageSnapping: true,
       controller: _pageController,
-      onPageChanged: _updatePageIndex,
-      children: const [
-        WelcomeOnBoarding(),
-        InvestingOnBoarding(),
-        StartOnboarding(),
-        CoverOnBoarding(),
-      ],
+      itemCount: PageTranscitionPageName.path.length,
+      onPageChanged: (value) =>
+          context.read<PageTransicitionProvider>().changeTransicition(value),
+      itemBuilder: (context, index) {
+        return PageTranscitionPageName.path[index];
+      },
     );
   }
 }
+
+
+

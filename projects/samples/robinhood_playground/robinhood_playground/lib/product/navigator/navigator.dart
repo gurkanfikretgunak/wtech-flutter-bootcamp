@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
+
 import 'navigator_library.dart';
 
 class NavigatorCustom {
@@ -18,8 +19,9 @@ class NavigatorCustom {
         return _navigateToNormal(const GetPasswordView());
       case NavigateRoutes.firslastname:
         return _navigateToNormal(const FirsAndLastNameView());
+      case NavigateRoutes.telephonenumber:
+        return _navigateToNormal(const GetTelephoneNumberView());
     }
-    
   }
 
   Route<dynamic>? _navigateToNormal(Widget child) {

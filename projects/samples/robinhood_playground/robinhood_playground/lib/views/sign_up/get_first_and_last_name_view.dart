@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
 import 'package:robinhood_playground/user_cache/shared_manager.dart';
 import 'package:robinhood_playground/widget/signup/first_name_text_field.dart';
@@ -110,6 +111,7 @@ class _FirsAndLastNameViewState extends State<FirsAndLastNameView> {
     if (_firsNameController.text.isNotEmpty &&
         _lastNameController.text.isNotEmpty) {
       _saveName();
+      Navigator.of(context).pushNamed(NavigateRoutes.telephonenumber.name);
     }
   }
 
