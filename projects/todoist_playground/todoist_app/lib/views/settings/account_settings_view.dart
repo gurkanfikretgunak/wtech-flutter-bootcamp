@@ -125,8 +125,6 @@ class CustomAccCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
-
     return GestureDetector(
       onTap: () {
         CustomMethods.settingModalBottomSheet(context, const ChangePasswordView());
@@ -138,14 +136,13 @@ class CustomAccCard extends StatelessWidget {
               width: 400,
               height: 50,
               child: Padding(
-                  padding: const EdgeInsets.only(top: 13.0, left: 15.0),
-                  child: Consumer<UserProfilePrefProvider>(builder: (context, value, child) {
-                    return Text(redButton,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headline2
-                            ?.copyWith(fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal));
-                  })))),
+                padding: const EdgeInsets.only(top: 13.0, left: 15.0),
+                child: Text(redButton,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline2
+                        ?.copyWith(fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal)),
+              ))),
     );
   }
 }

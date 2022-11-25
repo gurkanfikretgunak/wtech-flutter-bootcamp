@@ -71,6 +71,8 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                                   await data.updateUser(passwordController.text.toString().replaceAll(" ", ""));
 
                               if (isCheck) {
+                                // ignore: use_build_context_synchronously
+                                Navigator.pop(context);
                                 final snackBar = SnackBar(
                                   content: const Text('Change Your Password!'),
                                   action: SnackBarAction(
@@ -82,6 +84,9 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
                                 // ignore: use_build_context_synchronously
                                 ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               } else {
+                                // ignore: use_build_context_synchronously
+                                Navigator.pop(context);
+
                                 // ignore: use_build_context_synchronously
                                 final snackBar = SnackBar(
                                   content: const Text('ERROR!'),

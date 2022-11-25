@@ -5,7 +5,7 @@ class CustomSettingsText {
   static const passwordText = "PASSWORD";
   static const nurEmailText = "nurperker@gmail.com";
   static const nurNameText = "Nur Perker";
-  static const changePassText = "Change Password";
+  static const changePassText = "CHANGE PASSWORD";
   static const deleteAccountText = "Delete Account";
   static const settingsText = "Settings";
   static const loggedInAsText = "Logged in as: nur@gmail.com";
