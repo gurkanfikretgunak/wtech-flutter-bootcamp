@@ -10,8 +10,7 @@ Users _$UsersFromJson(Map<String, dynamic> json) => Users(
       email: json['email'] as String?,
       name: json['name'] as String?,
       password: json['password'] as String?,
-      id: json['id'] as String?,
-      status: json['status'] as bool?,
+      id: json['id'] as int?,
     );
 
 Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{
@@ -19,5 +18,4 @@ Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{
       'name': instance.name,
       'password': instance.password,
       'id': instance.id,
-      'status': instance.status,
     };
