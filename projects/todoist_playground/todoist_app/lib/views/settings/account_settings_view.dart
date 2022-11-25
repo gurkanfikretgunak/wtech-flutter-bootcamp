@@ -113,3 +113,37 @@ class CustomAccountCard extends StatelessWidget {
                 }))));
   }
 }
+
+class CustomAccCard extends StatelessWidget {
+  const CustomAccCard({
+    Key? key,
+    required this.redButton,
+  }) : super(key: key);
+  final String redButton;
+
+  @override
+  Widget build(BuildContext context) {
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
+    return GestureDetector(
+      onTap: () {
+        _serviceProvider.updateUser(context);
+      },
+      child: Card(
+          elevation: 0,
+          shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
+          child: SizedBox(
+              width: 400,
+              height: 50,
+              child: Padding(
+                  padding: const EdgeInsets.only(top: 13.0, left: 15.0),
+                  child: Consumer<UserProfilePrefProvider>(builder: (context, value, child) {
+                    return Text(redButton,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline2
+                            ?.copyWith(fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal));
+                  })))),
+    );
+  }
+}
