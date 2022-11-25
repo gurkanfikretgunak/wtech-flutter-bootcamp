@@ -6,50 +6,68 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../core/init/database/sqllite_deneme2.dart';
 import '../core/init/sqllite_deneme.dart';
 
-class SqlLearnView extends StatefulWidget {
-  const SqlLearnView({super.key});
+class SqlLearn extends StatefulWidget {
+  const SqlLearn({super.key});
 
   @override
-  State<SqlLearnView> createState() => SqlLearnViewState();
+  State<SqlLearn> createState() => SqlLearnState();
 }
 
-class SqlLearnViewState extends State<SqlLearnView> {
+class SqlLearnState extends State<SqlLearn> {
+
+  late DataBase handler;
+  Future<int> addUser() async{
+    MyUserModel mainUser = MyUserModel(id: 1, useremail: "aaaa@aaa.com", username: "ulasfather");
+
+    List<MyUserModel> myusermodel = [mainUser];
+    return await handler.insertUser(myusermodel);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    handler = DataBase();
+    handler.initializeDB().whenComplete(() async {
+      await addUser();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(),
-
-      body: Center(
-        child: FutureBuilder<List<OrjinUserModel>>(
-          future: DatabaseHelper.instance.getUser(),
-          builder: (context, AsyncSnapshot<List<OrjinUserModel>> snapshot) {
-            if(!snapshot.hasData){
-              return Center(child: Text("loading..."));
-            }
-            return  snapshot.data!.isEmpty ? Center(child: Text("data yok!"),)
-            :ListView(
-              children: 
-                snapshot.data!.map((userdb) {
-                  return Center(
+        body: FutureBuilder(
+          future: handler.retrieveUser(1),
+          builder:
+              (BuildContext context, AsyncSnapshot<List<MyUserModel>> snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data?.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return Card(
                     child: ListTile(
-                      title: Text(userdb.userName),
+                      contentPadding: const EdgeInsets.all(8.0),
+                      title: Row(
+                        children: [
+                          Text(snapshot.data![index].username),
+                          const Padding(padding: EdgeInsets.all(8.0)),
+                          Text(snapshot.data![index].useremail)
+                        ],
+                      ),
+                      subtitle: Text(snapshot.data![index].id.toString()),
                     ),
                   );
-                }).toList(),
-              
-            );
-            
+                },
+              );
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
           },
         ),
-      ),
-      floatingActionButton: IconButton(onPressed: () async {
-        await DatabaseHelper.instance.addUser(
-          OrjinUserModel(userName: 'ulasfather', userEmail: 'aaaaaaaaaaaaa@aaaaaa.aaaa')
-        );
-      }, icon: Icon(Icons.add)),
-    );
+      );
+    
   }
 }

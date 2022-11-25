@@ -59,6 +59,8 @@ class DatabaseHelper{
     );
   }  // TABLE OLUŞTURMA FONKSİYONUMUZU YAZDIK, SIRADA GET DATA
 
+  
+
   Future<List<OrjinUserModel>> getUser() async {
     Database db = await instance.database;
     var orjinusermodel = await db.query('userdb',orderBy: 'userName');
@@ -69,7 +71,8 @@ class DatabaseHelper{
     return userList;  
   }
 
-  Future<int> addUser(OrjinUserModel orjinusermodel) async{
+  Future addUser(OrjinUserModel orjinusermodel) async{
+    
     Database db = await instance.database;
     return await db.insert('orjinusermodel',orjinusermodel.toMap());
   }

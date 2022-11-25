@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const SqlLearnView(),
+        home: const SqlLearn(),
       ),
       
     );
