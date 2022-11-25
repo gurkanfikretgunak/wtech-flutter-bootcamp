@@ -36,6 +36,12 @@ class RegisterStyle {
     color: provider.topLoginTextColor,
   );
 
+  static TextStyle registerAllDoneContentStyle = TextStyle(color: Colors.grey.shade400,fontSize: 17);
+  static TextStyle registerAllDoneTitleStyle =const TextStyle(
+      color: Colors.white,
+      fontWeight: FontWeight.w500,
+      fontSize: 28);
+
   static ButtonStyle nextButtonStyle = ElevatedButton.styleFrom(
       side: const BorderSide(color: Colors.blue),
       backgroundColor: const Color.fromRGBO(73, 159, 216, 1));

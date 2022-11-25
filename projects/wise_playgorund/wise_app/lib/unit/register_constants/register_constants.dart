@@ -4,5 +4,6 @@ class RegisterConstants {
   static const double topPaddingSize = 40.0;
   static const double topPaddingSizeCountry = 20.0;
   static const double emailTopPaddingSize = 8.0;
+  static const double allDoneIconSize = 120;
 
 }

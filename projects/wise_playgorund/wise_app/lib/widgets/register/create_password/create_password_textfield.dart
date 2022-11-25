@@ -25,9 +25,6 @@ class RegisterCreatePasswordTextField extends StatelessWidget {
           child: TextField(
               controller: provider.registerTextControllerCreatePassword,
               obscureText: provider.isObscure,
-              onChanged: (e) {
-                provider.registerEmailCheckSufficIcon(e);
-              },
               decoration: InputDecoration(
                 alignLabelWithHint: true,
                 suffixIcon: IconButton(

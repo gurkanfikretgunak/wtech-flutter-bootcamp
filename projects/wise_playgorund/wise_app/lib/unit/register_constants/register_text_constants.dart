@@ -5,7 +5,9 @@ class RegisterTextConstants {
   static const String country = "Country";
   static const String yourPhone = "Your phone number:";
   static const String nextButtonText = "Next";
+  static const String allDoneIconBottomText = "All done";
   static const String registerButtonText = "Register";
+  static const String gotItButtonText = "Got it";
   static const String sendCodeButtonText = "Send code";
   static const String enterCodeButtonText = "Continue";
   static const List<String> bottomTextList = [
@@ -54,4 +56,7 @@ class RegisterTextConstants {
 
   static const String verifyPhoneEnterCodeTopTextContent =
       "Enter the security code we sent to *******2380";
+
+  static const String allDoneContentText =
+      "You can now use your biometrics to log in and approve transactions";
 }

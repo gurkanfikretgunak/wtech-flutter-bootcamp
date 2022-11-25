@@ -21,6 +21,7 @@ export 'package:wise_app/unit/login_constants/login_text_constants.dart';
 export 'package:wise_app/unit/login_constants/login_constants.dart';
 export 'package:wise_app/widgets/login/login_custom_button.dart';
 export 'package:provider/provider.dart';
+export 'package:wise_app/widgets/register/all_done/register_all_done_widget.dart';
 export 'package:wise_app/widgets/register/create_password/create_password_register_button.dart';
 export 'package:wise_app/widgets/register/create_password/create_password_textfield.dart';
 export 'package:wise_app/widgets/register/create_password/create_password_top_text.dart';

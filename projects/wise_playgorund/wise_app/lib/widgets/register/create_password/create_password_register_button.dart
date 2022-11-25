@@ -17,7 +17,10 @@ class CreatePasswordRegisterButton extends StatelessWidget {
       child: ElevatedButton(
           style: RegisterStyle.nextButtonStyle,
           onPressed: () {
-            //Navigator.push(context, MaterialPageRoute(builder: (context)=>AccountTypeWidget()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const RegisterAllDoneWidget()));
           },
           child: Text(
             RegisterTextConstants.registerButtonText,

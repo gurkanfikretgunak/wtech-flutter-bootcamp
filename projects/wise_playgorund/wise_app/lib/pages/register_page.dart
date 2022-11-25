@@ -18,7 +18,7 @@ class _RegisterPageState extends State<RegisterPage> {
         backgroundColor: provider.appBarColor,
         iconTheme: provider.appBarButtonColor,
         leading: IconButton(
-          icon: const Icon(Icons.cancel_outlined),
+          icon: const Icon(Icons.clear),
           color: Colors.blue,
           onPressed: () {
             Navigator.pop(context);
