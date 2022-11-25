@@ -9,14 +9,14 @@ import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
 
-class LoginPasswordView extends StatefulWidget {
-  const LoginPasswordView({Key? key, this.emailController}) : super(key: key);
+class ChangePasswordView extends StatefulWidget {
+  const ChangePasswordView({Key? key, this.emailController}) : super(key: key);
   final TextEditingController? emailController;
   @override
-  State<LoginPasswordView> createState() => _LoginPasswordViewState();
+  State<ChangePasswordView> createState() => _ChangePasswordViewState();
 }
 
-class _LoginPasswordViewState extends State<LoginPasswordView> {
+class _ChangePasswordViewState extends State<ChangePasswordView> {
   TextEditingController passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -36,20 +36,13 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                   },
                   icon: const Icon(Icons.arrow_back_ios)),
               Text(
-                CustomTextConstants.logWithPasswordText,
+                "Change your Password",
                 style: Theme.of(context).textTheme.headline1,
               ),
             ]),
           ),
-          Text.rich(
-            TextSpan(
-                text: 'Using ', // default text style
-                children: <TextSpan>[
-                  TextSpan(text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  const TextSpan(text: ' to log in.'),
-                ],
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
-          ),
+          Text("Please enter your new password.",
+              style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
           Padding(
             padding: const EdgeInsets.only(top: 50.0),
             child: SizedBox(
@@ -71,31 +64,40 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                   Consumer<ServiceProvider>(builder: (context, data, child) {
                     return Consumer<FormProvider>(builder: (context, value, child) {
                       return CustomAuthButton(
-                          buttonTexts: CustomTextConstants.buttonTextEmail,
+                          buttonTexts: "Reset your Password",
                           onPressed: () async {
                             if (value.passwordValidate) {
                               bool isCheck =
-                                  await data.passwordCheck(widget.emailController!.text, passwordController.text);
+                                  await data.updateUser(passwordController.text.toString().replaceAll(" ", ""));
 
                               if (isCheck) {
+                                final snackBar = SnackBar(
+                                  content: const Text('Change Your Password!'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {},
+                                  ),
+                                );
+
                                 // ignore: use_build_context_synchronously
-                                Navigator.pushNamed(context, loadingRoute);
-                                await loginAction();
-                                // ignore: use_build_context_synchronously
-                                Navigator.pushNamed(context, homeRoute);
+                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               } else {
                                 // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());
+                                final snackBar = SnackBar(
+                                  content: const Text('ERROR!'),
+                                  action: SnackBarAction(
+                                    label: 'Undo',
+                                    onPressed: () {},
+                                  ),
+                                );
+
+                                // ignore: use_build_context_synchronously
+                                ScaffoldMessenger.of(context).showSnackBar(snackBar);
                               }
                             }
                           });
                     });
                   }),
-                  Center(
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Text(CustomTextConstants.forgotPasswordText,
-                              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 13))))
                 ],
               ),
             ),

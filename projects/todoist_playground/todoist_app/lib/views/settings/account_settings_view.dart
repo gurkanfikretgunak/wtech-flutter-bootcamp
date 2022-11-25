@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
+import 'package:todoist_app/views/settings/change_password_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import '../../constants/text/settings_page_custom.dart';
 import '../../core/provider/user_profile_provider.dart';
+import '../../widgets/custom_methods.dart';
 import '../../widgets/preferred_app_bar_widgets.dart';
 
 class AccountSettingView extends StatefulWidget {
@@ -60,7 +62,7 @@ class _AccountSettingViewState extends State<AccountSettingView> {
                             width: 340,
                             child: Text(CustomSettingsText.passwordText,
                                 style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 14))),
-                        const CustomAccountCard(redButton: CustomSettingsText.changePassText)
+                        const CustomAccCard(redButton: CustomSettingsText.changePassText)
                       ])),
                   const CustomLogOutCard(redText: CustomSettingsText.deleteAccountText)
                 ]))));
@@ -127,7 +129,7 @@ class CustomAccCard extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        _serviceProvider.updateUser(context);
+        CustomMethods.settingModalBottomSheet(context, const ChangePasswordView());
       },
       child: Card(
           elevation: 0,

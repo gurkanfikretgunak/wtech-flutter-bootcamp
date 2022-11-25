@@ -67,7 +67,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                           buttonTexts: CustomTextConstants.buttonTextEmail,
                           onPressed: () async {
                             if (value.emailValidate) {
-                              bool isCheck = await data.fetchUser(emailController.text, null);
+                              bool isCheck = await data.fetchUser(emailController.text);
                               if (isCheck) {
                                 // ignore: use_build_context_synchronously
                                 CustomMethods.settingModalBottomSheet(

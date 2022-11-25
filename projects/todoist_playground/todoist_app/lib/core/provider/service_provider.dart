@@ -7,9 +7,22 @@ class ServiceProvider with ChangeNotifier {
   List<Users> response = [];
   String userName = "";
   String userEmail = "";
-  int idUser = 0;
+  String idUser = "";
   String passwordUser = "";
-  Future<bool> fetchUser(email, password) async {
+  Future<bool> passwordCheck(email, password) async {
+    final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
+        baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
+    response = await client.getUsers();
+    notifyListeners();
+    for (var item in response) {
+      if (item.password == password && item.email == email) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  Future<bool> fetchUser(email) async {
     final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
         baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
     response = await client.getUsers();
@@ -18,10 +31,8 @@ class ServiceProvider with ChangeNotifier {
       if (item.email == email) {
         userEmail = email;
         userName = item.name!;
-        idUser = item.id!;
+        idUser = item.id!.toString();
         passwordUser = item.password!;
-        return true;
-      } else if (item.password == password) {
         return true;
       }
     }

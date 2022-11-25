@@ -7,7 +7,7 @@ class Users {
   String? email;
   String? name;
   String? password;
-  int? id;
+  String? id;
 
   Users({this.email, this.name, this.password, this.id});
 
