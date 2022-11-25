@@ -15,6 +15,7 @@ class CustomIconButtonWithLabelWidget extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
+            radius: 30,
             backgroundColor: Colors.black12,
             child: IconButton(
               color: Colors.black,

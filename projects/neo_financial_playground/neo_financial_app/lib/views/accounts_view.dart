@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_appbar_widget.dart';
 import '../widgets/custom_card_widget.dart';
 
 class AccountsView extends StatelessWidget {
@@ -6,17 +7,16 @@ class AccountsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double dynamicSize = MediaQuery.of(context).size.width;
     String amount = '0.00';
 
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          appBar: AppBar(
-            leadingWidth: dynamicSize / 3,
-            leading: Padding(
-              padding: const EdgeInsets.only(left: 20.0, top: 5, bottom: 5),
-              child: ElevatedButton(
+          appBar: PreferredSize(
+            preferredSize:
+                Size.fromHeight(MediaQuery.of(context).size.height / 15),
+            child: CustomAppbarWidget(
+              leftWidget: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   shape: const StadiumBorder(),
                 ),
@@ -31,32 +31,32 @@ class AccountsView extends StatelessWidget {
                 ),
                 onPressed: () {},
               ),
-            ),
-            actions: [
-              CircleAvatar(
-                backgroundColor: Colors.black12,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.notifications_outlined,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                child: CircleAvatar(
+              rightWidgetList: [
+                CircleAvatar(
                   backgroundColor: Colors.black12,
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
-                      Icons.person,
+                      Icons.notifications_outlined,
                       color: Colors.black,
                     ),
                   ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.black12,
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.person,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
           body: Container(
               padding: const EdgeInsets.all(15),
@@ -100,7 +100,7 @@ class AccountsView extends StatelessWidget {
                       itemCount: 5,
                       itemBuilder: (BuildContext context, int index) =>
                           SizedBox(
-                        width: dynamicSize - 50,
+                        width: MediaQuery.of(context).size.width - 50,
                         child: const CustomCardWidget(
                           image: 'assets/images/homepage-card.jpg',
                           imageLabel: 'Neo Card',

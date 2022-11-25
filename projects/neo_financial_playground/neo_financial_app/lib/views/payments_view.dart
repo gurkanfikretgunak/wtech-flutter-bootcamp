@@ -70,6 +70,7 @@ class PaymentsView extends StatelessWidget {
                             title: 'Autodeposit',
                             body:
                                 'Get Interac e-Transfers® deposited directly into your account.',
+                            color: Colors.blue.shade100,
                             button: TextButton(
                                 onPressed: () {},
                                 style: TextButton.styleFrom(
@@ -81,6 +82,7 @@ class PaymentsView extends StatelessWidget {
                                   ],
                                 )),
                             bottomRightWidget: null,
+                            isCloseButtonActive: true,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -35,16 +35,21 @@ class CustomTheme {
               foregroundColor: Colors.black,
               backgroundColor: Colors.white)),
       textTheme: TextTheme(
-          bodySmall: const TextStyle(fontSize: 14),
-          bodyMedium: const TextStyle(color: Colors.black, fontSize: 17),
-          titleLarge: const TextStyle(
-              color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
-          labelMedium: const TextStyle(
-              color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
-          headlineLarge: GoogleFonts.ebGaramond(
-              color: Colors.black, fontWeight: FontWeight.w500),
-          displayLarge: GoogleFonts.ebGaramond(
-              fontSize: 90, color: Colors.white, fontWeight: FontWeight.bold)),
+        bodySmall: const TextStyle(fontSize: 14),
+        bodyMedium: const TextStyle(color: Colors.black, fontSize: 17),
+        titleLarge: const TextStyle(
+            color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
+        labelMedium: const TextStyle(
+            color: Colors.black, fontSize: 32, fontWeight: FontWeight.bold),
+        headlineLarge: GoogleFonts.ebGaramond(
+            color: Colors.black, fontWeight: FontWeight.w500),
+        displayLarge: GoogleFonts.ebGaramond(
+            fontSize: 90, color: Colors.white, fontWeight: FontWeight.bold),
+        displayMedium: GoogleFonts.ebGaramond(
+            fontSize: 70,
+            color: const Color(0xffc1ab7c),
+            fontWeight: FontWeight.bold),
+      ),
       //iconTheme: const IconThemeData(color: Colors.black54),
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.black,

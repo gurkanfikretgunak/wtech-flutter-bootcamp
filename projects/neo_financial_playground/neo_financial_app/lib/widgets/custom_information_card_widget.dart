@@ -2,14 +2,18 @@ import 'package:flutter/material.dart';
 
 class CustomInformationCardWidget extends StatelessWidget {
   final String title, body;
+  final Color color;
   final Widget button;
   final Widget? bottomRightWidget;
+  final bool isCloseButtonActive;
   const CustomInformationCardWidget({
     Key? key,
     required this.title,
     required this.body,
+    required this.color,
     required this.button,
     required this.bottomRightWidget,
+    required this.isCloseButtonActive,
   }) : super(key: key);
 
   @override
@@ -18,7 +22,7 @@ class CustomInformationCardWidget extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 15),
       width: double.infinity,
       decoration: BoxDecoration(
-        color: Colors.blue[100],
+        color: color,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
@@ -26,13 +30,15 @@ class CustomInformationCardWidget extends StatelessWidget {
         child: Stack(children: [
           Align(
             alignment: Alignment.topRight,
-            child: TextButton(
-              onPressed: () {},
-              child: const Icon(
-                Icons.close,
-                color: Colors.grey,
-              ),
-            ),
+            child: isCloseButtonActive
+                ? TextButton(
+                    onPressed: () {},
+                    child: const Icon(
+                      Icons.close,
+                      color: Colors.grey,
+                    ),
+                  )
+                : null,
           ),
           Padding(
             padding: const EdgeInsets.only(
