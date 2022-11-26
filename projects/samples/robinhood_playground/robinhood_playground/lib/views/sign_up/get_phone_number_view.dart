@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
+import 'package:robinhood_playground/core/data/model/user.dart';
+import 'package:robinhood_playground/core/data/service/api.service.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
 import 'package:robinhood_playground/provider/country_code_provider.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
@@ -102,11 +104,24 @@ class _GetTelephoneNumberViewState extends State<GetTelephoneNumberView> {
     );
   }
 
-  void _saveAndNavigate() {
+  void _saveAndNavigate() async {
     String phoneNumber =
         context.read<CountryCodeProvider>().currentCountryCode +
             _telephoneController.text;
     SharedManager.instance.setStringValue(SharedKeys.phoneNumber, phoneNumber);
+    UserModel user = getUserInformation();
+    await ApiService().postUser(user);
+  }
+
+  UserModel getUserInformation() {
+    return UserModel(
+      email: SharedManager.instance.getStringValue(SharedKeys.email),
+      password: SharedManager.instance.getStringValue(SharedKeys.password),
+      firstName: SharedManager.instance.getStringValue(SharedKeys.firstName),
+      lastName: SharedManager.instance.getStringValue(SharedKeys.lastName),
+      telephoneNumber:
+          SharedManager.instance.getStringValue(SharedKeys.phoneNumber),
+    );
   }
 }
 

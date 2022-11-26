@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:robinhood_playground/core/data/model/user.dart';
 import 'package:logger/logger.dart';
@@ -20,5 +22,12 @@ class ApiService {
     }
 
     return null;
+  }
+
+  Future<void> postUser(UserModel model) async {
+    final response = await dio.post('users', data: model);
+    if (response.statusCode == HttpStatus.created) {
+      logger.i(model);
+    }
   }
 }
