@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/themes/custom_theme_data.dart';
 import 'package:robinhood_playground/product/navigator/navigator.dart';
 import 'package:provider/provider.dart';
+import 'package:robinhood_playground/provider/country_code_provider.dart';
 import 'package:robinhood_playground/views/onboarding_stock_views.dart';
-
 import '../provider/page_transition_provider.dart';
 
 class App extends StatelessWidget {
@@ -13,7 +13,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => PageTransicitionProvider(),)
+        ChangeNotifierProvider(create: (context) => PageTransicitionProvider(),),
+        ChangeNotifierProvider(create: (context) => CountryCodeProvider(),),
       ],
       child: MaterialApp(
         //showPerformanceOverlay: true,

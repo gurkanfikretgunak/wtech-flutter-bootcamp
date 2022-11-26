@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:robinhood_playground/provider/country_code_provider.dart';
 
 class TelephoneNumberTextField extends StatefulWidget {
   const TelephoneNumberTextField(
@@ -13,7 +15,6 @@ class TelephoneNumberTextField extends StatefulWidget {
 }
 
 class _TelephoneNumberTextFieldState extends State<TelephoneNumberTextField> {
-  final String _countryCode = '+1';
   @override
   Widget build(BuildContext context) {
     return TextField(
@@ -21,14 +22,13 @@ class _TelephoneNumberTextFieldState extends State<TelephoneNumberTextField> {
       keyboardType: TextInputType.number,
       autofocus: false,
       autofillHints: const [AutofillHints.telephoneNumber],
-      //textAlign: TextAlign.center,
       decoration: InputDecoration(
           prefixStyle: const TextStyle(color: Colors.black),
           prefix: Padding(
             padding: EdgeInsets.only(
                 left: MediaQuery.of(context).size.width / 4, right: 4),
             child: Text(
-              _countryCode,
+              context.read<CountryCodeProvider>().currentCountryCode,
               style: Theme.of(context)
                   .textTheme
                   .subtitle1

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/widget/signup/phone_code_sheet.dart';
 import 'package:robinhood_playground/widget/signup/sign_up_description.dart';
 
 import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
-import 'package:robinhood_playground/widget/signup/telephone_number_textfield.dart';
+import 'package:robinhood_playground/widget/signup/phone_number_textfield.dart';
 
 class GetTelephoneNumberView extends StatefulWidget {
   const GetTelephoneNumberView({super.key});
@@ -64,7 +65,13 @@ class _GetTelephoneNumberViewState extends State<GetTelephoneNumberView> {
           ),
           InkWell(
               onTap: () {
-                debugPrint('Tıklandı');
+                showModalBottomSheet(
+                  isScrollControlled: true,
+                  context: context,
+                  builder: (context) {
+                    return const PhoneCodeSheet();
+                  },
+                );
               },
               child: Padding(
                 padding: EdgeInsets.only(
@@ -83,9 +90,7 @@ class _GetTelephoneNumberViewState extends State<GetTelephoneNumberView> {
               child: GenerealButton(
                 text: _TelephoneNumberText.continueButton,
                 backgroundColor: GeneralButtonColor.black.getColor(),
-                onPressed: () {
-                  debugPrint('dss');
-                },
+                onPressed: () {},
               ),
             ),
           )
