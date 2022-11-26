@@ -135,7 +135,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 onPress: value
                     ? () {
                         provider.createUser();
-                        Navigator.pushNamed(context, '/home');
+                        Navigator.pushNamed(context, '/navigate');
                       }
                     : null,
                 disabledColor: Colors.red.shade200,

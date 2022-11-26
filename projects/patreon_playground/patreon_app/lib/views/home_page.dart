@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       //body: const LoadingWidget(),
       body: const NotFollowingWidget(),
-      bottomNavigationBar: CustomBottomAppBar(selectedIndex: 0),
+      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

@@ -46,6 +46,7 @@ class _ExplorePageState extends State<ExplorePage> {
         },
       ),
       body: SizedBox(
+        
         child: Column(
           children: [
             const SizedBox(
@@ -53,8 +54,8 @@ class _ExplorePageState extends State<ExplorePage> {
             ),
             Center(
               child: Container(
-                height: 43,
-                margin: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                height: 50,
+                margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: TextField(
                   controller: controller,
                   decoration: InputDecoration(
@@ -118,7 +119,7 @@ class _ExplorePageState extends State<ExplorePage> {
           ],
         ),
       ),
-      bottomNavigationBar: CustomBottomAppBar(selectedIndex: 1),
+      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 

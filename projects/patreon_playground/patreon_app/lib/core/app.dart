@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/provider/bottomNavBarProvider.dart';
 import 'package:patreon_app/core/provider/registerProvider.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
 
@@ -7,6 +8,7 @@ import 'package:patreon_app/views/explore_page.dart';
 import 'package:patreon_app/views/home_page.dart';
 import 'package:patreon_app/views/login_email_page.dart';
 import 'package:patreon_app/views/messages_page.dart';
+import 'package:patreon_app/views/navigation_page.dart';
 import 'package:patreon_app/views/register_page.dart';
 import 'package:patreon_app/views/search_page.dart';
 import 'package:provider/provider.dart';
@@ -18,7 +20,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (context) => RegisterProvider(),)
+        ChangeNotifierProvider(
+          create: (context) => RegisterProvider(),
+        ),
+        // ChangeNotifierProvider(
+        //   create: (context) => (),
+        // ),
+        ChangeNotifierProvider(
+          create: (context) => BottomNavBarProvider(),
+        )
       ],
       child: MaterialApp(
         title: 'Patreon',
@@ -29,6 +39,7 @@ class MyApp extends StatelessWidget {
           '/explore': (context) => const ExplorePage(),
           '/loginWithEmail': (context) => const LoginwithEmail(),
           '/register': (context) => const RegisterPage(),
+          '/navigate': (context) => HomeScreen(),
         },
         theme: CustomTheme.customThemeData(),
         //onGenerateRoute: Navigation.navigationGenarator,

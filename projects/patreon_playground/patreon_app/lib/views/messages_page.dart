@@ -35,7 +35,7 @@ class _MessagesPageState extends State<MessagesPage> {
               buttonText: "Find creators"),
         ],
       ),
-      bottomNavigationBar: CustomBottomAppBar(selectedIndex: 2),
+      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

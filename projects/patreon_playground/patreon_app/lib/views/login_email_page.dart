@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:patreon_app/views/home_page.dart';
+import 'package:patreon_app/views/navigation_page.dart';
 import '../widgets/customTextButton.dart';
 import '../widgets/customTextFormField.dart';
 
@@ -118,11 +119,7 @@ class _RegisterPageState extends State<LoginwithEmail> {
                         buttonColor: Colors.red,
                         onPress: value
                             ? () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const MyHomePage()),
-                                );
+                                Navigator.pushNamed(context, "/navigate");
                               }
                             : null,
                         disabledColor: Colors.red.shade200,

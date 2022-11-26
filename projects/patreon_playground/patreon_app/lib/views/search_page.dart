@@ -40,7 +40,7 @@ class _SearchPageState extends State<SearchPage> {
         con: Icons.arrow_back,
         iColor: Colors.grey,
         press: () {
-          Navigator.pushNamed(context, "/home");
+          Navigator.pushNamed(context, "/navigate");
         },
       ),
       body: SizedBox(
