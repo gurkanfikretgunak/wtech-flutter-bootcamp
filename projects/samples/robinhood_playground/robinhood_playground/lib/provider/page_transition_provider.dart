@@ -9,4 +9,4 @@ class PageTransicitionProvider extends ChangeNotifier {
   }
 }
 
-// Loglamak için kullanılır. Daha verimli kullanılıyor with ile kullanıdlığı zaman ss aldım
+

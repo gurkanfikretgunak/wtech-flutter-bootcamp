@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/provider/country_code_provider.dart';
+import 'package:robinhood_playground/user_cache/shared_keys.dart';
+import 'package:robinhood_playground/user_cache/shared_manager.dart';
 import 'package:robinhood_playground/widget/signup/phone_code_sheet.dart';
 import 'package:robinhood_playground/widget/signup/sign_up_description.dart';
-
 import 'package:robinhood_playground/widget/signup/sign_up_title.dart';
 import 'package:robinhood_playground/widget/signup/phone_number_textfield.dart';
 
@@ -90,13 +93,20 @@ class _GetTelephoneNumberViewState extends State<GetTelephoneNumberView> {
               child: GenerealButton(
                 text: _TelephoneNumberText.continueButton,
                 backgroundColor: GeneralButtonColor.black.getColor(),
-                onPressed: () {},
+                onPressed: _saveAndNavigate,
               ),
             ),
           )
         ]),
       ),
     );
+  }
+
+  void _saveAndNavigate() {
+    String phoneNumber =
+        context.read<CountryCodeProvider>().currentCountryCode +
+            _telephoneController.text;
+    SharedManager.instance.setStringValue(SharedKeys.phoneNumber, phoneNumber);
   }
 }
 

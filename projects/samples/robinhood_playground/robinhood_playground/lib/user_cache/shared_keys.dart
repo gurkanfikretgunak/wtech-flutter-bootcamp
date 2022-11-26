@@ -2,4 +2,4 @@
 
 
 
-enum SharedKeys { email, password, firstName, lastName, telephoneNumber }
+enum SharedKeys { email, password, firstName, lastName, phoneNumber }
