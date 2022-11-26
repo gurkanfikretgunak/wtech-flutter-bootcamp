@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-import '../core/init/database/sqllite_deneme2.dart';
-import '../core/init/sqllite_deneme.dart';
+import 'sqllite_deneme2.dart';
+import 'sqllite_deneme.dart';
 
 class SqlLearn extends StatefulWidget {
   const SqlLearn({super.key});

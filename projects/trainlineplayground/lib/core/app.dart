@@ -10,9 +10,11 @@ import '../views/home_ticket_page.dart';
 import '../views/orjin_home_page.dart';
 import '../views/register_page.dart';
 import '../views/sign_in_account_page.dart';
-import '../views/sql_learn_page.dart';
+import '../denemeler/sql_learn_page.dart';
 import 'data/provider/home_page_state.dart';
 import 'data/provider/register_page_state.dart';
+import '../denemeler/user_provider.dart';
+import 'data/provider/user_model_state.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -29,6 +31,8 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) =>TextFormStateProvider()),
         ChangeNotifierProvider(create: (context) => HomePageState()),
+        ChangeNotifierProvider(create:(context) => UserModelState(),)
+        
       ],
       child: MaterialApp(
         initialRoute: '/',
@@ -39,7 +43,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const SqlLearn(),
+        home: const RegisterPage(),
       ),
       
     );

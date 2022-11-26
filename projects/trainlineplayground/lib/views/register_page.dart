@@ -1,9 +1,12 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
+import 'package:retrofit/http.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trainlineplayground/core/constants.dart';
+import 'package:trainlineplayground/core/data/models/user_model.dart';
+import 'package:trainlineplayground/core/data/provider/user_model_state.dart';
 
 import '../core/data/provider/register_page_state.dart';
 
@@ -15,6 +18,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class RegisterPageState extends State<RegisterPage> {
+
   List<ListViewBuilderItems> textfieldItems = [
     ListViewBuilderItems(title: "Email"),
     ListViewBuilderItems(title: "Create password"),
@@ -33,27 +37,62 @@ class RegisterPageState extends State<RegisterPage> {
   ];
   late bool isConfirmed = true;
   late bool isOk;
+  late List<String> userInfo = [
+    emailController.text,
+    nameController.text,
+    surnameController.text
+  ];
+ 
   
+  late SharedPreferences mainPref;
+   Future<void> setSharedPrefs(List<String> userInfo) async{
+    mainPref= await SharedPreferences.getInstance();
+    mainPref.setStringList('userinfo',userInfo);
+  }
+  
+
 
   @override
   void initState() {
+   
     emailController = TextEditingController();
     passwordController = TextEditingController();
     nameController = TextEditingController();
     surnameController = TextEditingController();
     mycontrollers;
     isConfirmed = TextFormStateProvider().isConfirmed;
-    isOk = TextFormStateProvider().isOk;
-
+    userInfo;
+    setSharedPrefs(userInfo);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    TextFormStateProvider confirmInfo = Provider.of<TextFormStateProvider>(context);
-    return ChangeNotifierProvider(
-      create: (context) =>TextFormStateProvider(),
-      child: Scaffold(
+    void _showDialog() {
+      // flutter defined function
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          // return object of type Dialog
+          return AlertDialog(
+            title: const Text("Alert Dialog title"),
+            content: const Text("Alert Dialog body"),
+            actions: <Widget>[
+              // usually buttons at the bottom of the dialog
+              TextButton(
+                child: const Text("Close"),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+    
+      
+      return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Column(
           children: [
@@ -79,13 +118,13 @@ class RegisterPageState extends State<RegisterPage> {
                 shrinkWrap: true,
                 itemCount: textfieldItems.length,
                 itemBuilder: (context, index) {
-                  return Expanded(
-                    child: TextFormField(
+                  return 
+                    TextFormField(
                       controller: mycontrollers[index],
-                      decoration:
-                          InputDecoration(labelText: textfieldItems[index].title),
-                    ),
-                  );
+                      decoration: InputDecoration(
+                          labelText: textfieldItems[index].title),
+                    );
+                  
                 }),
             const Padding(padding: EdgeInsets.only(top: 20)),
             Container(
@@ -107,90 +146,61 @@ class RegisterPageState extends State<RegisterPage> {
                           child: Text(
                               "Yes, ı want great discounts,sales,offers and more from Trainline.")),
                       Consumer<TextFormStateProvider>(
-                        builder: (context,TextFormStateProvider isOkey, child) => 
-                         IconButton(
-                            onPressed: () {
-                              isOkey.changeButton();
-                            },
-                            icon: isOkey.isOk? const Icon(Icons.offline_pin_outlined):const Icon(Icons.offline_pin_rounded)
-                            
-                            ),
+                        builder: (context, TextFormStateProvider isOkey,
+                                child) =>
+                            IconButton(
+                                onPressed: () {
+                                  isOkey.changeButton();
+                                },
+                                icon: isOkey.isOk
+                                    ? const Icon(Icons.offline_pin_outlined)
+                                    : const Icon(Icons.offline_pin_rounded)),
                       )
                     ],
                   ),
                 ],
               ),
             ),
-            
-            Consumer<TextFormStateProvider>(
-              
-              builder: (context, myvalue, child) => 
-              Container(
-                
-                child:const AcceptButton()
-              ),
-            )
+            ElevatedButton(
+                // eğer isconfirmed true ise bu   değilse null ver
+                onPressed: () {
+                 
+                  setSharedPrefs(userInfo);
+                  
+                  
+                  showDialog<String>(
+                    context: context,
+                    builder: (BuildContext context) => AlertDialog(
+                      title: const Text("a "),
+                      content: const Text('AlertDialog description'),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'Cancel'),
+                          child: const Text('Cancel'),
+                        ),
+                        TextButton(
+                          onPressed: () => Navigator.pop(context, 'OK'),
+                          child: const Text('OK'),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue),
+                child: Container(
+                  alignment: Alignment.center,
+                  height: 50,
+                  width: 300,
+                  child: const Text(
+                    "Create Account",
+                    style: TextStyle(fontSize: 18, color: Colors.black),
+                  ),
+                )),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class DeclineButton extends StatelessWidget {
-  const DeclineButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton( // eğer isconfirmed true ise bu   değilse null ver
-        onPressed: null,
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.black,
-          backgroundColor: Colors.greenAccent
-        ),
-        
-        child: Container(
-          alignment: Alignment.center,
-          
-          height: 50,
-          width: 300,
-          child: const Text(
-            "Create Account",
-            style: TextStyle(fontSize: 18,color: Colors.black),
-          ),
-        )
-        );
-  }
-}
-
-class AcceptButton extends StatelessWidget {
-  const AcceptButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton( // eğer isconfirmed true ise bu   değilse null ver
-        onPressed: (){
-
-        },
-        style: ElevatedButton.styleFrom(
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.blue
-        ),
-        
-        child: Container(
-          alignment: Alignment.center,
-          
-          height: 50,
-          width: 300,
-          child: const Text(
-            "Create Account",
-            style: TextStyle(fontSize: 18,color: Colors.black),
-          ),
-        )
-        );
+      );
+    
   }
 }

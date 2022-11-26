@@ -1,5 +1,6 @@
 
 
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
@@ -33,12 +34,14 @@ class DataBase{
     return openDatabase(
       join(path,'myuser.db'),
       version: 1,
-      onCreate:(Database db,int version) async{
-        await db.execute("CREATE TABLE user(id INTEGER PRIMARY KEY,username TEXT NOT NULL,useremail TEXT NOT NULL)");
-        
-      },
+      onCreate:createUser,
     );
   }
+
+  FutureOr<void> createUser(Database db,int version) async{
+      await db.execute("CREATE TABLE user(id INTEGER PRIMARY KEY,username TEXT NOT NULL,useremail TEXT NOT NULL)");
+      
+    }
 
   Future<int> insertUser(List<MyUserModel> myusermodel) async { //insert data
     int result = 0;

@@ -1,13 +1,14 @@
 
 
-db için sqllite çğrenmeye karar verdim.
 
-önce bi model oluştur - json to dart generate et ve yapistir
-sonra bu modele bi provider oluşturman laızm
-provider içinde db yi tanımla ama ASENKRON bir fonksiyon ile db yi açmak gerekiyor
-database = await openDatabase(
-      _userDatabaseName,
-      onCreate: (db, version) {
-        db.execute(sql)   BURDA EXECUTE İLE TABLE OLUŞTURUYORUZ  online oluştur yapıştır
-      },
-    );
+önce model class olustur
+
+sonra generate etmek icin part ekle
+
+sonra @hivetype ile classları tanımla
+sonra classların içinde @hivefield ile objeleri tanımla 
+
+register adapter kısmını main içinde yap 
+
+
+crud operasyonları ıcın open box yapman lazım  yine main içeriside 

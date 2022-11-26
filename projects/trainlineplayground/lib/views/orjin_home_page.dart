@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:trainlineplayground/core/data/provider/user_database_provider.dart';
+
 
 import '../core/data/provider/home_page_state.dart';
 import '../widgets/orjin_homepage_widgets.dart';
@@ -22,7 +22,7 @@ class OriginalHomePageState extends State<OriginalHomePage> {
   late String outboundString;
   late String returnString;
   late TextEditingController _returnpickercontroller;
-  late UserDatabaseProvider _userDatabaseProvider;
+
 
  
 
@@ -33,8 +33,8 @@ class OriginalHomePageState extends State<OriginalHomePage> {
     outboundString = _datepickercontroller.text;
     _returnpickercontroller = TextEditingController();
     returnString = _returnpickercontroller.text;
-    _userDatabaseProvider = UserDatabaseProvider();
-    _userDatabaseProvider.open();
+ 
+   
   }
 
   @override

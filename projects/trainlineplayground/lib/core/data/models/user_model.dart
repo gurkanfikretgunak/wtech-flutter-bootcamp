@@ -1,24 +1,20 @@
+
+
+import 'dart:math';
+
 class UserModel {
+  late String username;
+  late String userSurname;
   late String userEmail;
-  late int isUserLogIn;
-  late String id;
-  late String userName;
 
-  UserModel({required this.userEmail, required this.isUserLogIn, required this.id,required this.userName});
+  UserModel({required this.username,required this.userSurname,required this.userEmail});
 
-  UserModel.fromJson(Map<String, dynamic> json) {
-    userEmail = json['userEmail'];
-    isUserLogIn = json['isUserLogIn'];
-    id = json['id'];
-    userName = json['userName'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['userEmail'] = this.userEmail;
-    data['isUserLogIn'] = this.isUserLogIn;
-    data['id'] = this.id;
-    data['userName'] = this.userName;
-    return data;
+  List<String> putList(UserModel usermodel){
+    String name = usermodel.username;
+    String surname = usermodel.userSurname;
+    String email = usermodel.userEmail;
+    
+    List<String> modelList = [name,surname,email];
+    return modelList;
   }
 }
