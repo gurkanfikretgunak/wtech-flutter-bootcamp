@@ -12,51 +12,48 @@ class AccountsView extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-          appBar: PreferredSize(
-            preferredSize:
-                Size.fromHeight(MediaQuery.of(context).size.height / 15),
-            child: CustomAppbarWidget(
-              leftWidget: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: const StadiumBorder(),
-                ),
-                child: Wrap(
-                  spacing: 5,
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  alignment: WrapAlignment.center,
-                  children: [
-                    const Icon(Icons.auto_awesome),
-                    Text('CA\$$amount'),
-                  ],
-                ),
-                onPressed: () {},
+          appBar: CustomAppbarWidget(
+            preferredSizeHeight: MediaQuery.of(context).size.height / 15,
+            leftWidget: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: const StadiumBorder(),
               ),
-              rightWidgetList: [
-                CircleAvatar(
+              child: Wrap(
+                spacing: 5,
+                crossAxisAlignment: WrapCrossAlignment.center,
+                alignment: WrapAlignment.center,
+                children: [
+                  const Icon(Icons.auto_awesome),
+                  Text('CA\$$amount'),
+                ],
+              ),
+              onPressed: () {},
+            ),
+            rightWidgetList: [
+              CircleAvatar(
+                backgroundColor: Colors.black12,
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.notifications_outlined,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                child: CircleAvatar(
                   backgroundColor: Colors.black12,
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
-                      Icons.notifications_outlined,
+                      Icons.person,
                       color: Colors.black,
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: CircleAvatar(
-                    backgroundColor: Colors.black12,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.person,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           body: Container(
               padding: const EdgeInsets.all(15),

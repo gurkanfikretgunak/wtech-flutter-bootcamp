@@ -12,39 +12,37 @@ class CardView extends StatelessWidget {
     return WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-            appBar: PreferredSize(
-              preferredSize: Size.fromHeight(dynamicSize.height / 15),
-              child: CustomAppbarWidget(
-                leftWidget: Text(
-                  style: Theme.of(context).textTheme.labelMedium,
-                  'Card',
+            appBar: CustomAppbarWidget(
+              preferredSizeHeight: dynamicSize.height / 15,
+              leftWidget: Text(
+                style: Theme.of(context).textTheme.labelMedium,
+                'Card',
+              ),
+              rightWidgetList: [
+                CircleAvatar(
+                  backgroundColor: Colors.black12,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.help_outline,
+                      color: Colors.black,
+                    ),
+                  ),
                 ),
-                rightWidgetList: [
-                  CircleAvatar(
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  child: CircleAvatar(
                     backgroundColor: Colors.black12,
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
-                        Icons.help_outline,
+                        Icons.more_horiz,
                         color: Colors.black,
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.black12,
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.more_horiz,
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             body: SingleChildScrollView(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),

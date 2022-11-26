@@ -37,6 +37,7 @@ class CustomTheme {
       textTheme: TextTheme(
         bodySmall: const TextStyle(fontSize: 14),
         bodyMedium: const TextStyle(color: Colors.black, fontSize: 17),
+        titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         titleLarge: const TextStyle(
             color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         labelMedium: const TextStyle(
