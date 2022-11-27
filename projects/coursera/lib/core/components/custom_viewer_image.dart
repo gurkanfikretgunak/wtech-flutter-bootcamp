@@ -26,7 +26,7 @@ class CustomImageViewer extends StatelessWidget {
       return Image.network(
         url ??
             "https://www.arceyazilim.com/uploads/images/201702/error-code-18.jpeg",
-        fit: BoxFit.cover,
+        fit: BoxFit.contain,
       );
     } else {
       return Image.asset(

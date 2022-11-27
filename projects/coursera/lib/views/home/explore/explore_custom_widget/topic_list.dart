@@ -1,10 +1,10 @@
+import 'package:coursera/core/components/custom_chip.dart';
 import '../../../../core/data/network/services/topic_service.dart';
-
 import '../../../../core/components/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../../core/data/model/topic.dart';
-import '../../../../core/components/text/text_libary.dart';
+import 'dart:math' as math;
 
 class TopicList extends StatefulWidget {
   const TopicList({super.key});
@@ -23,27 +23,36 @@ class _TopicListState extends State<TopicList> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.dynamicHeight(0.1),
-      child: FutureBuilder<List<Topic>>(
-        future: futureTopics,
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return ListView.builder(
-              physics: const BouncingScrollPhysics(),
-              scrollDirection: Axis.horizontal,
-              itemCount: snapshot.data!.length,
-              itemBuilder: (context, index) {
-                return Chip(
-                  label: CustomText(text: snapshot.data![index].topicName!),
-                );
-              },
-            );
-          } else if (snapshot.hasError) {
-            return Text('${snapshot.error}');
-          }
-          return const CustomCircularProgressIndicator();
-        },
+    return Padding(
+      padding: context.verticalPaddingNormal,
+      child: SizedBox(
+        height: context.dynamicHeight(0.04),
+        child: FutureBuilder<List<Topic>>(
+          future: futureTopics,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.separated(
+                separatorBuilder: (context, index) {
+                  return context.emptySizedWidthBoxNormal;
+                },
+                physics: const BouncingScrollPhysics(),
+                scrollDirection: Axis.horizontal,
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  return CustomChip(
+                    backgroundColor: Color(
+                      (math.Random().nextDouble() * 0xFFFFFF).toInt(),
+                    ).withOpacity(1.0),
+                    text: snapshot.data![index].topicName!,
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return const CustomCircularProgressIndicator();
+          },
+        ),
       ),
     );
   }

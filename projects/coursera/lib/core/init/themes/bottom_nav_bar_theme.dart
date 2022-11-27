@@ -7,7 +7,7 @@ class MyBottomNavBarTheme {
     ColorConstant colorConstant = ColorConstant.instance;
 
     return BottomNavigationBarThemeData(
-        backgroundColor: colorConstant.appGreyLight,
+        backgroundColor: ColorConstant.instance.appGrey2,
         elevation: 4,
         selectedItemColor: colorConstant.appBlue,
         showSelectedLabels: true,

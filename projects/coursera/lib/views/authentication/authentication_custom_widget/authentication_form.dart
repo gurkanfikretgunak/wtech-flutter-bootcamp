@@ -67,7 +67,7 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget> {
           child: CustomElevatedButton(
             primary: isActiveButtonControl(context)
                 ? ColorConstant.instance.appBlue
-                : ColorConstant.instance.appGreyLight,
+                : ColorConstant.instance.appGrey1,
             onPressed: isActiveButtonControl(context) ? buttonOnPressed : null,
             text: widget.isLogin == null ? 'Create an Account' : 'Login',
           ),

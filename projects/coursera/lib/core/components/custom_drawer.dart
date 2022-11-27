@@ -15,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: ColorConstant.instance.appGreyLight,
+      backgroundColor: ColorConstant.instance.appGrey1,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -74,11 +74,11 @@ class CustomDrawer extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                color: ColorConstant.instance.appGreyDark,
+                color: ColorConstant.instance.appGrey3,
               ),
               SizedBox(width: context.dynamicWidth(0.04)),
               CustomText(
-                color: ColorConstant.instance.appGreyDark,
+                color: ColorConstant.instance.appGrey3,
                 text: text,
                 fontSize: 15,
               )

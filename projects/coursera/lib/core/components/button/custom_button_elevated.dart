@@ -44,7 +44,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         disabledBackgroundColor:
-            disabledBackgroundColor ?? ColorConstant.instance.appGreyLight,
+            disabledBackgroundColor ?? ColorConstant.instance.appGrey1,
         //  onSurface: Colors.pink,
         elevation: 0,
         shadowColor: shadowColor,

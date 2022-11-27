@@ -20,9 +20,9 @@ class SignInWithOrganizationViewModel {
         'onPressed': () {},
       },
       {
-        "borderSideColor": ColorConstant.instance.appGreyDark,
+        "borderSideColor": ColorConstant.instance.appGrey3,
         "primary": ColorConstant.instance.appWhite,
-        "textColor": ColorConstant.instance.appGreyDark,
+        "textColor": ColorConstant.instance.appGrey3,
         "iconWidget": CustomImageViewer(
           fit: BoxFit.contain,
           assetPath: "assets/icons/google.png",

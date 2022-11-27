@@ -1,11 +1,11 @@
+import 'package:coursera/views/home/explore/explore_custom_widget/titles.dart';
+import 'package:kartal/kartal.dart';
 import '../../../core/components/custom_scaffold.dart';
 import 'explore_custom_widget/free_courses_list.dart';
 import 'explore_custom_widget/most_popular_certificates_list.dart';
 import 'explore_custom_widget/topic_list.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/constant_libary.dart';
-
-import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/text/text_libary.dart';
 
 class ExploreView extends StatelessWidget {
@@ -21,84 +21,38 @@ class ExploreView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const CustomText(
-              text: "Explore",
-              fontSize: 28,
-              fontWeight: FontWeight.w600,
+            const Titles(
+              titleText: 'Explore',
+              titleFontSize: 28,
             ),
-            CustomTextFormField(
+            Padding(
+              padding: context.verticalPaddingNormal,
+              child: CustomTextFormField(
                 borderRadius: 15,
-                fillColor: ColorConstant.instance.appGreyLight,
+                fillColor: ColorConstant.instance.appGrey1,
                 prefixIcon: Icons.search_outlined,
                 hintText: "What do you want to learn?",
-                contentPadding: EdgeInsets.zero),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const CustomText(
-                  text: "Topics",
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600,
-                ),
-                CustomTextButton(
-                  padding: EdgeInsets.zero,
-                  onPressed: () {},
-                  text: "See All",
-                )
-              ],
-            ),
-            const TopicList(),
-            CustomText(
-              text: "My Coursera",
-              fontSize: 23,
-              color: ColorConstant.instance.appGreyDark,
-              fontWeight: FontWeight.w600,
-            ),
-            FittedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const CustomText(
-                    text: "Most Popular Certificates",
-                    fontSize: 23,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  CustomTextButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    text: "See All",
-                  )
-                ],
               ),
             ),
+            const Titles(
+              titleText: "Topics",
+              isSeeAll: true,
+            ),
+            const TopicList(),
+            Titles(
+              titleText: 'My Coursera',
+              titleColor: ColorConstant.instance.appGrey3,
+            ),
+            const Titles(
+              titleText: 'Most Popular Certificates',
+              isSeeAll: true,
+            ),
             const MostPopularCertificatesList(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Expanded(
-                  flex: 2,
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: CustomText(
-                      text: "Get Started with These Free Courses",
-                      fontSize: 23,
-                      maxLines: 2,
-                      fontWeight: FontWeight.w600,
-                      textAlign: TextAlign.start,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.centerRight,
-                    child: CustomTextButton(
-                      padding: EdgeInsets.zero,
-                      onPressed: () {},
-                      text: "See All",
-                    ),
-                  ),
-                )
-              ],
+            context.emptySizedHeightBoxLow,
+            context.emptySizedHeightBoxLow,
+            const Titles(
+              titleText: "Get Started with These Free Courses",
+              isSeeAll: true,
             ),
             const FreeCoursesList()
           ],

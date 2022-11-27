@@ -17,7 +17,7 @@ class CustomOrText extends StatelessWidget {
             alignment: Alignment.center,
             child: CustomText(
               text: 'or',
-              color: ColorConstant.instance.appGreyDark,
+              color: ColorConstant.instance.appGrey3,
             ),
           ),
         ),

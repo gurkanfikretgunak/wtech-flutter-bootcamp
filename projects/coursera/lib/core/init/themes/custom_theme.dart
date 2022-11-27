@@ -9,7 +9,7 @@ class CustomTheme {
   static ThemeData customThemeData(BuildContext context) {
     //thema olarak parçala
     return ThemeData(
-      scaffoldBackgroundColor: const Color(0xFFFFFFFF),
+      scaffoldBackgroundColor: ColorConstant.instance.appWhite,
       useMaterial3: false,
       appBarTheme: AppBarTheme(
         elevation: 0,
