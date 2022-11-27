@@ -128,7 +128,9 @@ class CardView extends StatelessWidget {
                     ),
                   ),
                   CustomInformationCardWidget(
-                    title: 'Active physical card',
+                    title: const Text('Active physical card',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
+                    titleMargin: 0,
                     body: 'Expected arrival 1-15 Now',
                     color: const Color(0xfff2ede1),
                     button: ElevatedButton(

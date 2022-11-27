@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomInformationCardWidget extends StatelessWidget {
-  final String title, body;
+  final String body;
+  final Text title;
+  final double titleMargin;
   final Color color;
   final Widget button;
   final Widget? bottomRightWidget;
@@ -9,6 +11,7 @@ class CustomInformationCardWidget extends StatelessWidget {
   const CustomInformationCardWidget({
     Key? key,
     required this.title,
+    required this.titleMargin,
     required this.body,
     required this.color,
     required this.button,
@@ -51,8 +54,12 @@ class CustomInformationCardWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(title,
-                          style: const TextStyle(fontWeight: FontWeight.bold)),
+                      Container(
+                        margin: EdgeInsets.only(right: titleMargin),
+                        child: title,
+                      ),
+                      /*  Text(title,
+                          style: const TextStyle(fontWeight: FontWeight.bold)), */
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: Text(body),

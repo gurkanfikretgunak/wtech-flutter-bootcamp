@@ -67,7 +67,9 @@ class PaymentsView extends StatelessWidget {
                             ],
                           ),
                           CustomInformationCardWidget(
-                            title: 'Autodeposit',
+                            title: const Text('Autodeposit',
+                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            titleMargin: 0,
                             body:
                                 'Get Interac e-Transfers® deposited directly into your account.',
                             color: Colors.blue.shade100,
