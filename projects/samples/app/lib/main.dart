@@ -5,9 +5,9 @@ import 'core/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Hive.initFlutter();
+  
 
-  Hive.registerAdapter(MyuserAdapter());
-
-  runApp(const App());
+  runApp(
+    
+    const App());
 }
