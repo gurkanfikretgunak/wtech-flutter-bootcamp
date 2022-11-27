@@ -15,7 +15,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: ColorConstant.instance.appGrey1,
+      backgroundColor: ColorConstant.instance.appGrey2,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -39,6 +39,13 @@ class CustomDrawer extends StatelessWidget {
           context.emptySizedHeightBoxHigh,
           context.emptySizedHeightBoxHigh,
           const CustomDivider(),
+          _buildTextButton(
+            context,
+            icon: Icons.cloud_queue_outlined,
+            onPressed: () =>
+                CustomNavigator.goToScreen(context, '/ThemeSettingView'),
+            text: "Theme",
+          ),
           _buildTextButton(
             context,
             icon: Icons.settings_outlined,

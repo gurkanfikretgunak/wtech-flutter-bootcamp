@@ -1,1 +1,1 @@
-enum SharedKeys { isLogin }
+enum SharedKeys { isLogin, themeKey }

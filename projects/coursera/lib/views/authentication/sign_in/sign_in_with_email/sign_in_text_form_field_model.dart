@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../authentication_view_model.dart';
 import 'sign_in_with_email_view_model.dart';
 
 class SignInTextFormFieldModel {
   buildTextFormFieldValue(BuildContext context) {
+    var provider = context.watch<SignInWithEmailViewModel>();
     var textFormFieldValueList = [
       {
-        'controller': context.watch<SignInWithEmailViewModel>().emailController,
+        'controller': provider.emailController,
         'keyboardType': TextInputType.emailAddress,
         "hintText": 'Email (Required)',
         'onChanged': (value) {
@@ -15,19 +17,18 @@ class SignInTextFormFieldModel {
               .read<SignInWithEmailViewModel>()
               .controlControllerLength(value, validateType: 'email');
         },
-        "validator": nameValidator,
+        "validator": AuthenticationViewModel().emailValidator,
       },
       {
-        'controller':
-            context.watch<SignInWithEmailViewModel>().passwordController,
+        'controller': provider.passwordController,
         'keyboardType': TextInputType.visiblePassword,
         'onChanged': (value) {
           context
               .read<SignInWithEmailViewModel>()
               .controlControllerLength(value, validateType: 'password');
         },
-        "validator": passwordValidator,
-        'obscureText': context.watch<SignInWithEmailViewModel>().obscureText,
+        "validator": AuthenticationViewModel().passwordValidator,
+        'obscureText': provider.obscureText,
         "hintText": 'Password (Required)',
         'hintTextColor': Colors.black38,
         'suffixIcon': obscureTextIcon(context),
@@ -47,19 +48,5 @@ class SignInTextFormFieldModel {
           ? const Icon(Icons.visibility_off)
           : const Icon(Icons.visibility),
     );
-  }
-
-  String? passwordValidator(value) {
-    if (value!.length < 6 || value.isEmpty) {
-      return 'Password must be at least 6 characters!';
-    }
-    return null;
-  }
-
-  String? nameValidator(value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter a valid email!';
-    }
-    return null;
   }
 }

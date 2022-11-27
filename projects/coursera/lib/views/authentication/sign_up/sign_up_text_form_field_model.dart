@@ -1,3 +1,4 @@
+import 'package:coursera/views/authentication/authentication_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,9 +12,9 @@ class SignUpTextFormFiledModel {
     var textFormFieldValueList = [
       {
         'controller': provider.nameController,
-        "hintText": 'Full nasssme (Required)',
+        "hintText": 'Full name (Required)',
         'keyboardType': TextInputType.name,
-        "validator": nameValidator,
+        "validator": AuthenticationViewModel().nameValidator,
         'onChanged': (value) {
           providerFL.controlControllerLength(value, validateType: 'name');
         },
@@ -22,7 +23,7 @@ class SignUpTextFormFiledModel {
         'controller': provider.emailController,
         'keyboardType': TextInputType.emailAddress,
         "hintText": 'Email (Required)',
-        "validator": emailValidator,
+        "validator": AuthenticationViewModel().emailValidator,
         'onChanged': (value) {
           providerFL.controlControllerLength(value, validateType: 'email');
         },
@@ -30,7 +31,7 @@ class SignUpTextFormFiledModel {
       {
         'controller': provider.passwordController,
         'keyboardType': TextInputType.visiblePassword,
-        "validator": passwordValidator,
+        "validator": AuthenticationViewModel().passwordValidator,
         'obscureText': provider.obscureText,
         "hintText": 'Password (Required)',
         'hintTextColor': Colors.black38,
@@ -53,30 +54,5 @@ class SignUpTextFormFiledModel {
           ? const Icon(Icons.visibility_off)
           : const Icon(Icons.visibility),
     );
-  }
-
-  String? nameValidator(String? value) {
-    if (value!.length < 2 ||
-        value.contains(RegExp(r'[0-9]')) ||
-        value.isEmpty) {
-      return 'Please enter a valid name!';
-    }
-    return null;
-  }
-
-  String? emailValidator(value) {
-    if (value!.length < 2 ||
-        !value.contains(RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')) ||
-        value.isEmpty) {
-      return 'Please enter a valid email!';
-    }
-    return null;
-  }
-
-  String? passwordValidator(value) {
-    if (value!.length < 6 || value.isEmpty) {
-      return 'Password must be at least 6 characters!';
-    }
-    return null;
   }
 }

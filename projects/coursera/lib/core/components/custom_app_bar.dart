@@ -23,6 +23,17 @@ class CustomAppBar extends PreferredSize {
     return PreferredSize(
       preferredSize: const Size.fromHeight(55),
       child: AppBar(
+        title: Row(
+          children: [
+            context.emptySizedWidthBoxHigh,
+            CustomText(
+              textAlign: TextAlign.center,
+              text: titleText ?? '',
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ],
+        ),
         leadingWidth: context.dynamicWidth(0.3),
         leading: leading ??
             CustomTextButton(

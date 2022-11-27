@@ -49,7 +49,8 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
             ),
           ),
           Flexible(
-            flex: 7,
+            flex:
+                WidgetsBinding.instance.window.viewInsets.bottom > 0.0 ? 16 : 7,
             child: AuthenticationFormWidget(
               isLogin: true,
               formKey: formKey,

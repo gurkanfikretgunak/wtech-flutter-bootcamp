@@ -33,17 +33,20 @@ class _SignUpViewState extends State<SignUpView> {
       widget: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Expanded(
-            flex: 2,
-            child: Center(
-              child: CustomText(
-                text: "Create an Account",
-                fontSize: 18,
-              ),
-            ),
-          ),
+          WidgetsBinding.instance.window.viewInsets.bottom > 0.0
+              ? context.emptySizedHeightBoxLow3x
+              : const Expanded(
+                  flex: 2,
+                  child: Center(
+                    child: CustomText(
+                      text: "Create an Account",
+                      fontSize: 18,
+                    ),
+                  ),
+                ),
           Expanded(
-            flex: 5,
+            flex:
+                WidgetsBinding.instance.window.viewInsets.bottom > 0.0 ? 30 : 5,
             child: AuthenticationFormWidget(
               buttonOnPressed: signUpButtonOnPressed,
               formKey: formKey,
@@ -52,9 +55,9 @@ class _SignUpViewState extends State<SignUpView> {
             ),
           ),
           context.emptySizedHeightBoxLow,
-          const Expanded(
-            child: CustomOrText(),
-          ),
+          WidgetsBinding.instance.window.viewInsets.bottom > 0.0
+              ? const SizedBox()
+              : const Expanded(child: CustomOrText()),
           Expanded(
             child: CustomTextButton(
               onPressed: () {},
