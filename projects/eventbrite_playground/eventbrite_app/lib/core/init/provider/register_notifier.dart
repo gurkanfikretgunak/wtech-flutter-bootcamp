@@ -116,7 +116,7 @@ class RegisterNotifier extends ChangeNotifier {
     Service.instance.createUser(user: newUser).then((value) {
       if (value) {
         Logger().i('User created successfully with id: ${newUser.email}');
-        NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+        NavigationService.instance.navigateToPage(routeName: NavigationConstants.passwordPage);
       } else {
         Logger().e('Error creating user');
       }

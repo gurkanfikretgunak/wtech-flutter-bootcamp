@@ -44,10 +44,8 @@ class PasswordNotifier extends ChangeNotifier {
               Logger().i(value.id),
               Logger().i('Login Success'),
               prefs.setString('id', value.id ?? 'Hata').then((value) => {
-                    NavigationService.instance.navigateToPage(
-                      routeName: NavigationConstants.homePage,
-                    ),
-                  })
+                    NavigationService.instance.navigateToPageClear(routeName: NavigationConstants.welcomePage),
+                  }),
             }
           else
             {

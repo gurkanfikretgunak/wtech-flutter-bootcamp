@@ -1,7 +1,6 @@
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
-import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
-import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/password_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
@@ -61,17 +60,13 @@ class PasswordView extends StatelessWidget {
                           padding: PaddingConstants.defaultBottomPadding * 2,
                           child: CustomTextFormField(
                             onChanged: (value) {
-                              context
-                                  .read<PasswordNotifier>()
-                                  .validatePassword(value);
+                              context.read<PasswordNotifier>().validatePassword(value);
                             },
                             suffixIcon: IconButton(
                               onPressed: () {
                                 provider.isObsecure();
                               },
-                              icon: Icon(provider.isObscure
-                                  ? Icons.visibility
-                                  : Icons.visibility_off),
+                              icon: Icon(provider.isObscure ? Icons.visibility : Icons.visibility_off),
                             ),
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             labelText: 'Password',
@@ -95,18 +90,18 @@ class PasswordView extends StatelessWidget {
                     text: 'Log In',
                     onPressed: provider.isValid
                         ? () {
-                            provider.login(
-                              email:
-                                  context.read<LoginNotifier>().email.value ??
-                                      '',
+                            provider
+                                .login(
+                              email: context.read<LoginNotifier>().email.value ?? '',
                               password: provider.password.value ?? '',
-                            );
-                            // NavigationService.instance.navigateToPage(routeName: NavigationConstants.homePage);
+                            )
+                                .then((value) {
+                              context.read<NavbarNotifier>().updateIndex(0);
+                            });
                           }
                         : null,
                     color: Theme.of(context).primaryColor,
-                    textStyle:
-                        Theme.of(context).textTheme.button ?? const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                   ),
                 ),
                 Padding(
@@ -116,8 +111,7 @@ class PasswordView extends StatelessWidget {
                     border: true,
                     onPressed: () {},
                     color: Theme.of(context).backgroundColor,
-                    textStyle: Theme.of(context).textTheme.caption ??
-                        const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                   ),
                 ),
                 TextButton(

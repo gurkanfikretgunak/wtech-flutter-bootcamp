@@ -4,6 +4,7 @@ import 'package:eventbrite_app/view/profile/profile_view.dart';
 import 'package:eventbrite_app/view/search/search_view.dart';
 import 'package:eventbrite_app/view/ticket/ticket_view.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 class NavbarNotifier extends ChangeNotifier {
   int _currentIndex = 0;
@@ -12,6 +13,7 @@ class NavbarNotifier extends ChangeNotifier {
 
   void updateIndex(int index) {
     _currentIndex = index;
+    Logger().i("NavbarNotifier: $_currentIndex");
     notifyListeners();
   }
 
