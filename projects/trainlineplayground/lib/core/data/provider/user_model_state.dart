@@ -8,6 +8,7 @@ class UserModelState with ChangeNotifier{
   
   
   late List<String> userInfoList;
+  late SharedPreferences userpreference;
 
   // void writeDataToSp(){
   //   userInfoList = readSharedPrefs(userInfoList);
@@ -24,5 +25,8 @@ class UserModelState with ChangeNotifier{
     userpref.setStringList('userinfo',userinfo);
   }
 
-   
+  Future<Object> readSharedPrefs() async {
+    userpreference =await SharedPreferences.getInstance();
+    return userpreference.getStringList('userinfo') ?? 'none';
+  }
 }

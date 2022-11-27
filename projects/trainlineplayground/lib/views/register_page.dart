@@ -63,6 +63,7 @@ class RegisterPageState extends State<RegisterPage> {
     isConfirmed = TextFormStateProvider().isConfirmed;
     userInfo;
     setSharedPrefs(userInfo);
+    UserModelState().readSharedPrefs();
     super.initState();
   }
 
@@ -166,6 +167,7 @@ class RegisterPageState extends State<RegisterPage> {
                 onPressed: () {
                  
                   setSharedPrefs(userInfo);
+                
                   
                   
                   showDialog<String>(
