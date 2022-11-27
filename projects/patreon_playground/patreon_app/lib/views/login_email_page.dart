@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/provider/loginProvider.dart';
+import 'package:patreon_app/core/provider/registerProvider.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
-import 'package:patreon_app/views/home_page.dart';
-import 'package:patreon_app/views/navigation_page.dart';
+import 'package:provider/provider.dart';
 import '../widgets/customTextButton.dart';
 import '../widgets/customTextFormField.dart';
 
@@ -50,6 +51,7 @@ class _RegisterPageState extends State<LoginwithEmail> {
 
   @override
   Widget build(BuildContext context) {
+    LoginProvider provider = Provider.of<LoginProvider>(context);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
@@ -75,12 +77,22 @@ class _RegisterPageState extends State<LoginwithEmail> {
                     obscure: false,
                     controller: emailController,
                     otoFocus: true,
+                    onCha: (p0) {
+                      context
+                          .read<RegisterProvider>()
+                          .validateEmail(emailController.text);
+                    },
                   ),
                   CustomTextField(
                     textLabel: "Password",
                     obscure: true,
                     controller: passwordController,
                     otoFocus: false,
+                    onCha: (p0) {
+                      context
+                          .read<RegisterProvider>()
+                          .validatePassword(passwordController.text);
+                    },
                   ),
                   Expanded(
                     flex: 0,
@@ -88,13 +100,7 @@ class _RegisterPageState extends State<LoginwithEmail> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         TextButton(
-                            onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => const RegisterPage()),
-                              // );
-                            },
+                            onPressed: () {},
                             child: Text(
                               "FORGOT?",
                               style: CustomTheme.customThemeData()
@@ -119,7 +125,12 @@ class _RegisterPageState extends State<LoginwithEmail> {
                         buttonColor: Colors.red,
                         onPress: value
                             ? () {
-                                Navigator.pushNamed(context, "/navigate");
+                                provider.signInEmailAndPassword(
+                                  context,
+                                  email: emailController.text,
+                                  password: passwordController.text,
+                                );
+                                //Navigator.pushNamed(context, '/navigate');
                               }
                             : null,
                         disabledColor: Colors.red.shade200,

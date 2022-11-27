@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:patreon_app/core/provider/bottomNavBarProvider.dart';
+import 'package:patreon_app/core/provider/loginProvider.dart';
 import 'package:patreon_app/core/provider/registerProvider.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
 
@@ -8,10 +9,13 @@ import 'package:patreon_app/views/explore_page.dart';
 import 'package:patreon_app/views/home_page.dart';
 import 'package:patreon_app/views/login_email_page.dart';
 import 'package:patreon_app/views/messages_page.dart';
+import 'package:patreon_app/views/myMemberships.dart';
 import 'package:patreon_app/views/navigation_page.dart';
 import 'package:patreon_app/views/register_page.dart';
 import 'package:patreon_app/views/search_page.dart';
 import 'package:provider/provider.dart';
+
+import '../views/settings.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -23,9 +27,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => RegisterProvider(),
         ),
-        // ChangeNotifierProvider(
-        //   create: (context) => (),
-        // ),
+        ChangeNotifierProvider(
+          create: (context) => LoginProvider(),
+        ),
         ChangeNotifierProvider(
           create: (context) => BottomNavBarProvider(),
         )
@@ -40,6 +44,8 @@ class MyApp extends StatelessWidget {
           '/loginWithEmail': (context) => const LoginwithEmail(),
           '/register': (context) => const RegisterPage(),
           '/navigate': (context) => HomeScreen(),
+          '/membership': (context) => const MyMemberships(),
+          '/settings': (context) => const Settings(),
         },
         theme: CustomTheme.customThemeData(),
         //onGenerateRoute: Navigation.navigationGenarator,

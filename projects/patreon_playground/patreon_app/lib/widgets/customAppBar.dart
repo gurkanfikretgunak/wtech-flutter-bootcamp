@@ -30,15 +30,18 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
               //mainAxisAlignment: MainAxisAlignment.spaceBetween,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                      color: color, borderRadius: BorderRadius.circular(50)),
-                  child: IconButton(
-                      onPressed: press,
-                      icon: Icon(
-                        con,
-                        color: iColor,
-                      )),
+                Padding(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: color, borderRadius: BorderRadius.circular(50)),
+                    child: IconButton(
+                        onPressed: press,
+                        icon: Icon(
+                          con,
+                          color: iColor,
+                        )),
+                  ),
                 ),
                 SizedBox(
                   width: w,

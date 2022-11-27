@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
 
 import 'package:retrofit/retrofit.dart';
 
@@ -14,9 +15,24 @@ abstract class NetworkService {
   Future<List<User>> getUsers();
 
   @POST('/users')
-  @FormUrlEncoded()
-  Future<User> loginUser(@Field('email') email, @Field('password') password);
-
-  @POST('/users')
   Future<User> createUser(@Body() User user);
+
+  @GET("/users/{id}")
+  Future<User> fetchUser(@Path("id") String id);
+}
+
+class Service {
+  Dio dio = Dio();
+  Future<User?> loginUser(
+      {required String email, required String password}) async {
+    try {
+      var response = await NetworkService(dio).getUsers();
+      return response
+          .where((element) => element.email == email)
+          .where((element) => element.password == password)
+          .first;
+    } catch (e) {
+      return null;
+    }
+  }
 }

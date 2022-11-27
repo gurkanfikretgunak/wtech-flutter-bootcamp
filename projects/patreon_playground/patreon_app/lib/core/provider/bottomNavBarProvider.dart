@@ -6,8 +6,6 @@ import '../../views/home_page.dart';
 import '../../views/messages_page.dart';
 
 class BottomNavBarProvider with ChangeNotifier, DiagnosticableTreeMixin {
-  
-
   int screenIndex = 0; // Initial index of the screen
   int get fetchCurrentScreenIndex {
     // function to return the current screen Index

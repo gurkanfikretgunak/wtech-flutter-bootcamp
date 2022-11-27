@@ -1,7 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:patreon_app/core/data/models/user/user.dart';
+import 'package:patreon_app/core/data/services/service.dart';
 import 'package:patreon_app/views/error_page.dart';
-import 'package:patreon_app/views/home_page.dart';
 import 'package:patreon_app/views/login_page.dart';
 import 'package:patreon_app/views/navigation_page.dart';
 
@@ -20,13 +22,19 @@ class _AuthPageState extends State<AuthPage> {
         .then((value) => {FlutterNativeSplash.remove()});
   }
 
-  //final AsyncSnapshot<PomotodoUser?> snapShot;
   @override
   Widget build(BuildContext context) {
+    // Dio dio = Dio();
+    // return FutureBuilder<User?>(
+    //     future: NetworkService(dio).getUsers(),
+    //     builder: (context, AsyncSnapshot<User?> snapshot) {
+    //       if (snapshot.connectionState == ConnectionState.active) {
+    //         return snapshot.hasData ? HomeScreen() : const LoginPage();
+    //       }
+    //       return const ErrorPage();
+    //     });
     bool isLog = true;
-    // if (snapShot.connectionState == ConnectionState.active) {
-    //   return snapShot.hasData ? TaskView() : const LoginPage();
-    // }
+
     if (isLog == true) {
       return const LoginPage();
     } else if (isLog == true) {
