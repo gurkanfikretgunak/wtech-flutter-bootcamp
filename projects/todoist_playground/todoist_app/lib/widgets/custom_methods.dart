@@ -25,6 +25,7 @@ class CustomMethods {
   }
 
   static void alertDialogComponent(context) {
+    // ignore: unused_element
     showAlertDialog(BuildContext context) {
       // set up the button
       Widget okButton = TextButton(

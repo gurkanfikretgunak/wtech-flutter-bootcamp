@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoist_app/constants/router_name_constants.dart';
-import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import '../../constants/text/auth_constants.dart';
 import '../../core/provider/service_provider.dart';

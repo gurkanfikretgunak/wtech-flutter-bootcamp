@@ -2,6 +2,7 @@
     package="com.example.todoist_app">
    <application
         android:label="todoist_app"
+        android:requestLegacyExternalStorage="true"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

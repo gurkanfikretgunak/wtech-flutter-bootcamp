@@ -8,3 +8,4 @@ const String themeSwitcherRoute = '/themeSwitcher';
 const String settingsRoute = '/settings';
 const String settingsAccountRoute = '/accountSettings';
 const String homeRoute = '/home';
+const String imageRoute = '/image';
