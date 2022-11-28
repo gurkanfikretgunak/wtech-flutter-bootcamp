@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
+import '../widgets/account_page_widgets.dart';
+
+
+
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
 
@@ -16,64 +20,15 @@ class AccountPageState extends State<AccountPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-        Container(
-          height: 100,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            borderRadius: BorderRadius.only(bottomRight: Radius.circular(20)),
-            color: Colors.purple,
-            
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const[
-                  Padding(padding: EdgeInsets.only(left: 15)),
-                  Text("Account",style:TextStyle(fontSize: 20,color: Colors.white)),
-                ],
-              ),
-              const Padding(padding: EdgeInsets.all(5)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const[
-                  Padding(padding: EdgeInsets.only(left: 15)),
-                  Text("buraya user email gelecek apiden!",style: TextStyle(color: Colors.white),),
-                ],
-              )
-            ],
-          ),
-        ),
+        const accountContainer(),
         Container(
           height: 70,
           decoration:  BoxDecoration(
             border: _bottomBorderSideWidget()
           ),
-          child: Row(
-            
-            children: [
-              const Padding(padding: EdgeInsets.only(left: 15)),
-              const Icon(Icons.local_post_office_outlined),
-              const Padding(padding: EdgeInsets.only(left: 30)),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children:const [
-                  Text("Messages",style:TextStyle(fontSize: 17),),
-                  Padding(padding: EdgeInsets.only(top: 8)),
-                  Text("You have no new messages")
-                ],
-              )
-            ],
-          ),
+          child: const MessagesRow(),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const[
-            Padding(padding: EdgeInsets.only(left: 15)),
-             Text("Booking preferences",style: TextStyle(fontSize: 22),),
-          ],
-        ),
+        const BookingRow(),
         
         Container(
           decoration: BoxDecoration(
@@ -81,13 +36,7 @@ class AccountPageState extends State<AccountPage> {
           ),
           height: 50,
           width: double.infinity,
-          child: Row(children:const [
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Icon(Icons.credit_card),
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Text("Payment Methods"),
-            
-          ]),
+          child: const PaymentRow(),
         ),
         Container(
           height: 50,
@@ -95,62 +44,25 @@ class AccountPageState extends State<AccountPage> {
           decoration: BoxDecoration(
             border: _bottomBorderSideWidget()
           ),
-          child: Row(children:const [
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Icon(Icons.chrome_reader_mode_outlined),
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Text("Railcards"),
-            
-          ]),
+          child: const RailCardsRow(),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const[
-            Padding(padding: EdgeInsets.only(left: 15)),
-             Text("Trainline Business",style: TextStyle(fontSize: 22),),
-          ],
-        ),
+        const BusinessRow(),
         Container(
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
             border: _bottomBorderSideWidget()
           ),
-          child: Row(children:const [
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Icon(Icons.business_center),
-            Padding(padding: EdgeInsets.only(left: 15)),
-            Text("Business bookings"),
-            
-          ]),
+          child: const BusinesBookRow(),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const[
-            Padding(padding: EdgeInsets.only(left: 15)),
-             Text("App Settings",style: TextStyle(fontSize: 22),),
-          ],
-        ),
+        const AppSettingsRow(),
         Container(
           height: 50,
           width: double.infinity,
           decoration: BoxDecoration(
             border: _bottomBorderSideWidget()
           ),
-          child: Row(children: [
-            const Padding(padding: EdgeInsets.only(left: 15)),
-            const Icon(Icons.attach_money_rounded),
-            const Padding(padding: EdgeInsets.only(left: 15)),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:const [
-                 Text("Currency"),
-                 Text("Ş / USD")
-              ],
-            ),
-          
-            
-          ]),
+          child: const MoneyRow(),
         ),
         Container(
            height: 50,
@@ -158,24 +70,12 @@ class AccountPageState extends State<AccountPage> {
            decoration: BoxDecoration(
             border: _bottomBorderSideWidget()
           ),
-           child: Row(children:const [
-             Padding(padding: EdgeInsets.only(left: 15)),
-              Icon(Icons.lock),
-              Padding(padding: EdgeInsets.only(left: 15)),
-              Text("Your privacy choices"),
-            
-            ]),
+           child: const PrivacyChoiceRow(),
         ),
         Container(
            height: 50,
            width: double.infinity,
-           child: Row(children:const [
-             Padding(padding: EdgeInsets.only(left: 15)),
-              Icon(Icons.notifications),
-              Padding(padding: EdgeInsets.only(left: 15)),
-              Text("Push notifications"),
-            
-            ]),
+           child: const PushRow(),
         ),
 
       ]),
@@ -206,7 +106,7 @@ class AccountPageState extends State<AccountPage> {
     return  Border(bottom: BorderSide(
             color: Colors.blue.shade100,
             width: 1.0
-            
           ));
   }
 }
+

@@ -1,14 +1,7 @@
 
 
-
-önce model class olustur
-
-sonra generate etmek icin part ekle
-
-sonra @hivetype ile classları tanımla
-sonra classların içinde @hivefield ile objeleri tanımla 
-
-register adapter kısmını main içinde yap 
+REGISTER PAGE DUZENLE
+-constantları cek (notlar alındı)
 
 
-crud operasyonları ıcın open box yapman lazım  yine main içeriside 
+API LARI DUZENLE 

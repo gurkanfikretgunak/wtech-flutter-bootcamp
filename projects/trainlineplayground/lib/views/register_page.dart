@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:provider/provider.dart';
-import 'package:retrofit/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:trainlineplayground/core/constants.dart';
-import 'package:trainlineplayground/core/data/models/user_model.dart';
+
+import 'package:trainlineplayground/constants/constants.dart';
+
 import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 
+import '../constants/register_page_items.dart';
 import '../core/data/provider/register_page_state.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -19,30 +20,15 @@ class RegisterPage extends StatefulWidget {
 
 class RegisterPageState extends State<RegisterPage> {
 
-  List<ListViewBuilderItems> textfieldItems = [
-    ListViewBuilderItems(title: "Email"),
-    ListViewBuilderItems(title: "Create password"),
-    ListViewBuilderItems(title: "First name"),
-    ListViewBuilderItems(title: "Surname"),
-  ];
+  
   late TextEditingController emailController;
   late TextEditingController passwordController;
   late TextEditingController nameController;
   late TextEditingController surnameController;
-  late List<TextEditingController> mycontrollers = [
-    emailController,
-    passwordController,
-    nameController,
-    surnameController
-  ];
+  
   late bool isConfirmed = true;
   late bool isOk;
-  late List<String> userInfo = [
-    emailController.text,
-    nameController.text,
-    surnameController.text
-  ];
- 
+  
   
   late SharedPreferences mainPref;
    Future<void> setSharedPrefs(List<String> userInfo) async{
@@ -51,7 +37,7 @@ class RegisterPageState extends State<RegisterPage> {
   }
   
 
-
+  // parçala !
   @override
   void initState() {
    
@@ -59,40 +45,16 @@ class RegisterPageState extends State<RegisterPage> {
     passwordController = TextEditingController();
     nameController = TextEditingController();
     surnameController = TextEditingController();
-    mycontrollers;
+    RegisterPageItems.mycontrollers;
     isConfirmed = TextFormStateProvider().isConfirmed;
-    userInfo;
-    setSharedPrefs(userInfo);
+    RegisterPageItems.userInfo;
+    setSharedPrefs(RegisterPageItems.userInfo);
     UserModelState().readSharedPrefs();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    void _showDialog() {
-      // flutter defined function
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          // return object of type Dialog
-          return AlertDialog(
-            title: const Text("Alert Dialog title"),
-            content: const Text("Alert Dialog body"),
-            actions: <Widget>[
-              // usually buttons at the bottom of the dialog
-              TextButton(
-                child: const Text("Close"),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        },
-      );
-    }
-    
-      
       return Scaffold(
         resizeToAvoidBottomInset: false,
         body: Column(
@@ -108,7 +70,7 @@ class RegisterPageState extends State<RegisterPage> {
                   color: Colors.white,
                 ),
                 const Text(
-                  "New customer",
+                  CustomTextsConstants.newCustomer,
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )
               ]),
@@ -117,13 +79,13 @@ class RegisterPageState extends State<RegisterPage> {
                 padding: const EdgeInsets.only(left: 15, right: 15),
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: textfieldItems.length,
+                itemCount: RegisterPageItems.textfieldItems.length,
                 itemBuilder: (context, index) {
                   return 
                     TextFormField(
-                      controller: mycontrollers[index],
+                      controller: RegisterPageItems.mycontrollers[index],
                       decoration: InputDecoration(
-                          labelText: textfieldItems[index].title),
+                          labelText: RegisterPageItems.textfieldItems[index].title),
                     );
                   
                 }),
@@ -137,23 +99,23 @@ class RegisterPageState extends State<RegisterPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: const [
-                      Text("Be first to hear"),
+                      Text(CustomTextsConstants.beFirst),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const Flexible(
+                       const Flexible(
                           child: Text(
-                              "Yes, ı want great discounts,sales,offers and more from Trainline.")),
+                              CustomTextsConstants.discountText)), // constants klasöründen çek
                       Consumer<TextFormStateProvider>(
-                        builder: (context, TextFormStateProvider isOkey,
+                        builder: (context, TextFormStateProvider isUserAccepted,
                                 child) =>
                             IconButton(
                                 onPressed: () {
-                                  isOkey.changeButton();
+                                  isUserAccepted.changeButton();
                                 },
-                                icon: isOkey.isOk
+                                icon: isUserAccepted.isAccepted  //isimlendirmelşeri düzenle
                                     ? const Icon(Icons.offline_pin_outlined)
                                     : const Icon(Icons.offline_pin_rounded)),
                       )
@@ -163,27 +125,20 @@ class RegisterPageState extends State<RegisterPage> {
               ),
             ),
             ElevatedButton(
-                // eğer isconfirmed true ise bu   değilse null ver
+                // eğer isconfirmed true ise bu   değilse null ver  //bettercommand !
                 onPressed: () {
-                 
-                  setSharedPrefs(userInfo);
-                
-                  
-                  
+                  setSharedPrefs(RegisterPageItems.userInfo);
                   showDialog<String>(
                     context: context,
                     builder: (BuildContext context) => AlertDialog(
-                      title: const Text("a "),
-                      content: const Text('AlertDialog description'),
+                      title: const Text(CustomTextsConstants.registerSuccess),
+                      content: const Text(CustomTextsConstants.kayitBasarili),
                       actions: <Widget>[
                         TextButton(
-                          onPressed: () => Navigator.pop(context, 'Cancel'),
-                          child: const Text('Cancel'),
+                          onPressed: () => Navigator.pop(context, CustomTextsConstants.cancel),
+                          child: const Text(CustomTextsConstants.cancel),
                         ),
-                        TextButton(
-                          onPressed: () => Navigator.pop(context, 'OK'),
-                          child: const Text('OK'),
-                        ),
+                       
                       ],
                     ),
                   );
@@ -194,9 +149,9 @@ class RegisterPageState extends State<RegisterPage> {
                 child: Container(
                   alignment: Alignment.center,
                   height: 50,
-                  width: 300,
+                  width: 300, // responsive yap! 
                   child: const Text(
-                    "Create Account",
+                    CustomTextsConstants.createAccount,
                     style: TextStyle(fontSize: 18, color: Colors.black),
                   ),
                 )),
@@ -206,3 +161,5 @@ class RegisterPageState extends State<RegisterPage> {
     
   }
 }
+
+

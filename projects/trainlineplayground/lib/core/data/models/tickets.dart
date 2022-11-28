@@ -2,7 +2,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'tickets.g.dart';
 
-@JsonSerializable()
+@JsonSerializable() //field
 class Tickets {
   String? trainTime;
   String? trainarriveTime;

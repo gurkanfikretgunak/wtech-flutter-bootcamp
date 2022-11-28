@@ -25,6 +25,8 @@ class UserModelState with ChangeNotifier{
     userpref.setStringList('userinfo',userinfo);
   }
 
+  
+
   Future<Object> readSharedPrefs() async {
     userpreference =await SharedPreferences.getInstance();
     return userpreference.getStringList('userinfo') ?? 'none';
