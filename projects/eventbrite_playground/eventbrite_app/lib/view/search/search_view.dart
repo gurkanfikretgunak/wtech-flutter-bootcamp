@@ -28,6 +28,7 @@ class SearchView extends StatelessWidget {
             ),
             const Expanded(
               child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
                 children: [
                   Center(child: Text('Events')),
                   Center(child: Text('Organizers')),

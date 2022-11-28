@@ -170,7 +170,10 @@ class SliverDropdown extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          !isScrolled ? Text('Find events in', style: Theme.of(context).textTheme.headline5) : const SizedBox(),
+          !isScrolled
+              ? Text('Find events in',
+                  style: Theme.of(context).textTheme.headline5)
+              : const SizedBox(),
           DropdownButton(
             value: 1,
             isExpanded: true,
