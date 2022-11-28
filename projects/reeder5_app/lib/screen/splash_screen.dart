@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:reeder5_app/screen/home_screen.dart';
+import 'first_screen.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => FirstScreen()));
     });
   }
 
