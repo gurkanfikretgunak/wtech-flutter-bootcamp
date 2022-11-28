@@ -22,84 +22,91 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
   Widget build(BuildContext context) {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
-    return Padding(
-      padding: CustomMethods.sheetBottomValue(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      body: Wrap(
         children: [
-          SizedBox(
-            height: 95,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              IconButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  icon: const Icon(Icons.arrow_back_ios)),
-              Text(
-                CustomTextConstants.logWithPasswordText,
-                style: Theme.of(context).textTheme.headline1,
-              ),
-            ]),
-          ),
-          Text.rich(
-            TextSpan(
-                text: 'Using ', // default text style
-                children: <TextSpan>[
-                  TextSpan(text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
-                  const TextSpan(text: ' to log in.'),
-                ],
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
-          ),
           Padding(
-            padding: const EdgeInsets.only(top: 50.0),
-            child: SizedBox(
-              height: 230,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(CustomTextConstants.yourPasswordText, style: Theme.of(context).textTheme.subtitle1),
-                  CustomInputDecoration(
-                    labelText: CustomTextConstants.passwordLabelText,
-                    inputIcon: Icons.visibility_rounded,
-                    unInputIcon: Icons.visibility_off_rounded,
-                    deneme: true,
-                    onChanged: _formProvider.validatePassword,
-                    errorText: _formProvider.password.error,
-                    controller: passwordController,
-                  ),
-                  Consumer<ServiceProvider>(builder: (context, data, child) {
-                    return Consumer<FormProvider>(builder: (context, value, child) {
-                      return CustomAuthButton(
-                          buttonTexts: CustomTextConstants.buttonTextEmail,
-                          onPressed: () async {
-                            if (value.passwordValidate) {
-                              bool isCheck =
-                                  await data.passwordCheck(widget.emailController!.text, passwordController.text);
+            padding: CustomMethods.sheetBottomValue(),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  height: 95,
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: const Icon(Icons.arrow_back_ios)),
+                    Text(
+                      CustomTextConstants.logWithPasswordText,
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
+                  ]),
+                ),
+                Text.rich(
+                  TextSpan(
+                      text: 'Using ', // default text style
+                      children: <TextSpan>[
+                        TextSpan(
+                            text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
+                        const TextSpan(text: ' to log in.'),
+                      ],
+                      style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 50.0),
+                  child: SizedBox(
+                    height: 230,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(CustomTextConstants.yourPasswordText, style: Theme.of(context).textTheme.subtitle1),
+                        CustomInputDecoration(
+                          labelText: CustomTextConstants.passwordLabelText,
+                          inputIcon: Icons.visibility_rounded,
+                          unInputIcon: Icons.visibility_off_rounded,
+                          deneme: true,
+                          onChanged: _formProvider.validatePassword,
+                          errorText: _formProvider.password.error,
+                          controller: passwordController,
+                        ),
+                        Consumer<ServiceProvider>(builder: (context, data, child) {
+                          return Consumer<FormProvider>(builder: (context, value, child) {
+                            return CustomAuthButton(
+                                buttonTexts: CustomTextConstants.buttonTextEmail,
+                                onPressed: () async {
+                                  if (value.passwordValidate) {
+                                    bool isCheck =
+                                        await data.passwordCheck(widget.emailController!.text, passwordController.text);
 
-                              if (isCheck) {
-                                // ignore: use_build_context_synchronously
-                                Navigator.pushNamed(context, loadingRoute);
-                                await loginAction();
-                                // ignore: use_build_context_synchronously
-                                Navigator.pushNamed(context, homeRoute);
-                              } else {
-                                // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(context, const LoginPasswordView());
-                              }
-                            }
+                                    if (isCheck) {
+                                      // ignore: use_build_context_synchronously
+                                      Navigator.pushNamed(context, loadingRoute);
+                                      await loginAction();
+                                      // ignore: use_build_context_synchronously
+                                      Navigator.pushNamed(context, homeRoute);
+                                    } else {
+                                      // ignore: use_build_context_synchronously
+                                      CustomMethods.componentSnackbar(context, "Wrong password!", "Undo");
+                                    }
+                                  }
+                                });
                           });
-                    });
-                  }),
-                  Center(
-                      child: TextButton(
-                          onPressed: () {},
-                          child: Text(CustomTextConstants.forgotPasswordText,
-                              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 13))))
-                ],
-              ),
+                        }),
+                        Center(
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Text(CustomTextConstants.forgotPasswordText,
+                                    style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 13))))
+                      ],
+                    ),
+                  ),
+                )
+              ],
             ),
-          )
+          ),
         ],
       ),
     );

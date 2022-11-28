@@ -27,66 +27,76 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   Widget build(BuildContext context) {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
-    return Padding(
-      padding: CustomMethods.sheetBottomValue(),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Scaffold(
+      body: Wrap(
         children: [
-          SizedBox(
-            height: 120,
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(CustomTextConstants.sheetCloseText,
-                      style: TextStyle(color: Colors.red, fontSize: 18), textAlign: TextAlign.left)),
-              Text(CustomTextConstants.whatEmailText, style: Theme.of(context).textTheme.headline1),
-            ]),
-          ),
-          SizedBox(
-            height: 200,
+          Padding(
+            padding: CustomMethods.sheetBottomValue(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Text(CustomTextConstants.yourEmailText,
-                    style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
-                CustomInputDecoration(
-                  labelText: "Email",
-                  controller: emailController,
-                  deneme: false,
-                  onChanged: _formProvider.validateEmail,
-                  errorText: _formProvider.email.error,
+                SizedBox(
+                  height: 120,
+                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                    TextButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: const Text(CustomTextConstants.sheetCloseText,
+                            style: TextStyle(color: Colors.red, fontSize: 18), textAlign: TextAlign.left)),
+                    Text(CustomTextConstants.whatEmailText, style: Theme.of(context).textTheme.headline1),
+                  ]),
                 ),
-                Consumer<ServiceProvider>(
-                  builder: (context, data, child) {
-                    return Consumer<FormProvider>(
-                      builder: (context, value, child) {
-                        return CustomAuthButton(
-                          buttonTexts: CustomTextConstants.buttonTextEmail,
-                          onPressed: () async {
-                            if (value.emailValidate) {
-                              bool isCheck = await data.fetchUser(emailController.text);
-                              if (isCheck) {
-                                // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(
-                                    context, LoginPasswordView(emailController: emailController));
-                              } else {
-                                // ignore: use_build_context_synchronously
-                                CustomMethods.settingModalBottomSheet(
-                                    context, SignInView(emailController: emailController));
-                              }
-                            }
-                          },
-                        );
-                      },
-                    );
-                  },
-                ),
+                SizedBox(
+                  height: 200,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text(CustomTextConstants.yourEmailText,
+                          style: Theme.of(context).textTheme.subtitle1, textAlign: TextAlign.left),
+                      CustomInputDecoration(
+                        labelText: "Email",
+                        controller: emailController,
+                        deneme: false,
+                        onChanged: _formProvider.validateEmail,
+                        errorText: _formProvider.email.error,
+                      ),
+                      Consumer<ServiceProvider>(
+                        builder: (context, data, child) {
+                          return Consumer<FormProvider>(
+                            builder: (context, value, child) {
+                              return CustomAuthButton(
+                                buttonTexts: CustomTextConstants.buttonTextEmail,
+                                onPressed: () async {
+                                  if (value.emailValidate) {
+                                    bool isCheck = await data.fetchUser(emailController.text);
+                                    if (isCheck) {
+                                      // ignore: use_build_context_synchronously
+                                      CustomMethods.settingModalBottomSheet(
+                                          context, LoginPasswordView(emailController: emailController));
+                                    } else {
+                                      // ignore: use_build_context_synchronously
+                                      CustomMethods.componentSnackbar(context, "No Email Address!", "Sign Up >");
+                                      await loginAction();
+
+                                      // ignore: use_build_context_synchronously
+                                      CustomMethods.settingModalBottomSheet(
+                                          context, SignInView(emailController: emailController));
+                                    }
+                                  }
+                                },
+                              );
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
+                )
               ],
             ),
-          )
+          ),
         ],
       ),
     );

@@ -24,31 +24,18 @@ class CustomMethods {
     );
   }
 
-  static void alertDialogComponent(context) {
+  static void componentSnackbar(context, String textInfo, String labelText) {
     // ignore: unused_element
-    showAlertDialog(BuildContext context) {
-      // set up the button
-      Widget okButton = TextButton(
-        child: const Text("OK"),
+    final snackBar = SnackBar(
+      content: Text(textInfo),
+      action: SnackBarAction(
+        label: labelText,
+        textColor: Colors.white,
         onPressed: () {},
-      );
+      ),
+    );
 
-      // set up the AlertDialog
-      AlertDialog alert = AlertDialog(
-        title: const Text("My title"),
-        content: const Text("This is my message."),
-        actions: [
-          okButton,
-        ],
-      );
-
-      // show the dialog
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return alert;
-        },
-      );
-    }
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }

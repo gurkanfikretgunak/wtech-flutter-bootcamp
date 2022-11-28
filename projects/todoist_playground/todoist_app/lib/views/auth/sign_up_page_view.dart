@@ -107,6 +107,10 @@ class _SignInViewState extends State<SignInView> {
                                               CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());
                                             } else {
                                               // ignore: use_build_context_synchronously
+                                              CustomMethods.componentSnackbar(context, "Email already exists!", "Undo");
+                                              await loginAction();
+
+                                              // ignore: use_build_context_synchronously
                                               CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());
                                             }
                                           }

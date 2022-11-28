@@ -7,9 +7,10 @@ class Users {
   String? email;
   String? name;
   String? password;
+  String? image;
   String? id;
 
-  Users({this.email, this.name, this.password, this.id});
+  Users({this.email, this.name, this.password, this.image, this.id});
 
   factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
   Map<String, dynamic> toJson() => _$UsersToJson(this);

@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -43,10 +45,11 @@ class _AccountSettingViewState extends State<AccountSettingView> {
     ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
-        appBar: const PreferredSize(
-            preferredSize: Size(400, 50),
+        appBar: PreferredSize(
+            preferredSize: const Size(400, 50),
             child: AppBarWidget(
               appText: CustomSettingsText.accountText,
+              pickImage: _image,
             )),
         body: Padding(
             padding: const EdgeInsets.only(top: 30.0),
@@ -103,6 +106,12 @@ class _UserImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    File? imageAp;
+    // ignore: no_leading_underscores_for_local_identifiers
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+    imageAp = File(
+        context.read<ServiceProvider>().imageUser.substring(1, context.read<ServiceProvider>().imageUser.length - 1));
+
     return Container(
         width: 90.0,
         height: 90.0,

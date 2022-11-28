@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import '../../model/user/users_model.dart';
@@ -9,6 +11,7 @@ class ServiceProvider with ChangeNotifier {
   String userEmail = "";
   String idUser = "";
   String passwordUser = "";
+  String imageUser = "";
   Future<bool> passwordCheck(email, password) async {
     final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
         baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
@@ -33,6 +36,7 @@ class ServiceProvider with ChangeNotifier {
         userName = item.name!;
         idUser = item.id!.toString();
         passwordUser = item.password!;
+        imageUser = item.image!;
         return true;
       }
     }
@@ -58,6 +62,13 @@ class ServiceProvider with ChangeNotifier {
     RestClient(Dio(BaseOptions(contentType: "application/json")),
             baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
         .updateUser(idUser, passwordUs);
+    return true;
+  }
+
+  Future<bool> updateImage(imageUs) async {
+    RestClient(Dio(BaseOptions(contentType: "application/json")),
+            baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
+        .updateImage(idUser, imageUs);
     return true;
   }
 }
