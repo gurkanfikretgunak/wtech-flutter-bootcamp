@@ -1,5 +1,4 @@
 import '../../../base/base_service.dart';
-
 import '../../model/topic.dart';
 
 class TopicService extends IRetrofitService<Topic> {

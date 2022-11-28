@@ -5,7 +5,6 @@ import '../../../../core/components/button/button_libary.dart';
 import '../../../../core/components/custom_divider.dart';
 import '../../../../core/components/text/text_libary.dart';
 import '../../../../core/init/routes/custom_navigator.dart';
-import '../../../drawer/theme_setting_view_model.dart';
 import '../../authentication_view.dart';
 import 'sign_in_with_organization_view_model.dart';
 
@@ -22,15 +21,6 @@ class _SignInViewState extends State<SignInView> {
     return AuthenticationView(
       widget: Column(
         children: [
-          IconButton(
-              icon: Icon(ThemeSettingViewModel().isDark
-                  ? Icons.nightlight_round
-                  : Icons.wb_sunny),
-              onPressed: () {
-                ThemeSettingViewModel().isDark
-                    ? ThemeSettingViewModel().isDark = false
-                    : ThemeSettingViewModel().isDark = true;
-              }),
           const Spacer(),
           const Expanded(
             child: Center(

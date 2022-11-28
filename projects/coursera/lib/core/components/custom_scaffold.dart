@@ -1,4 +1,4 @@
-import 'package:coursera/core/components/custom_drawer.dart';
+import 'custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 

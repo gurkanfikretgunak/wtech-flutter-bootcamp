@@ -1,18 +1,18 @@
-import '../../../core/data/network/services/user_service.dart';
+import 'package:flutter/material.dart';
+import 'package:kartal/kartal.dart';
 import 'package:logger/logger.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/data/model/user.dart';
-import '../../../core/init/routes/custom_navigator.dart';
-import '../authentication_custom_widget/authentication_form.dart';
-import 'sign_up_text_form_field_model.dart';
-import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/custom_app_bar.dart';
 import '../../../core/components/custom_or_text.dart';
 import '../../../core/components/text/text_libary.dart';
+import '../../../core/data/model/user.dart';
+import '../../../core/data/network/services/user_service.dart';
+import '../../../core/init/routes/custom_navigator.dart';
+import '../authentication_custom_widget/authentication_form.dart';
 import '../authentication_view.dart';
+import 'sign_up_text_form_field_model.dart';
 import 'sign_up_view_model.dart';
 
 class SignUpView extends StatefulWidget {

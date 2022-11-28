@@ -1,10 +1,9 @@
-import 'package:coursera/views/home/explore/explore_custom_widget/course_card.dart';
+import 'course_card.dart';
 import '../../../../core/data/network/services/course_service.dart';
 import '../../../../core/components/custom_circular_progress_indicator.dart';
 import '../../../../core/data/model/course.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
 
 class FreeCoursesList extends StatefulWidget {
   const FreeCoursesList({super.key});

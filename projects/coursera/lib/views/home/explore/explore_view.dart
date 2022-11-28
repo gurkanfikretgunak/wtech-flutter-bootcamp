@@ -1,4 +1,4 @@
-import 'package:coursera/views/home/explore/explore_custom_widget/titles.dart';
+import 'explore_custom_widget/titles.dart';
 import 'package:kartal/kartal.dart';
 import '../../../core/components/custom_scaffold.dart';
 import 'explore_custom_widget/free_courses_list.dart';

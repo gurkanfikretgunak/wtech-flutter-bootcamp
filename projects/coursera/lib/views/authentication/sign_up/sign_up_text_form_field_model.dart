@@ -1,4 +1,4 @@
-import 'package:coursera/views/authentication/authentication_view_model.dart';
+import '../authentication_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

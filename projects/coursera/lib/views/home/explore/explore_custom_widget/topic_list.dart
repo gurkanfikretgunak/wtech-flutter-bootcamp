@@ -1,4 +1,4 @@
-import 'package:coursera/core/components/custom_chip.dart';
+import '../../../../core/components/custom_chip.dart';
 import '../../../../core/data/network/services/topic_service.dart';
 import '../../../../core/components/custom_circular_progress_indicator.dart';
 import 'package:flutter/material.dart';

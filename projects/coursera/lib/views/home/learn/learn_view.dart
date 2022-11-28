@@ -1,7 +1,8 @@
-import '../../../core/components/custom_scaffold.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
 import '../../../core/components/button/button_libary.dart';
+import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 
 class LearnView extends StatefulWidget {

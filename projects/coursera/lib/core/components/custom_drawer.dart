@@ -1,9 +1,9 @@
-import 'package:coursera/core/components/custom_divider.dart';
-import 'package:coursera/core/components/custom_viewer_image.dart';
-import 'package:coursera/core/components/text/text_libary.dart';
-import 'package:coursera/core/constants/constant_libary.dart';
-import 'package:coursera/core/init/cache/shared_manager.dart';
-import 'package:coursera/core/init/routes/custom_navigator.dart';
+import 'custom_divider.dart';
+import 'custom_viewer_image.dart';
+import 'text/text_libary.dart';
+import '../constants/constant_libary.dart';
+import '../init/cache/shared_manager.dart';
+import '../init/routes/custom_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
