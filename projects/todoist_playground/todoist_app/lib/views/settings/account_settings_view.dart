@@ -1,6 +1,8 @@
-// ignore_for_file: no_leading_underscores_for_local_identifiers
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
 import 'package:todoist_app/views/settings/change_password_view.dart';
@@ -18,11 +20,27 @@ class AccountSettingView extends StatefulWidget {
 }
 
 class _AccountSettingViewState extends State<AccountSettingView> {
+  File? _image;
+
+  Future _pickImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      File? img = File(image.path);
+      setState(() {
+        _image = img;
+      });
+    } on PlatformException catch (e) {
+      // ignore: avoid_print
+      print(e);
+      Navigator.of(context).pop();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    // ignore: unused_local_variable
+    // ignore: no_leading_underscores_for_local_identifiers
     ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
-
     return Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
         appBar: const PreferredSize(
@@ -35,7 +53,14 @@ class _AccountSettingViewState extends State<AccountSettingView> {
             child: Padding(
                 padding: const EdgeInsetsDirectional.only(start: 20, end: 20, top: 8),
                 child: Column(children: [
-                  Column(children: [const _UserImageWidget(), TextButton(onPressed: () {}, child: const Text("edit"))]),
+                  Column(children: [
+                    _UserImageWidget(image: _image),
+                    TextButton(
+                        onPressed: () {
+                          _pickImage(ImageSource.gallery);
+                        },
+                        child: const Text("edit"))
+                  ]),
                   Padding(
                     padding: const EdgeInsets.only(top: 10.0, bottom: 20),
                     child: Column(
@@ -72,7 +97,9 @@ class _AccountSettingViewState extends State<AccountSettingView> {
 class _UserImageWidget extends StatelessWidget {
   const _UserImageWidget({
     Key? key,
+    this.image,
   }) : super(key: key);
+  final File? image;
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +111,12 @@ class _UserImageWidget extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(50.0)),
             border: Border.all(color: Colors.green.shade800, width: 4.0)),
         child: Center(
-            child: Text("NP",
-                style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 40, color: Colors.green[800]))));
+            child: image == null
+                ? const Icon(Icons.camera_alt_outlined)
+                : CircleAvatar(
+                    radius: 90,
+                    backgroundImage: FileImage(image!),
+                  )));
   }
 }
 
