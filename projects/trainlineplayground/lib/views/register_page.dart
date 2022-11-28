@@ -6,7 +6,7 @@ import 'package:retrofit/http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trainlineplayground/core/constants.dart';
 import 'package:trainlineplayground/core/data/models/user_model.dart';
-import 'package:trainlineplayground/core/data/provider/user_model_state.dart';
+import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 
 import '../core/data/provider/register_page_state.dart';
 

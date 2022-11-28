@@ -15,7 +15,7 @@ import '../views/ticket_page.dart';
 import 'data/provider/home_page_state.dart';
 import 'data/provider/register_page_state.dart';
 import '../denemeler/user_provider.dart';
-import 'data/provider/user_model_state.dart';
+import 'data/provider/user_model_sharedpf.dart';
 
 
 class MyApp extends StatelessWidget {
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         
-        home: const TicketPage(),
+        home: const OriginalHomePage(),
       ),
       
     );

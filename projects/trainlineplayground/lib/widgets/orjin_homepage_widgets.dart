@@ -190,6 +190,9 @@ class SearchWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      onTap: () {
+        Navigator.of(context).pushNamed('/findticket');
+      },
       child: Container(
         alignment: Alignment.center,
         height: 50,
