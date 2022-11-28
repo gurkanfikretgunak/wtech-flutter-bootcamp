@@ -1,3 +1,4 @@
+import 'package:wise_app/pages/home_page.dart';
 import 'package:wise_app/unit/imports.dart';
 
 class LoginPageBody extends StatelessWidget {
@@ -102,7 +103,7 @@ class LoginPageBody extends StatelessWidget {
                     style: LoginStyle.loginButtonStyle,
                     onPressed: () {
                       if (kDebugMode) {
-
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>HomePage()));
                       }
                     },
                     child: const Text(

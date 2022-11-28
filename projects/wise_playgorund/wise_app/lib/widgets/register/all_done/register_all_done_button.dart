@@ -1,7 +1,6 @@
 import 'package:wise_app/pages/home_page.dart';
 import 'package:wise_app/unit/imports.dart';
 
-
 class AllDoneWidgetOkButton extends StatelessWidget {
   const AllDoneWidgetOkButton({
     Key? key,
@@ -15,20 +14,20 @@ class AllDoneWidgetOkButton extends StatelessWidget {
     return Container(
       width: size.width,
       height: 80,
-      color:ColorConstants.allDoneButtonBackgroundColor ,
+      color: ColorConstants.allDoneButtonBackgroundColor,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
             height: 55,
-            width: size.width-20,
+            width: size.width - 20,
             child: ElevatedButton(
                 style: RegisterStyle.nextButtonStyle,
                 onPressed: () {
-                  Navigator.pushReplacement(
+                  Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(
-                          builder: (context) => const LoginPage()));
+                      MaterialPageRoute(builder: (context) => const HomePage()),
+                      (route) => false);
                 },
                 child: Text(
                   RegisterTextConstants.gotItButtonText,

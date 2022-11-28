@@ -7,6 +7,9 @@ class ThemeProvider extends ChangeNotifier {
   Color _colorAppBar = ThemeData.light().scaffoldBackgroundColor;
   Color get appBarColor => _colorAppBar;
 
+  Color _homePageBackgroundColor=const Color.fromRGBO(46, 67, 105, 1);
+  Color get homePageBackgroundColor=>_homePageBackgroundColor;
+
   IconThemeData _appBarButtonColor = const IconThemeData(color: Colors.blue);
   IconThemeData get appBarButtonColor => _appBarButtonColor;
 
@@ -51,6 +54,8 @@ class ThemeProvider extends ChangeNotifier {
           ThemeData.light().scaffoldBackgroundColor;
       _elevationButtonBorderColor = const Color.fromRGBO(81, 106, 109, 1);
       _elevationButtonAppleColor = Colors.black;
+
+      _homePageBackgroundColor=const Color.fromRGBO(46, 67, 105, 1);
     } else {
       _colorAppBar = ThemeData.dark().scaffoldBackgroundColor;
       _theme = ThemeData.dark();
@@ -64,6 +69,8 @@ class ThemeProvider extends ChangeNotifier {
           ThemeData.dark().scaffoldBackgroundColor;
       _elevationButtonBorderColor = Colors.white;
       _elevationButtonAppleColor = Colors.white;
+
+      _homePageBackgroundColor=ThemeData.dark().scaffoldBackgroundColor;
     }
     notifyListeners();
   }

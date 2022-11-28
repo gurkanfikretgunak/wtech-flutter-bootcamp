@@ -13,7 +13,6 @@ class _SplashPageState extends State<SplashPage> {
     var size = MediaQuery.of(context).size;
     return SafeArea(
       top: false,
-      //custom olacak
       child: AnimatedSplashScreen(
         splash: SplashWidget(
           size: size,

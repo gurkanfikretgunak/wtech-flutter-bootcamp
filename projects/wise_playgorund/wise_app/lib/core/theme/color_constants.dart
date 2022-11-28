@@ -9,4 +9,6 @@ class ColorConstants {
   static const Color indicatorVisitedColor = Colors.white;
   static const Color indicatorUnvisitedColor = Colors.grey;
   static Color loginTextButtonBorderSideColor = Colors.grey.shade400;
+
+  static const IconThemeData homePageAppBarButtonColor = IconThemeData(color: Colors.blue);
 }
