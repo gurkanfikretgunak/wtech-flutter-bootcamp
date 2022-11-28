@@ -1,9 +1,9 @@
-import 'explore_custom_widget/titles.dart';
+import 'widgets/titles.dart';
 import 'package:kartal/kartal.dart';
 import '../../../core/components/custom_scaffold.dart';
-import 'explore_custom_widget/free_courses_list.dart';
-import 'explore_custom_widget/most_popular_certificates_list.dart';
-import 'explore_custom_widget/topic_list.dart';
+import 'widgets/free_courses_list.dart';
+import 'widgets/most_popular_certificates_list.dart';
+import 'widgets/topic_list.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constants/constant_libary.dart';
 import '../../../core/components/text/text_libary.dart';
