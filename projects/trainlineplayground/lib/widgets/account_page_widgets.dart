@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/constants.dart';
+import '../constants/paddings/account_page_paddings.dart';
+import '../constants/text_constants/constants.dart';
 
 class PushRow extends StatelessWidget {
   const PushRow({
@@ -10,9 +11,9 @@ class PushRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children:const [
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
        Icon(Icons.notifications),
-       Padding(padding: EdgeInsets.only(left: 15)),
+       RowPadding(),
        Text("Push notifications"),
      
      ]);
@@ -33,12 +34,23 @@ class PrivacyChoiceRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children:const [
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
        Icon(Icons.lock),
-       Padding(padding: EdgeInsets.only(left: 15)),
+       RowPadding(),
        Text("Your privacy choices"),
      
      ]);
+  }
+}
+
+class RowPadding extends StatelessWidget {
+  const RowPadding({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RowPadding();
   }
 }
 
@@ -50,9 +62,9 @@ class MoneyRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children: [
-      const Padding(padding: EdgeInsets.only(left: 15)),
+      const RowPadding(),
       const Icon(Icons.attach_money_rounded),
-      const Padding(padding: EdgeInsets.only(left: 15)),
+      const RowPadding(),
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:const [
@@ -76,7 +88,7 @@ class AppSettingsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
-        Padding(padding: EdgeInsets.only(left: 15)),
+        RowPadding(),
          Text("App Settings",style: TextStyle(fontSize: 22),),
       ],
     );
@@ -91,10 +103,9 @@ class BusinesBookRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children:const [
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
       Icon(Icons.business_center),
-      Padding(padding: EdgeInsets.only(left: 15)),
-      Text("Business bookings"),
+      RowPadding(),      Text("Business bookings"),
       
     ]);
   }
@@ -110,7 +121,7 @@ class BusinessRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
-        Padding(padding: EdgeInsets.only(left: 15)),
+        RowPadding(),
          Text("Trainline Business",style: TextStyle(fontSize: 22),),
       ],
     );
@@ -125,9 +136,9 @@ class RailCardsRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children:const [
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
       Icon(Icons.chrome_reader_mode_outlined),
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
       Text("Railcards"),
       
     ]);
@@ -142,9 +153,9 @@ class PaymentRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(children:const [
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
       Icon(Icons.credit_card),
-      Padding(padding: EdgeInsets.only(left: 15)),
+      RowPadding(),
       Text("Payment Methods"),
       
     ]);
@@ -161,7 +172,7 @@ class BookingRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
-        Padding(padding: EdgeInsets.only(left: 15)),
+        RowPadding(),
          Text("Booking preferences",style: TextStyle(fontSize: 22),),
       ],
     );
@@ -178,14 +189,14 @@ class MessagesRow extends StatelessWidget {
     return Row(
       
       children: [
-        const Padding(padding: EdgeInsets.only(left: 15)),
+        RowPadding(),
         const Icon(Icons.local_post_office_outlined),
-        const Padding(padding: EdgeInsets.only(left: 30)),
+        MessagePadding(),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:const [
             Text("Messages",style:TextStyle(fontSize: 17),),
-            Padding(padding: EdgeInsets.only(top: 8)),
+            DefaultRowPadding(),
             Text("You have no new messages")
           ],
         )
@@ -193,6 +204,7 @@ class MessagesRow extends StatelessWidget {
     );
   }
 }
+
 
 class accountContainer extends StatelessWidget {
   const accountContainer({
@@ -215,15 +227,15 @@ class accountContainer extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const[
-              Padding(padding: EdgeInsets.only(left: 15)),
+              RowPadding(),
               Text("Account",style:TextStyle(fontSize: 20,color: Colors.white)),
             ],
           ),
-          const Padding(padding: EdgeInsets.all(5)),
+          ButtonPadding(),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: const[
-              Padding(padding: EdgeInsets.only(left: 15)),
+              RowPadding(),
               Text("buraya user email gelecek apiden!",style: TextStyle(color: Colors.white),),
             ],
           )
@@ -232,6 +244,8 @@ class accountContainer extends StatelessWidget {
     );
   }
 }
+
+
 class AccountPageBottomNavBar extends StatelessWidget {
   const AccountPageBottomNavBar({
     Key? key,
