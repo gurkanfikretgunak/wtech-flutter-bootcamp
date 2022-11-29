@@ -62,6 +62,7 @@ class CustomTheme {
               color: Colors.black,
             ),
           )),
+      //TODO: Textfield label property will update without bold
     );
   }
 }

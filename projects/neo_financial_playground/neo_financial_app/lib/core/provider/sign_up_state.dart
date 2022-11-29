@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import '../data/local/shared_preferences.dart';
 import '../data/models/user.dart';
 import '../data/services/service.dart';
 
@@ -44,6 +44,9 @@ class SignUpState with ChangeNotifier {
             password: _password,
             phone: _phone,
             id: ''));
+        Future<List<User>> result = UserRetrofit().getUsers();
+        List<User> users = await result;
+        UserSharedPreferences.setUserID(users.last.id);
       }
     } catch (e) {
       //TODO: Here will be update

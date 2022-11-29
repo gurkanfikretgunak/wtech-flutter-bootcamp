@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/views/profile_view.dart';
 import '../views/error_view.dart';
 import '../views/home_template_view.dart';
 import '../views/onboarding/onboarding_screen_view.dart';
@@ -22,6 +23,10 @@ class Navigation {
       case '/Register':
         return MaterialPageRoute(
           builder: (context) => const RegisterTemplateView(),
+        );
+      case '/Profile':
+        return MaterialPageRoute(
+          builder: (context) => const ProfileView(),
         );
       default:
         return MaterialPageRoute(builder: (context) => const ErrorView());

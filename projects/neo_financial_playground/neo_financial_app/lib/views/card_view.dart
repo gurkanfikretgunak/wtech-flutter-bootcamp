@@ -34,7 +34,12 @@ class CardView extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: Colors.black12,
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(
+                          context,
+                          '/Profile',
+                        );
+                      },
                       icon: const Icon(
                         Icons.more_horiz,
                         color: Colors.black,

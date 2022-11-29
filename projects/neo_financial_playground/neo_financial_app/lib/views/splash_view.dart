@@ -1,5 +1,6 @@
 //This class is not best practice for splash screen, but it works.
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/local/shared_preferences.dart';
 
 class SplashScreenView extends StatefulWidget {
   const SplashScreenView({super.key});
@@ -47,10 +48,11 @@ class _SplashScreenViewState extends State<SplashScreenView> {
 
   void _navigateToHome() async {
     await Future.delayed(const Duration(milliseconds: 3000), () {});
+    String? user = UserSharedPreferences.getUserID();
     // ignore: use_build_context_synchronously
     Navigator.pushNamed(
       context,
-      '/Onboarding',
+      user!.isEmpty ? '/Onboarding' : '/Home',
     );
   }
 }

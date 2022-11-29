@@ -102,6 +102,8 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                           state.goPage();
                         } else {
                           await signupState.signUp();
+                          //TODO:CircularProgressIndicator will use
+
                           // ignore: use_build_context_synchronously
                           Navigator.pushNamed(
                             context,
