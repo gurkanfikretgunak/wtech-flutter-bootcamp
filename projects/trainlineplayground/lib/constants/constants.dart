@@ -20,5 +20,10 @@ class CustomTextsConstants {
   static const registerSuccess = "You have successfully registered";
   static const cancel = "kapat";
   static const kayitBasarili = "kayıt başarılı";
+  static const liveTicket = "Live times & tickets";
+  static const outbound = 'Outbound';
+  static const search= "Search";
+  static const myticket = 'My Tickets';
+  static const signin = 'Sign In';
   
 }

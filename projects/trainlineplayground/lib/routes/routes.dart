@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:trainlineplayground/views/account_page.dart';
 
 import '../views/orjin_home_page.dart';
 import '../views/register_page.dart';
@@ -20,6 +21,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const RegisterPage());
       case '/findticket':
         return MaterialPageRoute(builder: (_) => const TicketPage());
+      case '/account':
+        return MaterialPageRoute(builder: (_) => const AccountPage());
       default: 
         return _errorRoute(); 
     }

@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/cupertino.dart';
+import 'package:trainlineplayground/constants/register_page_items.dart';
 import 'package:trainlineplayground/views/register_page.dart';
 
 class TextFormStateProvider with ChangeNotifier {
@@ -19,13 +20,5 @@ class TextFormStateProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void checkConfirm(){
-    if(RegisterPageState().emailController.text != "" && RegisterPageState().passwordController.text != "" &&
-      RegisterPageState().nameController.text != "" && RegisterPageState().surnameController.text != ""){
-        isConfirmed = true;
-      }else{
-        isConfirmed = false;
-      }
-    notifyListeners();
-  }
+ 
 }

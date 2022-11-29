@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/constants.dart';
+
 class PushRow extends StatelessWidget {
   const PushRow({
     Key? key,
@@ -14,6 +16,12 @@ class PushRow extends StatelessWidget {
        Text("Push notifications"),
      
      ]);
+  }
+}
+
+class FunctionalAccounWidget {
+  static Border bottomBorderSideWidget() {
+    return Border(bottom: BorderSide(color: Colors.blue.shade100, width: 1.0));
   }
 }
 
@@ -222,5 +230,31 @@ class accountContainer extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+class AccountPageBottomNavBar extends StatelessWidget {
+  const AccountPageBottomNavBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+          icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          label: CustomTextsConstants.search),
+      BottomNavigationBarItem(
+          icon: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.airplane_ticket_outlined)),
+          label: CustomTextsConstants.myticket),
+      BottomNavigationBarItem(
+          icon: IconButton(
+              onPressed: () {
+                Navigator.of(context).pushNamed('/');
+              },
+              icon: const Icon(Icons.person)),
+          label: CustomTextsConstants.signin),
+    ]);
   }
 }

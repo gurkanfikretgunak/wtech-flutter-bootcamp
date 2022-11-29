@@ -350,14 +350,9 @@ class universityChangeTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 12.0, right: 12.0),
-      child: TextField(
-        controller: _universitycontroller,
-        onChanged: (universityText) {},
-        decoration: const InputDecoration(labelText: "Üniversite:"),
-      ),
-    );
+    return DropdownButton(
+     items:const [ DropdownMenuItem(child: DropdownMenuItem(value: 'a', child: Text("a"),))],
+     onChanged: (universityText) {});
   }
 }
 
@@ -371,3 +366,4 @@ class circularProgressIndicator extends StatelessWidget {
     return const CircularProgressIndicator();
   }
 }
+

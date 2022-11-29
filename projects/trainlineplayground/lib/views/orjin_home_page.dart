@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:trainlineplayground/constants/constants.dart';
 
 
 import '../core/data/provider/home_page_state.dart';
@@ -51,7 +51,7 @@ class OriginalHomePageState extends State<OriginalHomePage> {
               children: const [
                 Padding(padding: EdgeInsets.only(top: 40)),
                 Text(
-                  "Live times & tickets",
+                  CustomTextsConstants.liveTicket,
                   style: TextStyle(color: Colors.white, fontSize: 21),
                 ),
                 Padding(padding: EdgeInsets.only(top: 20)),
@@ -70,7 +70,7 @@ class OriginalHomePageState extends State<OriginalHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Outbound',
+                  CustomTextsConstants.outbound,
                   style: TextStyle(color: Colors.black, fontSize: 21),
                 ),
                 Consumer<HomePageState>(
@@ -174,12 +174,12 @@ class OriginalHomePageState extends State<OriginalHomePage> {
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(
             icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            label: 'Search'),
+            label: CustomTextsConstants.search),
         BottomNavigationBarItem(
             icon: IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.airplane_ticket_outlined)),
-            label: 'My Tickets'),
+            label: CustomTextsConstants.myticket),
         BottomNavigationBarItem(
             icon: IconButton(onPressed: () {
               
@@ -188,7 +188,7 @@ class OriginalHomePageState extends State<OriginalHomePage> {
               // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
             },
              icon: const Icon(Icons.person)),
-            label: 'Sign In'),
+            label: CustomTextsConstants.signin),
       ])
 
     );
