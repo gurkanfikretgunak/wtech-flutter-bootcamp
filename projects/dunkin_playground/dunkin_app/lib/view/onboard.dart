@@ -35,9 +35,13 @@ class _OnBoardState extends State<OnBoard> {
             children: [
               const StlyleText(
                 name: "Dunkin' Donuts Online",
+                size: 26,
               ),
               const SizedBox(height: 8),
-              const StlyleText(name: "Services Terms of Use"),
+              const StlyleText(
+                name: "Services Terms of Use",
+                size: 26,
+              ),
               const SizedBox(
                 height: 20,
               ),
@@ -84,7 +88,7 @@ if you have questions regarding any of these Terms, you can email us at customer
                   child: Container(
                     alignment: Alignment.center,
                     child: TextButton(
-                      style: ButtonStyle(
+                        style: ButtonStyle(
                             overlayColor:
                                 MaterialStateProperty.all(Colors.transparent)),
                         onPressed: () {},
@@ -133,19 +137,22 @@ if you have questions regarding any of these Terms, you can email us at customer
     );
   }
 }
+
 //accept aktifleştirme
 class StlyleText extends StatelessWidget {
   const StlyleText({
     Key? key,
     required this.name,
+    required this.size,
   }) : super(key: key);
   final String name;
+  final double size;
   @override
   Widget build(BuildContext context) {
     return Text(
       name,
       style: TextStyle(
-          fontSize: 26,
+          fontSize: size,
           fontWeight: FontWeight.w800,
           fontStyle: FontStyle.italic),
     );
