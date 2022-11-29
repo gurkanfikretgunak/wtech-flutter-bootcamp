@@ -1,3 +1,4 @@
+import 'package:dunkin_app/view/holdscreen.dart';
 import 'package:flutter/material.dart';
 
 import 'home.dart';
@@ -50,7 +51,12 @@ class _SignUpState extends State<SignUp> {
         TextfieledStyle(
           hint: "Password",
           obcur: true,
-        )
+        ),
+        SizedBox(height: 15),
+        TextButton(onPressed: (){
+          Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => HoldScreen()));
+        }, child: Text("Next") )
       ]),
     );
   }

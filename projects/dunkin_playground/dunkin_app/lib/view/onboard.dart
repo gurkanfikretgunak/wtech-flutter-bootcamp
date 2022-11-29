@@ -133,7 +133,7 @@ if you have questions regarding any of these Terms, you can email us at customer
     );
   }
 }
-
+//accept aktifleştirme
 class StlyleText extends StatelessWidget {
   const StlyleText({
     Key? key,

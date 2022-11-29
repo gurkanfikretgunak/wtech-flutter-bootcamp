@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
-
+//imagelar düzeltilecek
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -122,6 +122,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )),
                     ),
+                    //resposive olacak 
                   ],
                 ),
                 SizedBox(height: 12),
@@ -159,6 +160,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //listview kullanılacak
                   children: [
                     MenuStyle(
                       food: "Iced Drinks",

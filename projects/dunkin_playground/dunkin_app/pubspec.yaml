@@ -66,6 +66,9 @@ flutter:
      - assets/images/hotDrinks.jpg
      - assets/images/donut.jpg
      - assets/images/donutcoffe.jpg
+     - assets/images/Dunkin1.png
+     
+
      
 
   # An image asset can refer to one or more resolution-specific "variants", see
