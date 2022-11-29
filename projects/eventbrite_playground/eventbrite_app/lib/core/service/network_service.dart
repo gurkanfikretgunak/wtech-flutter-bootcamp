@@ -13,11 +13,17 @@ abstract class NetworkService {
   @GET('/users')
   Future<List<User>> getUsers();
 
+  @GET('/users/{id}')
+  Future<User> getUser(@Path('id') String id);
+
   @POST('/users')
   Future<User> createUser(@Body() User user);
 
   @GET('/events')
   Future<List<Event>> getEvents();
+
+  @GET('/events/{id}')
+  Future<Event> getEvent(@Path('id') String id);
 }
 
 class Service {
@@ -36,6 +42,16 @@ class Service {
     }
   }
 
+  Future<User> getUser(String id) async {
+    try {
+      final User user = await _networkService.getUser(id);
+      return user;
+    } on DioError catch (e) {
+      Logger().e(e);
+      return User();
+    }
+  }
+
   Future<List<Event>> getEvents() async {
     try {
       final List<Event> events = await _networkService.getEvents();
@@ -43,6 +59,16 @@ class Service {
     } on DioError catch (e) {
       Logger().e(e);
       return [];
+    }
+  }
+
+  Future<Event> getEvent(String id) async {
+    try {
+      final Event event = await _networkService.getEvent(id);
+      return event;
+    } on DioError catch (e) {
+      Logger().e(e);
+      return Event();
     }
   }
 
@@ -55,14 +81,10 @@ class Service {
     }
   }
 
-  Future<User?> isLogin(
-      {required String email, required String password}) async {
+  Future<User?> isLogin({required String email, required String password}) async {
     try {
       var response = await _networkService.getUsers();
-      return response
-          .where((element) => element.email == email)
-          .where((element) => element.password == password)
-          .first;
+      return response.where((element) => element.email == email).where((element) => element.password == password).first;
     } catch (e) {
       return null;
     }

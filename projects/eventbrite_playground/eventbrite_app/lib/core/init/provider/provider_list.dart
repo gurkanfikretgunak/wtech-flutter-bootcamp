@@ -3,6 +3,7 @@ import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/password_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 
@@ -20,5 +21,6 @@ class AppProvider {
     ChangeNotifierProvider(create: (context) => RegisterNotifier()),
     ChangeNotifierProvider(create: (context) => LoginNotifier()),
     ChangeNotifierProvider(create: (context) => PasswordNotifier()),
+    ChangeNotifierProvider(create: (context) => UserNotifier()),
   ];
 }

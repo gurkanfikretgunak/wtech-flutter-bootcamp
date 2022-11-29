@@ -2,6 +2,7 @@ import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/password_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
@@ -97,6 +98,7 @@ class PasswordView extends StatelessWidget {
                             )
                                 .then((value) {
                               context.read<NavbarNotifier>().updateIndex(0);
+                              context.read<UserNotifier>().init();
                             });
                           }
                         : null,

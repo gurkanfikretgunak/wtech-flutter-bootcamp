@@ -1,18 +1,35 @@
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
+import 'package:provider/provider.dart';
 
 import '../../core/constants/navigation/navigation_constants.dart';
 import '../../core/init/navigation/navigation_service.dart';
 
-class ProfileView extends StatelessWidget {
+class ProfileView extends StatefulWidget {
   const ProfileView({super.key});
+
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<UserNotifier>().getUserById();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final provider = Provider.of<UserNotifier>(context);
+
+    return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: UserProfile(),
+      body: provider.isLogin ? const UserProfile() : const GuestProfile(),
     );
   }
 }
@@ -54,11 +71,15 @@ class UserProfile extends StatelessWidget {
             padding: PaddingConstants.defaultPadding,
             child: CustomElevatedButton(
               text: 'Log out',
-              onPressed: () {},
+              onPressed: () {
+                context
+                    .read<UserNotifier>()
+                    .userLogout()
+                    .then((value) => {context.read<NavbarNotifier>().updateIndex(0)});
+              },
               color: Theme.of(context).backgroundColor,
               border: true,
-              textStyle:
-                  Theme.of(context).textTheme.caption ?? const TextStyle(),
+              textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
             ),
           )
         ],
@@ -77,6 +98,7 @@ class ProfileHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<UserNotifier>(context);
     return Stack(
       children: [
         Column(
@@ -97,7 +119,7 @@ class ProfileHeader extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Jon Mobbin',
+                        '${provider.user.name ?? ''} ${provider.user.surname ?? ''}',
                         style: Theme.of(context).textTheme.headline1,
                       ),
                       IconButton(
@@ -109,7 +131,7 @@ class ProfileHeader extends StatelessWidget {
                   Padding(
                     padding: PaddingConstants.defaultVerticalPadding,
                     child: Text(
-                      'jon.mobbin@gmail.com',
+                      provider.user.email ?? '',
                       style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ),
@@ -129,22 +151,16 @@ class ProfileHeader extends StatelessWidget {
                                     Logger().i('tapped $index');
                                   },
                                   child: Padding(
-                                    padding: PaddingConstants
-                                            .defaultHorizontalPadding *
-                                        3,
+                                    padding: PaddingConstants.defaultHorizontalPadding * 3,
                                     child: Column(
                                       children: [
                                         Text(
                                           '${stats[index]['number']}',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .headline1,
+                                          style: Theme.of(context).textTheme.headline1,
                                         ),
                                         Text(
                                           stats[index]['name'],
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .subtitle1,
+                                          style: Theme.of(context).textTheme.subtitle1,
                                         ),
                                       ],
                                     ),
@@ -173,8 +189,7 @@ class ProfileHeader extends StatelessWidget {
           right: 0,
           child: Container(
             padding: PaddingConstants.defaultPadding,
-            decoration: const BoxDecoration(
-                color: Colors.white, shape: BoxShape.circle),
+            decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
             child: const Icon(
               Icons.person,
               size: 80,
@@ -204,9 +219,7 @@ class ProfileMenu extends StatelessWidget {
         return Column(
           children: [
             ListTile(
-              leading: headers[index]['icon'] != null
-                  ? Icon(headers[index]['icon'])
-                  : null,
+              leading: headers[index]['icon'] != null ? Icon(headers[index]['icon']) : null,
               title: Text(
                 headers[index]['name'],
                 style: Theme.of(context).textTheme.headline2,
@@ -244,8 +257,7 @@ class GuestProfile extends StatelessWidget {
               return Column(
                 children: [
                   ListTile(
-                    title: Text(headers[index],
-                        style: Theme.of(context).textTheme.headline2),
+                    title: Text(headers[index], style: Theme.of(context).textTheme.headline2),
                     trailing: const Icon(Icons.arrow_forward_ios),
                   ),
                   Padding(
@@ -266,8 +278,7 @@ class GuestProfile extends StatelessWidget {
           child: CustomElevatedButton(
             text: 'Log In',
             onPressed: () {
-              NavigationService.instance.navigateToPage(
-                  routeName: NavigationConstants.getStartedPage);
+              NavigationService.instance.navigateToPage(routeName: NavigationConstants.getStartedPage);
             },
             color: Theme.of(context).primaryColor,
             textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),

@@ -1,10 +1,10 @@
 import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
 import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
+import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:eventbrite_app/core/model/validation/validation_item.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class PasswordNotifier extends ChangeNotifier {
   bool _isObscure = true;
@@ -36,16 +36,11 @@ class PasswordNotifier extends ChangeNotifier {
   }
 
   Future<void> login({required String email, required String password}) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Service.instance.isLogin(email: email, password: password).then((value) => {
+    Service.instance.isLogin(email: email, password: password).then((value) async => {
           if (value != null)
             {
-              Logger().i(value),
-              Logger().i(value.id),
-              Logger().i('Login Success'),
-              prefs.setString('id', value.id ?? 'Hata').then((value) => {
-                    NavigationService.instance.navigateToPageClear(routeName: NavigationConstants.welcomePage),
-                  }),
+              await UserNotifier().saveUserId(value.id ?? ''),
+              NavigationService.instance.navigateToPageClear(routeName: NavigationConstants.welcomePage),
             }
           else
             {

@@ -3,21 +3,12 @@ import 'package:eventbrite_app/core/model/event/event.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:eventbrite_app/view/welcome/welcome_view.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Future<void> logged() async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      String? id = prefs.getString('id');
-      Logger().i("home-view id: $id");
-    }
-
-    logged();
     bool isSelected = true;
     return Scaffold(
       body: isSelected ? const EventsView() : const WelcomeView(),
@@ -133,20 +124,20 @@ class EventCard extends StatelessWidget {
               ),
             ],
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             right: 0,
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.favorite_border),
+              onPressed: null,
+              icon: Icon(Icons.favorite_border),
             ),
           ),
-          Positioned(
+          const Positioned(
             bottom: 0,
             right: 40,
             child: IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.share),
+              onPressed: null,
+              icon: Icon(Icons.share),
             ),
           ),
         ],
@@ -170,10 +161,7 @@ class SliverDropdown extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          !isScrolled
-              ? Text('Find events in',
-                  style: Theme.of(context).textTheme.headline5)
-              : const SizedBox(),
+          !isScrolled ? Text('Find events in', style: Theme.of(context).textTheme.headline5) : const SizedBox(),
           DropdownButton(
             value: 1,
             isExpanded: true,

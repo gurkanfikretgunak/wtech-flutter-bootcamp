@@ -1,5 +1,6 @@
 import 'package:eventbrite_app/core/init/navigation/navigation_route.dart';
 import 'package:eventbrite_app/core/init/provider/theme_notifier.dart';
+import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,7 @@ class EventbriteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeNotifier provider = Provider.of<ThemeNotifier>(context);
+    context.watch<UserNotifier>().init();
     return MaterialApp(
       title: 'Eventbrite',
       onGenerateRoute: NavigationRoute.instance.generateRoute,
@@ -19,6 +21,3 @@ class EventbriteApp extends StatelessWidget {
     );
   }
 }
-
-//TODO Mock API ile backend oluşturulacak
-//TODO Retrofit ile backend için ilgili modeller oluşturulup kullanılacak
