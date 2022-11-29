@@ -1,4 +1,5 @@
 import 'package:dunkin_app/view/home.dart';
+import 'package:dunkin_app/view/homepage.dart';
 import 'package:dunkin_app/view/onboard.dart';
 import 'package:dunkin_app/view/sing_up.dart';
 import 'package:flutter/material.dart';
@@ -24,59 +25,90 @@ class _SigninState extends State<Signin> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage("assets/images/Signin1.png"),
-              ),
-              SizedBox(height: 20),
-              StlyleText(
-                name: "AUTHENTICATE YOUR",
-                size: 24,
-              ),
-              StlyleText(name: "ACCOUNT", size: 24),
-              SizedBox(height: 10),
-              Text(
-                "We'll be sedding you a 6-digit security code to the phone number bellow",
-                style: TextStyle(color: Colors.black54),
-              ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.only(top: 6, bottom: 6),
-                child: Expanded(
-                    child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      height: 60,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey, width: 2),
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(5),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 50,
+                  backgroundImage: AssetImage("assets/images/Signin1.png"),
+                ),
+                SizedBox(height: 20),
+                StlyleText(
+                  name: "AUTHENTICATE YOUR",
+                  size: 24,
+                ),
+                StlyleText(name: "ACCOUNT", size: 24),
+                SizedBox(height: 10),
+                Text(
+                  "We'll be sedding you a 6-digit security code to the",
+                  style: TextStyle(color: Colors.black54),
+                ),
+                Text(
+                  "phone number bellow",
+                  style: TextStyle(color: Colors.black54),
+                ),
+                SizedBox(height: 10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 6, bottom: 6),
+                  child: Expanded(
+                      child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        height: 60,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey, width: 2),
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const TextField(
+                            decoration: InputDecoration(
+                                filled: true,
+                                labelText: "Your Mobile Number",
+                                labelStyle: TextStyle(color: Colors.black54),
+                                fillColor: Colors.white,
+                                border: InputBorder.none)),
                       ),
-                      child: const TextField(
-                          decoration: InputDecoration(
-                              filled: true,
-                              labelText: "Your Mobile Number",
-                              labelStyle: TextStyle(color: Colors.black54),
-                              fillColor: Colors.white,
-                              border: InputBorder.none)),
-                    ),
-                    SizedBox(height: 5),
-                    Text(
-                      "Message and data rates may apply",
-                      style: TextStyle(color: Colors.black54),
-                    )
-                  ],
-                )),
-              ),
-            ],
+                      SizedBox(height: 5),
+                      Text(
+                        "Message and data rates may apply",
+                        style: TextStyle(color: Colors.black54),
+                      )
+                    ],
+                  )),
+                ),
+              ],
+            ),
           ),
+        ),
+      ),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(left: 4, right: 4, top: 15, bottom: 15),
+        child: Container(
+          height: 50,
+          width: double.infinity,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40), color: Colors.pink[800]),
+          child: TextButton(
+              style: ButtonStyle(
+                  overlayColor: MaterialStateProperty.all(Colors.transparent)),
+              onPressed: () {
+                Navigator.of(context)
+                    .push(MaterialPageRoute(builder: (context) => HomePage()));
+              },
+              child: Text(
+                "SEND CODE",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontStyle: FontStyle.italic,
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20),
+              )),
         ),
       ),
     );
