@@ -1,7 +1,7 @@
 
 
 import 'package:flutter/cupertino.dart';
-import 'package:trainlineplayground/constants/register_page_items.dart';
+import 'package:trainlineplayground/constants/PageItems/register_page_items.dart';
 import 'package:trainlineplayground/views/register_page.dart';
 
 class TextFormStateProvider with ChangeNotifier {

@@ -25,5 +25,23 @@ class CustomTextsConstants {
   static const search= "Search";
   static const myticket = 'My Tickets';
   static const signin = 'Sign In';
+  static const Return = 'Return';
+  static const From = "From:";
+  static const DepartureStation = "Departure Station";
+  static const recents = "recents";
+  static const destination="Destination Station";
+  static const savingSimple = "Make saving simple";
+  static const railcardApp = "Save 1/2 with a digital Railcard in-app";
+  static const findTimes ="Find Times and Prices";
+  static const passangers ="Passengers";
+  static const adult ="     Adult";
+  static const youthpass = "Youth (0-25 years)";
+  static const adultpass = "Adult (0-60 years)";
+  static const oldpass = "Old (60+ years)";
+  static const change ="Change     ";
+  static const cards ="Cards & vouchers";
+  static const loyalty ="     Loyalty cards & vouchers";
+  static const too ="       to";
+
   
 }

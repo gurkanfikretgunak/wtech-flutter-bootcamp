@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:trainlineplayground/constants/constants.dart';
+import 'package:trainlineplayground/constants/text_constants/constants.dart';
 
 class RegisterPageItems {
   static late TextEditingController emailController;

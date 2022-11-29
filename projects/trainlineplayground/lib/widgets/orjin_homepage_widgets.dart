@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import '../constants/paddings/home_page_paddings.dart';
+import '../constants/size_constants/homepage_size.dart';
+import '../constants/text_constants/constants.dart';
+
 class FromStationWidget extends StatelessWidget {
   const FromStationWidget({
     Key? key,
@@ -10,21 +14,21 @@ class FromStationWidget extends StatelessWidget {
     return InkWell(
       child: Container(
         alignment: Alignment.center,
-        height: 50,
-        width: 350,
+        height: HomePageSize.textFieldHeight,
+        width: HomePageSize.textFieldSize,
         decoration: BoxDecoration(
             color: Colors.blueGrey, borderRadius: BorderRadius.circular(5)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Padding(padding: EdgeInsets.only(left: 10)),
+          children:  const [
+            TextFieldPadding(),
             Text(
-              "From:",
+              CustomTextsConstants.From,
               style: TextStyle(fontSize: 15, color: Colors.white),
             ),
-            Padding(padding: EdgeInsets.only(left: 10)),
+            TextFieldPadding(),
             Text(
-              "Departure Station",
+              CustomTextsConstants.DepartureStation,
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
           ],
@@ -35,32 +39,32 @@ class FromStationWidget extends StatelessWidget {
           context: context,
           builder: (context) => Column(
                 children: [
-                  const Padding(padding: EdgeInsets.only(top: 50)),
+                  const TopPadding(),
                   Container(
                     alignment: Alignment.centerLeft,
-                    height: 50,
-                    width: 350,
+                    height: HomePageSize.textFieldHeight,
+                    width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
-                          labelText: "from", hintText: 'departure station'),
+                          labelText: CustomTextsConstants.From, hintText: 'departure station'),
                     ),
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    height: 50,
-                    width: 350,
+                    height: HomePageSize.textFieldHeight,
+                    width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
-                          labelText: "to", hintText: 'destination station'),
+                          labelText: "to", hintText: CustomTextsConstants.destination),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.only(top: 50)),
+                  const TopPadding(),
                   Row(
                     children: const [
-                      Padding(padding: EdgeInsets.only(left: 30)),
+                      IconPadding(),
                       Icon(Icons.settings_backup_restore_sharp),
                       Text(
-                        "recents",
+                        CustomTextsConstants.recents,
                         style: TextStyle(fontSize: 24),
                       ),
                     ],
@@ -70,6 +74,7 @@ class FromStationWidget extends StatelessWidget {
     );
   }
 }
+
 
 class ToStationWidget extends StatelessWidget {
   const ToStationWidget({
@@ -81,21 +86,21 @@ class ToStationWidget extends StatelessWidget {
     return InkWell(
       child: Container(
         alignment: Alignment.center,
-        height: 50,
-        width: 350,
+        height: HomePageSize.textFieldHeight,
+        width: HomePageSize.textFieldSize,
         decoration: BoxDecoration(
             color: Colors.blueGrey, borderRadius: BorderRadius.circular(5)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: const [
-            Padding(padding: EdgeInsets.only(left: 10)),
-            Text(
-              "      to:",
+          children:  const[
+             TextFieldPadding(),
+             Text(
+              CustomTextsConstants.too,
               style: TextStyle(fontSize: 15, color: Colors.white),
             ),
-            Padding(padding: EdgeInsets.only(left: 10)),
-            Text(
-              "Destination Station",
+             TextFieldPadding(),
+             Text(
+              CustomTextsConstants.DepartureStation,
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
           ],
@@ -106,11 +111,11 @@ class ToStationWidget extends StatelessWidget {
           context: context,
           builder: (context) => Column(
                 children: [
-                  const Padding(padding: EdgeInsets.only(top: 50)),
+                  const TopPadding(),
                   Container(
                     alignment: Alignment.centerLeft,
-                    height: 50,
-                    width: 350,
+                    height: HomePageSize.textFieldHeight,
+                    width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
                           labelText: "from", hintText: 'departure station'),
@@ -118,20 +123,20 @@ class ToStationWidget extends StatelessWidget {
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    height: 50,
-                    width: 350,
+                    height: HomePageSize.textFieldHeight,
+                    width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
                           labelText: "to", hintText: 'destination station'),
                     ),
                   ),
-                  const Padding(padding: EdgeInsets.only(top: 50)),
+                  const TopPadding(),
                   Row(
                     children: const [
-                      Padding(padding: EdgeInsets.only(left: 30)),
+                      IconPadding(),
                       Icon(Icons.settings_backup_restore_sharp),
                       Text(
-                        "recents",
+                        CustomTextsConstants.recents,
                         style: TextStyle(fontSize: 24),
                       ),
                     ],
@@ -142,6 +147,8 @@ class ToStationWidget extends StatelessWidget {
   }
 }
 
+
+
 class DiscountWidget extends StatelessWidget {
   const DiscountWidget({
     Key? key,
@@ -150,8 +157,8 @@ class DiscountWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 90,
-      width: 350,
+      height: HomePageSize.discountSize,
+      width: HomePageSize.textFieldSize,
       decoration: BoxDecoration(
         color: Colors.cyanAccent,
         borderRadius: BorderRadius.circular(15),
@@ -159,19 +166,19 @@ class DiscountWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          const Padding(padding: EdgeInsets.only(left: 15)),
+          const LeftFifteenPadding(),
           Image.asset('lib/assets/images/trainIcon.png'),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
-              Padding(padding: EdgeInsets.only(top: 10)),
+              SavingSimplePadding(),
               Text(
-                "Make saving simple",
+                CustomTextsConstants.savingSimple,
                 style: TextStyle(fontSize: 18, fontStyle: FontStyle.normal),
               ),
-              Padding(padding: EdgeInsets.only(top: 10)),
+              SavingSimplePadding(),
               Text(
-                "Save 1/2 with a digital Railcard in-app",
+                CustomTextsConstants.railcardApp,
                 style: TextStyle(fontSize: 15),
               ),
             ],
@@ -181,6 +188,7 @@ class DiscountWidget extends StatelessWidget {
     );
   }
 }
+
 
 class SearchWidget extends StatelessWidget {
   const SearchWidget({
@@ -195,17 +203,17 @@ class SearchWidget extends StatelessWidget {
       },
       child: Container(
         alignment: Alignment.center,
-        height: 50,
-        width: 350,
+        height: HomePageSize.textFieldHeight,
+        width: HomePageSize.textFieldSize,
         decoration: BoxDecoration(
             color: Colors.lightGreen, borderRadius: BorderRadius.circular(5)),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const [
-            Padding(padding: EdgeInsets.only(left: 10)),
-            Padding(padding: EdgeInsets.only(left: 10)),
+            TextFieldPadding(),
+            TextFieldPadding(),
             Text(
-              "Find Times and Prices",
+              CustomTextsConstants.findTimes,
               style: TextStyle(fontSize: 18, color: Colors.white),
             ),
           ],
@@ -228,9 +236,9 @@ class AddPassangerWidget extends StatelessWidget {
           context: context,
           builder: (context) => Column(
                 children: [
-                  const Padding(padding: EdgeInsets.only(top: 30)),
-                  const Text("Passengers"),
-                  const Padding(padding: EdgeInsets.all(8)),
+                   const CardVouchersPadding(),
+                  const Text(CustomTextsConstants.passangers),
+                  const DefaultPadding(),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.blueGrey[100]
@@ -239,7 +247,7 @@ class AddPassangerWidget extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         
-                        const Text("     Adult",style: TextStyle(fontSize: 24),),
+                        const Text(CustomTextsConstants.adult,style: TextStyle(fontSize: 24),),
                         TextButton(onPressed: ()=> showModalBottomSheet(
                           
                           context: context,
@@ -250,8 +258,8 @@ class AddPassangerWidget extends StatelessWidget {
                                 child: Container(
                                   
                                   width: double.infinity,
-                                  height: 80,
-                                  child: const Center(child: Text("Youth (0-25 years)",style: TextStyle(fontSize: 30),)),
+                                  height: HomePageSize.passangerSize,
+                                  child:  const Center(child: Text(CustomTextsConstants.youthpass,style: TextStyle(fontSize: 30),)),
                                 ),
                                 onTap: () {
                                   
@@ -261,8 +269,8 @@ class AddPassangerWidget extends StatelessWidget {
                                 child: Container(
                                   
                                   width: double.infinity,
-                                  height: 80,
-                                  child: const Center(child: Text("Youth (0-25 years)",style: TextStyle(fontSize: 30),)),
+                                  height: HomePageSize.passangerSize,
+                                  child: const Center(child: Text(CustomTextsConstants.adultpass,style: TextStyle(fontSize: 30),)),
                                 ),
                                 onTap: () {
                                   
@@ -272,8 +280,8 @@ class AddPassangerWidget extends StatelessWidget {
                                 child: Container(
                                   
                                   width: double.infinity,
-                                  height: 80,
-                                  child: const Center(child: Text("Youth (0-25 years)",style: TextStyle(fontSize: 30),)),
+                                  height: HomePageSize.passangerSize,
+                                  child: const Center(child: Text(CustomTextsConstants.oldpass,style: TextStyle(fontSize: 30),)),
                                 ),
                                 onTap: () {
                                   
@@ -285,7 +293,7 @@ class AddPassangerWidget extends StatelessWidget {
                          ),
                          child: 
 
-                         const Text("Change     ",style: TextStyle(color: Colors.blue),)
+                         const Text(CustomTextsConstants.change,style: TextStyle(color: Colors.blue),)
                          
                          ),
                          
@@ -294,7 +302,7 @@ class AddPassangerWidget extends StatelessWidget {
                   ),
                   Container(
                     width: double.infinity,
-                    height: 50,
+                    height: HomePageSize.textFieldHeight,
                     
                     child: InkWell(
                       onTap: ( )=> showModalBottomSheet(
@@ -302,12 +310,12 @@ class AddPassangerWidget extends StatelessWidget {
                         context: context,
                         builder: (context) => Column(
                           children: [
-                            const Padding(padding: EdgeInsets.only(top: 30)),
-                            const Text("Cards & vouchers",style: TextStyle(fontSize: 24),),
-                            const Padding(padding: EdgeInsets.only(top: 30)),
+                             const CardVouchersPadding(),
+                            const Text(CustomTextsConstants.cards,style: TextStyle(fontSize: 24),),
+                             const CardVouchersPadding(),
                             Container(
-                              height: 30,
-                              width: 350,
+                              height: HomePageSize.searchSize,
+                              width: HomePageSize.textFieldSize,
                               decoration: BoxDecoration(
                                 color: Colors.blueGrey[100],
                                 borderRadius: BorderRadius.circular(15),
@@ -320,7 +328,7 @@ class AddPassangerWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const Padding(padding: EdgeInsets.only(top: 30)),
+                            const CardVouchersPadding(),
 
                           ],
                         ),),
@@ -328,7 +336,7 @@ class AddPassangerWidget extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const[
                           
-                          Text("     Loyalty cards & vouchers",style: TextStyle(fontSize: 19),),
+                          Text(CustomTextsConstants.loyalty,style: TextStyle(fontSize: 19),),
                           Icon(Icons.arrow_right_sharp)
                            
                         ],
@@ -339,8 +347,8 @@ class AddPassangerWidget extends StatelessWidget {
                 ],
               )),
       child: Container(
-        height: 50,
-        width: 350,
+        height: HomePageSize.textFieldHeight,
+        width: HomePageSize.textFieldSize,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -352,16 +360,16 @@ class AddPassangerWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: const [
-                      Text("1 Adult"),
+                      Text("1 +${CustomTextsConstants.adult}"),
                       Icon(Icons.keyboard_arrow_right_sharp)
                     ],
                   ),
-                  const Padding(padding: EdgeInsets.only(top: 8.0)),
+                  const LoyaltyPadding(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children:const[ 
                        Text(
-                      "Add loyalyty cards & vouchers",
+                      CustomTextsConstants.loyalty,
                       style: TextStyle(fontSize: 15),
                     ),
                     ]
@@ -387,12 +395,12 @@ class GlobalCustomNavigationBar extends StatelessWidget {
     return BottomNavigationBar(items: [
         BottomNavigationBarItem(
             icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            label: 'Search'),
+            label: CustomTextsConstants.search),
         BottomNavigationBarItem(
             icon: IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.airplane_ticket_outlined)),
-            label: 'My Tickets'),
+            label: CustomTextsConstants.myticket),
         BottomNavigationBarItem(
             icon: IconButton(onPressed: () {
               Navigator.of(context).pushNamed('/rightpage');  
@@ -400,7 +408,67 @@ class GlobalCustomNavigationBar extends StatelessWidget {
               // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
             },
              icon: const Icon(Icons.person)),
-            label: 'Sign In'),
+            label: CustomTextsConstants.signin),
       ]);
   }
 }
+
+class HomePageBottomNavBar extends StatelessWidget {
+  const HomePageBottomNavBar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomNavigationBar(items: [
+      BottomNavigationBarItem(
+          icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
+          label: CustomTextsConstants.search),
+      BottomNavigationBarItem(
+          icon: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.airplane_ticket_outlined)),
+          label: CustomTextsConstants.myticket),
+      BottomNavigationBarItem(
+          icon: IconButton(onPressed: () {
+            
+            Navigator.of(context).pushNamed('/rightpage');  
+            // kontrol sağla eğer giriş yapıldıysa account page y egitsin
+            // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
+          },
+           icon: const Icon(Icons.person)),
+          label: CustomTextsConstants.signin),
+    ]);
+  }
+}
+
+
+class LiveTicketContainer extends StatelessWidget {
+  const LiveTicketContainer({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: HomePageSize.liveTimeSize,
+      width: double.infinity,
+      color: Colors.purple,
+      child: Column(
+        children: const [
+          LiveTicketPadding(),
+          Text(
+            CustomTextsConstants.liveTicket,
+            style: TextStyle(color: Colors.white, fontSize: 21),
+          ),
+          LiveTicketBottomPadding(),
+          FromStationWidget(),
+          TextFieldBetweenPadding(),
+          ToStationWidget(),
+        ],
+      ),
+    );
+  }
+}
+
+

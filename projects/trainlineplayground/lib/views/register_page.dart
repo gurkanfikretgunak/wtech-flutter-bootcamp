@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
-import '../constants/register_page_items.dart';
+import '../constants/PageItems/register_page_items.dart';
 import '../core/data/provider/register_page_state.dart';
 import '../widgets/register_page_widgets.dart';
 class RegisterPage extends StatefulWidget {

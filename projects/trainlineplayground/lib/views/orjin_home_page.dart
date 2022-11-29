@@ -1,17 +1,14 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:trainlineplayground/constants/constants.dart';
-
-
+import 'package:trainlineplayground/constants/size_constants/homepage_size.dart';
+import 'package:trainlineplayground/constants/text_constants/constants.dart';
+import 'package:trainlineplayground/constants/paddings/home_page_paddings.dart';
 import '../core/data/provider/home_page_state.dart';
 import '../widgets/orjin_homepage_widgets.dart';
-
 class OriginalHomePage extends StatefulWidget {
   const OriginalHomePage({super.key});
-
   @override
   State<OriginalHomePage> createState() => OriginalHomePageState();
 }
@@ -22,10 +19,6 @@ class OriginalHomePageState extends State<OriginalHomePage> {
   late String outboundString;
   late String returnString;
   late TextEditingController _returnpickercontroller;
-
-
- 
-
   @override
   void initState() {
     super.initState();
@@ -33,39 +26,17 @@ class OriginalHomePageState extends State<OriginalHomePage> {
     outboundString = _datepickercontroller.text;
     _returnpickercontroller = TextEditingController();
     returnString = _returnpickercontroller.text;
- 
-   
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [
-          
+        children: [   
+          const LiveTicketContainer(),
+          const TopDefPadding(),
           Container(
-            height: 250,
-            width: double.infinity,
-            color: Colors.purple,
-            child: Column(
-              children: const [
-                Padding(padding: EdgeInsets.only(top: 40)),
-                Text(
-                  CustomTextsConstants.liveTicket,
-                  style: TextStyle(color: Colors.white, fontSize: 21),
-                ),
-                Padding(padding: EdgeInsets.only(top: 20)),
-                FromStationWidget(),
-                Padding(padding: EdgeInsets.all(5.0)),
-                ToStationWidget(),
-              ],
-            ),
-          ),
-          const Padding(
-              padding: EdgeInsets.only(left: 12.0, right: 12.0, top: 10)),
-          Container(
-            height: 50,
-            width: 350,
+            height: HomePageSize.textFieldHeight,
+            width: HomePageSize.textFieldSize,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -76,11 +47,10 @@ class OriginalHomePageState extends State<OriginalHomePage> {
                 Consumer<HomePageState>(
                   builder: (BuildContext context, value, Widget? child) =>
                   Container(
-                      height: 50,
-                      width: 250,
+                      height: HomePageSize.textFieldHeight,
+                      width: HomePageSize.liveTimeSize,
                       child: TextField(
                         decoration:  InputDecoration(
-                          
                           label: Text(outboundString,textAlign: TextAlign.end,)
                         ),
                         textAlign: TextAlign.end,
@@ -114,23 +84,22 @@ class OriginalHomePageState extends State<OriginalHomePage> {
             ),
           ),
           Container(
-            height: 50,
-            width: 350,
+            height: HomePageSize.textFieldHeight,
+            width: HomePageSize.textFieldSize,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Return',
+                  CustomTextsConstants.Return,
                   style: TextStyle(color: Colors.black, fontSize: 21),
                 ),
                 Consumer<HomePageState>(
                   builder: (BuildContext context, value, Widget? child) =>
                   Container(
-                      height: 50,
-                      width: 250,
+                      height: HomePageSize.textFieldHeight,
+                      width: HomePageSize.liveTimeSize,
                       child: TextField(
                         decoration:  InputDecoration(
-                          
                           label: Text(returnString,textAlign: TextAlign.end,)
                         ),
                         textAlign: TextAlign.end,
@@ -141,7 +110,6 @@ class OriginalHomePageState extends State<OriginalHomePage> {
                               initialDate: DateTime.now(),
                               firstDate: DateTime.now(),
                               lastDate: DateTime(2024));
-                
                           if (secilenTarih != null) {
                             if (kDebugMode) {
                               print(secilenTarih);
@@ -164,32 +132,13 @@ class OriginalHomePageState extends State<OriginalHomePage> {
             ),
           ),
           const AddPassangerWidget(),
-          const Padding(padding: EdgeInsets.only(top: 8.0)),
+          const BottomSearchPadding(),
           const SearchWidget(),
-          const Padding(padding: EdgeInsets.all(10.0)),
+          const BottomPadding(),
           const DiscountWidget(),
-          
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(items: [
-        BottomNavigationBarItem(
-            icon: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-            label: CustomTextsConstants.search),
-        BottomNavigationBarItem(
-            icon: IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.airplane_ticket_outlined)),
-            label: CustomTextsConstants.myticket),
-        BottomNavigationBarItem(
-            icon: IconButton(onPressed: () {
-              
-              Navigator.of(context).pushNamed('/rightpage');  
-              // kontrol sağla eğer giriş yapıldıysa account page y egitsin
-              // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
-            },
-             icon: const Icon(Icons.person)),
-            label: CustomTextsConstants.signin),
-      ])
+      bottomNavigationBar: const HomePageBottomNavBar()
 
     );
   }
@@ -197,36 +146,3 @@ class OriginalHomePageState extends State<OriginalHomePage> {
 
 
 
-
-
-
-showAlertDialog(BuildContext context) {
-
-  // set up the buttons
-  Widget cancelButton = TextButton(
-    child: const Text("Cancel"),
-    onPressed:  () {},
-  );
-  Widget continueButton = TextButton(
-    child: const Text("Continue"),
-    onPressed:  () {},
-  );
-
-  // set up the AlertDialog
-  AlertDialog alert = AlertDialog(
-    title: const Text("AlertDialog"),
-    content: const Text("Would you like to continue learning how to use Flutter alerts?"),
-    actions: [
-      cancelButton,
-      continueButton,
-    ],
-  );
-
-  // show the dialog
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return alert;
-    },
-  );
-}

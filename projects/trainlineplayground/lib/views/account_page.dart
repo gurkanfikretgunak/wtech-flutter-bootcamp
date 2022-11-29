@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:trainlineplayground/constants/constants.dart';
+import 'package:trainlineplayground/constants/text_constants/constants.dart';
 
 import '../widgets/account_page_widgets.dart';
 

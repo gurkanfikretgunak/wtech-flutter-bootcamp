@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trainlineplayground/core/data/provider/register_page_state.dart';
 
-import '../constants/constants.dart';
-import '../constants/register_page_items.dart';
+import '../constants/text_constants/constants.dart';
+import '../constants/PageItems/register_page_items.dart';
 import '../views/register_page.dart';
 
 class FunctionalWidgets {
