@@ -9,7 +9,7 @@ class CustomTheme {
       primaryColor: Colors.white,
       // ignore: deprecated_member_use
       accentColor: Colors.red,
-      scaffoldBackgroundColor: Colors.white,
+      scaffoldBackgroundColor: Colors.white.withOpacity(0.95),
       iconTheme: const IconThemeData(
         color: Colors.red,
       ),

@@ -1,11 +1,11 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import '../../model/user/users_model.dart';
 import '../../service/data_service.dart';
 
 class ServiceProvider with ChangeNotifier {
+  final client = RestClient(Dio(BaseOptions(contentType: "application/json")), baseUrl: "${dotenv.env['BASE_URL']}");
   List<Users> response = [];
   String userName = "";
   String userEmail = "";
@@ -13,8 +13,6 @@ class ServiceProvider with ChangeNotifier {
   String passwordUser = "";
   String imageUser = "";
   Future<bool> passwordCheck(email, password) async {
-    final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
-        baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
     response = await client.getUsers();
     notifyListeners();
     for (var item in response) {
@@ -26,8 +24,6 @@ class ServiceProvider with ChangeNotifier {
   }
 
   Future<bool> fetchUser(email) async {
-    final client = RestClient(Dio(BaseOptions(contentType: "application/json")),
-        baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/");
     response = await client.getUsers();
     notifyListeners();
     for (var item in response) {
@@ -50,25 +46,19 @@ class ServiceProvider with ChangeNotifier {
       }
     }
 
-    RestClient(Dio(BaseOptions(contentType: "application/json")),
-            baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
-        .loginPage(email, password, name);
+    client.loginPage(email, password, name);
     userEmail = email;
     userName = name;
     return true;
   }
 
   Future<bool> updateUser(passwordUs) async {
-    RestClient(Dio(BaseOptions(contentType: "application/json")),
-            baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
-        .updateUser(idUser, passwordUs);
+    client.updateUser(idUser, passwordUs);
     return true;
   }
 
   Future<bool> updateImage(imageUs) async {
-    RestClient(Dio(BaseOptions(contentType: "application/json")),
-            baseUrl: "https://636eb123bb9cf402c807e3fd.mockapi.io/")
-        .updateImage(idUser, imageUs);
+    client.updateImage(idUser, imageUs);
     return true;
   }
 }

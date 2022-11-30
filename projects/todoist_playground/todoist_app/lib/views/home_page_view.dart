@@ -18,8 +18,10 @@ class _MyHomePageState extends State<MyHomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      
       appBar: AppBar(
         title: const Text(CustomHomeText.todayText),
+        automaticallyImplyLeading: false,
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.search_rounded)),
           IconButton(
