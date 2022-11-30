@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/chart_widget.dart';
 import 'package:neo_financial_app/widgets/custom_appbar_widget.dart';
+
 import '../core/data/models/chart_data.dart';
 import '../widgets/insights_cashback_card_widget.dart';
 
@@ -74,13 +75,17 @@ class InsightsView extends StatelessWidget {
                     ),
                     Text(
                       'Categories',
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
               ),
               //TODO: Listbuilder will use
               Container(
+                margin: const EdgeInsets.only(top: 10),
                 color: Colors.white,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 8.0),

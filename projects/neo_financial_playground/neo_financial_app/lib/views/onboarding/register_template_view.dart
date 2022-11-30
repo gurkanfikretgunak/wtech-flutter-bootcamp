@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
 import 'package:provider/provider.dart';
+
 import '../../core/data/models/onboarding/onboard.dart';
 import '../../core/provider/sign_up_state.dart';
 
@@ -99,7 +100,7 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                       onPressed: () async {
                         if (state.currentWidget !=
                             state.widgetOptions.length - 2) {
-                          state.goPage();
+                          state.nextPage();
                         } else {
                           await signupState.signUp();
                           //TODO:CircularProgressIndicator will use

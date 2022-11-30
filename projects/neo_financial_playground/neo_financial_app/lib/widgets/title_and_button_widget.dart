@@ -15,7 +15,7 @@ class TitleAndButtonWidget extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         TextButton(
           onPressed: () {},

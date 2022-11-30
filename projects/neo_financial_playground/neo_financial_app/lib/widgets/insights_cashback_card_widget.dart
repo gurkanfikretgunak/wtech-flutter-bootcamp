@@ -38,7 +38,10 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                     ),
                     Text(
                       'Cashback',
-                      style: Theme.of(context).textTheme.titleMedium,
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleMedium!
+                          .copyWith(fontWeight: FontWeight.bold),
                     )
                   ],
                 ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/onboarding/phone_number_column_widget.dart';
 import 'package:neo_financial_app/widgets/onboarding/promo_code_column_widget.dart';
 import 'package:neo_financial_app/widgets/onboarding/welcome_column_widget.dart';
+
 import '../../widgets/onboarding/privacy_richtext_widget.dart';
 import '../data/models/onboarding/onboard.dart';
 
@@ -37,6 +38,14 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
   int _currentWidgetIndex = 0;
   int get currentWidget => _currentWidgetIndex;
 
+  int _currentImageIndex = 0;
+  String get currentImage =>
+      'assets/images/onboarding-background${_currentImageIndex + 1}.jpg';
+  int get currentImageIndex => _currentImageIndex;
+
+  final PageController _pageController = PageController(initialPage: 0);
+  PageController get pageController => _pageController;
+
   changePageIndex(int index) {
     _currentWidgetIndex = index;
     notifyListeners();
@@ -47,8 +56,18 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
-  goPage() {
+  nextPage() {
     _currentWidgetIndex += 1;
+    notifyListeners();
+  }
+
+  changeImageIndex(int index) {
+    _currentImageIndex = index;
+    notifyListeners();
+  }
+
+  changePageContoller(index) {
+    _pageController.jumpToPage(2);
     notifyListeners();
   }
 }

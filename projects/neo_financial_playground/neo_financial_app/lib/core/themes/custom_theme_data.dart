@@ -35,9 +35,11 @@ class CustomTheme {
               foregroundColor: Colors.black,
               backgroundColor: Colors.white)),
       textTheme: TextTheme(
-        bodySmall: const TextStyle(fontSize: 14),
+        bodySmall: const TextStyle(fontSize: 14, fontWeight: FontWeight.w200),
         bodyMedium: const TextStyle(color: Colors.black, fontSize: 17),
-        titleMedium: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        titleMedium: const TextStyle(
+          fontSize: 18,
+        ),
         titleLarge: const TextStyle(
             color: Colors.white, fontSize: 22, fontWeight: FontWeight.bold),
         labelMedium: const TextStyle(
@@ -55,13 +57,17 @@ class CustomTheme {
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,
-          labelStyle: TextStyle(fontWeight: FontWeight.bold),
+          labelStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          unselectedLabelStyle: TextStyle(
+            fontSize: 20,
+          ),
           indicator: UnderlineTabIndicator(
             borderSide: BorderSide(
               width: 4,
               color: Colors.black,
             ),
           )),
+
       //TODO: Textfield label property will update without bold
     );
   }

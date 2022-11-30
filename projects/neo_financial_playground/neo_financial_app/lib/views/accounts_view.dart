@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../widgets/custom_appbar_widget.dart';
 import '../widgets/custom_card_widget.dart';
 
@@ -45,7 +46,12 @@ class AccountsView extends StatelessWidget {
                 child: CircleAvatar(
                   backgroundColor: Colors.black12,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(
+                        context,
+                        '/Profile',
+                      );
+                    },
                     icon: const Icon(
                       Icons.person,
                       color: Colors.black,

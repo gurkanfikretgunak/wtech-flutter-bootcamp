@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/custom_icon_button_with_label_widget.dart';
 import 'package:neo_financial_app/widgets/custom_information_card_widget.dart';
+
 import '../widgets/custom_appbar_widget.dart';
 
 class CardView extends StatelessWidget {
@@ -34,12 +35,7 @@ class CardView extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: Colors.black12,
                     child: IconButton(
-                      onPressed: () {
-                        Navigator.pushNamed(
-                          context,
-                          '/Profile',
-                        );
-                      },
+                      onPressed: () {},
                       icon: const Icon(
                         Icons.more_horiz,
                         color: Colors.black,

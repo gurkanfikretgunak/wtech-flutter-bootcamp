@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/data/local/shared_preferences.dart';
+
 import '../widgets/custom_appbar_widget.dart';
 
 class ProfileView extends StatelessWidget {
@@ -17,9 +18,14 @@ class ProfileView extends StatelessWidget {
               style: TextStyle(color: Colors.black),
             ),
             preferredSizeHeight: dynamicSize.height / 15,
-            leftWidget: const Icon(
-              Icons.close,
-              color: Colors.black,
+            leftWidget: IconButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              icon: const Icon(
+                Icons.close,
+                color: Colors.black,
+              ),
             ),
             rightWidgetList: null,
           ),
