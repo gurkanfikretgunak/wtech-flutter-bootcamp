@@ -5,3 +5,13 @@ REGISTER PAGE DUZENLE
 
 
 API LARI DUZENLE 
+
+
+
+ String? id;
+  String? userName;
+  String? userSurname;
+  String? userEmail;
+  String? userPassword;
+
+  Users({this.id,this.userEmail,this.userName,this.userPassword,this.userSurname});
