@@ -1,20 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
 
+part 'user_model.g.dart';
 
-import 'dart:math';
+@JsonSerializable()
+class Users {
 
-class UserModel {
-  late String username;
-  late String userSurname;
-  late String userEmail;
+  String? id;
+  String? userName;
+  String? userSurname;
+  String? userEmail;
+  String? userPassword;
 
-  UserModel({required this.username,required this.userSurname,required this.userEmail});
+  Users({this.id,this.userEmail,this.userName,this.userPassword,this.userSurname});
 
-  List<String> putList(UserModel usermodel){
-    String name = usermodel.username;
-    String surname = usermodel.userSurname;
-    String email = usermodel.userEmail;
-    
-    List<String> modelList = [name,surname,email];
-    return modelList;
-  }
+  factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
+  Map<String, dynamic> toJson() => _$UsersToJson(this);
 }
