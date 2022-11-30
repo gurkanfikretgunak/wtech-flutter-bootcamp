@@ -33,61 +33,46 @@ class _CustomInputDecorationState extends State<CustomInputDecoration> {
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        Container(
-          color: Colors.white,
-          height: 45,
-          child: TextFormField(
-            inputFormatters: widget.inputFormatters,
-            onChanged: widget.onChanged,
-            validator: widget.validator,
-            controller: widget.controller,
-            obscureText: obscureText,
-            autofocus: true,
-            // keyboardType: TextInputType.visiblePassword,
-            decoration: InputDecoration(
-              labelText: widget.labelText,
-              labelStyle: TextStyle(
-                color: Colors.grey[350],
-                fontSize: 14,
-              ),
-              errorText: widget.errorText,
-              errorStyle: const TextStyle(
-                fontSize: 14.0,
-              ),
-              enabledBorder: const OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
-              focusedBorder: const OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2,
-                  color: Colors.red,
-                ),
-              ),
-              suffixIcon: GestureDetector(
-                  onTap: () {
-                    if (widget.deneme) {
-                      setState(() {
-                        obscureText = !obscureText;
-                      });
-                    } else {
-                      widget.controller!.clear();
-                    }
-                  },
-                  child: widget.deneme
-                      ? obscureText
-                          ? Icon(
-                              widget.unInputIcon,
-                              color: Colors.grey,
-                            )
-                          : Icon(widget.inputIcon)
-                      : _CustomClearSuffixIcon(
-                          controller: widget.controller,
-                        )),
-            ),
-          ),
+    return TextField(
+      onChanged: widget.onChanged,
+      controller: widget.controller,
+      autofocus: true,
+      decoration: InputDecoration(
+        border: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
+        fillColor: Colors.white,
+        filled: true,
+        labelText: widget.labelText,
+        labelStyle: TextStyle(color: Colors.grey[350], fontSize: 14),
+        errorText: widget.errorText,
+        errorStyle: const TextStyle(fontSize: 14.0),
+        enabledBorder: const OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15)), borderSide: BorderSide(color: Colors.white)),
+        focusedBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(15)),
+          borderSide: BorderSide(width: 2, color: Colors.red),
         ),
-      ],
+        suffixIcon: GestureDetector(
+            onTap: () {
+              if (widget.deneme) {
+                setState(() {
+                  obscureText = !obscureText;
+                });
+              } else {
+                widget.controller!.clear();
+              }
+            },
+            child: widget.deneme
+                ? obscureText
+                    ? Icon(
+                        widget.unInputIcon,
+                        color: Colors.grey,
+                      )
+                    : Icon(widget.inputIcon)
+                : _CustomClearSuffixIcon(
+                    controller: widget.controller,
+                  )),
+      ),
     );
   }
 }

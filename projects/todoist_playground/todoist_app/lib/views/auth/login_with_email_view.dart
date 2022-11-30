@@ -75,8 +75,8 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                                   onPressed: () async {
                                     FocusManager.instance.primaryFocus?.unfocus();
 
-                                    if (emailController.text.isNotEmpty) {
-                                      if (value.emailValidate) {
+                                    if (value.emailValidate) {
+                                      if (emailController.text.isNotEmpty) {
                                         bool isCheck = await data.fetchUser(emailController.text);
                                         if (isCheck) {
                                           // ignore: use_build_context_synchronously

@@ -118,7 +118,7 @@ class _UserImageWidget extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: const BorderRadius.all(Radius.circular(50.0)),
-            border: Border.all(color: Colors.green.shade800, width: 4.0)),
+            border: Border.all(color: Colors.red, width: 4.0)),
         child: Center(
             child: image == null
                 ? const Icon(Icons.camera_alt_outlined)
@@ -178,10 +178,11 @@ class CustomAccCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 13.0, left: 15.0),
                 child: Text(redButton,
+                    textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
                         .headline2
-                        ?.copyWith(fontSize: 16, color: Colors.black, fontWeight: FontWeight.normal)),
+                        ?.copyWith(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold)),
               ))),
     );
   }
