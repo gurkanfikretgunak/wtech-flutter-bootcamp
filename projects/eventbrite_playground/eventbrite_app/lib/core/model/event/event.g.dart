@@ -17,6 +17,7 @@ Event _$EventFromJson(Map<String, dynamic> json) => Event(
       desc: json['desc'] as String?,
       organizationImage: json['organizationImage'] as String?,
       location: json['location'] as String?,
+      isPaid: json['isPaid'] as bool?,
       id: json['id'] as String?,
     );
 
@@ -31,5 +32,6 @@ Map<String, dynamic> _$EventToJson(Event instance) => <String, dynamic>{
       'desc': instance.desc,
       'organizationImage': instance.organizationImage,
       'location': instance.location,
+      'isPaid': instance.isPaid,
       'id': instance.id,
     };

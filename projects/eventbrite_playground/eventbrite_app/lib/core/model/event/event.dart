@@ -1,5 +1,6 @@
-import 'package:json_annotation/json_annotation.dart';
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 part 'event.g.dart';
 
 @JsonSerializable()
@@ -14,6 +15,7 @@ class Event with EquatableMixin {
   String? desc;
   String? organizationImage;
   String? location;
+  bool? isPaid;
   String? id;
 
   Event({
@@ -27,6 +29,7 @@ class Event with EquatableMixin {
     this.desc,
     this.organizationImage,
     this.location,
+    this.isPaid,
     this.id,
   });
 
@@ -46,6 +49,7 @@ class Event with EquatableMixin {
         desc,
         organizationImage,
         location,
+        isPaid,
         id
       ];
 
@@ -60,6 +64,7 @@ class Event with EquatableMixin {
     String? desc,
     String? organizationImage,
     String? location,
+    bool? isPaid,
     String? id,
   }) {
     return Event(
@@ -73,6 +78,7 @@ class Event with EquatableMixin {
       desc: desc ?? this.desc,
       organizationImage: organizationImage ?? this.organizationImage,
       location: location ?? this.location,
+      isPaid: isPaid ?? this.isPaid,
       id: id ?? this.id,
     );
   }

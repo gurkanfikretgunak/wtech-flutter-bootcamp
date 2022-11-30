@@ -136,6 +136,6 @@ class AppConstants {
   static const String organizerFollowCardTitle = 'Organizer Name';
   static const String organizerFollowButtonText = 'Follow';
   //Event Card Widget
-  static const IconData eventCardLikeIcon = Icons.favorite_border;
+  static const IconData eventCardFavoriteIcon = Icons.favorite_border;
   static const IconData eventCardShareIcon = Icons.share;
 }

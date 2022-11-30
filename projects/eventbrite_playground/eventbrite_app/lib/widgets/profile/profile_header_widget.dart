@@ -37,7 +37,7 @@ class ProfileHeader extends StatelessWidget with PaddingConstants {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                              "${user!.name}${user!.surname}",
+                              "${user!.name} ${user!.surname}",
                               style: Theme.of(context).textTheme.headline1,
                             ),
                             IconButton(

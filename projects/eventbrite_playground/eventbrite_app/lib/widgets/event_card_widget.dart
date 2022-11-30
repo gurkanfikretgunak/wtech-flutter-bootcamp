@@ -19,7 +19,7 @@ class EventCard extends StatelessWidget with PaddingConstants {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: defaultPadding,
+      padding: defaultVerticalPadding + defaultHorizontalPadding * 2,
       child: Stack(
         children: [
           Row(
@@ -64,7 +64,7 @@ class EventCard extends StatelessWidget with PaddingConstants {
             right: 0,
             child: IconButton(
               onPressed: null,
-              icon: Icon(AppConstants.eventCardLikeIcon),
+              icon: Icon(AppConstants.eventCardFavoriteIcon),
             ),
           ),
           const Positioned(

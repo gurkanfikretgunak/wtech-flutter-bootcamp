@@ -11,26 +11,22 @@ class SliverDropdown extends StatelessWidget with PaddingConstants {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: defaultHorizontalPadding,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          !isScrolled ? Text(AppConstants.homeTitle, style: Theme.of(context).textTheme.headline5) : const SizedBox(),
-          DropdownButton(
-            value: 1,
-            isExpanded: true,
-            icon: const Icon(AppConstants.selectEventDropDownButtonIcon),
-            style: Theme.of(context).textTheme.headline3,
-            items: const [
-              DropdownMenuItem(value: 1, child: Text(AppConstants.selectEventDropDownButtonValue)),
-              DropdownMenuItem(value: 2, child: Text(AppConstants.selectEventDropDownButtonValue2)),
-            ],
-            onChanged: (value) {},
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        !isScrolled ? Text(AppConstants.homeTitle, style: Theme.of(context).textTheme.headline5) : const SizedBox(),
+        DropdownButton(
+          value: 1,
+          icon: const Icon(AppConstants.selectEventDropDownButtonIcon),
+          style: Theme.of(context).textTheme.headline3,
+          items: const [
+            DropdownMenuItem(value: 1, child: Text(AppConstants.selectEventDropDownButtonValue)),
+            DropdownMenuItem(value: 2, child: Text(AppConstants.selectEventDropDownButtonValue2)),
+          ],
+          onChanged: (value) {},
+        ),
+      ],
     );
   }
 }
