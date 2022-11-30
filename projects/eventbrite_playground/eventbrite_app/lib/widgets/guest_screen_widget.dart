@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'custom_elevated_button.dart';
 
-class GuestScreenWidget extends StatelessWidget {
+class GuestScreenWidget extends StatelessWidget with PaddingConstants {
   final String title;
   final String subtitle;
   final IconData? bottomScreenIcon;
@@ -15,7 +15,7 @@ class GuestScreenWidget extends StatelessWidget {
   final VoidCallback? navigateBottom;
   final VoidCallback? navigateText;
   final VoidCallback? navigateOutline;
-  const GuestScreenWidget({
+  GuestScreenWidget({
     Key? key,
     required this.title,
     required this.subtitle,
@@ -55,7 +55,7 @@ class GuestScreenWidget extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: PaddingConstants.defaultPadding * 2,
+          padding: defaultPadding * 2,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -64,7 +64,7 @@ class GuestScreenWidget extends StatelessWidget {
                 style: Theme.of(context).textTheme.headline1,
               ),
               Padding(
-                padding: PaddingConstants.defaultVerticalPadding,
+                padding: defaultVerticalPadding,
                 child: Text(
                   subtitle,
                   style: Theme.of(context).textTheme.headline2,
@@ -88,7 +88,7 @@ class GuestScreenWidget extends StatelessWidget {
               ),
               hasOutlineButton == true
                   ? Padding(
-                      padding: PaddingConstants.defaultTopPadding,
+                      padding: defaultTopPadding,
                       child: CustomElevatedButton(
                         text: bottomOutlineButtonText ?? '',
                         onPressed: navigateOutline ?? () {},

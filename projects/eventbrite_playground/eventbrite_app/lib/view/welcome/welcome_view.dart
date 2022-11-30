@@ -8,8 +8,8 @@ import 'package:provider/provider.dart';
 import '../../core/constants/navigation/navigation_constants.dart';
 import '../../core/init/navigation/navigation_service.dart';
 
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
+class WelcomeView extends StatelessWidget with PaddingConstants {
+  WelcomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class WelcomeView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Padding(
-        padding: PaddingConstants.defaultPadding * 2,
+        padding: defaultPadding * 2,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -27,7 +27,7 @@ class WelcomeView extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             ),
             Padding(
-              padding: PaddingConstants.defaultVerticalPadding,
+              padding: defaultVerticalPadding,
               child: Text(
                 AppConstants.welcomeSubtitle,
                 style: Theme.of(context).textTheme.headline2,
@@ -49,7 +49,7 @@ class WelcomeView extends StatelessWidget {
               textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
             ),
             Padding(
-              padding: PaddingConstants.defaultVerticalPadding,
+              padding: defaultVerticalPadding,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

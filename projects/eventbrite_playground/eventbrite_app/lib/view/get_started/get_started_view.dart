@@ -5,8 +5,8 @@ import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 
-class GetStartedView extends StatelessWidget {
-  const GetStartedView({super.key});
+class GetStartedView extends StatelessWidget with PaddingConstants {
+  GetStartedView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class GetStartedView extends StatelessWidget {
       body: SafeArea(
         child: Container(
           height: MediaQuery.of(context).size.height,
-          padding: PaddingConstants.defaultHorizontalPadding * 2,
+          padding: defaultHorizontalPadding * 2,
           child: Column(
             children: [
               SizedBox(
@@ -25,7 +25,7 @@ class GetStartedView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: PaddingConstants.defaultVerticalPadding * 2,
+                      padding: defaultVerticalPadding * 2,
                       child: Text(
                         AppConstants.getStartedTitle,
                         style: Theme.of(context).textTheme.headline1,
@@ -51,7 +51,7 @@ class GetStartedView extends StatelessWidget {
                       textStyle: Theme.of(context).textTheme.button ?? const TextStyle(),
                     ),
                     Padding(
-                      padding: PaddingConstants.defaultVerticalPadding * 2,
+                      padding: defaultVerticalPadding * 2,
                       child: CustomElevatedButton(
                         text: AppConstants.getStartedFacebookButtonText,
                         onPressed: () {},

@@ -27,7 +27,7 @@ class LoginNotifier extends ChangeNotifier {
     }
     notifyListeners();
   }
-
+ //TODO Bunun burdan taşınması lazım
   void isEmailExist(String email) {
     Service.instance.isEmailExist(email: email).then((value) {
       Logger().i(value ? 'Email exist => $email' : 'Email not exist => $email');

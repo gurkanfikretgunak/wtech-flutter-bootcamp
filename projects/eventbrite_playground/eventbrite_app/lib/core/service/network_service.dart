@@ -81,7 +81,7 @@ class Service {
     }
   }
 
-  Future<User?> isLogin({required String email, required String password}) async {
+  Future<User?> login({required String email, required String password}) async {
     try {
       var response = await _networkService.getUsers();
       return response.where((element) => element.email == email).where((element) => element.password == password).first;

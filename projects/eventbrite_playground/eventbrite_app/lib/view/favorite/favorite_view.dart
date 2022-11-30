@@ -2,9 +2,8 @@ import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
 import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
-import 'package:eventbrite_app/view/favorite/favorite_events_view.dart';
-import 'package:eventbrite_app/view/favorite/favorite_organizers_view.dart';
 import 'package:eventbrite_app/widgets/custom_tab_bar_with_sliver.dart';
+import 'package:eventbrite_app/widgets/favorite/index.dart';
 import 'package:eventbrite_app/widgets/guest_screen_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -14,18 +13,17 @@ class FavoriteView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UserNotifier>(context);
     return Scaffold(
       body: SafeArea(
-        child: provider.isLogin
-            ? const CustomTabBarWithSliver(
-                appBarTitle: 'Favorites',
-                tabLength: 2,
-                tabs: [
-                  Tab(text: 'Events'),
-                  Tab(text: 'Organizers'),
+        child: context.read<UserNotifier>().isLogin
+            ? CustomTabBarWithSliver(
+                appBarTitle: AppConstants.favoriteSliverAppBarTitle,
+                tabLength: AppConstants.favoriteTabBarLength,
+                tabs: const [
+                  Tab(text: AppConstants.favoriteEventsTab),
+                  Tab(text: AppConstants.favoriteOrganizersTab),
                 ],
-                tabViews: [FavoriteEventsView(), FavoriteOrganizersView()],
+                tabViews: [FavoriteEventsWidget(), FavoriteOrganizersWidget()],
               )
             : GuestScreenWidget(
                 title: AppConstants.favoriteTitle,

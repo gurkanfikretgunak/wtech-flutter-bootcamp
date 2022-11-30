@@ -1,15 +1,15 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/navbar_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/password_notifier.dart';
-import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
 import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class PasswordView extends StatelessWidget {
-  const PasswordView({super.key});
+class PasswordView extends StatelessWidget with PaddingConstants {
+  PasswordView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class PasswordView extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Log In', style: Theme.of(context).textTheme.headline3),
+        title: Text(AppConstants.passwordAppBarTitle, style: Theme.of(context).textTheme.headline3),
         elevation: 3,
       ),
       body: SizedBox(
@@ -25,7 +25,7 @@ class PasswordView extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: PaddingConstants.defaultPadding * 3,
+              padding: defaultPadding * 3,
               child: Form(
                 child: SingleChildScrollView(
                   child: SizedBox(
@@ -33,19 +33,19 @@ class PasswordView extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          padding: PaddingConstants.defaultPadding,
+                          padding: defaultPadding,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: Theme.of(context).primaryColorDark,
                           ),
                           child: Icon(
-                            Icons.person,
+                            AppConstants.passwordProfileIcon,
                             size: size.width * 0.15,
                             color: Theme.of(context).primaryColorLight,
                           ),
                         ),
                         Padding(
-                          padding: PaddingConstants.defaultTopPadding,
+                          padding: defaultTopPadding,
                           child: Text(
                             context.read<LoginNotifier>().email.value ?? '',
                             textAlign: TextAlign.center,
@@ -56,9 +56,9 @@ class PasswordView extends StatelessWidget {
                             onPressed: () {
                               Navigator.pop(context);
                             },
-                            child: const Text('Change')),
+                            child: const Text(AppConstants.changeEmailText)),
                         Padding(
-                          padding: PaddingConstants.defaultBottomPadding * 2,
+                          padding: defaultBottomPadding * 2,
                           child: CustomTextFormField(
                             onChanged: (value) {
                               context.read<PasswordNotifier>().validatePassword(value);
@@ -70,8 +70,8 @@ class PasswordView extends StatelessWidget {
                               icon: Icon(provider.isObscure ? Icons.visibility : Icons.visibility_off),
                             ),
                             floatingLabelBehavior: FloatingLabelBehavior.always,
-                            labelText: 'Password',
-                            hintText: 'Enter password',
+                            labelText: AppConstants.passwordLabelText,
+                            hintText: AppConstants.passwordHintText,
                             obscureText: provider.isObscure,
                           ),
                         ),
@@ -86,9 +86,9 @@ class PasswordView extends StatelessWidget {
                 const Spacer(),
                 const Divider(),
                 Padding(
-                  padding: PaddingConstants.defaultPadding,
+                  padding: defaultPadding,
                   child: CustomElevatedButton(
-                    text: 'Log In',
+                    text: AppConstants.bottomLoginButtonText,
                     onPressed: provider.isValid
                         ? () {
                             provider
@@ -96,9 +96,8 @@ class PasswordView extends StatelessWidget {
                               email: context.read<LoginNotifier>().email.value ?? '',
                               password: provider.password.value ?? '',
                             )
-                                .then((value) {
+                                .then((value) async {
                               context.read<NavbarNotifier>().updateIndex(0);
-                              context.read<UserNotifier>().init();
                             });
                           }
                         : null,
@@ -107,9 +106,9 @@ class PasswordView extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: PaddingConstants.defaultHorizontalPadding,
+                  padding: defaultHorizontalPadding,
                   child: CustomElevatedButton(
-                    text: 'Email me a login link',
+                    text: AppConstants.bottomLoginLinkText,
                     border: true,
                     onPressed: () {},
                     color: Theme.of(context).backgroundColor,
@@ -118,7 +117,7 @@ class PasswordView extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {},
-                  child: const Text('I forgot my password'),
+                  child: const Text(AppConstants.forgotPasswordText),
                 ),
               ],
             )

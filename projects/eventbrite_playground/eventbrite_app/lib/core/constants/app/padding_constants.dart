@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class PaddingConstants {
-  static const EdgeInsets defaultPadding = EdgeInsets.all(10);
-  static const EdgeInsets defaultBottomPadding = EdgeInsets.only(bottom: 10);
-  static const EdgeInsets defaultTopPadding = EdgeInsets.only(top: 10);
-  static const EdgeInsets defaultLeftPadding = EdgeInsets.only(left: 10);
-  static const EdgeInsets defaultRightPadding = EdgeInsets.only(right: 10);
-  static const EdgeInsets defaultVerticalPadding = EdgeInsets.symmetric(vertical: 10);
-  static const EdgeInsets defaultHorizontalPadding = EdgeInsets.symmetric(horizontal: 10);
+mixin PaddingConstants {
+  final EdgeInsets defaultPadding = const EdgeInsets.all(10);
+  final EdgeInsets defaultBottomPadding = const EdgeInsets.only(bottom: 10);
+  final EdgeInsets defaultTopPadding = const EdgeInsets.only(top: 10);
+  final EdgeInsets defaultLeftPadding = const EdgeInsets.only(left: 10);
+  final EdgeInsets defaultRightPadding = const EdgeInsets.only(right: 10);
+  final EdgeInsets defaultVerticalPadding = const EdgeInsets.symmetric(vertical: 10);
+  final EdgeInsets defaultHorizontalPadding = const EdgeInsets.symmetric(horizontal: 10);
 }

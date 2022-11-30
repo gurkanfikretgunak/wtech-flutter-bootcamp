@@ -1,9 +1,8 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/init/provider/user_notifier.dart';
-import 'package:eventbrite_app/view/ticket/ticket_past_view.dart';
-import 'package:eventbrite_app/view/ticket/ticket_upcoming_view.dart';
 import 'package:eventbrite_app/widgets/custom_tab_bar_with_sliver.dart';
 import 'package:eventbrite_app/widgets/guest_screen_widget.dart';
+import 'package:eventbrite_app/widgets/ticket/index.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,19 +14,17 @@ class TicketView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = Provider.of<UserNotifier>(context);
-
     return Scaffold(
       body: SafeArea(
-        child: provider.isLogin
-            ? const CustomTabBarWithSliver(
-                appBarTitle: 'Tickets',
-                tabLength: 2,
-                tabs: [
-                  Tab(text: 'Upcoming'),
-                  Tab(text: 'Past tickets'),
+        child: context.read<UserNotifier>().isLogin
+            ? CustomTabBarWithSliver(
+                appBarTitle: AppConstants.ticketSliverAppBarTitle,
+                tabLength: AppConstants.ticketTabBarLength,
+                tabs: const [
+                  Tab(text: AppConstants.ticketUpcomingTab),
+                  Tab(text: AppConstants.ticketPastTab),
                 ],
-                tabViews: [TicketUpcomingView(), TicketPastView()],
+                tabViews: const [UpcomingTicketsWidget(), PastTicketsWidget()],
               )
             : GuestScreenWidget(
                 title: AppConstants.ticketTitle,

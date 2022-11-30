@@ -1,3 +1,5 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
+import 'package:eventbrite_app/core/constants/app/color_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
@@ -7,8 +9,8 @@ import 'package:eventbrite_app/widgets/terms_conditions_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class RegisterView extends StatelessWidget {
-  const RegisterView({super.key});
+class RegisterView extends StatelessWidget with PaddingConstants {
+  RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +18,7 @@ class RegisterView extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Sign Up', style: Theme.of(context).textTheme.headline3),
+        title: Text(AppConstants.registerAppBarTitle, style: Theme.of(context).textTheme.headline3),
         elevation: 3,
       ),
       body: SizedBox(
@@ -24,7 +26,7 @@ class RegisterView extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: PaddingConstants.defaultPadding * 2,
+              padding: defaultPadding * 2,
               child: Form(
                 child: SingleChildScrollView(
                   child: SizedBox(
@@ -32,13 +34,13 @@ class RegisterView extends StatelessWidget {
                     child: Column(
                       children: [
                         Padding(
-                          padding: PaddingConstants.defaultBottomPadding * 2,
+                          padding: defaultBottomPadding * 2,
                           child: CustomTextFormField(
                             enabled: false,
                             initialValue: context.read<LoginNotifier>().email.value,
                             textColor: Colors.grey,
                             floatingLabelBehavior: FloatingLabelBehavior.always,
-                            labelText: 'Email',
+                            labelText: AppConstants.emailLabelText,
                           ),
                         ),
                         CustomTextFormField(
@@ -46,13 +48,13 @@ class RegisterView extends StatelessWidget {
                             provider.validateEmail(context.read<LoginNotifier>().email.value, value);
                           },
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          labelText: 'Confirm Email',
+                          labelText: AppConstants.confirmEmailLabelText,
                           errorText: provider.confirmEmail.error,
-                          hintText: 'Confirm Email',
+                          hintText: AppConstants.confirmEmailHintText,
                           keyboardType: TextInputType.emailAddress,
                         ),
                         Padding(
-                          padding: PaddingConstants.defaultVerticalPadding * 4,
+                          padding: defaultVerticalPadding * 4,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -62,9 +64,9 @@ class RegisterView extends StatelessWidget {
                                     provider.validateFirstName(value);
                                   },
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
-                                  labelText: 'First Name',
+                                  labelText: AppConstants.firstNameLabelText,
                                   errorText: provider.firstName.error,
-                                  hintText: 'Enter first name',
+                                  hintText: AppConstants.firstNameHintText,
                                   keyboardType: TextInputType.name,
                                 ),
                               ),
@@ -75,9 +77,9 @@ class RegisterView extends StatelessWidget {
                                     provider.validateLastName(value);
                                   },
                                   floatingLabelBehavior: FloatingLabelBehavior.always,
-                                  labelText: 'Surname',
+                                  labelText: AppConstants.surnameLabelText,
                                   errorText: provider.lastName.error,
-                                  hintText: 'Enter surname',
+                                  hintText: AppConstants.surnameHintText,
                                   keyboardType: TextInputType.name,
                                 ),
                               ),
@@ -108,14 +110,12 @@ class RegisterView extends StatelessWidget {
                                       child: LinearProgressIndicator(
                                         value: provider.strength,
                                         minHeight: 10,
-                                        backgroundColor: Colors.grey[300],
-                                        valueColor: AlwaysStoppedAnimation<Color>(
-                                          provider.strength < 0.3
-                                              ? Colors.red
-                                              : provider.strength < 0.6
-                                                  ? Colors.yellow
-                                                  : Colors.green,
-                                        ),
+                                        backgroundColor: ColorConstants.passwordIndicatorBg,
+                                        valueColor: AlwaysStoppedAnimation<Color>(provider.strength < 0.3
+                                            ? ColorConstants.passwordWeakColor
+                                            : provider.strength < 0.6
+                                                ? ColorConstants.passwordMediumColor
+                                                : ColorConstants.passwordStrongColor),
                                       ),
                                     ),
                                   )
@@ -133,12 +133,15 @@ class RegisterView extends StatelessWidget {
                 const Spacer(),
                 const Divider(),
                 Padding(
-                  padding: PaddingConstants.defaultPadding,
+                  padding: defaultPadding,
                   child: CustomElevatedButton(
-                    text: 'Sign Up',
+                    text: AppConstants.registerButtonText,
                     onPressed: provider.isValid
                         ? () {
-                            showModalBottomSheet(context: context, builder: (context) => const TermsConditionWidget());
+                            showModalBottomSheet(
+                              context: context,
+                              builder: (context) => TermsConditionWidget(),
+                            );
                           }
                         : null,
                     color: Theme.of(context).primaryColor,

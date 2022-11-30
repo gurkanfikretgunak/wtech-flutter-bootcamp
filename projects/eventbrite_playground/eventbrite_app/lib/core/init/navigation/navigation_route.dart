@@ -23,7 +23,7 @@ class NavigationRoute {
       case NavigationConstants.homePage:
         return normalNavigate(widget: const HomeView());
       case NavigationConstants.searchPage:
-        return normalNavigate(widget: const SearchView());
+        return normalNavigate(widget: SearchView());
       case NavigationConstants.favoritePage:
         return normalNavigate(widget: const FavoriteView());
       case NavigationConstants.ticketPage:
@@ -31,13 +31,13 @@ class NavigationRoute {
       case NavigationConstants.profilePage:
         return normalNavigate(widget: const ProfileView());
       case NavigationConstants.getStartedPage:
-        return normalNavigate(widget: const GetStartedView());
+        return normalNavigate(widget: GetStartedView());
       case NavigationConstants.loginPage:
-        return normalNavigate(widget: const LoginView());
+        return normalNavigate(widget: LoginView());
       case NavigationConstants.passwordPage:
-        return normalNavigate(widget: const PasswordView());
+        return normalNavigate(widget: PasswordView());
       case NavigationConstants.registerPage:
-        return normalNavigate(widget: const RegisterView());
+        return normalNavigate(widget: RegisterView());
 
       default:
         return MaterialPageRoute(builder: (context) => const Text('Page Not Found'));

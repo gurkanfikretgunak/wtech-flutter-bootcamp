@@ -1,12 +1,13 @@
+import 'package:eventbrite_app/core/constants/app/color_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:flutter/material.dart';
 
-class CustomTabBarWithSliver extends StatelessWidget {
+class CustomTabBarWithSliver extends StatelessWidget with PaddingConstants {
   final String appBarTitle;
   final int tabLength;
   final List<Widget> tabs;
   final List<Widget> tabViews;
-  const CustomTabBarWithSliver(
+  CustomTabBarWithSliver(
       {super.key, required this.appBarTitle, required this.tabLength, required this.tabs, required this.tabViews});
 
   @override
@@ -20,7 +21,7 @@ class CustomTabBarWithSliver extends StatelessWidget {
               pinned: true,
               expandedHeight: 100,
               flexibleSpace: FlexibleSpaceBar(
-                titlePadding: PaddingConstants.defaultPadding,
+                titlePadding: defaultPadding,
                 title: Text(appBarTitle, style: Theme.of(context).textTheme.headline3),
               ),
             ),
@@ -53,10 +54,10 @@ class _TabBarDelegate extends SliverPersistentHeaderDelegate {
         margin: const EdgeInsets.only(bottom: 6.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5.0),
-          color: Colors.white,
+          color: ColorConstants.sliverDecorationColor,
           boxShadow: const [
             BoxShadow(
-              color: Colors.grey,
+              color: ColorConstants.sliverDecorationShadowColor,
               offset: Offset(0.0, 1.0), //(x,y)
               blurRadius: 6.0,
             ),

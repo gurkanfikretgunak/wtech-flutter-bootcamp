@@ -1,3 +1,5 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
+import 'package:eventbrite_app/core/constants/app/color_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/login_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
@@ -5,8 +7,8 @@ import 'package:eventbrite_app/widgets/custom_text_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class LoginView extends StatelessWidget with PaddingConstants {
+  LoginView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,7 @@ class LoginView extends StatelessWidget {
     final LoginNotifier provider = Provider.of<LoginNotifier>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('Log in or Sign up',
-            style: Theme.of(context).textTheme.headline3),
+        title: Text(AppConstants.loginAppBarTitle, style: Theme.of(context).textTheme.headline3),
         elevation: 3,
       ),
       body: SizedBox(
@@ -23,21 +24,21 @@ class LoginView extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding: PaddingConstants.defaultPadding * 2,
+              padding: defaultPadding * 2,
               child: Form(
                 child: SizedBox(
                   height: size.height * 0.6,
                   child: Column(
                     children: [
                       Padding(
-                        padding: PaddingConstants.defaultBottomPadding * 2,
+                        padding: defaultBottomPadding * 2,
                         child: CustomTextFormField(
                           onChanged: (value) {
                             context.read<LoginNotifier>().validateEmail(value);
                           },
                           floatingLabelBehavior: FloatingLabelBehavior.always,
-                          labelText: 'Email',
-                          hintText: 'Enter email address',
+                          labelText: AppConstants.emailLabelText,
+                          hintText: AppConstants.emailHintText,
                           keyboardType: TextInputType.emailAddress,
                           errorText: provider.email.error,
                         ),
@@ -51,8 +52,7 @@ class LoginView extends StatelessWidget {
               children: [
                 const Spacer(),
                 Padding(
-                  padding: PaddingConstants.defaultHorizontalPadding +
-                      PaddingConstants.defaultRightPadding * 6,
+                  padding: defaultHorizontalPadding + defaultRightPadding * 6,
                   child: Row(
                     children: [
                       Container(
@@ -64,7 +64,7 @@ class LoginView extends StatelessWidget {
                           shape: BoxShape.circle,
                           boxShadow: const [
                             BoxShadow(
-                              color: Colors.grey,
+                              color: ColorConstants.sliverDecorationShadowColor,
                               blurRadius: 5,
                             ),
                           ],
@@ -77,7 +77,7 @@ class LoginView extends StatelessWidget {
                       ),
                       Expanded(
                           child: Text(
-                        'Sign in with the same email address you used to get your tickets.',
+                        AppConstants.loginBottomText,
                         style: Theme.of(context).textTheme.subtitle2,
                       )),
                     ],
@@ -85,9 +85,9 @@ class LoginView extends StatelessWidget {
                 ),
                 const Divider(),
                 Padding(
-                  padding: PaddingConstants.defaultPadding,
+                  padding: defaultPadding,
                   child: CustomElevatedButton(
-                    text: 'Next',
+                    text: AppConstants.loginButtonText,
                     border: true,
                     onPressed: provider.isValid
                         ? () {
@@ -95,8 +95,7 @@ class LoginView extends StatelessWidget {
                           }
                         : null,
                     color: Theme.of(context).backgroundColor,
-                    textStyle: Theme.of(context).textTheme.caption ??
-                        const TextStyle(),
+                    textStyle: Theme.of(context).textTheme.caption ?? const TextStyle(),
                   ),
                 ),
               ],

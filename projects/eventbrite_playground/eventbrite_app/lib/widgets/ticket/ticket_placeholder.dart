@@ -1,8 +1,10 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
+import 'package:eventbrite_app/core/constants/app/color_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:flutter/material.dart';
 
-class TicketPlaceholder extends StatelessWidget {
-  const TicketPlaceholder({
+class TicketPlaceholder extends StatelessWidget with PaddingConstants {
+  TicketPlaceholder({
     Key? key,
   }) : super(key: key);
 
@@ -12,7 +14,7 @@ class TicketPlaceholder extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          padding: PaddingConstants.defaultPadding * 4,
+          padding: defaultPadding * 4,
           decoration: BoxDecoration(
             color: Theme.of(context).scaffoldBackgroundColor,
             border: Border.all(
@@ -28,17 +30,17 @@ class TicketPlaceholder extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: PaddingConstants.defaultVerticalPadding * 2,
+          padding: defaultVerticalPadding * 2,
           child: Text(
-            'Not seeing your tickets? Learn\n more about how to find them.',
+            AppConstants.ticketPlaceHolderTitle,
             style: Theme.of(context).textTheme.bodyText1,
           ),
         ),
         TextButton(
             onPressed: () {},
             child: Text(
-              'Find my tickets',
-              style: Theme.of(context).textTheme.button!.copyWith(color: Colors.indigo),
+              AppConstants.ticketPlaceHolderButtonText,
+              style: Theme.of(context).textTheme.button!.copyWith(color: ColorConstants.textButtonColor),
             ))
       ],
     );

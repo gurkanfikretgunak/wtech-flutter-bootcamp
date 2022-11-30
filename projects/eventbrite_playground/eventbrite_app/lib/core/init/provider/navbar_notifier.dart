@@ -24,7 +24,7 @@ class NavbarNotifier extends ChangeNotifier {
     NavbarProvider(
       icon: Icons.search,
       name: 'Search',
-      widget: const SearchView(),
+      widget: SearchView(),
     ),
     NavbarProvider(
       icon: Icons.favorite_border_outlined,

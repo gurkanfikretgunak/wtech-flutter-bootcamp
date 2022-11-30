@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/init/provider/register_notifier.dart';
 import 'package:eventbrite_app/widgets/custom_elevated_button.dart';
@@ -5,8 +6,8 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class TermsConditionWidget extends StatelessWidget {
-  const TermsConditionWidget({super.key});
+class TermsConditionWidget extends StatelessWidget with PaddingConstants {
+  TermsConditionWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,23 +16,23 @@ class TermsConditionWidget extends StatelessWidget {
       color: Theme.of(context).scaffoldBackgroundColor,
       height: size.height * 0.35,
       child: Padding(
-        padding: PaddingConstants.defaultHorizontalPadding * 6,
+        padding: defaultHorizontalPadding * 6,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Terms and coditions', style: Theme.of(context).textTheme.headline3),
+            Text(AppConstants.conditionTitle, style: Theme.of(context).textTheme.headline3),
             Padding(
-              padding: PaddingConstants.defaultVerticalPadding,
+              padding: defaultVerticalPadding,
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: 'By signing up or logging in, I accept the ',
+                      text: AppConstants.conditionText,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     TextSpan(
-                        text: 'Eventbrite Terms of Service ',
+                        text: AppConstants.conditionLinkText,
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
                             debugPrint('Terms of Service');
@@ -41,11 +42,11 @@ class TermsConditionWidget extends StatelessWidget {
                               decoration: TextDecoration.underline,
                             )),
                     TextSpan(
-                      text: 'and have read the ',
+                      text: AppConstants.conditionText2,
                       style: Theme.of(context).textTheme.bodyText1,
                     ),
                     TextSpan(
-                      text: 'Privacy Policy',
+                      text: AppConstants.conditionLinkText2,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
                           debugPrint('Privacy Policy');
@@ -60,9 +61,9 @@ class TermsConditionWidget extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: PaddingConstants.defaultHorizontalPadding * 10,
+              padding: defaultHorizontalPadding * 10,
               child: CustomElevatedButton(
-                text: 'Accept',
+                text: AppConstants.conditionAcceptButtonText,
                 onPressed: () {
                   //Post to API
                   context.read<RegisterNotifier>().createUser();
@@ -76,7 +77,7 @@ class TermsConditionWidget extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: const Text('Cancel'),
+              child: const Text(AppConstants.conditionCancelButtonText),
             )
           ],
         ),

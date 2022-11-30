@@ -105,6 +105,7 @@ class RegisterNotifier extends ChangeNotifier {
     }
   }
 
+  //TODO Bu belki taşınabilir
   void createUser() {
     User newUser = User(
       createdAt: DateTime.now().millisecondsSinceEpoch,

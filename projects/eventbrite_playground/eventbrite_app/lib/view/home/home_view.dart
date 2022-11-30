@@ -1,7 +1,8 @@
-import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:eventbrite_app/core/model/event/event.dart';
 import 'package:eventbrite_app/core/service/network_service.dart';
 import 'package:eventbrite_app/view/welcome/welcome_view.dart';
+import 'package:eventbrite_app/widgets/custom_sliver_dropdown.dart';
+import 'package:eventbrite_app/widgets/event_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class HomeView extends StatelessWidget {
@@ -9,9 +10,10 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO shared preferences ile isSelected değerini kontrol et
     bool isSelected = true;
     return Scaffold(
-      body: isSelected ? const EventsView() : const WelcomeView(),
+      body: isSelected ? const EventsView() : WelcomeView(),
     );
   }
 }
@@ -62,118 +64,6 @@ class EventsView extends StatelessWidget {
             }
           },
         ),
-      ),
-    );
-  }
-}
-
-class EventCard extends StatelessWidget {
-  final String? eventDate;
-  final String? eventName;
-  final String? eventImage;
-  final String? eventOrganization;
-
-  const EventCard({
-    Key? key,
-    required this.eventDate,
-    required this.eventName,
-    required this.eventImage,
-    required this.eventOrganization,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: PaddingConstants.defaultPadding,
-      child: Stack(
-        children: [
-          Row(
-            children: [
-              SizedBox(
-                width: 150,
-                height: 150,
-                child: Image.network(
-                  eventImage!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      eventDate ?? '',
-                      style: Theme.of(context).textTheme.bodyText2,
-                    ),
-                    Padding(
-                      padding: PaddingConstants.defaultVerticalPadding,
-                      child: Text(
-                        eventName ?? '',
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                    ),
-                    Text(
-                      eventOrganization ?? '',
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const Positioned(
-            bottom: 0,
-            right: 0,
-            child: IconButton(
-              onPressed: null,
-              icon: Icon(Icons.favorite_border),
-            ),
-          ),
-          const Positioned(
-            bottom: 0,
-            right: 40,
-            child: IconButton(
-              onPressed: null,
-              icon: Icon(Icons.share),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class SliverDropdown extends StatelessWidget {
-  final bool isScrolled;
-  const SliverDropdown({
-    Key? key,
-    required this.isScrolled,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: PaddingConstants.defaultHorizontalPadding,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          !isScrolled ? Text('Find events in', style: Theme.of(context).textTheme.headline5) : const SizedBox(),
-          DropdownButton(
-            value: 1,
-            isExpanded: true,
-            icon: const Icon(Icons.expand_more),
-            style: Theme.of(context).textTheme.headline3,
-            items: const [
-              DropdownMenuItem(value: 1, child: Text('Online Events')),
-              DropdownMenuItem(value: 2, child: Text('Nearby Events')),
-            ],
-            onChanged: (value) {},
-          ),
-        ],
       ),
     );
   }

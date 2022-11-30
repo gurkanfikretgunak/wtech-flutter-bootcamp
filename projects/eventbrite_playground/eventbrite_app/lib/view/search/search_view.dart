@@ -1,13 +1,14 @@
+import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
 import 'package:flutter/material.dart';
 
-class SearchView extends StatelessWidget {
-  const SearchView({super.key});
+class SearchView extends StatelessWidget with PaddingConstants {
+  SearchView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: AppConstants.searchTabBarLength,
       child: Scaffold(
         appBar: AppBar(
           actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.tune))],
@@ -15,20 +16,21 @@ class SearchView extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: PaddingConstants.defaultHorizontalPadding * 2,
+              padding: defaultHorizontalPadding * 2,
               child: TextField(
                 decoration: InputDecoration(
-                  hintText: 'Start Searching',
+                  hintText: AppConstants.searchBarHintText,
                   hintStyle: Theme.of(context).textTheme.headline4,
                 ),
               ),
             ),
             const TabBar(
-              tabs: [Tab(text: 'Events'), Tab(text: 'Organizers')],
+              tabs: [Tab(text: AppConstants.searchEventsTab), Tab(text: AppConstants.searchOrganizersTab)],
             ),
             const Expanded(
               child: TabBarView(
                 physics: NeverScrollableScrollPhysics(),
+                //TODO: İçerikleri eklenecek
                 children: [
                   Center(child: Text('Events')),
                   Center(child: Text('Organizers')),
