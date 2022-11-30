@@ -8,10 +8,24 @@ API LARI DUZENLE
 
 
 
- String? id;
-  String? userName;
-  String? userSurname;
-  String? userEmail;
-  String? userPassword;
+ showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => FutureBuilder(
+                    future: client.registerUser(RegisterPageItems.emailController.text,RegisterPageItems.nameController.text ,RegisterPageItems.surnameController.text,RegisterPageItems.passwordController.text),
+                    builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
 
-  Users({this.id,this.userEmail,this.userName,this.userPassword,this.userSurname});
+                      return AlertDialog(
+                      title: const Text(CustomTextsConstants.registerSuccess),
+                      content: const Text(CustomTextsConstants.kayitBasarili),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () => Navigator.of(context).pushNamed('/account'),
+                          child: const Text(CustomTextsConstants.cancel),
+                        ),
+                      ],
+                    );
+                      },
+                     
+                  ),
+
+                );

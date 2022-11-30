@@ -3,6 +3,21 @@ import 'package:flutter/material.dart';
 import '../constants/paddings/account_page_paddings.dart';
 import '../constants/text_constants/constants.dart';
 
+
+class AccountPageList{
+  static List<Widget> RowList = const [
+    MessagesRow(),
+    BookingRow(),
+    PaymentRow(),
+    RailCardsRow(),
+    BusinessRow(),
+    BusinesBookRow(),
+    MoneyRow(),
+    AppSettingsRow(),
+    PrivacyChoiceRow(),
+    PushRow(),
+  ];
+}
 class PushRow extends StatelessWidget {
   const PushRow({
     Key? key,
@@ -50,7 +65,7 @@ class RowPadding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RowPadding();
+    return const Padding(padding: EdgeInsets.all(8));
   }
 }
 
@@ -105,7 +120,8 @@ class BusinesBookRow extends StatelessWidget {
     return Row(children:const [
       RowPadding(),
       Icon(Icons.business_center),
-      RowPadding(),      Text(CustomTextsConstants.businessbook),
+      RowPadding(),      
+      Text(CustomTextsConstants.businessbook),
       
     ]);
   }

@@ -167,7 +167,7 @@ class DiscountWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const LeftFifteenPadding(),
-          Image.asset('lib/assets/images/trainIcon.png'),
+          Image.asset('assets/images/trainIcon.png'),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: const [
