@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
-import '../constants/image/image_path_constants.dart';
-import '../constants/text/home_page_contants.dart';
-import '../widgets/custom_methods.dart';
+import '../../constants/image/image_path_constants.dart';
+import '../../constants/text/home_page_contants.dart';
+import '../../widgets/custom_methods.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -18,7 +18,6 @@ class _MyHomePageState extends State<MyHomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
-      
       appBar: AppBar(
         title: const Text(CustomHomeText.todayText),
         automaticallyImplyLeading: false,

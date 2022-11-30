@@ -27,6 +27,8 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
   Widget build(BuildContext context) {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
     return Scaffold(
       body: Wrap(
         children: [
@@ -78,7 +80,7 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                                     } else {
                                       // ignore: use_build_context_synchronously
                                       CustomMethods.componentSnackbar(context, "No Email Address!", "Sign Up >");
-                                      await loginAction();
+                                      await _serviceProvider.loginAction();
 
                                       // ignore: use_build_context_synchronously
                                       CustomMethods.settingModalBottomSheet(

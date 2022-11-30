@@ -12,6 +12,7 @@ class ServiceProvider with ChangeNotifier {
   String idUser = "";
   String passwordUser = "";
   String imageUser = "";
+  int durationUser = 0;
   Future<bool> passwordCheck(email, password) async {
     response = await client.getUsers();
     notifyListeners();
@@ -33,6 +34,7 @@ class ServiceProvider with ChangeNotifier {
         idUser = item.id!.toString();
         passwordUser = item.password!;
         imageUser = item.image!;
+        durationUser = item.duration!;
         return true;
       }
     }
@@ -45,7 +47,6 @@ class ServiceProvider with ChangeNotifier {
         return false;
       }
     }
-
     client.loginPage(email, password, name);
     userEmail = email;
     userName = name;
@@ -59,6 +60,11 @@ class ServiceProvider with ChangeNotifier {
 
   Future<bool> updateImage(imageUs) async {
     client.updateImage(idUser, imageUs);
+    return true;
+  }
+
+  Future<bool> loginAction() async {
+    await Future.delayed(Duration(seconds: durationUser));
     return true;
   }
 }

@@ -5,8 +5,11 @@ class CustomAuthButton extends StatelessWidget {
     Key? key,
     required this.buttonTexts,
     required this.onPressed,
+    this.buttonColor,
   }) : super(key: key);
   final String buttonTexts;
+  final Color? buttonColor;
+
   final Future<void> Function() onPressed;
 
   @override
@@ -17,7 +20,7 @@ class CustomAuthButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.red),
+            backgroundColor: MaterialStateProperty.all(buttonColor ?? Colors.red),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
@@ -30,7 +33,9 @@ class CustomAuthButton extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Text(
                 buttonTexts,
-                style: Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
+                style: buttonTexts == "Cancel"
+                    ? Theme.of(context).textTheme.caption?.copyWith(color: Colors.black)
+                    : Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
               ),
             ),
           ],

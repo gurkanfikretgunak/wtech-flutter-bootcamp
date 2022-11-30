@@ -10,6 +10,7 @@ import '../../core/provider/validation_provider.dart';
 import '../../widgets/button_widgets/sign_up_button.dart';
 import '../../widgets/custom_methods.dart';
 import '../../widgets/input_decoration_widgets/input_decoration_widget.dart';
+import '../../core/provider/service_provider.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({Key? key, this.emailController}) : super(key: key);
@@ -30,6 +31,8 @@ class _SignInViewState extends State<SignInView> {
   @override
   Widget build(BuildContext context) {
     FormProvider formProvider = Provider.of<FormProvider>(context);
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
     return Form(
         key: formKey,
         child: Padding(
@@ -102,13 +105,13 @@ class _SignInViewState extends State<SignInView> {
                                             if (isCheck) {
                                               // ignore: use_build_context_synchronously
                                               Navigator.pushNamed(context, loadingRoute);
-                                              await loginAction();
+                                              await _serviceProvider.loginAction();
                                               // ignore: use_build_context_synchronously
                                               CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());
                                             } else {
                                               // ignore: use_build_context_synchronously
                                               CustomMethods.componentSnackbar(context, "Email already exists!", "Undo");
-                                              await loginAction();
+                                              await _serviceProvider.loginAction();
 
                                               // ignore: use_build_context_synchronously
                                               CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());
@@ -120,10 +123,4 @@ class _SignInViewState extends State<SignInView> {
                           ])))
             ])));
   }
-}
-
-Future<bool> loginAction() async {
-  //replace the below line of code with your login request
-  await Future.delayed(const Duration(seconds: 2));
-  return true;
 }

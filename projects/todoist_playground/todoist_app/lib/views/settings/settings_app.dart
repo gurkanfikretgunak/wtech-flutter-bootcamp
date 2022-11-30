@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/core/provider/service_provider.dart';
+import 'package:todoist_app/views/auth/login_with_email_view.dart';
+import 'package:todoist_app/widgets/button_widgets/no_sheet_button.dart';
+import 'package:todoist_app/widgets/button_widgets/sign_up_button.dart';
 import '../../constants/icon_text_model.dart';
 import '../../constants/text/settings_page_custom.dart';
+import '../../widgets/custom_methods.dart';
 import '../../widgets/preferred_app_bar_widgets.dart';
 import '../../widgets/settings_card_widget.dart';
 
@@ -84,7 +88,6 @@ class CustomLogOutCard extends StatelessWidget {
   final String redText;
   @override
   Widget build(BuildContext context) {
-    // ignore: no_leading_underscores_for_local_identifiers
     ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
 
     return Card(
@@ -97,15 +100,47 @@ class CustomLogOutCard extends StatelessWidget {
           height: 50,
           child: TextButton(
             onPressed: () {
-              _serviceProvider.userName = " ";
-              _serviceProvider.userEmail = " ";
-
-              Navigator.pushNamed(context, welcomeRoute);
+              cancelShowBottomSheet(context, _serviceProvider);
             },
             child: Text(redText,
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 17, color: Colors.red)),
           )),
+    );
+  }
+
+  Future<void> cancelShowBottomSheet(BuildContext context, ServiceProvider serviceProvider) {
+    // ignore: no_leading_underscores_for_local_identifiers
+    return showModalBottomSheet<void>(
+      backgroundColor: Colors.transparent,
+      context: context,
+      builder: (BuildContext context) {
+        return SizedBox(
+          height: 150,
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                const NoSheetButton(
+                  text: "Log Out",
+                  widName: welcomeRoute,
+                  buttonColor: Colors.white,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 15.0),
+                  child: CustomAuthButton(
+                      buttonTexts: "Cancel",
+                      onPressed: () async {
+                        Navigator.of(context).pop();
+                      },
+                      buttonColor: Colors.white),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

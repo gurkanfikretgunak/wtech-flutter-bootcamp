@@ -66,7 +66,7 @@ class CustomTheme {
             fontSize: 25,
             fontWeight: FontWeight.bold,
           ),
-          caption: TextStyle(color: Colors.black.withOpacity(0.9), fontSize: 20, fontWeight: FontWeight.bold),
+          caption: TextStyle(color: Colors.white.withOpacity(0.9), fontSize: 20, fontWeight: FontWeight.bold),
           headline3: TextStyle(
             color: Colors.white.withOpacity(0.7),
             fontSize: 16,

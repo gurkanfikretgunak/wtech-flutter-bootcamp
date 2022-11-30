@@ -9,3 +9,4 @@ const String settingsRoute = '/settings';
 const String settingsAccountRoute = '/accountSettings';
 const String homeRoute = '/home';
 const String imageRoute = '/image';
+const String emailLoginRoute = '/email';

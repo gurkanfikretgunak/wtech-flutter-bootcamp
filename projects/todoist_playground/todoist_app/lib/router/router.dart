@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
 import 'package:todoist_app/views/auth/information_page_view.dart';
+import 'package:todoist_app/views/auth/login_with_email_view.dart';
 import 'package:todoist_app/views/auth/password_page_view.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
-import 'package:todoist_app/views/home_page_view.dart';
+import 'package:todoist_app/views/home/home_page_view.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import 'package:todoist_app/views/splash/splash_screen_view.dart';
@@ -38,6 +39,8 @@ class CustomRouter {
         return MaterialPageRoute(builder: (_) => const AccountSettingView());
       case homeRoute:
         return MaterialPageRoute(builder: (_) => const MyHomePage());
+      case emailLoginRoute:
+        return MaterialPageRoute(builder: (_) => const LoginWithEmail());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

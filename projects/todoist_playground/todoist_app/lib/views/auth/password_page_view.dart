@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoist_app/constants/router_name_constants.dart';
-import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/widgets/custom_methods.dart';
 import '../../constants/text/auth_constants.dart';
 import '../../core/provider/service_provider.dart';
@@ -22,6 +21,8 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
   Widget build(BuildContext context) {
     // ignore: no_leading_underscores_for_local_identifiers
     FormProvider _formProvider = Provider.of<FormProvider>(context);
+    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
+
     return Scaffold(
       body: Wrap(
         children: [
@@ -84,7 +85,7 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                                     if (isCheck) {
                                       // ignore: use_build_context_synchronously
                                       Navigator.pushNamed(context, loadingRoute);
-                                      await loginAction();
+                                      await _serviceProvider.loginAction();
                                       // ignore: use_build_context_synchronously
                                       Navigator.pushNamed(context, homeRoute);
                                     } else {

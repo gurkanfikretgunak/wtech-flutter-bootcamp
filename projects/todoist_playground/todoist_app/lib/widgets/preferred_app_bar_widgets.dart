@@ -14,8 +14,6 @@ class AppBarWidget extends StatelessWidget {
   final File? pickImage;
   @override
   Widget build(BuildContext context) {
-    ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
-
     return AppBar(
       title: Text(appText, style: Theme.of(context).textTheme.headline2?.copyWith(fontSize: 19)),
       centerTitle: true,
