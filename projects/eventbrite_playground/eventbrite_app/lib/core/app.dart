@@ -12,7 +12,6 @@ class EventbriteApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeNotifier provider = Provider.of<ThemeNotifier>(context);
-    // context.watch<UserNotifier>().init();
     return MaterialApp(
       title: AppConstants.appTitle,
       onGenerateRoute: NavigationRoute.instance.generateRoute,

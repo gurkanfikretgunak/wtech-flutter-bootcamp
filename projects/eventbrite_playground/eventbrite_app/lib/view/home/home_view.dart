@@ -4,6 +4,7 @@ import 'package:eventbrite_app/view/welcome/welcome_view.dart';
 import 'package:eventbrite_app/widgets/custom_sliver_dropdown.dart';
 import 'package:eventbrite_app/widgets/event_card_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -46,11 +47,14 @@ class EventsView extends StatelessWidget {
           builder: (context, snapshot) {
             if (snapshot.hasData) {
               final List<Event>? users = snapshot.data;
+
               return ListView.builder(
                 itemCount: users!.length,
                 itemBuilder: (context, index) {
+                  DateTime date = DateTime.parse(users[index].startTime ?? '');
+                  String formattedDate = DateFormat('E, MMM d HH:mm').format(date);
                   return EventCard(
-                    eventDate: users[index].startTime,
+                    eventDate: formattedDate,
                     eventImage: users[index].image,
                     eventName: users[index].name,
                     eventOrganization: users[index].organization,
