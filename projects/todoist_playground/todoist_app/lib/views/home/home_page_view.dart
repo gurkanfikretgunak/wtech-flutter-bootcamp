@@ -75,7 +75,8 @@ class CustomOutlineButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0),
-      child: SizedBox(
+      child: Container(
+        color: Colors.white.withOpacity(0.6),
         height: 35,
         width: 250,
         child: OutlinedButton(
