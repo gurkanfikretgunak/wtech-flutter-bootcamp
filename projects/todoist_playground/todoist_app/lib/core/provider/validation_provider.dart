@@ -23,8 +23,7 @@ class FormProvider extends ChangeNotifier {
     if (val != null && val.isValidPassword) {
       _password = ValidationModel(val, null);
     } else {
-      _password =
-          ValidationModel(null, 'Password must contain an uppercase, lowercase, numeric digit and special character');
+      _password = ValidationModel(null, 'Please enter a valid password');
     }
     notifyListeners();
   }

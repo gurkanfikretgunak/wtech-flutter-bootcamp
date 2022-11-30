@@ -70,30 +70,32 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
                           builder: (context, data, child) {
                             return Consumer<FormProvider>(
                               builder: (context, value, child) {
-                                return CustomAuthButton(
-                                  buttonTexts: CustomTextConstants.buttonTextEmail,
-                                  onPressed: () async {
-                                    FocusManager.instance.primaryFocus?.unfocus();
+                                return Center(
+                                  child: CustomAuthButton(
+                                    buttonTexts: CustomTextConstants.buttonTextEmail,
+                                    onPressed: () async {
+                                      FocusManager.instance.primaryFocus?.unfocus();
 
-                                    if (value.emailValidate) {
-                                      if (emailController.text.isNotEmpty) {
-                                        bool isCheck = await data.fetchUser(emailController.text);
-                                        if (isCheck) {
-                                          // ignore: use_build_context_synchronously
-                                          CustomMethods.settingModalBottomSheet(
-                                              context, LoginPasswordView(emailController: emailController));
-                                        } else {
-                                          // ignore: use_build_context_synchronously
-                                          CustomMethods.componentSnackbar(context, "No Email Address!", "Sign Up >");
-                                          await _serviceProvider.loginAction();
+                                      if (value.emailValidate) {
+                                        if (emailController.text.isNotEmpty) {
+                                          bool isCheck = await data.fetchUser(emailController.text);
+                                          if (isCheck) {
+                                            // ignore: use_build_context_synchronously
+                                            CustomMethods.settingModalBottomSheet(
+                                                context, LoginPasswordView(emailController: emailController));
+                                          } else {
+                                            // ignore: use_build_context_synchronously
+                                            CustomMethods.componentSnackbar(context, "No Email Address!", "Sign Up >");
+                                            await _serviceProvider.loginAction();
 
-                                          // ignore: use_build_context_synchronously
-                                          CustomMethods.settingModalBottomSheet(
-                                              context, SignInView(emailController: emailController));
+                                            // ignore: use_build_context_synchronously
+                                            CustomMethods.settingModalBottomSheet(
+                                                context, SignInView(emailController: emailController));
+                                          }
                                         }
                                       }
-                                    }
-                                  },
+                                    },
+                                  ),
                                 );
                               },
                             );

@@ -77,27 +77,29 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                           ),
                           Consumer<ServiceProvider>(builder: (context, data, child) {
                             return Consumer<FormProvider>(builder: (context, value, child) {
-                              return CustomAuthButton(
-                                  buttonTexts: CustomTextConstants.buttonTextEmail,
-                                  onPressed: () async {
-                                    if (passwordController.text.isNotEmpty) {
-                                      if (value.passwordValidate) {
-                                        bool isCheck = await data.passwordCheck(
-                                            widget.emailController!.text, passwordController.text);
+                              return Center(
+                                child: CustomAuthButton(
+                                    buttonTexts: CustomTextConstants.buttonTextEmail,
+                                    onPressed: () async {
+                                      if (passwordController.text.isNotEmpty) {
+                                        if (value.passwordValidate) {
+                                          bool isCheck = await data.passwordCheck(
+                                              widget.emailController!.text, passwordController.text);
 
-                                        if (isCheck) {
-                                          // ignore: use_build_context_synchronously
-                                          Navigator.pushNamed(context, loadingRoute);
-                                          await _serviceProvider.loginAction();
-                                          // ignore: use_build_context_synchronously
-                                          Navigator.pushNamed(context, homeRoute);
-                                        } else {
-                                          // ignore: use_build_context_synchronously
-                                          CustomMethods.componentSnackbar(context, "Wrong password!", "Undo");
+                                          if (isCheck) {
+                                            // ignore: use_build_context_synchronously
+                                            Navigator.pushNamed(context, loadingRoute);
+                                            await _serviceProvider.loginAction();
+                                            // ignore: use_build_context_synchronously
+                                            Navigator.pushNamed(context, homeRoute);
+                                          } else {
+                                            // ignore: use_build_context_synchronously
+                                            CustomMethods.componentSnackbar(context, "Wrong password!", "Undo");
+                                          }
                                         }
                                       }
-                                    }
-                                  });
+                                    }),
+                              );
                             });
                           }),
                           Center(

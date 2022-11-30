@@ -70,11 +70,11 @@ class _SignInViewState extends State<SignInView> {
                             style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
                       ),
                       Padding(
-                          padding: const EdgeInsets.only(top: 50.0),
+                          padding: const EdgeInsets.only(top: 40.0),
                           child: SizedBox(
-                              height: 230,
+                              height: 300,
                               child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(CustomTextConstants.yourNameText,
@@ -99,39 +99,41 @@ class _SignInViewState extends State<SignInView> {
                                     Consumer<ServiceProvider>(builder: (context, data, child) {
                                       return Consumer<FormProvider>(builder: (context, value, child) {
                                         return Padding(
-                                            padding: const EdgeInsets.only(top: 10.0),
-                                            child: CustomAuthButton(
-                                                buttonTexts: CustomTextConstants.buttonTextEmail,
-                                                onPressed: () async {
-                                                  FocusManager.instance.primaryFocus?.unfocus();
-                                                  if (nameTextController.text.isNotEmpty &&
-                                                      passwordTextController.text.isNotEmpty) {
-                                                    if (value.signUpValidate) {
-                                                      bool isCheck = await data.postUser(
-                                                        widget.emailController!.text.toString().replaceAll(" ", ""),
-                                                        nameTextController.text.toString().replaceAll(" ", ""),
-                                                        passwordTextController.text.toString().replaceAll(" ", ""),
-                                                      );
-                                                      if (isCheck) {
-                                                        // ignore: use_build_context_synchronously
-                                                        Navigator.pushNamed(context, loadingRoute);
-                                                        await _serviceProvider.loginAction();
-                                                        // ignore: use_build_context_synchronously
-                                                        CustomMethods.settingModalBottomSheet(
-                                                            context, const ThemeSwitcher());
-                                                      } else {
-                                                        // ignore: use_build_context_synchronously
-                                                        CustomMethods.componentSnackbar(
-                                                            context, "Email already exists!", "Undo");
-                                                        await _serviceProvider.loginAction();
+                                            padding: const EdgeInsets.only(top: 20.0),
+                                            child: Center(
+                                              child: CustomAuthButton(
+                                                  buttonTexts: CustomTextConstants.buttonTextEmail,
+                                                  onPressed: () async {
+                                                    FocusManager.instance.primaryFocus?.unfocus();
+                                                    if (nameTextController.text.isNotEmpty &&
+                                                        passwordTextController.text.isNotEmpty) {
+                                                      if (value.signUpValidate) {
+                                                        bool isCheck = await data.postUser(
+                                                          widget.emailController!.text.toString().replaceAll(" ", ""),
+                                                          nameTextController.text.toString().replaceAll(" ", ""),
+                                                          passwordTextController.text.toString().replaceAll(" ", ""),
+                                                        );
+                                                        if (isCheck) {
+                                                          // ignore: use_build_context_synchronously
+                                                          Navigator.pushNamed(context, loadingRoute);
+                                                          await _serviceProvider.loginAction();
+                                                          // ignore: use_build_context_synchronously
+                                                          CustomMethods.settingModalBottomSheet(
+                                                              context, const ThemeSwitcher());
+                                                        } else {
+                                                          // ignore: use_build_context_synchronously
+                                                          CustomMethods.componentSnackbar(
+                                                              context, "Email already exists!", "Undo");
+                                                          await _serviceProvider.loginAction();
 
-                                                        // ignore: use_build_context_synchronously
-                                                        CustomMethods.settingModalBottomSheet(
-                                                            context, const LoginWithEmail());
+                                                          // ignore: use_build_context_synchronously
+                                                          CustomMethods.settingModalBottomSheet(
+                                                              context, const LoginWithEmail());
+                                                        }
                                                       }
                                                     }
-                                                  }
-                                                }));
+                                                  }),
+                                            ));
                                       });
                                     })
                                   ])))
