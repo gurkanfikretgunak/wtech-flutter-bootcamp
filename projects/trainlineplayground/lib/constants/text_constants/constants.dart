@@ -42,6 +42,23 @@ class CustomTextsConstants {
   static const cards ="Cards & vouchers";
   static const loyalty ="     Loyalty cards & vouchers";
   static const too ="       to";
-
+  static const account = "Account";
+  static const api ="buraya user email gelecek apiden!";
+  static const message = "Messages";
+  static const nomessage = "You have no new messages";
+  static const bookingPre = "Booking preferences";
+  static const paymentM = "Payment methods:";
+  static const railcards = "Railcards";
+  static const business = "Trainline Business";
+  static const businessbook = "Business bookings";
+  static const appSetting = "App Settings";
+  static const push = "Push notifications";
+  static const privacy = "Your privacy choices";
+  static const currency = "Currency";
+  static const signInApple = "Apple";
+  static const signGoogle = "Continue with Google";
+  static const signAccount = "Sign in to your Account";
+  static const manageRefund ="Manage, change and refund your bookings effortlesly";
+  
   
 }
