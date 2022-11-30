@@ -27,6 +27,7 @@ class CustomMethods {
   static void componentSnackbar(context, String textInfo, String labelText) {
     // ignore: unused_element
     final snackBar = SnackBar(
+      behavior: SnackBarBehavior.floating,
       content: Text(textInfo),
       action: SnackBarAction(
         label: labelText,

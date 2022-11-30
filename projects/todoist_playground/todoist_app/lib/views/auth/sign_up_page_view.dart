@@ -33,94 +33,112 @@ class _SignInViewState extends State<SignInView> {
     FormProvider formProvider = Provider.of<FormProvider>(context);
     ServiceProvider _serviceProvider = Provider.of<ServiceProvider>(context);
 
-    return Form(
-        key: formKey,
-        child: Padding(
-            padding: const EdgeInsetsDirectional.only(
-              start: 20,
-              end: 20,
-              bottom: 30,
-              top: 8,
-            ),
-            child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              SizedBox(
-                  height: 95,
-                  child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                    IconButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                        icon: const Icon(Icons.arrow_back_ios)),
-                    Text("Sign Up", style: Theme.of(context).textTheme.headline1)
-                  ])),
-              Text.rich(
-                TextSpan(
-                    text: 'Using ', // default text style
-                    children: <TextSpan>[
-                      TextSpan(text: widget.emailController!.text, style: const TextStyle(fontWeight: FontWeight.bold)),
-                      const TextSpan(text: ' to log in.'),
-                    ],
-                    style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
-              ),
-              Padding(
-                  padding: const EdgeInsets.only(top: 50.0),
-                  child: SizedBox(
-                      height: 230,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(CustomTextConstants.yourNameText,
-                                style: Theme.of(context).textTheme.subtitle1?.copyWith()),
-                            CustomInputDecoration(
-                                labelText: "Name",
-                                controller: nameTextController,
-                                deneme: true,
-                                inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z]+|\s"))],
-                                onChanged: formProvider.validateName,
-                                errorText: formProvider.name.error),
-                            Text(CustomTextConstants.yourPasswordText,
-                                style: Theme.of(context).textTheme.subtitle1?.copyWith()),
-                            CustomInputDecoration(
-                                controller: passwordTextController,
-                                labelText: CustomTextConstants.passwordLabelText,
-                                inputIcon: Icons.visibility_rounded,
-                                unInputIcon: Icons.visibility_off_rounded,
-                                deneme: true,
-                                onChanged: formProvider.validatePassword,
-                                errorText: formProvider.password.error),
-                            Consumer<ServiceProvider>(builder: (context, data, child) {
-                              return Consumer<FormProvider>(builder: (context, value, child) {
-                                return Padding(
-                                    padding: const EdgeInsets.only(top: 10.0),
-                                    child: CustomAuthButton(
-                                        buttonTexts: CustomTextConstants.buttonTextEmail,
-                                        onPressed: () async {
-                                          if (value.signUpValidate) {
-                                            bool isCheck = await data.postUser(
-                                              widget.emailController!.text.toString().replaceAll(" ", ""),
-                                              nameTextController.text.toString().replaceAll(" ", ""),
-                                              passwordTextController.text.toString().replaceAll(" ", ""),
-                                            );
-                                            if (isCheck) {
-                                              // ignore: use_build_context_synchronously
-                                              Navigator.pushNamed(context, loadingRoute);
-                                              await _serviceProvider.loginAction();
-                                              // ignore: use_build_context_synchronously
-                                              CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());
-                                            } else {
-                                              // ignore: use_build_context_synchronously
-                                              CustomMethods.componentSnackbar(context, "Email already exists!", "Undo");
-                                              await _serviceProvider.loginAction();
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        body: Wrap(
+          children: [
+            Form(
+                key: formKey,
+                child: Padding(
+                    padding: const EdgeInsetsDirectional.only(
+                      start: 20,
+                      end: 20,
+                      bottom: 30,
+                      top: 8,
+                    ),
+                    child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                      SizedBox(
+                          height: 95,
+                          child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                            IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                icon: const Icon(Icons.arrow_back_ios)),
+                            Text("Sign Up", style: Theme.of(context).textTheme.headline1)
+                          ])),
+                      Text.rich(
+                        TextSpan(
+                            text: 'Using ', // default text style
+                            children: <TextSpan>[
+                              TextSpan(
+                                  text: widget.emailController!.text,
+                                  style: const TextStyle(fontWeight: FontWeight.bold)),
+                              const TextSpan(text: ' to log in.'),
+                            ],
+                            style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: 18)),
+                      ),
+                      Padding(
+                          padding: const EdgeInsets.only(top: 50.0),
+                          child: SizedBox(
+                              height: 230,
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(CustomTextConstants.yourNameText,
+                                        style: Theme.of(context).textTheme.subtitle1?.copyWith()),
+                                    CustomInputDecoration(
+                                        labelText: "Name",
+                                        controller: nameTextController,
+                                        deneme: true,
+                                        inputFormatters: [FilteringTextInputFormatter.allow(RegExp(r"[a-zA-Z]+|\s"))],
+                                        onChanged: formProvider.validateName,
+                                        errorText: formProvider.name.error),
+                                    Text(CustomTextConstants.yourPasswordText,
+                                        style: Theme.of(context).textTheme.subtitle1?.copyWith()),
+                                    CustomInputDecoration(
+                                        controller: passwordTextController,
+                                        labelText: CustomTextConstants.passwordLabelText,
+                                        inputIcon: Icons.visibility_rounded,
+                                        unInputIcon: Icons.visibility_off_rounded,
+                                        deneme: true,
+                                        onChanged: formProvider.validatePassword,
+                                        errorText: formProvider.password.error),
+                                    Consumer<ServiceProvider>(builder: (context, data, child) {
+                                      return Consumer<FormProvider>(builder: (context, value, child) {
+                                        return Padding(
+                                            padding: const EdgeInsets.only(top: 10.0),
+                                            child: CustomAuthButton(
+                                                buttonTexts: CustomTextConstants.buttonTextEmail,
+                                                onPressed: () async {
+                                                  FocusManager.instance.primaryFocus?.unfocus();
+                                                  if (nameTextController.text.isNotEmpty &&
+                                                      passwordTextController.text.isNotEmpty) {
+                                                    if (value.signUpValidate) {
+                                                      bool isCheck = await data.postUser(
+                                                        widget.emailController!.text.toString().replaceAll(" ", ""),
+                                                        nameTextController.text.toString().replaceAll(" ", ""),
+                                                        passwordTextController.text.toString().replaceAll(" ", ""),
+                                                      );
+                                                      if (isCheck) {
+                                                        // ignore: use_build_context_synchronously
+                                                        Navigator.pushNamed(context, loadingRoute);
+                                                        await _serviceProvider.loginAction();
+                                                        // ignore: use_build_context_synchronously
+                                                        CustomMethods.settingModalBottomSheet(
+                                                            context, const ThemeSwitcher());
+                                                      } else {
+                                                        // ignore: use_build_context_synchronously
+                                                        CustomMethods.componentSnackbar(
+                                                            context, "Email already exists!", "Undo");
+                                                        await _serviceProvider.loginAction();
 
-                                              // ignore: use_build_context_synchronously
-                                              CustomMethods.settingModalBottomSheet(context, const LoginWithEmail());
-                                            }
-                                          }
-                                        }));
-                              });
-                            })
-                          ])))
-            ])));
+                                                        // ignore: use_build_context_synchronously
+                                                        CustomMethods.settingModalBottomSheet(
+                                                            context, const LoginWithEmail());
+                                                      }
+                                                    }
+                                                  }
+                                                }));
+                                      });
+                                    })
+                                  ])))
+                    ]))),
+          ],
+        ),
+      ),
+    );
   }
 }

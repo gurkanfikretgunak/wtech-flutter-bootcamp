@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 
 import '../../core/provider/service_provider.dart';
 
@@ -45,7 +44,7 @@ class NoSheetButton extends StatelessWidget {
             text,
             style: text == "Log Out"
                 ? Theme.of(context).textTheme.caption?.copyWith(color: Colors.red)
-                : Theme.of(context).textTheme.caption,
+                : Theme.of(context).textTheme.caption?.copyWith(color: Colors.white),
           ),
         ),
       ),
