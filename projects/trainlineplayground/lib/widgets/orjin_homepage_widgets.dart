@@ -46,7 +46,7 @@ class FromStationWidget extends StatelessWidget {
                     width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
-                          labelText: CustomTextsConstants.From, hintText: 'departure station'),
+                          labelText: CustomTextsConstants.From, hintText: CustomTextsConstants.DepartureStation),
                     ),
                   ),
                   Container(
@@ -118,7 +118,7 @@ class ToStationWidget extends StatelessWidget {
                     width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
-                          labelText: "from", hintText: 'departure station'),
+                          labelText: CustomTextsConstants.From, hintText: CustomTextsConstants.DepartureStation),
                     ),
                   ),
                   Container(
@@ -127,7 +127,7 @@ class ToStationWidget extends StatelessWidget {
                     width: HomePageSize.textFieldSize,
                     child: const TextField(
                       decoration: InputDecoration(
-                          labelText: "to", hintText: 'destination station'),
+                          labelText: "to", hintText: CustomTextsConstants.destination),
                     ),
                   ),
                   const TopPadding(),

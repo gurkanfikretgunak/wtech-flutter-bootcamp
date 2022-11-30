@@ -14,7 +14,7 @@ class PushRow extends StatelessWidget {
       RowPadding(),
        Icon(Icons.notifications),
        RowPadding(),
-       Text("Push notifications"),
+       Text(CustomTextsConstants.push),
      
      ]);
   }
@@ -37,7 +37,7 @@ class PrivacyChoiceRow extends StatelessWidget {
       RowPadding(),
        Icon(Icons.lock),
        RowPadding(),
-       Text("Your privacy choices"),
+       Text(CustomTextsConstants.privacy),
      
      ]);
   }
@@ -68,7 +68,7 @@ class MoneyRow extends StatelessWidget {
       Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children:const [
-           Text("Currency"),
+           Text(CustomTextsConstants.currency),
            Text("Ş / USD")
         ],
       ),
@@ -89,7 +89,7 @@ class AppSettingsRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
         RowPadding(),
-         Text("App Settings",style: TextStyle(fontSize: 22),),
+         Text(CustomTextsConstants.appSetting,style: TextStyle(fontSize: 22),),
       ],
     );
   }
@@ -105,7 +105,7 @@ class BusinesBookRow extends StatelessWidget {
     return Row(children:const [
       RowPadding(),
       Icon(Icons.business_center),
-      RowPadding(),      Text("Business bookings"),
+      RowPadding(),      Text(CustomTextsConstants.businessbook),
       
     ]);
   }
@@ -122,7 +122,7 @@ class BusinessRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
         RowPadding(),
-         Text("Trainline Business",style: TextStyle(fontSize: 22),),
+         Text(CustomTextsConstants.business,style: TextStyle(fontSize: 22),),
       ],
     );
   }
@@ -139,7 +139,7 @@ class RailCardsRow extends StatelessWidget {
       RowPadding(),
       Icon(Icons.chrome_reader_mode_outlined),
       RowPadding(),
-      Text("Railcards"),
+      Text(CustomTextsConstants.railcards),
       
     ]);
   }
@@ -156,7 +156,7 @@ class PaymentRow extends StatelessWidget {
       RowPadding(),
       Icon(Icons.credit_card),
       RowPadding(),
-      Text("Payment Methods"),
+      Text(CustomTextsConstants.paymentM),
       
     ]);
   }
@@ -173,7 +173,7 @@ class BookingRow extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: const[
         RowPadding(),
-         Text("Booking preferences",style: TextStyle(fontSize: 22),),
+         Text(CustomTextsConstants.bookingPre,style: TextStyle(fontSize: 22),),
       ],
     );
   }
@@ -195,9 +195,9 @@ class MessagesRow extends StatelessWidget {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:const [
-            Text("Messages",style:TextStyle(fontSize: 17),),
+            Text(CustomTextsConstants.message,style:TextStyle(fontSize: 17),),
             DefaultRowPadding(),
-            Text("You have no new messages")
+            Text(CustomTextsConstants.nomessage)
           ],
         )
       ],
@@ -228,7 +228,7 @@ class accountContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: const[
               RowPadding(),
-              Text("Account",style:TextStyle(fontSize: 20,color: Colors.white)),
+              Text(CustomTextsConstants.account,style:TextStyle(fontSize: 20,color: Colors.white)),
             ],
           ),
           ButtonPadding(),
@@ -236,7 +236,7 @@ class accountContainer extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: const[
               RowPadding(),
-              Text("buraya user email gelecek apiden!",style: TextStyle(color: Colors.white),),
+              Text(CustomTextsConstants.api,style: TextStyle(color: Colors.white),),
             ],
           )
         ],
