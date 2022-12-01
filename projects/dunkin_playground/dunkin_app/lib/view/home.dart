@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
 //imagelar düzeltilecek
 class _HomeScreenState extends State<HomeScreen> {
   @override
@@ -122,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           )),
                     ),
-                    //resposive olacak 
+                    //resposive olacak
                   ],
                 ),
                 SizedBox(height: 12),
@@ -164,21 +165,21 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     MenuStyle(
                       food: "Iced Drinks",
-                      photos: "assets/images/IceDrinks.jpg",
+                      photos: "assets/images/IceDrinks.png",
                     ),
                     MenuStyle(
                       food: "Hot Drinks",
-                      photos: "assets/images/hotDrinks.jpg",
+                      photos: "assets/images/hotDrinks.png",
                     ),
                     MenuStyle(
                       food: "Donut & Backery",
-                      photos: "assets/images/donut.jpg",
+                      photos: "assets/images/Donut.png",
                     )
                   ],
                 ),
-                SizedBox(height: 25),
+                SizedBox(height: 10),
                 AppbarTextStyle(dunkin: "FEATURED", size: 14),
-                SizedBox(height: 15),
+                SizedBox(height: 10),
                 Container(
                   height: 200,
                   width: double.infinity,
