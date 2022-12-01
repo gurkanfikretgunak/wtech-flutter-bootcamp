@@ -93,24 +93,15 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                                 padding: widgetPage.btnIcon != null
                                     ? const EdgeInsets.only(left: 5.0)
                                     : EdgeInsets.zero,
-                                child: Icon(widgetPage.btnIcon),
+                                child: widgetPage.btnIcon != null
+                                    ? Icon(widgetPage.btnIcon)
+                                    : null,
                               )
                             ]),
                       ),
                       onPressed: () async {
-                        if (state.currentWidget !=
-                            state.widgetOptions.length - 2) {
-                          state.nextPage();
-                        } else {
-                          await signupState.signUp();
-                          //TODO:CircularProgressIndicator will use
-
-                          // ignore: use_build_context_synchronously
-                          Navigator.pushNamed(
-                            context,
-                            '/Home',
-                          );
-                        }
+                        state.nextPage(context,
+                            widgetPage.columnWidget.runtimeType.toString());
                       },
                     ),
                   ),

@@ -1,8 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/provider/sign_up_state.dart';
 import 'package:neo_financial_app/widgets/onboarding/phone_number_column_widget.dart';
 import 'package:neo_financial_app/widgets/onboarding/promo_code_column_widget.dart';
 import 'package:neo_financial_app/widgets/onboarding/welcome_column_widget.dart';
+import 'package:provider/provider.dart';
 
 import '../../widgets/onboarding/privacy_richtext_widget.dart';
 import '../data/models/onboarding/onboard.dart';
@@ -56,8 +58,30 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
     notifyListeners();
   }
 
-  nextPage() {
-    _currentWidgetIndex += 1;
+  nextPage(BuildContext context, String pageType) {
+    SignUpState signUpState = Provider.of<SignUpState>(context, listen: false);
+
+    if (pageType == 'WelcomeColumnWidget') {
+      !signUpState.emailStatus &&
+              (['Middle', 'Strong'].contains(signUpState.passwordStatus))
+          ? _currentWidgetIndex += 1
+          : null;
+    } else if (pageType == 'PromocodeColumnWidget') {
+      signUpState.promoCode.length >= 5 ? _currentWidgetIndex = 0 : null;
+    } else if (pageType == 'PhoneNumberColumnWidget') {
+      signUpState.phone.length >= 14
+          ? {
+              signUpState.signUp(),
+              Navigator.pushNamed(
+                context,
+                '/Home',
+              ),
+            }
+          : null;
+    } else {
+      _currentWidgetIndex += 1;
+    }
+
     notifyListeners();
   }
 
@@ -67,7 +91,8 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
   }
 
   changePageContoller(index) {
-    _pageController.jumpToPage(2);
+    _pageController.animateToPage(index,
+        curve: Curves.ease, duration: const Duration(seconds: 1));
     notifyListeners();
   }
 }

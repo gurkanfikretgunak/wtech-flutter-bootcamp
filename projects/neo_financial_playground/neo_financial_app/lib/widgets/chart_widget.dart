@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/widgets/price_tag_paint_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+
 import '../core/data/models/chart_data.dart';
 
 class ChartWidget extends StatefulWidget {

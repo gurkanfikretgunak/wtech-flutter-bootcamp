@@ -4,7 +4,7 @@ import 'package:neo_financial_app/views/splash_view.dart';
 
 import '../views/error_view.dart';
 import '../views/home_template_view.dart';
-import '../views/onboarding/onboard_template_view.dart';
+import '../views/onboarding/onboard_page_view.dart';
 import '../views/onboarding/onboarding_home_view.dart';
 import '../views/onboarding/register_template_view.dart';
 
@@ -32,6 +32,7 @@ class Navigation {
         );
       case '/OnboardingBuilder':
         return MaterialPageRoute(
+          fullscreenDialog: true,
           builder: (context) => const OnboardPageView(),
         );
       default:

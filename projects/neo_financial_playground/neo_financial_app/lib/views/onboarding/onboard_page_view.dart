@@ -14,15 +14,16 @@ class OnboardPageView extends StatelessWidget {
         context.watch<OnboardingLoadWidgetState>().currentImageIndex == 0
             ? TextConstant.creditPageList
             : TextConstant.moneyPageList;
-    return Scaffold(
-        body: AnnotatedRegion<SystemUiOverlayStyle>(
-      value: SystemUiOverlayStyle.dark,
-      child: PageView.builder(
-          controller: context.watch<OnboardingLoadWidgetState>().pageController,
-          itemCount: pageList.length,
-          itemBuilder: (context, index) {
-            return pageList[index];
-          }),
-    ));
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark,
+        child: Scaffold(
+          body: PageView.builder(
+              controller:
+                  context.watch<OnboardingLoadWidgetState>().pageController,
+              itemCount: pageList.length,
+              itemBuilder: (context, index) {
+                return pageList[index];
+              }),
+        ));
   }
 }
