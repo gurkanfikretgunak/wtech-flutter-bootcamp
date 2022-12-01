@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
+import 'package:todoist_app/views/home/todo_list_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import '../../constants/image/image_path_constants.dart';
 import '../../constants/text/home_page_contants.dart';
@@ -18,6 +19,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final size = MediaQuery.of(context).size;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(CustomHomeText.todayText),
         automaticallyImplyLeading: false,
@@ -30,31 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
               icon: const Icon(Icons.settings)),
         ],
       ),
-      body: Column(
-        children: <Widget>[
-          SizedBox(
-              height: size.height / 2,
-              width: size.width,
-              child: Image.asset(CustomImagePathConstants.homePagePath, fit: BoxFit.fill)),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              CustomHomeText.getClearText,
-              style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 20),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 30.0, right: 30.0),
-            child: Text(
-              CustomHomeText.hereTapText,
-              style: Theme.of(context).textTheme.subtitle1,
-              textAlign: TextAlign.center,
-            ),
-          ),
-          const CustomOutlineButton(imagePath: CustomImagePathConstants.lampPath),
-        ],
-      ),
+      body: const TodoListView(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           CustomMethods.settingModalBottomSheet(context, const ThemeSwitcher());

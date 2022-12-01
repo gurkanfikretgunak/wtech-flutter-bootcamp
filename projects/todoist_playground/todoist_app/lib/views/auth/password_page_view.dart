@@ -87,12 +87,11 @@ class _LoginPasswordViewState extends State<LoginPasswordView> {
                                               widget.emailController!.text, passwordController.text);
 
                                           if (isCheck) {
-                                            data.fetchTodos();
                                             // ignore: use_build_context_synchronously
                                             Navigator.pushNamed(context, loadingRoute);
                                             await _serviceProvider.loginAction();
                                             // ignore: use_build_context_synchronously
-                                            Navigator.pushNamed(context, todoRoute);
+                                            Navigator.pushNamed(context, homeRoute);
                                           } else {
                                             // ignore: use_build_context_synchronously
                                             CustomMethods.componentSnackbar(context, "Wrong password!", "Undo");

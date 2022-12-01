@@ -1,5 +1,7 @@
 import 'package:json_annotation/json_annotation.dart';
 
+import '../todos_model.dart';
+
 part 'users_model.g.dart';
 
 @JsonSerializable()
@@ -9,8 +11,8 @@ class Users {
   String? password;
   String? image;
   String? id;
-  List<String>? todos;
   int? duration;
+  Todos? todos;
 
   Users({this.email, this.name, this.password, this.image, this.id, this.duration, this.todos});
 

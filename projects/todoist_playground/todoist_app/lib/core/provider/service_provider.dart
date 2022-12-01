@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:todoist_app/model/todos_model.dart';
 import '../../model/user/users_model.dart';
 import '../../service/data_service.dart';
 
@@ -13,9 +14,7 @@ class ServiceProvider with ChangeNotifier {
   String passwordUser = "";
   String imageUser = "";
   int durationUser = 0;
-  List<String>? todosUser = [];
-
-  late Users todoUs;
+  Todos? todosUser;
 
   Future<bool> passwordCheck(email, password) async {
     response = await client.getUsers();
@@ -57,14 +56,14 @@ class ServiceProvider with ChangeNotifier {
     return true;
   }
 
-  Future<bool> fetchTodos() async {
-    todoUs = await client.getId(idUser);
+  Future<Todos?> fetchTodos() async {
+    final todoUs = (await client.getId(idUser));
 
     if (todoUs.id.toString() == idUser) {
-      todosUser = todoUs.todos!;
+      todosUser = todoUs.todos;
     }
 
-    return false;
+    return todosUser;
   }
 
   Future<bool> updateUser(passwordUs) async {
