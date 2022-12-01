@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:robinhood_playground/provider/country_code_provider.dart';
 import 'package:robinhood_playground/views/onboarding_stock_views.dart';
 import '../provider/page_transition_provider.dart';
+import '../views/login/login.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
@@ -21,7 +22,7 @@ class App extends StatelessWidget {
         theme: CustomTheme.customThemeData(),
         title: appName,
         debugShowCheckedModeBanner: false,
-        home: const OnBoardingStock(),
+        home: const Login(),
         onGenerateRoute: NavigatorCustom().onGenerateRoute,
       ),
     );
