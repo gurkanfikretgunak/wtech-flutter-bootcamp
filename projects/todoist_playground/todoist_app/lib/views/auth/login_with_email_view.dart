@@ -78,7 +78,8 @@ class _LoginWithEmailState extends State<LoginWithEmail> {
 
                                       if (value.emailValidate) {
                                         if (emailController.text.isNotEmpty) {
-                                          bool isCheck = await data.fetchUser(emailController.text);
+                                          bool isCheck =
+                                              await data.fetchUser(emailController.text.toString().replaceAll(" ", ""));
                                           if (isCheck) {
                                             // ignore: use_build_context_synchronously
                                             CustomMethods.settingModalBottomSheet(

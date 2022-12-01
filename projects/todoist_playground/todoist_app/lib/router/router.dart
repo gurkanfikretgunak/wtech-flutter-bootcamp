@@ -6,6 +6,7 @@ import 'package:todoist_app/views/auth/password_page_view.dart';
 import 'package:todoist_app/views/auth/pick_theme_page_view.dart';
 import 'package:todoist_app/views/auth/sign_up_page_view.dart';
 import 'package:todoist_app/views/home/home_page_view.dart';
+import 'package:todoist_app/views/home/todo_list_view.dart';
 import 'package:todoist_app/views/settings/account_settings_view.dart';
 import 'package:todoist_app/views/settings/settings_app.dart';
 import 'package:todoist_app/views/splash/splash_screen_view.dart';
@@ -41,6 +42,8 @@ class CustomRouter {
         return MaterialPageRoute(builder: (_) => const MyHomePage());
       case emailLoginRoute:
         return MaterialPageRoute(builder: (_) => const LoginWithEmail());
+      case todoRoute:
+        return MaterialPageRoute(builder: (_) => const TodoListView());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

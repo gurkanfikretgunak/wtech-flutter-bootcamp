@@ -13,6 +13,10 @@ class ServiceProvider with ChangeNotifier {
   String passwordUser = "";
   String imageUser = "";
   int durationUser = 0;
+  List<String>? todosUser = [];
+
+  late Users todoUs;
+
   Future<bool> passwordCheck(email, password) async {
     response = await client.getUsers();
     notifyListeners();
@@ -51,6 +55,16 @@ class ServiceProvider with ChangeNotifier {
     userEmail = email;
     userName = name;
     return true;
+  }
+
+  Future<bool> fetchTodos() async {
+    todoUs = await client.getId(idUser);
+
+    if (todoUs.id.toString() == idUser) {
+      todosUser = todoUs.todos!;
+    }
+
+    return false;
   }
 
   Future<bool> updateUser(passwordUs) async {
