@@ -7,7 +7,7 @@ class Todos {
   String? title;
   String? body;
   String? date;
-  int? time;
+  String? time;
 
   Todos({this.date, this.time, this.title, this.body});
 

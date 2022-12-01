@@ -8,7 +8,7 @@ part of 'todos_model.dart';
 
 Todos _$TodosFromJson(Map<String, dynamic> json) => Todos(
       date: json['date'] as String?,
-      time: json['time'] as int?,
+      time: json['time'] as String?,
       title: json['title'] as String?,
       body: json['body'] as String?,
     );

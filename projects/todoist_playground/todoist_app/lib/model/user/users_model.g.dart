@@ -13,9 +13,9 @@ Users _$UsersFromJson(Map<String, dynamic> json) => Users(
       image: json['image'] as String?,
       id: json['id'] as String?,
       duration: json['duration'] as int?,
-      todos: json['todos'] == null
-          ? null
-          : Todos.fromJson(json['todos'] as Map<String, dynamic>),
+      todos: (json['todos'] as List<dynamic>?)
+          ?.map((e) => Todos.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$UsersToJson(Users instance) => <String, dynamic>{

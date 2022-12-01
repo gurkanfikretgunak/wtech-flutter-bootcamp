@@ -12,8 +12,7 @@ class Users {
   String? image;
   String? id;
   int? duration;
-  Todos? todos;
-
+  List<Todos>? todos;
   Users({this.email, this.name, this.password, this.image, this.id, this.duration, this.todos});
 
   factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
