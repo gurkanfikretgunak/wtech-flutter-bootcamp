@@ -11,13 +11,9 @@ part 'user_client.g.dart';
 abstract class UserClient {
 
   factory UserClient(Dio dio) = _UserClient;
-  @GET('/users/{userName}')
-  Future<Users> getUserName(@Path("userName") String userName);
-  @GET('/users/{userSurname}')
-  Future<Users> getUserSurname(@Path('userSurname') String userSurname);
-  @GET('/users/{userEmail}') 
-  Future<Users>getUserEmail(@Path('userEmail') String userEmail);
-
+  @GET('/users')
+  Future<List<Users>> getUser();
+  
   // @POST("/users")
   // Future<List<Users>> createUser(@Body() Users user);
   @POST('/users') 
@@ -26,7 +22,20 @@ abstract class UserClient {
   
 
 }
+@JsonSerializable()
+class Users {
 
+  String? id;
+  String? userName;
+  String? userSurname;
+  String? userEmail;
+  String? userPassword;
+
+  Users({this.id,this.userEmail, this.userName,this.userPassword,this.userSurname});
+
+  factory Users.fromJson(Map<String, dynamic> json) => _$UsersFromJson(json);
+  Map<String, dynamic> toJson() => _$UsersToJson(this);
+}
 
 
 

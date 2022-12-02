@@ -30,6 +30,7 @@ FutureBuilder<List<Tickets>> _buildBody(BuildContext context){
       
       if(snapshot.connectionState == ConnectionState.done){
         final List<Tickets>? tickets = snapshot.data;
+        print(snapshot.data);
         return _buildTickets(context,tickets!);
       }else {
         return const Center(

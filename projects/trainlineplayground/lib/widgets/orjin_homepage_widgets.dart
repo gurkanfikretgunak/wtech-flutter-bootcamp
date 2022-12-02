@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:trainlineplayground/core/data/api/user_client.dart';
+
+import 'package:trainlineplayground/main.dart';
 
 import '../constants/paddings/home_page_paddings.dart';
 import '../constants/size_constants/homepage_size.dart';
 import '../constants/text_constants/constants.dart';
+import '../views/orjin_home_page.dart';
 
 class FromStationWidget extends StatelessWidget {
   const FromStationWidget({
@@ -236,9 +240,38 @@ class AddPassangerWidget extends StatelessWidget {
           context: context,
           builder: (context) => Column(
                 children: [
+
                    const CardVouchersPadding(),
                   const Text(CustomTextsConstants.passangers),
                   const DefaultPadding(),
+
+                  FutureBuilder<List<Users>>(
+                    
+                    future: OriginalHomePageState.userclient.getUser(),
+                    builder: (context, snapshot) {
+                    if(snapshot.connectionState == ConnectionState.done){
+                      final List<Users>? mainuser = snapshot.data;
+
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: mainuser?.length,
+                        itemBuilder: (context, index) {
+                          return Container(
+                            
+                            child: Card(
+                              child: ListTile(title: Text(mainuser![index].userName.toString())),
+                            ),
+                          );
+                        } 
+                        
+                      );
+                    }
+                    else{
+                      return const CircularProgressIndicator();
+                    }
+                    
+                      }
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.blueGrey[100]
