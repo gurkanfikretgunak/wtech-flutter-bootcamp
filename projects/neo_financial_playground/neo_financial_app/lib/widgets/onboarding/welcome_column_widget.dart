@@ -9,6 +9,7 @@ import '../password_textformfield_widget.dart';
 class WelcomeColumnWidget extends StatelessWidget {
   WelcomeColumnWidget({super.key});
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final signUpStateWithListen =
@@ -26,7 +27,9 @@ class WelcomeColumnWidget extends StatelessWidget {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          child: EmailTextFormFieldWidget(),
+          child: EmailTextFormFieldWidget(
+            controller: _emailController,
+          ),
         ),
         PasswordTextFormFieldWidget(controller: _passwordController),
         Padding(

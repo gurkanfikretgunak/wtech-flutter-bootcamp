@@ -5,7 +5,7 @@ class Onboard {
   final IconData? leftIcon;
   final IconData? rightIcon;
   final Widget columnWidget;
-  final Widget bottomWidget;
+  final Widget? bottomWidget;
   final String btnName;
   final IconData? btnIcon;
 

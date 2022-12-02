@@ -10,6 +10,7 @@ class SignInView extends StatelessWidget {
   SignInView({super.key});
 
   final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +38,9 @@ class SignInView extends StatelessWidget {
                         style: Theme.of(context).textTheme.labelMedium),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 15.0),
-                      child: EmailTextFormFieldWidget(),
+                      child: EmailTextFormFieldWidget(
+                        controller: _emailController,
+                      ),
                     ),
                     PasswordTextFormFieldWidget(
                       controller: _passwordController,

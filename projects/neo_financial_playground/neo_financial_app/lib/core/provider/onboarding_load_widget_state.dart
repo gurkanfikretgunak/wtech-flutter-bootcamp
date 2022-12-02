@@ -24,7 +24,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
         rightIcon: null,
         columnWidget: PhoneNumberColumnWidget(),
         title: 'Profile Creation',
-        bottomWidget: const Text(''),
+        bottomWidget: null,
         btnName: 'Apply',
         btnIcon: Icons.arrow_forward),
     Onboard(
@@ -32,7 +32,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
         rightIcon: null,
         columnWidget: PromocodeColumnWidget(),
         title: 'Profile Creation',
-        bottomWidget: const Text(''),
+        bottomWidget: null,
         btnName: 'Apply',
         btnIcon: null),
   ];

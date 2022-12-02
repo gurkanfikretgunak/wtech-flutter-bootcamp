@@ -78,7 +78,7 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
               flex: 2,
               child: Column(
                 children: [
-                  widgetPage.bottomWidget,
+                  if (widgetPage.bottomWidget != null) widgetPage.bottomWidget!,
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15.0),
                     child: CustomElevatedButtonWidget(

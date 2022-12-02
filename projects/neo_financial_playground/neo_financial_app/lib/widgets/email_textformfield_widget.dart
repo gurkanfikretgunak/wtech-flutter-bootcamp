@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import '../core/provider/sign_up_state.dart';
 
 class EmailTextFormFieldWidget extends StatelessWidget {
-  EmailTextFormFieldWidget({super.key});
+  const EmailTextFormFieldWidget({super.key, required this.controller});
+  final TextEditingController controller;
 
-  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final signUpState = Provider.of<SignUpState>(context, listen: false);
@@ -19,7 +19,7 @@ class EmailTextFormFieldWidget extends StatelessWidget {
         signUpState.controlEmail();
       }),
       autovalidateMode: AutovalidateMode.onUserInteraction,
-      controller: _controller,
+      controller: controller,
       keyboardType: TextInputType.emailAddress,
       decoration: InputDecoration(
         labelText: 'Email',
@@ -31,7 +31,7 @@ class EmailTextFormFieldWidget extends StatelessWidget {
             : IconButton(
                 icon: const Icon(Icons.cancel),
                 onPressed: () {
-                  _controller.clear();
+                  controller.clear();
                   signUpState.setEmail('');
                 },
               ),
