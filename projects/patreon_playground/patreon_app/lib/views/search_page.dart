@@ -1,22 +1,11 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:patreon_app/core/data/services/service.dart';
 import 'package:patreon_app/widgets/customAppBar.dart';
+import 'package:patreon_app/widgets/customSearchListTile.dart';
 import 'package:patreon_app/widgets/templatewithoutButtonWidget.dart';
-
+import '../core/data/models/user/user.dart';
 import '../core/themes/custom_theme.dart';
-
-class User {
-  final String name;
-  final String info;
-  final IconData con;
-
-  const User({required this.name, required this.info, required this.con});
-}
-
-const allUsers = [
-  User(name: "Gökalp", info: "Developer", con: Icons.person),
-  User(name: "Melih", info: "Developer", con: Icons.person),
-  User(name: "Mete", info: "Developer", con: Icons.person),
-];
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -36,19 +25,24 @@ class _SearchPageState extends State<SearchPage> {
       appBar: CustomAppBar(
         title: "Search",
         w: 120,
-        color: Colors.white,
-        con: Icons.arrow_back,
-        iColor: Colors.grey,
-        press: () {
-          Navigator.pushNamed(context, "/navigate");
-        },
+        widget: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/navigate");
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.grey,
+              )),
+        ),
       ),
       body: SizedBox(
         child: Column(
           children: [
             Center(
               child: Container(
-                height: 40,
+                height: 50,
                 margin: const EdgeInsets.fromLTRB(10, 10, 10, 10),
                 child: TextField(
                   controller: controller,
@@ -93,10 +87,13 @@ class _SearchPageState extends State<SearchPage> {
                         itemBuilder: (context, index) {
                           final user = users[index];
 
-                          return ListTile(
-                            leading: const Icon(Icons.person),
-                            title: Text(user.name),
-                            subtitle: Text(user.info),
+                          return CustomSearchListTile(
+                            image: user.image,
+                            userName: user.name,
+                            userInfo: user.info,
+                            onTap: () {
+                              Navigator.pushNamed(context, "/userPage");
+                            },
                           );
                         },
                       )
@@ -112,12 +109,15 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   searchUser(String query) {
-    final suggestions = allUsers.where((user) {
-      final name = user.name.toLowerCase();
-      final input = query.toLowerCase();
-      return name.contains(input);
-    }).toList();
-
-    setState(() => users = suggestions);
+    Dio dio = Dio();
+    NetworkService(dio).getUsers().then((value) {
+      List<User> data = value;
+      final suggestions = data.where((user) {
+        final name = user.name?.toLowerCase();
+        final input = query.toLowerCase().trim();
+        return name!.contains(input);
+      }).toList();
+      setState(() => users = suggestions);
+    });
   }
 }

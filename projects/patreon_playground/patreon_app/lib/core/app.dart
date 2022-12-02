@@ -13,6 +13,7 @@ import 'package:patreon_app/views/myMemberships.dart';
 import 'package:patreon_app/views/navigation_page.dart';
 import 'package:patreon_app/views/register_page.dart';
 import 'package:patreon_app/views/search_page.dart';
+import 'package:patreon_app/views/user_page.dart';
 import 'package:provider/provider.dart';
 
 import '../views/settings.dart';
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
           '/navigate': (context) => HomeScreen(),
           '/membership': (context) => const MyMemberships(),
           '/settings': (context) => const Settings(),
+          '/userPage': (context) => const UserPage()
         },
         theme: CustomTheme.customThemeData(),
         //onGenerateRoute: Navigation.navigationGenarator,

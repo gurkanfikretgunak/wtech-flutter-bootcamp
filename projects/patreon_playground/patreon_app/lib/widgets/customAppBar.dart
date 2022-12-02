@@ -6,17 +6,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
     super.key,
     required this.title,
     required this.w,
-    required this.color,
-    required this.con,
-    required this.iColor,
-    required this.press,
+    required this.widget,
   });
   final String title;
   final double w;
-  final Color color;
-  final IconData con;
-  final Color iColor;
-  final Function()? press;
+  final Widget widget;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -27,22 +21,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
         child: SafeArea(
           child: Center(
             child: Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(4.0),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        color: color, borderRadius: BorderRadius.circular(50)),
-                    child: IconButton(
-                        onPressed: press,
-                        icon: Icon(
-                          con,
-                          color: iColor,
-                        )),
-                  ),
-                ),
+                Padding(padding: const EdgeInsets.all(4.0), child: widget),
                 SizedBox(
                   width: w,
                 ),

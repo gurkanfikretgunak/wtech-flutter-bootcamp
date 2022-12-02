@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:patreon_app/widgets/customAppBar.dart';
-import 'package:patreon_app/widgets/customBottomAppbar.dart';
 import 'package:patreon_app/widgets/notFollowingWidget.dart';
 
 import '../widgets/customShowBottom.dart';
@@ -19,17 +18,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: CustomAppBar(
         title: "Feed",
-        w: 150,
-        color: Colors.blue,
-        con: Icons.person,
-        iColor: Colors.white,
-        press: () {
-          customShowBottom(context);
-        },
+        w: MediaQuery.of(context).size.width/3,
+        widget: InkWell(
+            onTap: () {
+              customShowBottom(context);
+            },
+            child: CircleAvatar(child: Image.network(""))),
       ),
       //body: const LoadingWidget(),
       body: const NotFollowingWidget(),
-      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

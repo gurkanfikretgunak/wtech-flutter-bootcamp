@@ -1,24 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
 import 'package:patreon_app/widgets/customAppBar.dart';
-import 'package:patreon_app/widgets/customBottomAppbar.dart';
-import 'package:patreon_app/widgets/templatewithoutButtonWidget.dart';
-
+import '../core/data/models/user/user.dart';
+import '../core/data/services/service.dart';
+import '../widgets/customSearchListTile.dart';
 import '../widgets/customShowBottom.dart';
-
-class User {
-  final String name;
-  final String info;
-  final IconData con;
-
-  const User({required this.name, required this.info, required this.con});
-}
-
-const allUsers = [
-  User(name: "Gökalp", info: "Developer", con: Icons.person),
-  User(name: "Melih", info: "Developer", con: Icons.person),
-  User(name: "Mete", info: "Developer", con: Icons.person),
-];
+import '../widgets/templatewithoutButtonWidget.dart';
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -37,16 +25,14 @@ class _ExplorePageState extends State<ExplorePage> {
       resizeToAvoidBottomInset: false,
       appBar: CustomAppBar(
         title: "Find creators",
-        w: 110,
-        color: Colors.blue,
-        con: Icons.person,
-        iColor: Colors.white,
-        press: () {
-          customShowBottom(context);
-        },
+        w: MediaQuery.of(context).size.width / 4,
+        widget: InkWell(
+            onTap: () {
+              customShowBottom(context);
+            },
+            child: CircleAvatar(child: Image.network(""))),
       ),
       body: SizedBox(
-        
         child: Column(
           children: [
             const SizedBox(
@@ -102,34 +88,35 @@ class _ExplorePageState extends State<ExplorePage> {
                         itemCount: users.length,
                         itemBuilder: (context, index) {
                           final user = users[index];
+                          print(users);
 
-                          return ListTile(
-                            leading: const Icon(Icons.person),
-                            title: Text(user.name),
-                            subtitle: Text(user.info),
-                          );
+                          return CustomSearchListTile(
+                              image: user.image,
+                              userName: user.name,
+                              userInfo: user.info);
                         },
                       )
                     : controller.text.isNotEmpty
                         ? Text("No result for ${controller.text}")
                         : const TemplateWithoutButtonWidget(
                             imagePath: "assets/not_following.png",
-                            underImageText: "You're not following anyone yet",
-                          )),
+                            underImageText: "You're not following anyone yet")),
           ],
         ),
       ),
-      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 
   searchUser(String query) {
-    final suggestions = allUsers.where((user) {
-      final name = user.name.toLowerCase();
-      final input = query.toLowerCase();
-      return name.contains(input);
-    }).toList();
-
-    setState(() => users = suggestions);
+    Dio dio = Dio();
+    NetworkService(dio).getUsers().then((value) {
+      List<User> data = value;
+      final suggestions = data.where((user) {
+        final name = user.name?.toLowerCase();
+        final input = query.toLowerCase();
+        return name!.contains(input);
+      }).toList();
+      setState(() => users = suggestions);
+    });
   }
 }

@@ -31,9 +31,7 @@ class HomeScreen extends StatelessWidget {
               icon: Icon((currentScreenIndex == 0)
                   ? Icons.table_chart
                   : Icons.table_chart_outlined),
-              backgroundColor: Colors
-                  .indigo // provide color to any one icon as it will overwrite the whole bottombar's color ( if provided any )
-              ),
+              backgroundColor: Colors.indigo),
           BottomNavigationBarItem(
             label: '',
             icon: Icon((currentScreenIndex == 1)

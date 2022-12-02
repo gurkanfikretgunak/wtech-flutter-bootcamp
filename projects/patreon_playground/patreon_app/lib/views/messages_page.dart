@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../widgets/customAppBar.dart';
-import '../widgets/customBottomAppbar.dart';
 import '../widgets/customShowBottom.dart';
 import '../widgets/templatewithButtonWidget.dart';
 
@@ -17,13 +16,12 @@ class _MessagesPageState extends State<MessagesPage> {
     return Scaffold(
       appBar: CustomAppBar(
         title: "Messages",
-        w: 120,
-        color: Colors.blue,
-        con: Icons.person,
-        iColor: Colors.white,
-        press: () {
-          customShowBottom(context);
-        },
+        w: MediaQuery.of(context).size.width / 3.5,
+        widget: InkWell(
+            onTap: () {
+              customShowBottom(context);
+            },
+            child: CircleAvatar(child: Image.network(""))),
       ),
       //body: const LoadingWidget(),
       body: Column(
@@ -35,7 +33,6 @@ class _MessagesPageState extends State<MessagesPage> {
               buttonText: "Find creators"),
         ],
       ),
-      //bottomNavigationBar: const CustomBottomAppBar(),
     );
   }
 }

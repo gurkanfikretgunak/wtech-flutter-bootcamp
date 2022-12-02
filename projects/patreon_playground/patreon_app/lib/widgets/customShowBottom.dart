@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:patreon_app/core/data/models/user/user.dart';
 import 'package:patreon_app/core/data/services/service.dart';
-import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,16 +15,6 @@ Future<dynamic> customShowBottom(BuildContext context) {
     }
   }
 
-  fetchUser() async {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    int? id = sharedPreferences.getInt("id");
-    final response = await NetworkService(dio).fetchUser(id.toString());
-    return response;
-  }
-
-  //var user = users.doc(context.read<User>().userId);
-
-  // var _authService = Provider.of<IAuthService>(context, listen: false);
   return showModalBottomSheet(
     shape: const RoundedRectangleBorder(
       borderRadius: BorderRadius.only(
@@ -43,25 +32,7 @@ Future<dynamic> customShowBottom(BuildContext context) {
               padding: EdgeInsets.all(8.0),
               child: CircleAvatar(radius: 30),
             ),
-            FutureBuilder<User>(
-                future: fetchUser(),
-                builder: (BuildContext context, AsyncSnapshot asyncSnapshot) {
-                  if (asyncSnapshot.hasError) {
-                    return const Text(
-                      "Something went wrong",
-                    );
-                  }
-
-                  if (asyncSnapshot.connectionState == ConnectionState.active) {
-                    return Text(
-                      "${asyncSnapshot.data.data()["name"]}",
-                    );
-                  }
-
-                  return const Text(
-                    "Loading",
-                  );
-                }),
+            const Text("User Name"),
             const Text("Patron"),
             Wrap(
               children: [

@@ -1,15 +1,9 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
-import 'package:patreon_app/core/data/models/user/user.dart';
 import 'package:patreon_app/core/data/services/service.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../data/models/valid/valid.dart';
 
 class LoginProvider with ChangeNotifier, DiagnosticableTreeMixin {
-  final _dio = Dio();
   Validation _email = Validation(null, null);
   Validation _password = Validation(null, null);
   Validation get email => _email;

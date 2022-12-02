@@ -25,12 +25,17 @@ class _SettingsState extends State<Settings> {
       appBar: CustomAppBar(
         title: "Settings",
         w: 110,
-        color: Colors.white,
-        con: Icons.arrow_back,
-        iColor: Colors.grey,
-        press: () {
-          Navigator.pushNamed(context, "/navigate");
-        },
+        widget: CircleAvatar(
+          backgroundColor: Colors.white,
+          child: IconButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "/navigate");
+              },
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.grey,
+              )),
+        ),
       ),
       body: Column(children: [
         SettingsRows(
