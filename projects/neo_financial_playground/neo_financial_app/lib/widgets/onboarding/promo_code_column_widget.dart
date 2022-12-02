@@ -4,33 +4,9 @@ import 'package:provider/provider.dart';
 import '../../core/provider/sign_up_state.dart';
 
 //TODO: Promo side will add to MockApi and Onboard class will be update
-class PromocodeColumnWidget extends StatefulWidget {
-  const PromocodeColumnWidget({super.key});
-
-  @override
-  State<PromocodeColumnWidget> createState() => _PromocodeColumnWidgetState();
-}
-
-class _PromocodeColumnWidgetState extends State<PromocodeColumnWidget> {
-  late TextEditingController codeController;
-  bool isHidden = true;
-  @override
-  void initState() {
-    codeController = TextEditingController(
-        text: Provider.of<SignUpState>(context, listen: false).promoCode);
-
-    codeController.addListener(onListen);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    codeController.removeListener(onListen);
-    super.dispose();
-  }
-
-  void onListen() => setState(() {});
-
+class PromocodeColumnWidget extends StatelessWidget {
+  PromocodeColumnWidget({super.key});
+  final TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     final signUpState = Provider.of<SignUpState>(context, listen: false);
@@ -47,20 +23,20 @@ class _PromocodeColumnWidgetState extends State<PromocodeColumnWidget> {
             child: TextFormField(
               onChanged: ((value) => signUpState.setPromoCode(value)),
               autovalidateMode: AutovalidateMode.onUserInteraction,
+              controller: _controller,
               keyboardType: TextInputType.text,
-              controller: codeController,
               validator: (value) =>
                   value!.length < 5 ? 'Plese enter a valid code' : null,
               decoration: InputDecoration(
                 labelText: "Code",
                 fillColor: Colors.black12,
                 filled: true,
-                suffixIcon: codeController.text.isEmpty
+                suffixIcon: signUpState.promoCode.isEmpty
                     ? Container(width: 0)
                     : IconButton(
                         icon: const Icon(Icons.cancel),
                         onPressed: () {
-                          codeController.clear();
+                          _controller.clear();
                           signUpState.setPromoCode('');
                         },
                       ),

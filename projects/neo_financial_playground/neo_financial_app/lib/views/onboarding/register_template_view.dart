@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
+import 'package:neo_financial_app/widgets/onboarding/custom_elevated_button_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../core/data/models/onboarding/onboard.dart';
-import '../../core/provider/sign_up_state.dart';
 
 class RegisterTemplateView extends StatefulWidget {
   const RegisterTemplateView({
@@ -17,7 +17,6 @@ class RegisterTemplateView extends StatefulWidget {
 class _RegisterTemplateViewState extends State<RegisterTemplateView> {
   @override
   Widget build(BuildContext context) {
-    final signupState = Provider.of<SignUpState>(context, listen: false);
     OnboardingLoadWidgetState state =
         Provider.of<OnboardingLoadWidgetState>(context, listen: false);
     Onboard widgetPage =
@@ -82,24 +81,10 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                   widgetPage.bottomWidget,
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15.0),
-                    child: ElevatedButton(
-                      child: Padding(
-                        padding: const EdgeInsets.all(12.0),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(widgetPage.btnName),
-                              Padding(
-                                padding: widgetPage.btnIcon != null
-                                    ? const EdgeInsets.only(left: 5.0)
-                                    : EdgeInsets.zero,
-                                child: widgetPage.btnIcon != null
-                                    ? Icon(widgetPage.btnIcon)
-                                    : null,
-                              )
-                            ]),
-                      ),
-                      onPressed: () async {
+                    child: CustomElevatedButtonWidget(
+                      btnName: widgetPage.btnName,
+                      btnIcon: widgetPage.btnIcon,
+                      function: () async {
                         state.nextPage(context,
                             widgetPage.columnWidget.runtimeType.toString());
                       },

@@ -14,7 +14,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
     Onboard(
         leftIcon: Icons.arrow_back,
         rightIcon: null,
-        columnWidget: const WelcomeColumnWidget(),
+        columnWidget: WelcomeColumnWidget(),
         title: 'Profile Creation',
         bottomWidget: const PrivacyTextRichWidget(),
         btnName: 'Continue',
@@ -22,7 +22,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
     Onboard(
         leftIcon: Icons.arrow_back,
         rightIcon: null,
-        columnWidget: const PhoneNumberColumnWidget(),
+        columnWidget: PhoneNumberColumnWidget(),
         title: 'Profile Creation',
         bottomWidget: const Text(''),
         btnName: 'Apply',
@@ -30,7 +30,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
     Onboard(
         leftIcon: Icons.arrow_back,
         rightIcon: null,
-        columnWidget: const PromocodeColumnWidget(),
+        columnWidget: PromocodeColumnWidget(),
         title: 'Profile Creation',
         bottomWidget: const Text(''),
         btnName: 'Apply',
@@ -76,6 +76,7 @@ class OnboardingLoadWidgetState with ChangeNotifier, DiagnosticableTreeMixin {
                 context,
                 '/Home',
               ),
+              signUpState.clearAll(),
             }
           : null;
     } else {

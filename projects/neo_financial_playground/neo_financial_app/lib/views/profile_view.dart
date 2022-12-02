@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/data/local/shared_preferences.dart';
+import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
+import 'package:provider/provider.dart';
 
 import '../widgets/custom_appbar_widget.dart';
 
@@ -33,6 +35,8 @@ class ProfileView extends StatelessWidget {
               child: ElevatedButton(
             onPressed: () {
               UserSharedPreferences.setUserID('');
+              Provider.of<OnboardingLoadWidgetState>(context, listen: false)
+                  .changePageIndex(0);
               Navigator.pushNamed(
                 context,
                 '/Onboarding',

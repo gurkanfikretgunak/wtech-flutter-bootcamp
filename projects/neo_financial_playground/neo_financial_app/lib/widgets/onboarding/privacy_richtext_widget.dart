@@ -23,7 +23,7 @@ class PrivacyTextRichWidget extends StatelessWidget {
           ),
           TextSpan(text: ', and '),
           TextSpan(
-            text: 'Rewards Policy',
+            text: 'Privacy Policy',
             style: TextStyle(color: Colors.blue),
           ),
           TextSpan(text: '.'),

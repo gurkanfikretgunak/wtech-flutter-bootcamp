@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_elevated_button_widget.dart';
+
 class TabBarViewChildWidget extends StatelessWidget {
   final String headlineText, bodyText;
   final int pageIndex;
@@ -50,22 +52,10 @@ class TabBarViewChildWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                ElevatedButton(
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Text('Create a profile'),
-                          Padding(
-                            padding: EdgeInsets.only(left: 5.0),
-                            child: Icon(
-                              Icons.arrow_forward,
-                            ),
-                          )
-                        ]),
-                  ),
-                  onPressed: () {
+                CustomElevatedButtonWidget(
+                  btnName: 'Create a profile',
+                  btnIcon: Icons.arrow_forward,
+                  function: () {
                     Navigator.pushNamed(
                       context,
                       '/Register',
@@ -81,7 +71,12 @@ class TabBarViewChildWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(left: 5.0),
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              '/SignIn',
+                            );
+                          },
                           child: const Text(
                             'Sign in',
                             style: TextStyle(color: Colors.blue),

@@ -11,13 +11,16 @@ class SignUpState with ChangeNotifier {
       _promoCode = '',
       _passwordStatus = '';
   bool _emailStatus = false;
+  bool _isHidden = true;
   Color _firstBar = Colors.grey,
       _secondBar = Colors.grey,
       _thirdBar = Colors.grey;
+
   final String _passwordPattern =
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!.,/"}{:;@#\$&*~]).{10,}$';
   final String _emailPattern =
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
+
   String get email => _email;
   String get password => _password;
   String get phone => _phone;
@@ -27,6 +30,8 @@ class SignUpState with ChangeNotifier {
   Color get secondBar => _secondBar;
   Color get thirdBar => _thirdBar;
   bool get emailStatus => _emailStatus;
+  bool get isHidden => _isHidden;
+
   setEmail(String email) {
     _email = email;
     notifyListeners();
@@ -44,6 +49,11 @@ class SignUpState with ChangeNotifier {
 
   setPromoCode(String promoCode) {
     _promoCode = promoCode;
+    notifyListeners();
+  }
+
+  setIsHidden(bool isHidden) {
+    _isHidden = isHidden;
     notifyListeners();
   }
 
@@ -74,30 +84,36 @@ class SignUpState with ChangeNotifier {
     }
   }
 
-  signUp() async {
-    try {
-      if (_email.isNotEmpty && _password.isNotEmpty && _phone.isNotEmpty) {
-        await UserRetrofit().setUsers(User(
-            name: "user",
-            email: _email,
-            password: _password,
-            phone: _phone,
-            id: ''));
-        Future<List<User>> result = UserRetrofit().getUsers();
-        List<User> users = await result;
-        UserSharedPreferences.setUserID(users.last.id);
-      }
-    } catch (e) {
-      //TODO: Here will be update
-    }
+  clearAll() {
+    _email = '';
+    _password = '';
+    _phone = '';
+    _promoCode = '';
+    _passwordStatus = '';
+    _firstBar = Colors.grey;
+    _secondBar = Colors.grey;
+    _thirdBar = Colors.grey;
   }
 
-  emailControl() {
-    //TODO: Here will be update
+  signUp() {
+    UserRetrofit()
+        .register(
+            user: User(
+                name: "user",
+                email: _email,
+                password: _password,
+                phone: _phone,
+                id: ''))
+        .then((user) => UserSharedPreferences.setUserID(user!.id));
   }
 
-  passwordIndicator() {
-    //TODO: Here will be update
-    //red yellow green
+  signIn(BuildContext context) {
+    UserRetrofit().login(email: email, password: password).then((user) {
+      UserSharedPreferences.setUserID(user!.id);
+      Navigator.pushNamed(
+        context,
+        '/Home',
+      );
+    });
   }
 }
