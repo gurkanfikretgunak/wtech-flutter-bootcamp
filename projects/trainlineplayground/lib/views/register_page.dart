@@ -13,10 +13,7 @@ class RegisterPageState extends State<RegisterPage> {
   late bool isConfirmed = true;
   late bool isOk;
   static late SharedPreferences mainPref;
-  static Future<void> setSharedPrefs(List<String> userInfo) async{
-    mainPref= await SharedPreferences.getInstance();
-    mainPref.setStringList('userinfo',userInfo);
-  }
+ 
   @override
   void initState() {
     RegisterPageItems.emailController = TextEditingController();
@@ -26,8 +23,9 @@ class RegisterPageState extends State<RegisterPage> {
     RegisterPageItems.mycontrollers;
     isConfirmed = TextFormStateProvider().isConfirmed;
     RegisterPageItems.userInfo;
-    setSharedPrefs(RegisterPageItems.userInfo);
-    UserModelState().readSharedPrefs();
+    
+    UserModelState().locateUsername(RegisterPageItems.nameController.text, RegisterPageItems.surnameController.text,RegisterPageItems.emailController.text);
+    
     super.initState();
   }
   @override

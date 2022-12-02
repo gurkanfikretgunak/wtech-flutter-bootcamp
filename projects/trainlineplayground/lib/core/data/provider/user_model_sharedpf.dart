@@ -7,28 +7,30 @@ import 'package:trainlineplayground/views/register_page.dart';
 class UserModelState with ChangeNotifier{
   
   
-  late List<String> userInfoList;
-  late SharedPreferences userpreference;
+  late bool _isUserLogIn;
+  
+  
+  
+  bool get isUserLogIn => _isUserLogIn;
 
-  // void writeDataToSp(){
-  //   userInfoList = readSharedPrefs(userInfoList);
-  //   print(userInfoList);
-  //   notifyListeners();
-  // }
-
-  Future<void> create(SharedPreferences userpref) async{
-    userpref = await SharedPreferences.getInstance();
-  }
-
-  Future<void> setSharedPrefs(List<String> userinfo,SharedPreferences userpref) async{
-    userpref = await SharedPreferences.getInstance();
-    userpref.setStringList('userinfo',userinfo);
+  set isUserLogIn(bool isUserLogIn) {
+    _isUserLogIn = isUserLogIn;
   }
 
   
 
-  Future<Object> readSharedPrefs() async {
-    userpreference =await SharedPreferences.getInstance();
-    return userpreference.getStringList('userinfo') ?? 'none';
+  void loadUserInformation() async {
+    SharedPreferences userPreference =await SharedPreferences.getInstance();
+    late String? userName = userPreference.getString('username');
+    late String? userEmail = userPreference.getString('usersurname');
+    late String? userSurname = userPreference.getString('useremail');
   }
+ 
+  Future<void> locateUsername(String username,String userSurname,String email) async {
+    SharedPreferences userPreference =await SharedPreferences.getInstance();
+    await userPreference.setString('username',username);
+    await userPreference.setString('usersurname', userSurname);
+    await userPreference.setString('useremail', email);
+  }
+ 
 }

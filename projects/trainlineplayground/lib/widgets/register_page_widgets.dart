@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trainlineplayground/core/data/api/user_client.dart';
 import 'package:trainlineplayground/core/data/provider/register_page_state.dart';
+import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 
 import '../constants/text_constants/constants.dart';
 import '../constants/PageItems/register_page_items.dart';
@@ -14,7 +15,7 @@ class FunctionalWidgets {
         UserClient(Dio(BaseOptions(contentType: "applications/json")));
     return ElevatedButton(
         onPressed: () {
-          RegisterPageState.setSharedPrefs(RegisterPageItems.userInfo);
+          UserModelState().loadUserInformation();
           showDialog<String>(
             context: context,
             builder: (BuildContext context) => FutureBuilder(
