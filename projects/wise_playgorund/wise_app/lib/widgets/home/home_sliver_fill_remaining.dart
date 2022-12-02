@@ -7,13 +7,14 @@ class HomeSliverFillRemaining extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<ThemeProvider>(context);
     return SliverFillRemaining(
       child: Container(
         width: size.width,
         height: 5000,
-        decoration: const BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
+        decoration: BoxDecoration(
+            color: provider.homePageCardBackgroundColor,
+            borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(25),
               topRight: Radius.circular(25),
             )),
@@ -24,7 +25,7 @@ class HomeSliverFillRemaining extends StatelessWidget {
               child: Container(
                 width: 35,
                 height: 4.2,
-                color: Colors.grey.shade300,
+                color: provider.homePageUnitColor,
               ),
             ),
             SizedBox(
@@ -35,7 +36,7 @@ class HomeSliverFillRemaining extends StatelessWidget {
                     padding: const EdgeInsets.all(17.0),
                     child: Text(
                       HomeTextConstants.allActivity,
-                      style: HomeStyle.homePageTitleStyle,
+                      style: HomeStyle.homePageTitleStyle(provider),
                     ),
                   ),
                   const Spacer(),
@@ -68,7 +69,7 @@ class HomeSliverFillRemaining extends StatelessWidget {
                             children: [
                               Text(
                                 HomeTextConstants.today,
-                                style: HomeStyle.homePageContentStyle,
+                                style: HomeStyle.homePageContentStyle(provider),
                               ),
                             ],
                           ),
@@ -117,14 +118,16 @@ class HomeSliverFillRemaining extends StatelessWidget {
                                                       HomeTextConstants
                                                           .activityTitle,
                                                       style: HomeStyle
-                                                          .homePageTitleStyle,
+                                                          .homePageTitleStyle(
+                                                              provider),
                                                     ),
                                                     const Spacer(),
                                                     Text(
                                                       HomeTextConstants
                                                           .activityCost,
                                                       style: HomeStyle
-                                                          .homePageTitleStyle,
+                                                          .homePageTitleStyle(
+                                                              provider),
                                                     ),
                                                   ],
                                                 ),
@@ -140,14 +143,14 @@ class HomeSliverFillRemaining extends StatelessWidget {
                                                         HomeTextConstants
                                                             .activityContent,
                                                         style: HomeStyle
-                                                            .homePageContentStyle,
+                                                            .homePageContentStyle(provider),
                                                       ),
                                                       const Spacer(),
                                                       Text(
                                                         HomeTextConstants
                                                             .activityCostDetail,
                                                         style: HomeStyle
-                                                            .homePageContentStyle,
+                                                            .homePageContentStyle(provider),
                                                       ),
                                                     ],
                                                   ),

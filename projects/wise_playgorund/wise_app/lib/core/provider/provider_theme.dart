@@ -10,6 +10,12 @@ class ThemeProvider extends ChangeNotifier {
   Color _homePageBackgroundColor=const Color.fromRGBO(46, 67, 105, 1);
   Color get homePageBackgroundColor=>_homePageBackgroundColor;
 
+  Color _homePageCardBackgroundColor= Colors.white;
+  Color get homePageCardBackgroundColor=>_homePageCardBackgroundColor;
+
+  Color _homePageUnitColor=Colors.grey.shade300;
+  Color get homePageUnitColor=>_homePageUnitColor;
+
   IconThemeData _appBarButtonColor = const IconThemeData(color: Colors.blue);
   IconThemeData get appBarButtonColor => _appBarButtonColor;
 
@@ -19,6 +25,17 @@ class ThemeProvider extends ChangeNotifier {
   Color _registerAccountTypeContentTextColor = Colors.grey.shade600;
   Color get registerAccountTypeContentTextColor =>
       _registerAccountTypeContentTextColor;
+
+  Color _homePageTitleTextColor = Colors.grey.shade600;
+  Color get homePageTitleTextColor =>
+      _homePageTitleTextColor;
+
+  Color _bottomNavItemUnselectedColor=const Color.fromRGBO(46, 67, 105, 1);
+  Color get bottomNavItemUnselectedColor=>_bottomNavItemUnselectedColor;
+
+  Color _homePageContentTextColor = Colors.grey.shade600;
+  Color get homePageContentTextColor =>
+      _homePageContentTextColor;
 
   Color _loginEmailTextColor = Colors.black45;
   Color get loginEmailTextColor => _loginEmailTextColor;
@@ -54,10 +71,15 @@ class ThemeProvider extends ChangeNotifier {
           ThemeData.light().scaffoldBackgroundColor;
       _elevationButtonBorderColor = const Color.fromRGBO(81, 106, 109, 1);
       _elevationButtonAppleColor = Colors.black;
-
+      _homePageTitleTextColor=const Color.fromRGBO(46, 67, 105, 1);
       _homePageBackgroundColor=const Color.fromRGBO(46, 67, 105, 1);
+      _homePageCardBackgroundColor=Colors.white;
+      _homePageUnitColor=Colors.grey.shade300;
+      _homePageContentTextColor=Colors.grey.shade600;
+      _bottomNavItemUnselectedColor=const Color.fromRGBO(46, 67, 105, 1);
     } else {
       _colorAppBar = ThemeData.dark().scaffoldBackgroundColor;
+      _homePageCardBackgroundColor=const Color.fromRGBO(33, 33, 33, 1.001);
       _theme = ThemeData.dark();
       _appBarButtonColor = const IconThemeData(color: Colors.white);
       _topLoginTextColor = Colors.blue;
@@ -69,8 +91,11 @@ class ThemeProvider extends ChangeNotifier {
           ThemeData.dark().scaffoldBackgroundColor;
       _elevationButtonBorderColor = Colors.white;
       _elevationButtonAppleColor = Colors.white;
-
-      _homePageBackgroundColor=ThemeData.dark().scaffoldBackgroundColor;
+      _homePageTitleTextColor=Colors.white;
+      _homePageBackgroundColor=Colors.black;
+      _homePageUnitColor=Colors.grey.shade600;
+      _homePageContentTextColor=Colors.grey.shade500;
+      _bottomNavItemUnselectedColor=Colors.white;
     }
     notifyListeners();
   }

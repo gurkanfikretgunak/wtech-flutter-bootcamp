@@ -231,4 +231,18 @@ class UnitProvider extends ChangeNotifier {
       _registerTextControllerVerifyPhoneEnterCode6;
 
   //#endregion
+
+
+  static int _currentIndex=0;
+  int get currentIndex=>_currentIndex;
+
+  final PageController _pageController=PageController();
+  PageController get pageController=>_pageController;
+
+  void changeBottomNavbarIndex(int index){
+    _currentIndex=index;
+    _pageController.animateToPage(index,
+        duration:const Duration(milliseconds: 200), curve: Curves.fastOutSlowIn);
+    notifyListeners();
+  }
 }

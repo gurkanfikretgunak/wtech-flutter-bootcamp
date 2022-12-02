@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:wise_app/core/provider/provider_theme.dart';
 import 'package:wise_app/core/provider/unit_provider.dart';
+import 'package:wise_app/pages/home_page.dart';
 import 'package:wise_app/pages/splash_page.dart';
 
 class App extends StatelessWidget {
@@ -20,7 +21,7 @@ class App extends StatelessWidget {
           title: 'Wtech & Flutter Project',
           debugShowCheckedModeBanner: false,
           theme: provider.theme,
-          home: const SplashPage(),
+          home: const HomePage(),
         );
       },
     );

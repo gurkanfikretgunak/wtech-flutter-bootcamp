@@ -19,6 +19,7 @@ class HomeSliverAppBar extends StatelessWidget {
                 width: HomeConstants.sliverAppBarCardWidthSize,
                 height: HomeConstants.sliverAppBarCardHeightSize,
                 child: Card(
+                  color: provider.homePageCardBackgroundColor,
                   shape: HomeStyle.sliverAppBarCardStyle,
                   child: SingleChildScrollView(
                     child: Padding(
@@ -44,7 +45,7 @@ class HomeSliverAppBar extends StatelessWidget {
                                     const EdgeInsets.only(top: 20.0, bottom: 7),
                                 child: Text(
                                   HomeTextConstants.balance,
-                                  style: HomeStyle.homePageTitleStyle,
+                                  style: HomeStyle.homePageTitleStyle(provider),
                                 ),
                               ),
                             ],
@@ -53,7 +54,7 @@ class HomeSliverAppBar extends StatelessWidget {
                             children: [
                               Text(
                                 HomeTextConstants.currencyUnit,
-                                style: HomeStyle.homePageContentStyle,
+                                style: HomeStyle.homePageContentStyle(provider),
                               ),
                             ],
                           ),

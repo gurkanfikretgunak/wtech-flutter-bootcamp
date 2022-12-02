@@ -9,13 +9,13 @@ class HomeStyle {
     borderRadius: BorderRadius.circular(15.0),
   );
 
-  static TextStyle homePageTitleStyle = const TextStyle(
+  static TextStyle homePageTitleStyle(ThemeProvider provider) => TextStyle(
       fontSize: 18,
-      color: ColorConstants.splashBackgroundColor,
+      color: provider.homePageTitleTextColor,
       fontWeight: FontWeight.w600);
 
-  static TextStyle homePageContentStyle =  TextStyle(
-      color: Colors.grey.shade600,
+  static TextStyle homePageContentStyle(ThemeProvider provider) =>  TextStyle(
+      color: provider.homePageContentTextColor,
       fontSize: 15,
   );
 
