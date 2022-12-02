@@ -1,6 +1,6 @@
 import 'package:json_annotation/json_annotation.dart';
 
-import '../todos_model.dart';
+import '../todos/todos_model.dart';
 
 part 'users_model.g.dart';
 

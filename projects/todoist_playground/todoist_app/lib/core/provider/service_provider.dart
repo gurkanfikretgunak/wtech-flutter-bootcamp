@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:todoist_app/model/todos_model.dart';
+import 'package:todoist_app/model/todos/todos_model.dart';
 import '../../model/user/users_model.dart';
 import '../../service/data_service.dart';
 

@@ -3,7 +3,7 @@ import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
 import '../../constants/image/image_path_constants.dart';
 import '../../core/provider/service_provider.dart';
-import '../../model/todos_model.dart';
+import '../../model/todos/todos_model.dart';
 
 class TodoListView extends StatefulWidget {
   const TodoListView({Key? key}) : super(key: key);
