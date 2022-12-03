@@ -8,6 +8,7 @@ import 'package:eventbrite_app/view/profile/profile_view.dart';
 import 'package:eventbrite_app/view/register/register_view.dart';
 import 'package:eventbrite_app/view/search/search_view.dart';
 import 'package:eventbrite_app/view/ticket/ticket_view.dart';
+import 'package:eventbrite_app/widgets/event_detail_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../view/login/login_view.dart';
@@ -22,6 +23,8 @@ class NavigationRoute {
         return normalNavigate(widget: const BaseView());
       case NavigationConstants.homePage:
         return normalNavigate(widget: const HomeView());
+      case NavigationConstants.eventDetailPage:
+        return normalNavigate(widget: EventDetailWidget());
       case NavigationConstants.searchPage:
         return normalNavigate(widget: SearchView());
       case NavigationConstants.favoritePage:

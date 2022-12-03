@@ -41,7 +41,7 @@ class OrganizerFollowCard extends StatelessWidget with PaddingConstants {
                     AppConstants.organizerFollowButtonText,
                     style: Theme.of(context).textTheme.button!.copyWith(color: ColorConstants.textButtonColor),
                   ),
-                )
+                ),
               ],
             ),
           )),

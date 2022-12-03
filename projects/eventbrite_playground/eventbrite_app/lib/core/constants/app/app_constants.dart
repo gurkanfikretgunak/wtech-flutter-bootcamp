@@ -14,6 +14,7 @@ class AppConstants {
   //Home Page
   static const String homeTitle = 'Find events in';
   static const IconData selectEventDropDownButtonIcon = Icons.expand_more;
+  static const String showcaseTitle = 'Online Events';
   static const String selectEventDropDownButtonValue = 'Online Events';
   static const String selectEventDropDownButtonValue2 = 'Nearby Events';
   //Get Started Page
@@ -138,4 +139,30 @@ class AppConstants {
   //Event Card Widget
   static const IconData eventCardFavoriteIcon = Icons.favorite_border;
   static const IconData eventCardShareIcon = Icons.share;
+  static const IconData eventCardMoreIcon = Icons.more_vert;
+  static const IconData eventCardCalendarIcon = Icons.calendar_today;
+  static const IconData eventCardScheduleIcon = Icons.schedule;
+  static const IconData eventCardDisplayIcon = Icons.smart_display_outlined;
+
+  //Event Details Page
+  static const String eventFabText = 'Tickets';
+  static const String eventFreeText = 'Free';
+  static const String eventPlatform = 'on EventBrite';
+  static const String eventStatus = 'Online Event';
+  static const String eventDuration = 'Duration: 2h 30m';
+  static const String eventSuggestionTitle = 'More like this';
+  static const List eventTags = [
+    'Music',
+    'Food & Drink',
+    'Active',
+    'Learn',
+    'Festival',
+    'Party',
+  ];
+  static const String eventAboutTitle = 'About';
+  static const String eventSeeMoreBtnText = 'See more';
+  static const String eventLocationTitle = "Location";
+  static const String eventLocationImgPath = "assets/location_holder.png";
+  static const String eventOrganizerTitle = "Organizer";
+  static const String eventTagsTitle = "Tags";
 }

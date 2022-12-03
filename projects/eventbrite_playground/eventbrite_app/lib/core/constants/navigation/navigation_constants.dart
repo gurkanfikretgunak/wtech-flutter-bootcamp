@@ -1,6 +1,7 @@
 class NavigationConstants {
   static const welcomePage = '/';
   static const homePage = '/home';
+  static const eventDetailPage = '/eventDetail';
   static const searchPage = '/search';
   static const ticketPage = '/ticket';
   static const favoritePage = '/favorite';
