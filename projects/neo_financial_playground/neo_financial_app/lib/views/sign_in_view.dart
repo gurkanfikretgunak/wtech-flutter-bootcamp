@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/core/provider/sign_up_state.dart';
-import 'package:neo_financial_app/widgets/email_textformfield_widget.dart';
-import 'package:neo_financial_app/widgets/password_textformfield_widget.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/provider/user_state.dart';
+import 'package:neo_financial_app/widgets/sign_up/email_textformfield_widget.dart';
+import 'package:neo_financial_app/widgets/sign_up/password_textformfield_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../widgets/onboarding/custom_elevated_button_widget.dart';
+import '../core/data/constants/icon_constants.dart';
+import '../core/data/constants/text_constants.dart';
+import '../widgets/custom_elevated_button_widget.dart';
 
 class SignInView extends StatelessWidget {
   SignInView({super.key});
@@ -16,9 +19,10 @@ class SignInView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: Padding(
-          padding: const EdgeInsets.only(left: 15),
+          padding: PaddingConstants.largeHorizontalPadding,
           child: IconButton(
-            icon: const Icon(Icons.arrow_back, color: Colors.black),
+            icon: const Icon(IconConstants.signInAppBarLeftIcon,
+                color: Colors.black),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
@@ -29,15 +33,14 @@ class SignInView extends StatelessWidget {
             constraints: BoxConstraints(minHeight: constraint.maxHeight),
             child: IntrinsicHeight(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                padding: PaddingConstants.largeHorizontalPadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Welcome back',
+                    Text(TextConstants.signInBottomTitleText,
                         style: Theme.of(context).textTheme.labelMedium),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 15.0),
+                      padding: PaddingConstants.largeVerticalPadding,
                       child: EmailTextFormFieldWidget(
                         controller: _emailController,
                       ),
@@ -47,28 +50,26 @@ class SignInView extends StatelessWidget {
                     ),
                     const Spacer(),
                     CustomElevatedButtonWidget(
-                      btnName: 'Sign in',
+                      btnName: TextConstants.signInElevatedButtonText,
                       btnIcon: null,
                       function: () {
-                        Provider.of<SignUpState>(context, listen: false)
+                        Provider.of<UserState>(context, listen: false)
                             .signIn(context);
                       },
                     ),
-                    Center(
-                      child: Padding(
-                          padding: const EdgeInsets.only(bottom: 20.0),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 5.0),
-                            child: TextButton(
-                              onPressed: () {
-                                //Password forget side will be create
-                              },
-                              child: const Text(
-                                'Need a password?',
-                                style: TextStyle(color: Colors.blue),
-                              ),
-                            ),
-                          )),
+                    Padding(
+                      padding: PaddingConstants.xLargeBottomPadding,
+                      child: Center(
+                        child: TextButton(
+                          onPressed: () {
+                            //TODO: Password forget side will be create
+                          },
+                          child: const Text(
+                            TextConstants.signInBottomText,
+                            style: TextStyle(color: Colors.blue),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),

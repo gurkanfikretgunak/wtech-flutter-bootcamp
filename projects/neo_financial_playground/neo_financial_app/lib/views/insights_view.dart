@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/widgets/chart_widget.dart';
 import 'package:neo_financial_app/widgets/custom_appbar_widget.dart';
+import 'package:neo_financial_app/widgets/insights/chart_widget.dart';
 
+import '../core/data/constants/padding_constants.dart';
+import '../core/data/constants/text_constants.dart';
 import '../core/data/models/chart_data.dart';
-import '../widgets/insights_cashback_card_widget.dart';
+import '../widgets/insights/insights_cashback_card_widget.dart';
 
 class InsightsView extends StatelessWidget {
   const InsightsView({super.key});
@@ -32,7 +34,8 @@ class InsightsView extends StatelessWidget {
           leftWidget: FittedBox(
             fit: BoxFit.contain,
             child: Text(
-                style: Theme.of(context).textTheme.labelMedium, 'Insights'),
+                style: Theme.of(context).textTheme.labelMedium,
+                TextConstants.insightsTitleText),
           ),
           rightWidgetList: const [],
         ),
@@ -41,7 +44,7 @@ class InsightsView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                padding: PaddingConstants.largeHorizontalPadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -53,17 +56,17 @@ class InsightsView extends StatelessWidget {
                           .copyWith(color: Colors.black),
                     ),
                     Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Text('CA\$$amount',
+                      padding: PaddingConstants.mediumVerticalPadding,
+                      child: Text('${TextConstants.insightsAmountText}$amount',
                           style: Theme.of(context).textTheme.labelMedium!),
                     ),
-                    const Text('Total spending'),
+                    const Text(TextConstants.insightsBodyText),
                   ],
                 ),
               ),
               ChartWidget(data: data),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                padding: PaddingConstants.largeHorizontalPadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -74,7 +77,7 @@ class InsightsView extends StatelessWidget {
                       dynamicSize: dynamicSize,
                     ),
                     Text(
-                      'Categories',
+                      TextConstants.insightsContentTitle,
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium!
@@ -85,17 +88,17 @@ class InsightsView extends StatelessWidget {
               ),
               //TODO: Listbuilder will use
               Container(
-                margin: const EdgeInsets.only(top: 10),
+                margin: PaddingConstants.mediumTopPadding,
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  padding: PaddingConstants.mediumVerticalPadding,
                   child: ListTile(
                     leading: Container(
                         decoration: BoxDecoration(
                           color: Colors.greenAccent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        padding: const EdgeInsets.all(10),
+                        padding: PaddingConstants.mediumPadding,
                         child: const Icon(
                           Icons.shopping_cart,
                           color: Colors.white,

@@ -3,42 +3,43 @@ import 'package:neo_financial_app/views/profile_view.dart';
 import 'package:neo_financial_app/views/sign_in_view.dart';
 import 'package:neo_financial_app/views/splash_view.dart';
 
+import '../core/data/constants/route_constants.dart';
 import '../views/error_view.dart';
 import '../views/home_template_view.dart';
-import '../views/onboarding/onboard_page_view.dart';
-import '../views/onboarding/onboarding_home_view.dart';
-import '../views/onboarding/register_template_view.dart';
+import '../views/onboard/onboard_home_view.dart';
+import '../views/onboard/onboard_learn_more_view.dart';
+import '../views/sign_up_view.dart';
 
 class Navigation {
   static Route<dynamic> navigationGenarator(RouteSettings settings) {
     switch (settings.name) {
-      case '/':
+      case RouteConstants.splashRoute:
         return MaterialPageRoute(
             builder: (context) => const SplashScreenView());
-      case '/Home':
+      case RouteConstants.homeRoute:
         return MaterialPageRoute(
           builder: (context) => const HomeTemplateView(),
         );
-      case '/Onboarding':
+      case RouteConstants.onboardRoute:
         return MaterialPageRoute(
-          builder: (context) => const OnbordingHomeView(),
+          builder: (context) => const OnbordHomeView(),
         );
-      case '/Register':
+      case RouteConstants.signUpRoute:
         return MaterialPageRoute(
-          builder: (context) => const RegisterTemplateView(),
+          builder: (context) => const SignUpView(),
         );
-      case '/SignIn':
+      case RouteConstants.signInRoute:
         return MaterialPageRoute(
           builder: (context) => SignInView(),
         );
-      case '/Profile':
+      case RouteConstants.profileRoute:
         return MaterialPageRoute(
           builder: (context) => const ProfileView(),
         );
-      case '/OnboardingBuilder':
+      case RouteConstants.onboarBuilderRoute:
         return MaterialPageRoute(
           fullscreenDialog: true,
-          builder: (context) => const OnboardPageView(),
+          builder: (context) => const OnboardLearnMoreView(),
         );
       default:
         return MaterialPageRoute(builder: (context) => const ErrorView());

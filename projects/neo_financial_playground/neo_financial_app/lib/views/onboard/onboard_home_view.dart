@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/provider/onboarding_load_widget_state.dart';
-import '../../widgets/onboarding/tabbarview_child_widget.dart';
+import '../../core/data/constants/text_constants.dart';
+import '../../core/provider/onboard_state.dart';
+import '../../widgets/onboard/tabbar_view_child_widget.dart';
 
-class OnbordingHomeView extends StatelessWidget {
-  const OnbordingHomeView({super.key});
+class OnbordHomeView extends StatelessWidget {
+  const OnbordHomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,7 @@ class OnbordingHomeView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           flexibleSpace: Image(
-            image: AssetImage(
-                context.watch<OnboardingLoadWidgetState>().currentImage),
+            image: AssetImage(context.watch<OnboardState>().currentImage),
             fit: BoxFit.cover,
           ),
           automaticallyImplyLeading: false,
@@ -28,12 +29,11 @@ class OnbordingHomeView extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 2,
                 child: TabBar(
                   onTap: (value) {
-                    Provider.of<OnboardingLoadWidgetState>(context,
-                            listen: false)
+                    Provider.of<OnboardState>(context, listen: false)
                         .changeImageIndex(value);
                   },
                   indicatorSize: TabBarIndicatorSize.label,
-                  indicatorPadding: const EdgeInsets.only(bottom: 10),
+                  indicatorPadding: PaddingConstants.smallBottomPadding,
                   labelColor: Colors.white,
                   unselectedLabelColor: Colors.white,
                   indicator: const UnderlineTabIndicator(
@@ -45,12 +45,12 @@ class OnbordingHomeView extends StatelessWidget {
                   isScrollable: true,
                   tabs: const [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
-                      child: Tab(text: 'Credit'),
+                      padding: PaddingConstants.largeVerticalPadding,
+                      child: Tab(text: TextConstants.onboardTabBarStartLabel),
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 15.0),
-                      child: Tab(text: 'Money'),
+                      padding: PaddingConstants.largeVerticalPadding,
+                      child: Tab(text: TextConstants.onboardTabBarEndLabel),
                     ),
                   ],
                 ),
@@ -60,6 +60,7 @@ class OnbordingHomeView extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
+            //TODO: Text will come from mock api
             TabBarViewChildWidget(
               pageIndex: 0,
               headlineText: 'High cashback Mastercard® ',

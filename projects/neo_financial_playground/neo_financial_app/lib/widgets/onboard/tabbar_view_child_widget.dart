@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
 
-import 'custom_elevated_button_widget.dart';
+import '../../core/data/constants/icon_constants.dart';
+import '../../core/data/constants/route_constants.dart';
+import '../custom_elevated_button_widget.dart';
 
 class TabBarViewChildWidget extends StatelessWidget {
   final String headlineText, bodyText;
@@ -20,7 +24,7 @@ class TabBarViewChildWidget extends StatelessWidget {
         constraints: BoxConstraints(minHeight: constraint.maxHeight),
         child: IntrinsicHeight(
           child: Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: PaddingConstants.largePadding,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -32,53 +36,54 @@ class TabBarViewChildWidget extends StatelessWidget {
                 Text(bodyText, style: Theme.of(context).textTheme.bodyMedium),
                 const Spacer(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 20.0),
+                  padding: PaddingConstants.largeVerticalPadding,
                   child: Center(
                     child: Column(
                       children: [
                         const Icon(
-                          Icons.keyboard_arrow_up,
+                          IconConstants.onboardBottomIcon,
                           size: 30,
                         ),
                         OutlinedButton(
                             onPressed: () {
                               Navigator.pushNamed(
                                 context,
-                                '/OnboardingBuilder',
+                                RouteConstants.onboarBuilderRoute,
                               );
                             },
-                            child: const Text('Learn more')),
+                            child: const Text(
+                                TextConstants.onboardOutlinedButtonText)),
                       ],
                     ),
                   ),
                 ),
                 CustomElevatedButtonWidget(
-                  btnName: 'Create a profile',
-                  btnIcon: Icons.arrow_forward,
+                  btnName: TextConstants.onboardElevatedButtonText,
+                  btnIcon: IconConstants.onboardElevatedButtonIcon,
                   function: () {
                     Navigator.pushNamed(
                       context,
-                      '/Register',
+                      RouteConstants.signUpRoute,
                     );
                   },
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(bottom: 20.0),
+                  padding: PaddingConstants.largeBottomPadding,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already with Neo?'),
+                      const Text(TextConstants.onboardBottomText),
                       Padding(
-                        padding: const EdgeInsets.only(left: 5.0),
+                        padding: PaddingConstants.smallHorizontalPadding,
                         child: TextButton(
                           onPressed: () {
                             Navigator.pushNamed(
                               context,
-                              '/SignIn',
+                              RouteConstants.signInRoute,
                             );
                           },
                           child: const Text(
-                            'Sign in',
+                            TextConstants.onboardBottomTextButtonText,
                             style: TextStyle(color: Colors.blue),
                           ),
                         ),

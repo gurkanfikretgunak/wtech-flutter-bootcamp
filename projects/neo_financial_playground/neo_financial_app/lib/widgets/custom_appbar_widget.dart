@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/data/constants/padding_constants.dart';
+
 class CustomAppbarWidget extends StatelessWidget with PreferredSizeWidget {
   final Widget leftWidget;
   final double preferredSizeHeight;
@@ -21,8 +23,7 @@ class CustomAppbarWidget extends StatelessWidget with PreferredSizeWidget {
           title: titleWidget,
           leadingWidth: MediaQuery.of(context).size.width / 3,
           leading: Padding(
-              padding: const EdgeInsets.only(left: 20.0, top: 5, bottom: 5),
-              child: leftWidget),
+              padding: PaddingConstants.customAppBarPadding, child: leftWidget),
           actions: rightWidgetList,
         ));
   }

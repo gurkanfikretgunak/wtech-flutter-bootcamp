@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/core/provider/bottom_navigation_bar_state.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/provider/navigation_state.dart';
 import 'package:provider/provider.dart';
 
 class CustomBottomNavBar extends StatefulWidget {
@@ -12,59 +15,55 @@ class CustomBottomNavBar extends StatefulWidget {
 class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    var state = Provider.of<BottomNavigationBarState>(context, listen: false);
+    var state = Provider.of<NavigationState>(context, listen: false);
     return BottomNavigationBar(
-        currentIndex: context.watch<BottomNavigationBarState>().currentPage,
+        currentIndex: context.watch<NavigationState>().currentPageIndex,
         type: BottomNavigationBarType.fixed,
         onTap: (value) {
-          if (state.currentPage != value) {
+          if (state.currentPageIndex != value) {
             state.changePage(value);
           }
         },
         items: const [
           BottomNavigationBarItem(
-            label: 'Accounts',
+            label: TextConstants.bottomNavBarElementLabel1,
             icon: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: PaddingConstants.mediumPadding,
               child: Icon(
-                Icons.account_balance,
+                IconConstants.bottomNavBarElementIcon1,
               ),
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Insights',
+            label: TextConstants.bottomNavBarElementLabel2,
             icon: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: PaddingConstants.mediumPadding,
               child: Icon(
-                Icons.bar_chart,
+                IconConstants.bottomNavBarElementIcon2,
               ),
             ),
           ),
           BottomNavigationBarItem(
+            label: TextConstants.bottomNavBarElementLabel3,
             icon: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.auto_awesome,
-              ),
+              padding: PaddingConstants.mediumPadding,
+              child: Icon(IconConstants.bottomNavBarElementIcon3),
             ),
-            label: 'Rewards',
           ),
           BottomNavigationBarItem(
-            label: 'Payments',
+            label: TextConstants.bottomNavBarElementLabel4,
             icon: Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: PaddingConstants.mediumPadding,
               child: Icon(
-                Icons.import_export,
+                IconConstants.bottomNavBarElementIcon4,
               ),
             ),
           ),
           BottomNavigationBarItem(
-            label: 'Card',
+            label: TextConstants.bottomNavBarElementLabel5,
             icon: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Icon(
-                Icons.payment,
-              ),
+              padding: PaddingConstants.mediumPadding,
+              child: Icon(IconConstants.bottomNavBarElementIcon5),
             ),
           ),
         ]);

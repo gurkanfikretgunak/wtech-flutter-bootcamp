@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../data/constants/route_constants.dart';
 import '../data/local/shared_preferences.dart';
 import '../data/models/user.dart';
 import '../data/services/service.dart';
 
-class SignUpState with ChangeNotifier {
+class UserState with ChangeNotifier {
   String _email = '',
       _password = '',
       _phone = '',
@@ -93,6 +94,7 @@ class SignUpState with ChangeNotifier {
     _firstBar = Colors.grey;
     _secondBar = Colors.grey;
     _thirdBar = Colors.grey;
+    _passwordStatus = '';
   }
 
   signUp() {
@@ -112,7 +114,7 @@ class SignUpState with ChangeNotifier {
       UserSharedPreferences.setUserID(user!.id);
       Navigator.pushNamed(
         context,
-        '/Home',
+        RouteConstants.homeRoute,
       );
     });
   }

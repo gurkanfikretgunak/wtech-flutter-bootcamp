@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/data/constants/padding_constants.dart';
+
 class CustomInformationCardWidget extends StatelessWidget {
   final String body;
   final Text title;
@@ -22,14 +24,14 @@ class CustomInformationCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 15),
+      margin: PaddingConstants.largeVerticalPadding,
       width: double.infinity,
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(15.0),
+        padding: PaddingConstants.largePadding,
         child: Stack(children: [
           Align(
             alignment: Alignment.topRight,
@@ -44,9 +46,7 @@ class CustomInformationCardWidget extends StatelessWidget {
                 : null,
           ),
           Padding(
-            padding: const EdgeInsets.only(
-              top: 15.0,
-            ),
+            padding: PaddingConstants.largeTopPadding,
             child: Row(
               children: [
                 Expanded(
@@ -58,10 +58,8 @@ class CustomInformationCardWidget extends StatelessWidget {
                         margin: EdgeInsets.only(right: titleMargin),
                         child: title,
                       ),
-                      /*  Text(title,
-                          style: const TextStyle(fontWeight: FontWeight.bold)), */
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        padding: PaddingConstants.mediumVerticalPadding,
                         child: Text(body),
                       ),
                       button
@@ -71,7 +69,7 @@ class CustomInformationCardWidget extends StatelessWidget {
                 Expanded(
                     flex: 1,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 30.0),
+                      padding: PaddingConstants.xLargeTopPadding,
                       child: bottomRightWidget,
                     ))
               ],

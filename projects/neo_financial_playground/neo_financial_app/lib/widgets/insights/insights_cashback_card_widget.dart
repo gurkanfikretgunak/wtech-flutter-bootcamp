@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
+
+import '../../core/data/constants/padding_constants.dart';
+import '../../core/data/constants/text_constants.dart';
 
 class InsightsCashbackCardWidget extends StatelessWidget {
   final Size dynamicSize;
@@ -15,7 +19,7 @@ class InsightsCashbackCardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20),
+      margin: PaddingConstants.largeVerticalPadding,
       height: dynamicSize.height / 5,
       width: double.infinity,
       child: Card(
@@ -24,7 +28,7 @@ class InsightsCashbackCardWidget extends StatelessWidget {
         ),
         elevation: 4,
         child: Padding(
-          padding: const EdgeInsets.all(25),
+          padding: PaddingConstants.largePadding,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -34,10 +38,10 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                   spacing: 5,
                   children: [
                     const Icon(
-                      Icons.auto_awesome,
+                      IconConstants.insightsCashbackTitleIcon,
                     ),
                     Text(
-                      'Cashback',
+                      TextConstants.insightsCashbackTitleText,
                       style: Theme.of(context)
                           .textTheme
                           .titleMedium!
@@ -47,7 +51,7 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.only(top: 25),
+                margin: PaddingConstants.xLargeTopPadding,
                 width: double.infinity,
                 child: IntrinsicHeight(
                     child: Row(
@@ -57,12 +61,13 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            'CA\$$totalAmount',
+                            '${TextConstants.insightsAmountText}$totalAmount',
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
-                            child: Text('Total'),
+                            padding: PaddingConstants.mediumVerticalPadding,
+                            child:
+                                Text(TextConstants.insightsCashbackStartText),
                           ),
                         ],
                       ),
@@ -81,8 +86,9 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                                 .copyWith(color: Colors.green[900]),
                           ),
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
-                            child: Text('Minimum',
+                            padding: PaddingConstants.mediumVerticalPadding,
+                            child: Text(
+                                TextConstants.insightsCashbackMiddleText,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyMedium!
@@ -102,8 +108,8 @@ class InsightsCashbackCardWidget extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           const Padding(
-                            padding: EdgeInsets.symmetric(vertical: 8.0),
-                            child: Text('Partner Avg.'),
+                            padding: PaddingConstants.mediumVerticalPadding,
+                            child: Text(TextConstants.insightsCashbackEndText),
                           ),
                         ],
                       ),

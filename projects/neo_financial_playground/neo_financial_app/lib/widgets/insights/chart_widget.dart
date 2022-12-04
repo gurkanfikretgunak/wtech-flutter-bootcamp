@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/widgets/price_tag_paint_widget.dart';
+import 'package:neo_financial_app/widgets/insights/price_tag_paint_widget.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../core/data/models/chart_data.dart';
+import '../../core/data/constants/padding_constants.dart';
+import '../../core/data/models/chart_data.dart';
 
 class ChartWidget extends StatefulWidget {
   const ChartWidget({
@@ -39,14 +40,14 @@ class _ChartWidgetState extends State<ChartWidget> {
                   CustomPaint(
                     painter: PriceTagPaint(),
                     child: Padding(
-                      padding: const EdgeInsets.all(8.0),
+                      padding: PaddingConstants.mediumPadding,
                       child: Text(
                         'CA\$${point.y} avg.',
                       ),
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.only(bottom: 8.0),
+                    padding: PaddingConstants.mediumBottomPadding,
                     child: Text(
                         ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "),
                   )
@@ -61,7 +62,7 @@ class _ChartWidgetState extends State<ChartWidget> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 15),
+      margin: PaddingConstants.largeVerticalPadding,
       height: 200,
       child: SfCartesianChart(
           margin: EdgeInsets.zero,

@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+
 import '../widgets/custom_icon_button_with_label_widget.dart';
 import '../widgets/custom_information_card_widget.dart';
+import '../widgets/title_and_button_widget.dart';
 
 class PaymentsView extends StatelessWidget {
   const PaymentsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    const String tabBarLeftLabelName = 'Transfers';
-    const String tabBarRightLabelName = 'Scheduled';
     return WillPopScope(
       onWillPop: () async => false,
       child: DefaultTabController(
@@ -26,8 +29,8 @@ class PaymentsView extends StatelessWidget {
                     indicatorSize: TabBarIndicatorSize.label,
                     isScrollable: true,
                     tabs: [
-                      Tab(text: tabBarLeftLabelName),
-                      Tab(text: tabBarRightLabelName),
+                      Tab(text: TextConstants.paymentsTabBarStartLabel),
+                      Tab(text: TextConstants.paymentsTabBarEndLabel),
                     ],
                   ),
                 ),
@@ -41,11 +44,7 @@ class PaymentsView extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 15.0,
-                        right: 15.0,
-                        left: 15.0,
-                      ),
+                      padding: PaddingConstants.largePadding,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -53,16 +52,16 @@ class PaymentsView extends StatelessWidget {
                             spacing: 25,
                             children: const [
                               CustomIconButtonWithLabelWidget(
-                                label: 'Send',
-                                icon: Icons.upgrade,
+                                label: TextConstants.paymentsStartIconText,
+                                icon: IconConstants.paymentsStartIcon,
                               ),
                               CustomIconButtonWithLabelWidget(
-                                label: 'Request',
-                                icon: Icons.vertical_align_bottom,
+                                label: TextConstants.paymentsMiddleIconText,
+                                icon: IconConstants.paymentsMiddleIcon,
                               ),
                               CustomIconButtonWithLabelWidget(
-                                label: 'Pay a bill',
-                                icon: Icons.receipt,
+                                label: TextConstants.paymentsEndIconText,
+                                icon: IconConstants.paymentsEndIcon,
                               ),
                             ],
                           ),
@@ -86,17 +85,9 @@ class PaymentsView extends StatelessWidget {
                             bottomRightWidget: null,
                             isCloseButtonActive: true,
                           ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text('Recent payees'),
-                              TextButton(
-                                onPressed: () {},
-                                style: TextButton.styleFrom(
-                                    foregroundColor: Colors.blue),
-                                child: const Text('See all'),
-                              ),
-                            ],
+                          const TitleAndButtonWidget(
+                            title: TextConstants.paymentsContentTitleText,
+                            buttonName: TextConstants.paymentsTextButtonText,
                           ),
                         ],
                       ),
@@ -104,16 +95,13 @@ class PaymentsView extends StatelessWidget {
                     //TODO: Listbuilder will use
                     Container(
                       color: Colors.white,
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.0),
-                        child: ListTile(
-                          leading: CircleAvatar(
-                              foregroundColor: Colors.white,
-                              backgroundColor: Colors.black,
-                              child: Text('ZL')),
-                          title: Text('Zheng Jun Dexter Lee'),
-                          trailing: Text('(You)'),
-                        ),
+                      child: const ListTile(
+                        leading: CircleAvatar(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.black,
+                            child: Text('ZL')),
+                        title: Text('Zheng Jun Dexter Lee'),
+                        trailing: Text('(You)'),
                       ),
                     ),
                   ],

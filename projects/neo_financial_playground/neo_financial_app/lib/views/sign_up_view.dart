@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:neo_financial_app/core/provider/onboarding_load_widget_state.dart';
-import 'package:neo_financial_app/widgets/onboarding/custom_elevated_button_widget.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/provider/onboard_state.dart';
+import 'package:neo_financial_app/widgets/custom_elevated_button_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/data/models/onboarding/onboard.dart';
+import '../core/data/models/onboard/onboard.dart';
 
-class RegisterTemplateView extends StatefulWidget {
-  const RegisterTemplateView({
+class SignUpView extends StatefulWidget {
+  const SignUpView({
     super.key,
   });
 
   @override
-  State<RegisterTemplateView> createState() => _RegisterTemplateViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _RegisterTemplateViewState extends State<RegisterTemplateView> {
+class _SignUpViewState extends State<SignUpView> {
   @override
   Widget build(BuildContext context) {
-    OnboardingLoadWidgetState state =
-        Provider.of<OnboardingLoadWidgetState>(context, listen: false);
-    Onboard widgetPage =
-        context.watch<OnboardingLoadWidgetState>().widgetOptions.elementAt(
-              context.watch<OnboardingLoadWidgetState>().currentWidget,
-            );
+    OnboardState state = Provider.of<OnboardState>(context, listen: false);
+    Onboard currentPage = context.watch<OnboardState>().currentPage;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.only(top: 80.0, left: 15, right: 15),
+        padding: PaddingConstants.customSignInPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -43,12 +40,12 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                           style: TextButton.styleFrom(
                             foregroundColor: Colors.black,
                           ),
-                          child: Icon(widgetPage.leftIcon),
+                          child: Icon(currentPage.leftIcon),
                           onPressed: () {
-                            if (state.currentWidget ==
-                                state.widgetOptions.length - 1) {
+                            if (state.currentPageIndex ==
+                                state.onboardPageListLength - 1) {
                               state.changePageIndex(0);
-                            } else if (state.currentWidget == 0) {
+                            } else if (state.currentPageIndex == 0) {
                               Navigator.of(context).pop();
                             } else {
                               state.backPage();
@@ -59,34 +56,37 @@ class _RegisterTemplateViewState extends State<RegisterTemplateView> {
                           style: TextButton.styleFrom(
                             foregroundColor: Colors.black,
                           ),
-                          child: Icon(widgetPage.rightIcon),
+                          child: Icon(currentPage.rightIcon),
                           onPressed: () {},
                         ),
                       ],
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
+                      padding: PaddingConstants.largeTopPadding,
                       child: Text(
-                        widgetPage.title,
+                        currentPage.title,
                         style: const TextStyle(color: Colors.green),
                       ),
                     ),
                   ],
                 )),
-            Expanded(flex: 6, child: widgetPage.columnWidget),
+            Expanded(flex: 6, child: currentPage.columnWidget),
             Expanded(
               flex: 2,
               child: Column(
                 children: [
-                  if (widgetPage.bottomWidget != null) widgetPage.bottomWidget!,
+                  currentPage.bottomWidget != null
+                      ? currentPage.bottomWidget!
+                      : const Padding(
+                          padding: PaddingConstants.largeVerticalPadding),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    padding: PaddingConstants.largeVerticalPadding,
                     child: CustomElevatedButtonWidget(
-                      btnName: widgetPage.btnName,
-                      btnIcon: widgetPage.btnIcon,
+                      btnName: currentPage.btnName,
+                      btnIcon: currentPage.btnIcon,
                       function: () async {
                         state.nextPage(context,
-                            widgetPage.columnWidget.runtimeType.toString());
+                            currentPage.columnWidget.runtimeType.toString());
                       },
                     ),
                   ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
 import 'package:neo_financial_app/widgets/custom_icon_button_with_label_widget.dart';
 import 'package:neo_financial_app/widgets/custom_information_card_widget.dart';
 
+import '../core/data/constants/padding_constants.dart';
+import '../core/data/constants/text_constants.dart';
 import '../widgets/custom_appbar_widget.dart';
 
 class CardView extends StatelessWidget {
@@ -17,7 +20,7 @@ class CardView extends StatelessWidget {
               preferredSizeHeight: dynamicSize.height / 15,
               leftWidget: Text(
                 style: Theme.of(context).textTheme.labelMedium,
-                'Card',
+                TextConstants.cardTitleText,
               ),
               rightWidgetList: [
                 CircleAvatar(
@@ -25,19 +28,19 @@ class CardView extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
-                      Icons.help_outline,
+                      IconConstants.cardTopRightStartIcon,
                       color: Colors.black,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: PaddingConstants.largeHorizontalPadding,
                   child: CircleAvatar(
                     backgroundColor: Colors.black12,
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
-                        Icons.more_horiz,
+                        IconConstants.cardTopRightEndIcon,
                         color: Colors.black,
                       ),
                     ),
@@ -46,25 +49,26 @@ class CardView extends StatelessWidget {
               ],
             ),
             body: SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              padding: PaddingConstants.largeHorizontalPadding,
               child: Column(
                 children: [
                   SizedBox(
                     height: dynamicSize.height / 3.7,
                     width: double.infinity,
                     child: Card(
+                      //TODO: Credit Card Design will be update
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                       elevation: 4,
                       child: Padding(
-                        padding: const EdgeInsets.all(25),
+                        padding: PaddingConstants.xLargePadding,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Padding(
                               padding: EdgeInsets.zero,
-                              child: Text('neo',
+                              child: Text(TextConstants.cardCreditCardTitle,
                                   style: Theme.of(context)
                                       .textTheme
                                       .displayMedium!
@@ -78,29 +82,32 @@ class CardView extends StatelessWidget {
                               child: Image(
                                   height: dynamicSize.height / 9,
                                   image: const AssetImage(
-                                      'assets/logos/mastercard-logo.png')),
+                                      TextConstants.cardMasterCardImagePath)),
                             )
                           ],
                         ),
                       ),
                     ),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      CustomIconButtonWithLabelWidget(
-                          label: 'Freeze', icon: Icons.ac_unit),
-                      Padding(
-                        padding: EdgeInsets.all(20.0),
-                        child: CustomIconButtonWithLabelWidget(
-                            label: 'View', icon: Icons.visibility),
-                      ),
-                      CustomIconButtonWithLabelWidget(
-                          label: 'Settings', icon: Icons.settings),
-                    ],
+                  Padding(
+                    padding: PaddingConstants.largeTopPadding,
+                    child: Wrap(
+                      spacing: 25,
+                      children: const [
+                        CustomIconButtonWithLabelWidget(
+                            label: TextConstants.cardStartIconText,
+                            icon: IconConstants.cardStartIcon),
+                        CustomIconButtonWithLabelWidget(
+                            label: TextConstants.cardMiddleIconText,
+                            icon: IconConstants.cardMiddleIcon),
+                        CustomIconButtonWithLabelWidget(
+                            label: TextConstants.cardEndIconText,
+                            icon: IconConstants.cardEndIcon),
+                      ],
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 20),
+                    padding: PaddingConstants.largeVerticalPadding,
                     child: SizedBox(
                       height: 60,
                       width: double.infinity,
@@ -115,11 +122,11 @@ class CardView extends StatelessWidget {
                             alignment: WrapAlignment.center,
                             children: const [
                               Icon(
-                                Icons.card_giftcard,
+                                IconConstants.cardElevatedButtonIcon,
                                 color: Colors.amber,
                               ),
                               Text(
-                                'Add to Apple Wallet',
+                                TextConstants.cardElevatedButtonText,
                                 style: TextStyle(color: Colors.white),
                               )
                             ],

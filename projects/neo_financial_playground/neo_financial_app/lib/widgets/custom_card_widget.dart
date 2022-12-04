@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/data/constants/padding_constants.dart';
+
 class CustomCardWidget extends StatelessWidget {
   final String image, imageLabel, title, text, buttonName;
 
@@ -29,7 +31,7 @@ class CustomCardWidget extends StatelessWidget {
                 width: double.infinity,
               ),
               Padding(
-                padding: const EdgeInsets.all(15.0),
+                padding: PaddingConstants.largePadding,
                 child: Text(imageLabel,
                     style: Theme.of(context).textTheme.titleLarge),
               ),
@@ -38,12 +40,12 @@ class CustomCardWidget extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Padding(
-              padding: const EdgeInsets.all(15.0),
+              padding: PaddingConstants.largePadding,
               child: Column(
                 children: [
                   Text(title, style: Theme.of(context).textTheme.labelMedium),
                   Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: PaddingConstants.mediumVerticalPadding,
                     child: Row(
                       children: [
                         Expanded(

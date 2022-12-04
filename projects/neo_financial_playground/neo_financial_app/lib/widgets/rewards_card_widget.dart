@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/data/constants/padding_constants.dart';
+
 class RewardsCardWidget extends StatelessWidget {
   final ImageProvider image, leadingImage;
   final String title, subtitle;
@@ -38,7 +40,7 @@ class RewardsCardWidget extends StatelessWidget {
                   Align(
                     alignment: Alignment.topRight,
                     child: IconButton(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: PaddingConstants.largePadding,
                       onPressed: () {},
                       icon: const Icon(
                         Icons.favorite_border,

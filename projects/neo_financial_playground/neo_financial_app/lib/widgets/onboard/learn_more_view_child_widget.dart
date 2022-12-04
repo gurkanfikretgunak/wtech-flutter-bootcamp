@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
 
+import '../../core/data/constants/padding_constants.dart';
+import '../../core/data/constants/route_constants.dart';
 import 'custom_linear_progress_indicator_widget.dart';
 
-class PageViewChildWidget extends StatelessWidget {
-  const PageViewChildWidget(
+class LearnMoreViewChildWidget extends StatelessWidget {
+  const LearnMoreViewChildWidget(
       {super.key,
       required this.pageIndex,
       required this.headlineText,
@@ -32,25 +36,25 @@ class PageViewChildWidget extends StatelessWidget {
               child: Stack(children: [
                 Image.asset(
                     fit: BoxFit.fill,
+                    //TODO: Images will come from Mock api
                     'assets/images/${typeTitle.toLowerCase()}${pageIndex + 1}.jpg'),
                 Align(
                   alignment: Alignment.topLeft,
                   child: Padding(
-                    padding: const EdgeInsets.all(20.0),
+                    padding: PaddingConstants.largePadding,
                     child: IconButton(
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
                       icon: const Icon(
-                        Icons.close,
+                        IconConstants.learnMoreTopLeftIcon,
                         color: Colors.white,
                       ),
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10.0, horizontal: 10),
+                  padding: PaddingConstants.mediumPadding,
                   child: Row(
                     children: [
                       CustomLinearProgressIndicatorWidget(
@@ -77,12 +81,12 @@ class PageViewChildWidget extends StatelessWidget {
         Expanded(
             child: Container(
           color: Colors.black,
-          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          padding: PaddingConstants.largeHorizontalPadding,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: const EdgeInsets.only(bottom: 20.0),
+                padding: PaddingConstants.largeBottomPadding,
                 child: Text(
                   'NEO $typeTitle',
                   style: const TextStyle(
@@ -96,7 +100,7 @@ class PageViewChildWidget extends StatelessWidget {
                         color: Colors.white,
                       )),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 15.0),
+                padding: PaddingConstants.largeVerticalPadding,
                 child: Text(body,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
@@ -104,7 +108,7 @@ class PageViewChildWidget extends StatelessWidget {
                         )),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 15.0),
+                padding: PaddingConstants.largeTopPadding,
                 child: miniText != null
                     ? Text(
                         textAlign: TextAlign.center,
@@ -117,9 +121,7 @@ class PageViewChildWidget extends StatelessWidget {
               ),
               const Spacer(),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  vertical: 50.0,
-                ),
+                padding: PaddingConstants.xxLargeVerticalPadding,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
@@ -127,16 +129,16 @@ class PageViewChildWidget extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      '/Register',
+                      RouteConstants.signUpRoute,
                     );
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 15.0),
+                    padding: PaddingConstants.largeVerticalPadding,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text(
-                          'Create a profile',
+                          TextConstants.learnMoreElevatedButtonIcon,
                           style: TextStyle(
                               color: Colors.black, fontWeight: FontWeight.bold),
                         ),
@@ -144,7 +146,7 @@ class PageViewChildWidget extends StatelessWidget {
                           width: 5,
                         ),
                         Icon(
-                          Icons.arrow_forward,
+                          IconConstants.learnMoreElevatedButtonIcon,
                           color: Colors.black,
                         ),
                       ],

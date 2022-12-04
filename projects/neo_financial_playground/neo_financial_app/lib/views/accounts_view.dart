@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
 
+import '../core/data/constants/icon_constants.dart';
+import '../core/data/constants/route_constants.dart';
+import '../core/data/constants/text_constants.dart';
 import '../widgets/custom_appbar_widget.dart';
 import '../widgets/custom_card_widget.dart';
+import '../widgets/title_and_button_widget.dart';
 
 class AccountsView extends StatelessWidget {
   const AccountsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    String amount = '0.00';
+    String amount = '0.00'; //TODO: Value will come from Mock api
 
     return WillPopScope(
         onWillPop: () async => false,
@@ -24,8 +29,8 @@ class AccountsView extends StatelessWidget {
                 crossAxisAlignment: WrapCrossAlignment.center,
                 alignment: WrapAlignment.center,
                 children: [
-                  const Icon(Icons.auto_awesome),
-                  Text('CA\$$amount'),
+                  const Icon(IconConstants.accountElevatedButtonIcon),
+                  Text('${TextConstants.accountsElevatedButtonText}$amount'),
                 ],
               ),
               onPressed: () {},
@@ -36,24 +41,24 @@ class AccountsView extends StatelessWidget {
                 child: IconButton(
                   onPressed: () {},
                   icon: const Icon(
-                    Icons.notifications_outlined,
+                    IconConstants.accountTopRightStartIcon,
                     color: Colors.black,
                   ),
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                padding: PaddingConstants.largeHorizontalPadding,
                 child: CircleAvatar(
                   backgroundColor: Colors.black12,
                   child: IconButton(
                     onPressed: () {
                       Navigator.pushNamed(
                         context,
-                        '/Profile',
+                        RouteConstants.profileRoute,
                       );
                     },
                     icon: const Icon(
-                      Icons.person,
+                      IconConstants.accountTopRightEndIcon,
                       color: Colors.black,
                     ),
                   ),
@@ -62,42 +67,37 @@ class AccountsView extends StatelessWidget {
             ],
           ),
           body: Container(
-              padding: const EdgeInsets.all(15),
+              padding: PaddingConstants.largeVerticalPadding,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Expanded(
                     flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 10.0),
-                          child: Text('Get your first product',
-                              style: Theme.of(context).textTheme.labelMedium),
-                        ),
-                        const Text(
-                            'Welcome! It\'ll take just a few minutes to apply for your first product.'),
-                        const Spacer(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const Text('Explore Products'),
-                            TextButton(
-                              onPressed: () {},
-                              style: TextButton.styleFrom(
-                                  foregroundColor: Colors.blue),
-                              child: const Text('Show all'),
-                            ),
-                          ],
-                        ),
-                      ],
+                    child: Padding(
+                      padding: PaddingConstants.largeHorizontalPadding,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: PaddingConstants.mediumVerticalPadding,
+                            child: Text(TextConstants.accountsTitleText,
+                                style: Theme.of(context).textTheme.labelMedium),
+                          ),
+                          const Text(TextConstants.accountsBodyText),
+                          const Spacer(),
+                          const TitleAndButtonWidget(
+                            title: TextConstants.accountsContentTitleText,
+                            buttonName: TextConstants.accountsTextButtonText,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
                     flex: 3,
                     child: ListView.builder(
+                      padding: PaddingConstants.largeLeftPadding,
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
                       itemCount: 5,
@@ -105,6 +105,7 @@ class AccountsView extends StatelessWidget {
                           SizedBox(
                         width: MediaQuery.of(context).size.width - 50,
                         child: const CustomCardWidget(
+                          //TODO: Data will be come from MockAPI
                           image: 'assets/images/homepage-card.jpg',
                           imageLabel: 'Neo Card',
                           title: 'Get Canada\'s best cashback card\u{00B9}',

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+
+import '../core/data/constants/icon_constants.dart';
+import '../core/data/constants/padding_constants.dart';
+import '../core/data/constants/text_constants.dart';
 import '../widgets/custom_appbar_widget.dart';
 import '../widgets/custom_information_card_widget.dart';
 import '../widgets/rewards_card_widget.dart';
@@ -35,8 +39,8 @@ class RewardsView extends StatelessWidget {
                   crossAxisAlignment: WrapCrossAlignment.center,
                   alignment: WrapAlignment.center,
                   children: [
-                    const Icon(Icons.auto_awesome),
-                    Text('CA\$$amount'),
+                    const Icon(IconConstants.rewardsCashbackElevatedButtonIcon),
+                    Text('${TextConstants.rewardsAmountText}$amount'),
                   ],
                 ),
                 onPressed: () {},
@@ -47,19 +51,19 @@ class RewardsView extends StatelessWidget {
                   child: IconButton(
                     onPressed: () {},
                     icon: const Icon(
-                      Icons.favorite,
+                      IconConstants.rewardsTopRightStartIcon,
                       color: Colors.black,
                     ),
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                  padding: PaddingConstants.largeHorizontalPadding,
                   child: CircleAvatar(
                     backgroundColor: Colors.black12,
                     child: IconButton(
                       onPressed: () {},
                       icon: const Icon(
-                        Icons.search,
+                        IconConstants.rewardsTopRightEndIcon,
                         color: Colors.black,
                       ),
                     ),
@@ -73,7 +77,7 @@ class RewardsView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: PaddingConstants.largeHorizontalPadding,
                     child: CustomInformationCardWidget(
                       //TODO: Background image will add to CutomInformationCardWidget
                       title: const Text('Take your card to the next level',
@@ -96,92 +100,90 @@ class RewardsView extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 15.0),
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height / 25,
-                      child: ListView.builder(
-                        physics: const ClampingScrollPhysics(),
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        itemCount: categories.length,
-                        itemBuilder: (BuildContext context, int index) =>
-                            Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 8.0, vertical: 2),
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.grey[300],
-                                  shape: const StadiumBorder()),
-                              child: Text(
-                                categories[index],
-                                style: const TextStyle(color: Colors.black),
-                              )),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
-                    child: TitleAndButtonWidget(
-                      title: 'Explore Nearby',
-                      buttonName: 'See all',
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15),
-                    height: MediaQuery.of(context).size.height / 3.5,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 25,
                     child: ListView.builder(
                       physics: const ClampingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
-                      itemCount: 3,
-                      itemBuilder: (BuildContext context, int index) =>
-                          RewardsCardWidget(
-                        image:
-                            const AssetImage('assets/images/people-splash.png'),
-                        leadingImage:
-                            const AssetImage('assets/images/people-splash.png'),
-                        title: 'Panda Sushi',
-                        subtitle: 'Rue Sainte-Catherine E',
-                        trailingWidget: Container(
-                          decoration: BoxDecoration(
-                            color: Colors.grey[300],
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Wrap(
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                spacing: 5,
-                                children: const [
-                                  Icon(
-                                    Icons.auto_awesome,
-                                    size: 15,
-                                    color: Colors.black,
-                                  ),
-                                  Text('3%')
-                                ]),
-                          ),
-                        ),
+                      itemCount: categories.length,
+                      itemBuilder: (BuildContext context, int index) => Padding(
+                        padding: PaddingConstants.customRewardsPadding,
+                        child: ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.grey[300],
+                                shape: const StadiumBorder()),
+                            child: Text(
+                              categories[index],
+                              style: const TextStyle(color: Colors.black),
+                            )),
                       ),
                     ),
                   ),
-                  const Divider(
-                    thickness: 10,
+                  Column(
+                    //TODO: This column will be dynamic with listbuilder
+                    children: [
+                      const Padding(
+                        padding: PaddingConstants.largeHorizontalPadding,
+                        child: TitleAndButtonWidget(
+                          title: 'Explore Nearby',
+                          buttonName: 'See all',
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height / 3.5,
+                        child: ListView.builder(
+                          padding: PaddingConstants.largeLeftPadding,
+                          physics: const ClampingScrollPhysics(),
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: 3,
+                          itemBuilder: (BuildContext context, int index) =>
+                              RewardsCardWidget(
+                            image: const AssetImage(
+                                'assets/images/people-splash.png'),
+                            leadingImage: const AssetImage(
+                                'assets/images/people-splash.png'),
+                            title: 'Panda Sushi',
+                            subtitle: 'Rue Sainte-Catherine E',
+                            trailingWidget: Container(
+                              padding: PaddingConstants.mediumPadding,
+                              decoration: BoxDecoration(
+                                color: Colors.grey[300],
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  spacing: 5,
+                                  children: const [
+                                    Icon(
+                                      Icons.auto_awesome,
+                                      size: 15,
+                                      color: Colors.black,
+                                    ),
+                                    Text('3%')
+                                  ]),
+                            ),
+                          ),
+                        ),
+                      ),
+                      const Divider(
+                        thickness: 10,
+                      ),
+                    ],
                   ),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 15.0),
+                    padding: PaddingConstants.largeHorizontalPadding,
                     child: TitleAndButtonWidget(
                       title: 'Dine Out or Order In',
                       buttonName: 'See all',
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15),
+                  SizedBox(
                     height: MediaQuery.of(context).size.height / 3.5,
                     child: ListView.builder(
+                      padding: PaddingConstants.largeLeftPadding,
                       physics: const ClampingScrollPhysics(),
                       shrinkWrap: true,
                       scrollDirection: Axis.horizontal,
@@ -200,7 +202,7 @@ class RewardsView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: PaddingConstants.mediumPadding,
                             child: Wrap(
                                 crossAxisAlignment: WrapCrossAlignment.center,
                                 spacing: 5,
@@ -226,7 +228,7 @@ class RewardsView extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(shape: const StadiumBorder()),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                padding: PaddingConstants.mediumVerticalPadding,
                 child: Wrap(
                     spacing: 5,
                     crossAxisAlignment: WrapCrossAlignment.center,

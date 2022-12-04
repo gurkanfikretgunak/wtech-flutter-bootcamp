@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/data/constants/padding_constants.dart';
+
 class CustomIconButtonWithLabelWidget extends StatelessWidget {
   final String label;
   final IconData icon;
@@ -24,7 +26,7 @@ class CustomIconButtonWithLabelWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            padding: PaddingConstants.mediumVerticalPadding,
             child: Text(
               label,
               style: Theme.of(context).textTheme.labelLarge,

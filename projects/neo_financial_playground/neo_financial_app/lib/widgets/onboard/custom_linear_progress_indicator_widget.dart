@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/provider/onboarding_load_widget_state.dart';
+import '../../core/data/constants/padding_constants.dart';
+import '../../core/provider/onboard_state.dart';
 
 class CustomLinearProgressIndicatorWidget extends StatefulWidget {
   const CustomLinearProgressIndicatorWidget({
@@ -32,7 +33,7 @@ class _CustomLinearProgressIndicatorWidgetState
         //TODO: This side will be in provider
       });
     controller.animateTo(1.0).then((value) => widget.widgetIndex < 3
-        ? Provider.of<OnboardingLoadWidgetState>(context, listen: false)
+        ? Provider.of<OnboardState>(context, listen: false)
             .changePageContoller(widget.widgetIndex + 1)
         : null);
 
@@ -49,7 +50,7 @@ class _CustomLinearProgressIndicatorWidgetState
   Widget build(BuildContext context) {
     return Expanded(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4.0),
+        padding: PaddingConstants.smallHorizontalPadding,
         child: LinearProgressIndicator(
           color: Colors.white,
           backgroundColor: Colors.grey,
