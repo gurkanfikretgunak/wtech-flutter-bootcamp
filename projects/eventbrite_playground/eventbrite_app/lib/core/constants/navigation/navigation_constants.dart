@@ -1,6 +1,8 @@
 class NavigationConstants {
   static const welcomePage = '/';
   static const homePage = '/home';
+  static const notificationCenterPage = '/notificationCenter';
+  static const linkedAccountsPage = '/linkedAccounts';
   static const eventDetailPage = '/eventDetail';
   static const searchPage = '/search';
   static const ticketPage = '/ticket';

@@ -1,5 +1,7 @@
 import 'package:eventbrite_app/core/constants/app/app_constants.dart';
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
+import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 class SliverDropdown extends StatelessWidget with PaddingConstants {
@@ -31,7 +33,11 @@ class SliverDropdown extends StatelessWidget with PaddingConstants {
             ),
           ],
         ),
-        IconButton(onPressed: () {}, icon: const Icon(Icons.notifications_outlined))
+        IconButton(
+            onPressed: () {
+              NavigationService.instance.navigateToPage(routeName: NavigationConstants.notificationCenterPage);
+            },
+            icon: const Icon(Icons.notifications_outlined))
       ],
     );
   }

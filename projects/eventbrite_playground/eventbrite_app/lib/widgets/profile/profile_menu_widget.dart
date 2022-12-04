@@ -1,4 +1,5 @@
 import 'package:eventbrite_app/core/constants/app/padding_constants.dart';
+import 'package:eventbrite_app/core/init/navigation/navigation_service.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenu extends StatelessWidget with PaddingConstants {
@@ -19,6 +20,9 @@ class ProfileMenu extends StatelessWidget with PaddingConstants {
         return Column(
           children: [
             ListTile(
+              onTap: () {
+                NavigationService.instance.navigateToPage(routeName: headers[index]['route']);
+              },
               leading: headers[index]['icon'] != null ? Icon(headers[index]['icon']) : null,
               title: Text(
                 headers[index]['name'],

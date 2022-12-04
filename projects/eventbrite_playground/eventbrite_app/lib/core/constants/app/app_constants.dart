@@ -1,3 +1,4 @@
+import 'package:eventbrite_app/core/constants/navigation/navigation_constants.dart';
 import 'package:flutter/material.dart';
 
 class AppConstants {
@@ -109,13 +110,17 @@ class AppConstants {
   static const String ticketPlaceHolderButtonText = 'Find my tickets';
   //Profile
   static const List<Map<String, dynamic>> profileMenuHeaders = [
-    {'name': 'Notification Center', 'icon': Icons.notifications_outlined},
-    {'name': 'Linked Accounts'},
-    {'name': 'Following'},
-    {'name': 'Ticket Issues'},
-    {'name': 'Manage Events'},
-    {'name': 'Credits'},
-    {'name': 'Settings'},
+    {
+      'name': 'Notification Center',
+      'icon': Icons.notifications_outlined,
+      'route': NavigationConstants.notificationCenterPage
+    },
+    {'name': 'Linked Accounts', 'route': NavigationConstants.linkedAccountsPage},
+    {'name': 'Following', 'route': NavigationConstants.notificationCenterPage},
+    {'name': 'Ticket Issues', 'route': NavigationConstants.notificationCenterPage},
+    {'name': 'Manage Events', 'route': NavigationConstants.notificationCenterPage},
+    {'name': 'Credits', 'route': NavigationConstants.notificationCenterPage},
+    {'name': 'Settings', 'route': NavigationConstants.notificationCenterPage},
   ];
   static const List<Map<String, dynamic>> profileStats = [
     {'name': 'Likes', 'number': 0},

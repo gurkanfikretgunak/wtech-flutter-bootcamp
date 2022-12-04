@@ -3,7 +3,9 @@ import 'package:eventbrite_app/view/base/base_view.dart';
 import 'package:eventbrite_app/view/favorite/favorite_view.dart';
 import 'package:eventbrite_app/view/get_started/get_started_view.dart';
 import 'package:eventbrite_app/view/home/home_view.dart';
+import 'package:eventbrite_app/view/linked_accounts/linked_accounts_view.dart';
 import 'package:eventbrite_app/view/login/password_view.dart';
+import 'package:eventbrite_app/view/notification_center/notification_center_view.dart';
 import 'package:eventbrite_app/view/profile/profile_view.dart';
 import 'package:eventbrite_app/view/register/register_view.dart';
 import 'package:eventbrite_app/view/search/search_view.dart';
@@ -23,6 +25,10 @@ class NavigationRoute {
         return normalNavigate(widget: const BaseView());
       case NavigationConstants.homePage:
         return normalNavigate(widget: const HomeView());
+      case NavigationConstants.notificationCenterPage:
+        return normalNavigate(widget: NotificationCenterView());
+      case NavigationConstants.linkedAccountsPage:
+        return normalNavigate(widget: LinkedAccountsView());
       case NavigationConstants.eventDetailPage:
         return normalNavigate(widget: EventDetailWidget());
       case NavigationConstants.searchPage:
