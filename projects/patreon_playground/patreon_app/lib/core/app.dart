@@ -3,6 +3,7 @@ import 'package:patreon_app/core/provider/bottomNavBarProvider.dart';
 import 'package:patreon_app/core/provider/loginProvider.dart';
 import 'package:patreon_app/core/provider/registerProvider.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
+import 'package:patreon_app/views/app_info.dart';
 
 import 'package:patreon_app/views/auth_page.dart';
 import 'package:patreon_app/views/explore_page.dart';
@@ -11,6 +12,7 @@ import 'package:patreon_app/views/login_email_page.dart';
 import 'package:patreon_app/views/messages_page.dart';
 import 'package:patreon_app/views/myMemberships.dart';
 import 'package:patreon_app/views/navigation_page.dart';
+import 'package:patreon_app/views/notification_settings.dart';
 import 'package:patreon_app/views/register_page.dart';
 import 'package:patreon_app/views/search_page.dart';
 import 'package:patreon_app/views/user_page.dart';
@@ -47,7 +49,9 @@ class MyApp extends StatelessWidget {
           '/navigate': (context) => HomeScreen(),
           '/membership': (context) => const MyMemberships(),
           '/settings': (context) => const Settings(),
-          '/userPage': (context) => const UserPage()
+          '/userPage': (context) => const UserPage(),
+          '/notification': (context) => const NotificationSettings(),
+          '/appInfo': (context) => const AppInfo(),
         },
         theme: CustomTheme.customThemeData(),
         //onGenerateRoute: Navigation.navigationGenarator,

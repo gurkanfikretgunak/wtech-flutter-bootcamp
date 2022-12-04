@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import '../widgets/customAppBar.dart';
+import '../core/themes/custom_theme.dart';
 import '../widgets/settingsRows.dart';
 
 class Settings extends StatefulWidget {
@@ -19,23 +19,25 @@ class _SettingsState extends State<Settings> {
     }
   }
 
+  bool isSwitched = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: "Settings",
-        w: 110,
-        widget: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/navigate");
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.grey,
-              )),
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "Settings",
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
         ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/navigate");
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            )),
       ),
       body: Column(children: [
         SettingsRows(
@@ -43,15 +45,34 @@ class _SettingsState extends State<Settings> {
           text: "Apparence",
         ),
         SettingsRows(
-          tap: () {},
+          tap: () {
+            Navigator.pushNamed(context, "/notification");
+          },
           text: "Notification settings",
         ),
-        SettingsRows(
-          tap: () {},
-          text: "Private profile",
+        ListTile(
+          title: Text(
+            "Private profile",
+            style: CustomTheme.customThemeData().textTheme.bodyMedium,
+          ),
+          subtitle: Text(
+            "Hide your pledges from the public",
+            style: CustomTheme.customThemeData().textTheme.displayMedium,
+          ),
+          trailing: Switch(
+            value: isSwitched,
+            onChanged: (value) {
+              setState(() {
+                isSwitched = value;
+              });
+            },
+            activeTrackColor: Colors.red.shade100,
+            activeColor: Colors.red,
+          ),
         ),
-        const SizedBox(
+        Container(
           height: 20,
+          color: Colors.black12,
         ),
         SettingsRows(
           tap: () {
@@ -76,8 +97,47 @@ class _SettingsState extends State<Settings> {
           text: "Give feedback",
         ),
         SettingsRows(
-          tap: () {},
+          tap: () {
+            Navigator.pushNamed(context, "/appInfo");
+          },
           text: "App info",
+        ),
+        Container(
+          height: 130,
+          width: 420,
+          color: Colors.black12,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: InkWell(
+                  onTap: () {},
+                  child: Container(
+                    height: 50,
+                    width: 300,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colors.black12),
+                        borderRadius: BorderRadius.circular(10)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.logout_outlined,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          "Log out",
+                          style: CustomTheme.customThemeData()
+                              .textTheme
+                              .labelMedium,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ]),
     );

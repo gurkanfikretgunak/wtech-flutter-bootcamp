@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../core/themes/custom_theme.dart';
+
 class UserPage extends StatefulWidget {
   const UserPage({super.key});
 
@@ -10,21 +12,48 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        SizedBox(
-          width: double.infinity,
-          height: 200,
-          child: Image.network(
-              "https://handpan-temple.fr/images/bf5d6641d59b465ae5c69e9398f8f767.png"),
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "User Name",
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
         ),
-        const CircleAvatar(
-          radius: 35,
-          backgroundImage: NetworkImage(
-              "https://media-exp1.licdn.com/dms/image/C4E03AQH8GO65xmNo5Q/profile-displayphoto-shrink_200_200/0/1590353439991?e=1674086400&v=beta&t=U2hZhypIBVdbX9QpPWiQrw3NHjvu7_b0uUiSHp6OyK4"),
-        ),
-      ],
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/navigate");
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            )),
+        actions: [
+          IconButton(
+              onPressed: () {},
+              icon: const Icon(
+                Icons.more_vert_rounded,
+                color: Colors.grey,
+              )),
+        ],
+      ),
+      body: Column(children: [
+        Stack(
+          alignment: Alignment.center,
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 100,
+              child: Image.network(
+                  "https://media-exp1.licdn.com/dms/image/C5616AQGPEiI4G1RQgA/profile-displaybackgroundimage-shrink_200_800/0/1619455639522?e=2147483647&v=beta&t=W7xL8p-4v9CNeC5nzTrJ-tvsMWlsKDwvJF3HKZrCPUU"),
+            ),
+            const CircleAvatar(
+              radius: 35,
+              backgroundImage: NetworkImage(
+                  "https://media-exp1.licdn.com/dms/image/D4D03AQGomWCz5QmOBw/profile-displayphoto-shrink_800_800/0/1666016222737?e=2147483647&v=beta&t=T5GyPj07QNac7PkNqbD1NIRgId8o_tJpO0dXnMa8KCE"),
+            ),
+          ],
+        )
+      ]),
     );
   }
 }

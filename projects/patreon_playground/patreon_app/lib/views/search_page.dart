@@ -22,20 +22,21 @@ class _SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(
-        title: "Search",
-        w: 120,
-        widget: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/navigate");
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.grey,
-              )),
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "Search",
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
         ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/navigate");
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            )),
       ),
       body: SizedBox(
         child: Column(

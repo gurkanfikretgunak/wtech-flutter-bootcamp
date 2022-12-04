@@ -22,6 +22,8 @@ class CustomTheme {
         foregroundColor: Colors.white,
       )),
       textTheme: const TextTheme(
+        bodyLarge: TextStyle(
+            color: Colors.black, fontSize: 17, fontWeight: FontWeight.bold),
         bodySmall: TextStyle(fontSize: 14, color: Colors.black),
         bodyMedium: TextStyle(color: Colors.black, fontSize: 17),
         labelMedium: TextStyle(
@@ -30,6 +32,7 @@ class CustomTheme {
             color: Colors.black54, fontWeight: FontWeight.bold, fontSize: 27),
         displaySmall: TextStyle(color: Colors.white, fontSize: 14),
         labelSmall: TextStyle(color: Colors.red, fontSize: 16),
+        displayMedium: TextStyle(color: Colors.black54, fontSize: 15),
       ),
       iconTheme: const IconThemeData(color: Colors.white),
     );

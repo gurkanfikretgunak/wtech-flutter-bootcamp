@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/themes/custom_theme.dart';
 import '../widgets/customAppBar.dart';
 import '../widgets/notFollowingWidget.dart';
 
@@ -13,20 +14,21 @@ class _MyMembershipsState extends State<MyMemberships> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        title: "My Memberships",
-        w: 90,
-        widget: CircleAvatar(
-          backgroundColor: Colors.white,
-          child: IconButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "/navigate");
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.grey,
-              )),
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        title: Text(
+          "My Memberships",
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
         ),
+        leading: IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, "/navigate");
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+              color: Colors.grey,
+            )),
       ),
       body: const NotFollowingWidget(),
     );

@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:patreon_app/core/themes/custom_theme.dart';
-import 'package:patreon_app/widgets/customAppBar.dart';
 import '../core/data/models/user/user.dart';
 import '../core/data/services/service.dart';
 import '../widgets/customSearchListTile.dart';
@@ -23,14 +22,22 @@ class _ExplorePageState extends State<ExplorePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: CustomAppBar(
-        title: "Find creators",
-        w: MediaQuery.of(context).size.width / 4,
-        widget: InkWell(
-            onTap: () {
-              customShowBottom(context);
-            },
-            child: CircleAvatar(child: Image.network(""))),
+      appBar: AppBar(
+        elevation: 0,
+        leadingWidth: 50,
+        centerTitle: true,
+        title: Text(
+          "Find Creators",
+          style: CustomTheme.customThemeData().textTheme.labelMedium,
+        ),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: InkWell(
+              onTap: () {
+                customShowBottom(context);
+              },
+              child: CircleAvatar(radius: 10, child: Image.network(""))),
+        ),
       ),
       body: SizedBox(
         child: Column(
