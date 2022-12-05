@@ -2,7 +2,6 @@ import 'package:breeze_app_clone/views/guided_tour/step1.dart';
 import 'package:breeze_app_clone/views/guided_tour/step_screen.dart';
 import 'package:breeze_app_clone/views/home_screen_view.dart';
 import 'package:breeze_app_clone/views/screen_view.dart';
-import 'package:breeze_app_clone/widgets/app_bar.dart';
 import 'package:breeze_app_clone/widgets/text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';

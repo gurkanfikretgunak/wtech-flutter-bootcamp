@@ -1,4 +1,4 @@
-import 'package:breeze_app_clone/widgets/app_bar.dart';
+import 'package:breeze_app_clone/widgets/app_bars/app_bar.dart';
 import 'package:breeze_app_clone/widgets/bottom_nav_bar.dart';
 import 'package:breeze_app_clone/widgets/feelings.dart';
 import 'package:breeze_app_clone/widgets/floating_action_button.dart';

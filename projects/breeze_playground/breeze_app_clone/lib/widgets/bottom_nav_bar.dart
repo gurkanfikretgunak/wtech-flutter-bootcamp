@@ -1,8 +1,10 @@
 import 'package:breeze_app_clone/views/home_screen_view.dart';
+import 'package:breeze_app_clone/views/login_screen_view.dart';
 import 'package:breeze_app_clone/views/settings_screen_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:onboarding/onboarding.dart';
 
 class CustomNavBar extends StatefulWidget {
   const CustomNavBar({Key? key}) : super(key: key);
@@ -16,7 +18,7 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   static const List<Widget> _widgetOptions = [
     HomeView(),
-    Text("Test Page"),
+    LoginScreen(),
     Text("Stats Page"),
     SettingsView(),
   ];

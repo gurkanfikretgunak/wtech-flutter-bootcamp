@@ -1,7 +1,9 @@
 import 'package:breeze_app_clone/views/guided_tour/step_screen.dart';
 import 'package:breeze_app_clone/views/home_screen_view.dart';
+import 'package:breeze_app_clone/views/login_screen_view.dart';
+import 'package:breeze_app_clone/views/register_screen.dart';
 import 'package:breeze_app_clone/views/settings_screen_view.dart';
-import 'package:breeze_app_clone/widgets/app_bar.dart';
+import 'package:breeze_app_clone/views/tests_screen_view.dart';
 import 'package:breeze_app_clone/widgets/bottom_nav_bar.dart';
 import 'package:breeze_app_clone/widgets/floating_action_button.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class _ScreenViewState extends State<ScreenView> {
 
   static const List<Widget> _widgetOptions = [
     HomeView(),
-    Text("Tests Page"),
+    TestsScreen(),
     Text("Stats Page"),
     SettingsView(),
   ];
