@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:trainlineplayground/core/data/api/user_client.dart';
 import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 
@@ -205,6 +206,7 @@ class SearchWidget extends StatelessWidget {
     return InkWell(
       onTap: () {
         Navigator.of(context).pushNamed('/findticket');
+        // UserModelState().removedata();
       },
       child: Container(
         alignment: Alignment.center,
@@ -255,13 +257,24 @@ class AddPassangerWidget extends StatelessWidget {
 
                       return ListView.builder(
                         shrinkWrap: true,
-                        itemCount: mainuser?.length,
+                        itemCount: 1,
                         itemBuilder: (context, index) {
                           return Container(
+                            alignment: Alignment.centerLeft,
+                            height: 50,
                             
-                            child: Card(
-                              child: ListTile(title: Text(mainuser![index].userName.toString())),
-                            ),
+                            child: Consumer<UserModelState>(
+                              builder: (context, value, child) => 
+                              Row(
+                                children: [
+                                  IconButton(onPressed: () {
+                                    value.changePassangerAdd();
+                                  }, icon: value.isPassAddded ? const Icon(Icons.check_box):const Icon(Icons.check_box_outlined)),
+                                  Text(mainuser![index].userName.toString(),style: const TextStyle(fontSize: 23),),
+                                ],
+                              ),
+                            )
+                            
                           );
                         } 
                         
@@ -273,67 +286,85 @@ class AddPassangerWidget extends StatelessWidget {
                     
                       }
                   ),
+                  const LiveTicketBottomPadding(),
                   Container(
+                    height: 50,
                     decoration: BoxDecoration(
-                      color: Colors.blueGrey[100]
-                    ),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all()
+                      ),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        
-                        const Text(CustomTextsConstants.adult,style: TextStyle(fontSize: 24),),
-                        TextButton(onPressed: ()=> showModalBottomSheet(
-                          
-                          context: context,
-                         builder:(context) =>
-                          Column(
-                            children: [
-                              InkWell( //LISTVIEW BUILDERA CEVRILECEK
-                                child: Container(
-                                  
-                                  width: double.infinity,
-                                  height: HomePageSize.passangerSize,
-                                  child:  const Center(child: Text(CustomTextsConstants.youthpass,style: TextStyle(fontSize: 30),)),
-                                ),
-                                onTap: () {
-                                  
-                                },
-                              ),
-                              InkWell(
-                                child: Container(
-                                  
-                                  width: double.infinity,
-                                  height: HomePageSize.passangerSize,
-                                  child: const Center(child: Text(CustomTextsConstants.adultpass,style: TextStyle(fontSize: 30),)),
-                                ),
-                                onTap: () {
-                                  
-                                },
-                              ),
-                              InkWell(
-                                child: Container(
-                                  
-                                  width: double.infinity,
-                                  height: HomePageSize.passangerSize,
-                                  child: const Center(child: Text(CustomTextsConstants.oldpass,style: TextStyle(fontSize: 30),)),
-                                ),
-                                onTap: () {
-                                  
-                                },
-                              )
-                            ]
-                          )
-                         
-                         ),
-                         child: 
-
-                         const Text(CustomTextsConstants.change,style: TextStyle(color: Colors.blue),)
-                         
-                         ),
-                         
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      
+                      children:const [
+                        TextFieldPadding(),
+                        Icon(Icons.add),
+                        TextFieldPadding(),
+                        Text("Add a passanger",style: TextStyle(fontSize: 23),),
                       ],
-                    ),
+                    ),  
                   ),
+                  // Container(
+                  //   decoration: BoxDecoration(
+                  //     color: Colors.blueGrey[100]
+                  //   ),
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //     children: [
+                        
+                  //       const Text(CustomTextsConstants.adult,style: TextStyle(fontSize: 24),),
+                  //       TextButton(onPressed: ()=> showModalBottomSheet(
+                          
+                  //         context: context,
+                  //        builder:(context) =>
+                  //         Column(
+                  //           children: [
+                  //             InkWell( //LISTVIEW BUILDERA CEVRILECEK
+                  //               child: Container(
+                                  
+                  //                 width: double.infinity,
+                  //                 height: HomePageSize.passangerSize,
+                  //                 child:  const Center(child: Text(CustomTextsConstants.youthpass,style: TextStyle(fontSize: 30),)),
+                  //               ),
+                  //               onTap: () {
+                                  
+                  //               },
+                  //             ),
+                  //             InkWell(
+                  //               child: Container(
+                                  
+                  //                 width: double.infinity,
+                  //                 height: HomePageSize.passangerSize,
+                  //                 child: const Center(child: Text(CustomTextsConstants.adultpass,style: TextStyle(fontSize: 30),)),
+                  //               ),
+                  //               onTap: () {
+                                  
+                  //               },
+                  //             ),
+                  //             InkWell(
+                  //               child: Container(
+                                  
+                  //                 width: double.infinity,
+                  //                 height: HomePageSize.passangerSize,
+                  //                 child: const Center(child: Text(CustomTextsConstants.oldpass,style: TextStyle(fontSize: 30),)),
+                  //               ),
+                  //               onTap: () {
+                                  
+                  //               },
+                  //             )
+                  //           ]
+                  //         )
+                         
+                  //        ),
+                  //        child: 
+
+                  //        const Text(CustomTextsConstants.change,style: TextStyle(color: Colors.blue),)
+                         
+                  //        ),
+                         
+                  //     ],
+                  //   ),
+                  // ),
                   Container(
                     width: double.infinity,
                     height: HomePageSize.textFieldHeight,
@@ -467,8 +498,8 @@ class HomePageBottomNavBar extends StatelessWidget {
           label: CustomTextsConstants.myticket),
       BottomNavigationBarItem(
           icon: IconButton(onPressed: () {
-            // ignore: unrelated_type_equality_checks
-            if(UserModelState().isUserLoggedIn()==false){
+          
+            if(UserModelState().isUserLoggedIn() == false){
               Navigator.of(context).pushNamed('/rightpage');
             }
             else{

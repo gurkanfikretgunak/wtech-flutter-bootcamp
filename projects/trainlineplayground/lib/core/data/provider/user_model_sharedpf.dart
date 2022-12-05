@@ -6,8 +6,21 @@ import 'package:trainlineplayground/views/register_page.dart';
 
 class UserModelState with ChangeNotifier{
 
-  
+  late bool _isPassAddded=false;
 
+  bool get isPassAddded => _isPassAddded;
+
+  set isPassAddded(bool isPassAddded) {
+    _isPassAddded = isPassAddded;
+  }
+
+  void changePassangerAdd(){
+    isPassAddded = !isPassAddded;
+    notifyListeners();
+  }
+
+
+  late bool? isuserlogin = false;
   loadUserName(String username) async {
     SharedPreferences userPreference =await SharedPreferences.getInstance();
     username = userPreference.getString('username')!;
@@ -23,7 +36,16 @@ class UserModelState with ChangeNotifier{
 
   Future<bool?> isUserLoggedIn() async {
     SharedPreferences userPreference =await SharedPreferences.getInstance();
-    return userPreference.getBool('isUserLoggedIn');
+    isuserlogin =userPreference.getBool('isUserLoggedIn');
+    return isuserlogin;
+  }
+
+  Future<void> removedata() async{
+    SharedPreferences userPreference = await SharedPreferences.getInstance();
+    userPreference.remove('username');
+    userPreference.remove('usersurname');
+    userPreference.remove('useremail');
+    userPreference.remove('isUserLoggedIn');
   }
  
 }

@@ -7,6 +7,7 @@ import 'package:trainlineplayground/constants/size_constants/homepage_size.dart'
 import 'package:trainlineplayground/constants/text_constants/constants.dart';
 import 'package:trainlineplayground/constants/paddings/home_page_paddings.dart';
 import 'package:trainlineplayground/core/data/api/user_client.dart';
+import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 import '../core/data/provider/home_page_state.dart';
 import '../widgets/orjin_homepage_widgets.dart';
 class OriginalHomePage extends StatefulWidget {
@@ -21,14 +22,19 @@ class OriginalHomePageState extends State<OriginalHomePage> {
   late String outboundString;
   late String returnString;
   late TextEditingController _returnpickercontroller;
-  late bool isUserLogIn = false;
+  late bool? isUserLogIn = false;
+  late bool mainUserAdded=true;
   @override
   void initState() {
-    super.initState();
     datepickercontroller = TextEditingController();
     outboundString = datepickercontroller.text;
     _returnpickercontroller = TextEditingController();
     returnString = _returnpickercontroller.text;
+    isUserLogIn = UserModelState().isuserlogin;
+    mainUserAdded = UserModelState().isPassAddded;
+    super.initState();
+
+    
   }
   static final userclient = UserClient(Dio(BaseOptions(contentType: 'application/json')));
   @override

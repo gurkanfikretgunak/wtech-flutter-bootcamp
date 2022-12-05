@@ -252,7 +252,7 @@ class accountContainer extends StatelessWidget {
               Text(CustomTextsConstants.account,style:TextStyle(fontSize: 20,color: Colors.white)),
             ],
           ),
-          const ButtonPadding(),
+          
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -270,6 +270,7 @@ class accountContainer extends StatelessWidget {
                         itemBuilder: (context, index) => 
                         Text(
                           user![index].userEmail ?? 'biseyyok'
+                          , style: const TextStyle(fontSize: 20,color: Colors.white),
                         ),
                       ),
                     );
