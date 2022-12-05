@@ -15,7 +15,9 @@ class FunctionalWidgets {
         UserClient(Dio(BaseOptions(contentType: "applications/json")));
     return ElevatedButton(
         onPressed: () {
-          UserModelState().loadUserInformation();
+          // ignore: unrelated_type_equality_checks
+          if(UserModelState().isUserLoggedIn() == false)
+          {UserModelState().locateUsername(RegisterPageItems.nameController.text, RegisterPageItems.surnameController.text, RegisterPageItems.emailController.text);}
           showDialog<String>(
             context: context,
             builder: (BuildContext context) => FutureBuilder(

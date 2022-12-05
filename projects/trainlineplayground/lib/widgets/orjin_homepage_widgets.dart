@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:trainlineplayground/core/data/api/user_client.dart';
+import 'package:trainlineplayground/core/data/provider/user_model_sharedpf.dart';
 
 import 'package:trainlineplayground/main.dart';
 
@@ -459,13 +460,21 @@ class HomePageBottomNavBar extends StatelessWidget {
           label: CustomTextsConstants.search),
       BottomNavigationBarItem(
           icon: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/');
+              },
               icon: const Icon(Icons.airplane_ticket_outlined)),
           label: CustomTextsConstants.myticket),
       BottomNavigationBarItem(
           icon: IconButton(onPressed: () {
+            // ignore: unrelated_type_equality_checks
+            if(UserModelState().isUserLoggedIn()==false){
+              Navigator.of(context).pushNamed('/rightpage');
+            }
+            else{
+              Navigator.of(context).pushNamed('/account');
+            }
             
-            Navigator.of(context).pushNamed('/rightpage');  
             // kontrol sağla eğer giriş yapıldıysa account page y egitsin
             // api den kontrol sağla eğer giriş yapıldıysa account page e gitsin
           },

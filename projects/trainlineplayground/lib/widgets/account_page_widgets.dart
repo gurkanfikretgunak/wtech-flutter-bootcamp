@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../constants/paddings/account_page_paddings.dart';
 import '../constants/text_constants/constants.dart';
+import '../core/data/api/user_client.dart';
+import '../core/data/provider/user_model_sharedpf.dart';
+import '../views/account_page.dart';
 
 
 class AccountPageList{
@@ -205,9 +208,9 @@ class MessagesRow extends StatelessWidget {
     return Row(
       
       children: [
-        RowPadding(),
+        const RowPadding(),
         const Icon(Icons.local_post_office_outlined),
-        MessagePadding(),
+        const MessagePadding(),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children:const [
@@ -229,6 +232,8 @@ class accountContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
+   
     return Container(
       height: 100,
       width: double.infinity,
@@ -247,12 +252,32 @@ class accountContainer extends StatelessWidget {
               Text(CustomTextsConstants.account,style:TextStyle(fontSize: 20,color: Colors.white)),
             ],
           ),
-          ButtonPadding(),
+          const ButtonPadding(),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: const[
-              RowPadding(),
-              Text(CustomTextsConstants.api,style: TextStyle(color: Colors.white),),
+            children: [
+              const RowPadding(),
+              FutureBuilder(
+                future: AccountPageState.userclient.getUser(),
+                builder: (context, snapshot) {
+                  if(snapshot.connectionState == ConnectionState.done){
+                    final List<Users>? user = snapshot.data;
+                    return SizedBox(
+                      height: 50,
+                      width: 350,
+                      child: ListView.builder(
+                        itemCount: 1,
+                        itemBuilder: (context, index) => 
+                        Text(
+                          user![index].userEmail ?? 'biseyyok'
+                        ),
+                      ),
+                    );
+                  }else{
+                    return CircularProgressIndicator();
+                  }
+                  
+        }),
             ],
           )
         ],
@@ -275,13 +300,20 @@ class AccountPageBottomNavBar extends StatelessWidget {
           label: CustomTextsConstants.search),
       BottomNavigationBarItem(
           icon: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed('/');
+              },
               icon: const Icon(Icons.airplane_ticket_outlined)),
           label: CustomTextsConstants.myticket),
       BottomNavigationBarItem(
           icon: IconButton(
               onPressed: () {
-                Navigator.of(context).pushNamed('/');
+                 if(UserModelState().isUserLoggedIn()==false){
+               Navigator.of(context).pushNamed('/rightpage');
+            }
+            else{
+               Navigator.of(context).pushNamed('/account');
+            }
               },
               icon: const Icon(Icons.person)),
           label: CustomTextsConstants.signin),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:trainlineplayground/routes/routes.dart';
 import '../views/orjin_home_page.dart';
+import '../views/register_page.dart';
 import 'data/provider/home_page_state.dart';
 import 'data/provider/register_page_state.dart';
 import 'data/provider/user_model_sharedpf.dart';

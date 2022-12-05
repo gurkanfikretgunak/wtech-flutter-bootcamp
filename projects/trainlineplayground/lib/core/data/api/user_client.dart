@@ -13,6 +13,8 @@ abstract class UserClient {
   factory UserClient(Dio dio) = _UserClient;
   @GET('/users')
   Future<List<Users>> getUser();
+  @GET('/users/{userEmail}')
+  Future<Users> getUserEmail(@Path('userEmail') String userEmail);
   
   // @POST("/users")
   // Future<List<Users>> createUser(@Body() Users user);
