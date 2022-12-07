@@ -3,6 +3,7 @@ import 'package:provider/single_child_widget.dart';
 
 import '../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
 import '../../views/authentication/sign_up/sign_up_view_model.dart';
+import '../../views/course_detail/course_detail_view_model.dart';
 import '../../views/home/drawer/theme/theme_setting_view_model.dart';
 import 'bottom_nav_bar_state.dart';
 
@@ -12,5 +13,6 @@ class MultiProviderInit {
     ChangeNotifierProvider(create: (_) => SignUpViewModel()),
     ChangeNotifierProvider(create: (_) => SignInWithEmailViewModel()),
     ChangeNotifierProvider(create: (_) => ThemeSettingViewModel()),
+    ChangeNotifierProvider(create: (_) => CourseDetailViewModel()),
   ];
 }

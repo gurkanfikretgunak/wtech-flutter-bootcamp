@@ -1,3 +1,4 @@
+import 'package:coursera/views/course_detail/course_detail_view.dart';
 import 'package:flutter/material.dart';
 
 import '../../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view.dart';
@@ -26,6 +27,9 @@ class NavigationRoute {
         return _buildMaterialPageRoute(const HomeView());
       case "/ThemeSettingView":
         return _buildMaterialPageRoute(const ThemeSettingView());
+      case "/CourseDetailView":
+        return _buildMaterialPageRoute(const CourseDetailView());
+
       default:
         return _buildMaterialPageRoute(
           Text('No route defined for ${settings.name}'),

@@ -36,7 +36,7 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
                 itemBuilder: (context, index) {
                   return CourseCard(
                     isFreeCoursesList: true,
-                    data: snapshot.data![index],
+                    course: snapshot.data![index],
                   );
                 },
               );

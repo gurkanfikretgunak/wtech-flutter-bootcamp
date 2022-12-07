@@ -1,43 +1,53 @@
+import 'package:coursera/core/init/routes/custom_navigator.dart';
+import 'package:coursera/views/course_detail/course_detail_view_model.dart';
+import 'package:provider/provider.dart';
+
 import '../../../../core/components/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
 import '../../../../core/components/custom_viewer_image.dart';
-import '../../../../core/components/text/text_libary.dart';
-import '../../../../core/constants/constant_libary.dart';
+import '../../../../core/data/model/course.dart';
+import '../../../authentication/sign_up/sign_up_view_model.dart';
+import 'course_information.dart';
 
 class CourseCard extends StatelessWidget {
   const CourseCard({
     super.key,
-    required this.data,
+    required this.course,
     this.isFreeCoursesList,
   });
-  final dynamic data;
+  final Course course;
   final bool? isFreeCoursesList;
   @override
   Widget build(BuildContext context) {
     return isFreeCoursesList != null
-        ? Padding(
-            padding: context.onlyBottomPaddingNormal,
-            child: CustomCard(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    height: context.dynamicHeight(0.08),
-                    child: CourseInformation(
-                      data: data,
+        ? GestureDetector(
+            onTap: () {
+              CustomNavigator.goToScreen(context, '/CourseDetailView');
+              context.read<CourseDetailViewModel>().courseDetail = course;
+            },
+            child: Padding(
+              padding: context.onlyBottomPaddingNormal,
+              child: CustomCard(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: context.dynamicHeight(0.08),
+                      child: CourseInformation(
+                        course: course,
+                      ),
                     ),
-                  ),
-                  Container(
-                    color: Colors.pink,
-                    width: context.dynamicWidth(0.3),
-                    child: CustomImageViewer(
-                      url: data.courseImage.toString(),
+                    Container(
+                      color: Colors.pink,
+                      width: context.dynamicWidth(0.3),
+                      child: CustomImageViewer(
+                        url: course.courseImage.toString(),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           )
@@ -46,60 +56,15 @@ class CourseCard extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                CustomImageViewer(url: data.courseImage.toString()),
+                CustomImageViewer(url: course.courseImage.toString()),
                 SizedBox(
                   height: context.dynamicHeight(0.12),
                   child: CourseInformation(
-                    data: data,
+                    course: course,
                   ),
                 ),
               ],
             ),
           );
-  }
-}
-
-class CourseInformation extends StatelessWidget {
-  const CourseInformation({
-    super.key,
-    required this.data,
-  });
-
-  final dynamic data;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CustomText(
-          textAlign: TextAlign.start,
-          text: data.courseName.toString(),
-          fontSize: 16,
-          maxLines: 2,
-        ),
-        CustomText(
-          textAlign: TextAlign.start,
-          text: data.courseDescription.toString(),
-          color: ColorConstant.instance.appGrey3,
-          maxLines: 2,
-        ),
-        Row(
-          children: [
-            Icon(
-              Icons.star,
-              size: 18,
-              color: ColorConstant.instance.appGrey3,
-            ),
-            context.emptySizedWidthBoxLow,
-            CustomText(
-              text: data.coursePoint.toString(),
-              color: ColorConstant.instance.appGrey3,
-            )
-          ],
-        )
-      ],
-    );
   }
 }

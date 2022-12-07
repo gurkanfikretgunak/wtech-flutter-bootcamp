@@ -38,7 +38,7 @@ class _MostPopularCertificatesListState
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
                   return CourseCard(
-                    data: snapshot.data![index],
+                    course: snapshot.data![index],
                   );
                 },
               );
