@@ -9,4 +9,9 @@ class RadiusConstant {
   double buttonIconSplashRadius = 30;
   double textFieldFormBorderRadius = 4.0;
   BorderRadiusGeometry chipRadius = const BorderRadius.all(Radius.circular(5));
+  BorderRadiusGeometry radiusLow = const BorderRadius.all(Radius.circular(5));
+  BorderRadiusGeometry radiusMedium =
+      const BorderRadius.all(Radius.circular(10));
+  BorderRadiusGeometry radiusHight =
+      const BorderRadius.all(Radius.circular(30));
 }

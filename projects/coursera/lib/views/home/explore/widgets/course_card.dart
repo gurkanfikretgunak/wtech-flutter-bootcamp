@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../../core/components/custom_viewer_image.dart';
 import '../../../../core/data/model/course.dart';
-import '../../../authentication/sign_up/sign_up_view_model.dart';
 import 'course_information.dart';
 
 class CourseCard extends StatelessWidget {
