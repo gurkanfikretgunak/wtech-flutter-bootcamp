@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../views/home/drawer/theme/theme_setting_view_model.dart';
+import '../views/bottom_nav_bar/drawer/theme/theme_setting_view_model.dart';
 import 'init/routes/on_generate_routes.dart';
 import 'init/themes/custom_theme.dart';
 import 'provider/multi_provider_init.dart';

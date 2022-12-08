@@ -1,9 +1,9 @@
+import 'package:coursera/core/base/base_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../../core/data/network/services/user_service.dart';
 
-class SignInWithEmailViewModel with ChangeNotifier {
+class SignInWithEmailViewModel extends IViewModel<SignInWithEmailViewModel> {
   bool _obscureText = true;
   bool get obscureText => _obscureText;
 
@@ -23,17 +23,11 @@ class SignInWithEmailViewModel with ChangeNotifier {
 
   Future<bool> loginControl(BuildContext context) async {
     var response = await UserService().getAll();
-
+    // ignore: use_build_context_synchronously
+    var provider = SignInWithEmailViewModel().of(context, listen: false);
     for (var item in response) {
-      if (item.email ==
-              // ignore: use_build_context_synchronously
-              context.read<SignInWithEmailViewModel>().emailController.text &&
-          item.password ==
-              // ignore: use_build_context_synchronously
-              context
-                  .read<SignInWithEmailViewModel>()
-                  .passwordController
-                  .text) {
+      if (item.email == provider.emailController.text &&
+          item.password == provider.passwordController.text) {
         return true;
       }
     }

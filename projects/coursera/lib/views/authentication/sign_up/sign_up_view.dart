@@ -73,13 +73,15 @@ class _SignUpViewState extends State<SignUpView> {
 
 //ViewModel sayfasına taşıdığımda hatalar alıyorum. Sonra bak
   void signUpButtonOnPressed() {
-    if (context.read<SignUpViewModel>().nameController.text.isNotEmpty &&
-        context.read<SignUpViewModel>().emailController.text.isNotEmpty &&
-        context.read<SignUpViewModel>().passwordController.text.isNotEmpty) {
+    var provider = SignUpViewModel().of(context);
+
+    if (provider.nameController.text.isNotEmpty &&
+        provider.emailController.text.isNotEmpty &&
+        provider.passwordController.text.isNotEmpty) {
       User user = User(
-          name: context.read<SignUpViewModel>().nameController.text,
-          email: context.read<SignUpViewModel>().emailController.text,
-          password: context.read<SignUpViewModel>().passwordController.text);
+          name: provider.nameController.text,
+          email: provider.emailController.text,
+          password: provider.passwordController.text);
       UserService().createEntity(user);
       CustomNavigator.goToScreen(context, "/SignInWithEmail");
       logger.i(user);

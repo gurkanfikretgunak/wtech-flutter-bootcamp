@@ -1,6 +1,7 @@
+import 'package:coursera/core/base/base_view_model.dart';
 import 'package:flutter/material.dart';
 
-class SignUpViewModel with ChangeNotifier {
+class SignUpViewModel extends IViewModel<SignUpViewModel> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();

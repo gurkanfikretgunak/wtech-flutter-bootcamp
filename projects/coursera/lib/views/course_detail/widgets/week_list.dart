@@ -11,7 +11,7 @@ class WeekList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = CourseDetailViewModel.of(context);
+    final provider = CourseDetailViewModel().of(context);
 
     return ListView.separated(
       separatorBuilder: (context, index) {

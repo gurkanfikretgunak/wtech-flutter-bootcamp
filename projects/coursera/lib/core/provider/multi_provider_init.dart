@@ -3,13 +3,13 @@ import 'package:provider/single_child_widget.dart';
 
 import '../../views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
 import '../../views/authentication/sign_up/sign_up_view_model.dart';
+import '../../views/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 import '../../views/course_detail/course_detail_view_model.dart';
-import '../../views/home/drawer/theme/theme_setting_view_model.dart';
-import 'bottom_nav_bar_state.dart';
+import '../../views/bottom_nav_bar/drawer/theme/theme_setting_view_model.dart';
 
 class MultiProviderInit {
   final List<SingleChildWidget> providers = [
-    ChangeNotifierProvider(create: (_) => BottomNavigationBarState()),
+    ChangeNotifierProvider(create: (_) => BottomNavBarViewModel()),
     ChangeNotifierProvider(create: (_) => SignUpViewModel()),
     ChangeNotifierProvider(create: (_) => SignInWithEmailViewModel()),
     ChangeNotifierProvider(create: (_) => ThemeSettingViewModel()),

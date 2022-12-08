@@ -6,8 +6,8 @@ import 'sign_up_view_model.dart';
 
 class SignUpTextFormFiledModel {
   buildTextFormFieldValue(BuildContext context) {
-    final providerFL = Provider.of<SignUpViewModel>(context, listen: false);
-    final provider = Provider.of<SignUpViewModel>(context);
+    final providerFL = SignUpViewModel().of(context, listen: false);
+    final provider = SignUpViewModel().of(context);
 
     var textFormFieldValueList = [
       {
@@ -45,12 +45,14 @@ class SignUpTextFormFiledModel {
   }
 
   IconButton obscureTextIcon(BuildContext context) {
+    final provider = SignUpViewModel().of(context);
+
     return IconButton(
       splashRadius: 10,
       onPressed: () {
-        context.read<SignUpViewModel>().changeObscureTextState();
+        provider.changeObscureTextState();
       },
-      icon: context.watch<SignUpViewModel>().obscureText
+      icon: provider.obscureText
           ? const Icon(Icons.visibility_off)
           : const Icon(Icons.visibility),
     );

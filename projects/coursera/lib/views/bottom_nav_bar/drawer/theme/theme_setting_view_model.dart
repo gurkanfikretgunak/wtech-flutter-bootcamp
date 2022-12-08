@@ -1,9 +1,9 @@
+import 'package:coursera/core/base/base_view_model.dart';
 import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
-import 'package:flutter/material.dart';
 
 import '../../../../core/init/cache/shared_manager.dart';
 
-class ThemeSettingViewModel extends ChangeNotifier {
+class ThemeSettingViewModel extends IViewModel<ThemeSettingViewModel> {
   bool _darkTheme = StorageUtil.getBool(SharedKeys.themeKey);
   bool get darkTheme => _darkTheme;
 

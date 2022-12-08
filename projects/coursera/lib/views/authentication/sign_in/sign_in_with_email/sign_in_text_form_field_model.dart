@@ -6,16 +6,14 @@ import 'sign_in_with_email_view_model.dart';
 
 class SignInTextFormFieldModel {
   buildTextFormFieldValue(BuildContext context) {
-    var provider = context.watch<SignInWithEmailViewModel>();
+    var provider = SignInWithEmailViewModel().of(context);
     var textFormFieldValueList = [
       {
         'controller': provider.emailController,
         'keyboardType': TextInputType.emailAddress,
         "hintText": 'Email (Required)',
         'onChanged': (value) {
-          context
-              .read<SignInWithEmailViewModel>()
-              .controlControllerLength(value, validateType: 'email');
+          provider.controlControllerLength(value, validateType: 'email');
         },
         "validator": AuthenticationViewModel().emailValidator,
       },
@@ -23,9 +21,7 @@ class SignInTextFormFieldModel {
         'controller': provider.passwordController,
         'keyboardType': TextInputType.visiblePassword,
         'onChanged': (value) {
-          context
-              .read<SignInWithEmailViewModel>()
-              .controlControllerLength(value, validateType: 'password');
+          provider.controlControllerLength(value, validateType: 'password');
         },
         "validator": AuthenticationViewModel().passwordValidator,
         'obscureText': provider.obscureText,
@@ -39,12 +35,14 @@ class SignInTextFormFieldModel {
   }
 
   IconButton obscureTextIcon(BuildContext context) {
+    var provider = SignInWithEmailViewModel().of(context);
+
     return IconButton(
       splashRadius: 10,
       onPressed: () {
-        context.read<SignInWithEmailViewModel>().changeObscureTextState();
+        provider.changeObscureTextState();
       },
-      icon: context.watch<SignInWithEmailViewModel>().obscureText
+      icon: provider.obscureText
           ? const Icon(Icons.visibility_off)
           : const Icon(Icons.visibility),
     );

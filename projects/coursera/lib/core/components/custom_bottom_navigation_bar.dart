@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../provider/bottom_nav_bar_state.dart';
+import '../../views/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});
@@ -28,8 +28,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           label: 'Profile',
         ),
       ],
-      currentIndex: context.watch<BottomNavigationBarState>().currentPage,
-      onTap: context.read<BottomNavigationBarState>().changePage,
+      currentIndex: context.watch<BottomNavBarViewModel>().currentPage,
+      onTap: context.read<BottomNavBarViewModel>().changePage,
     );
   }
 }

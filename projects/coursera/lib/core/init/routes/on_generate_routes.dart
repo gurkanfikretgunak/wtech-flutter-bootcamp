@@ -5,8 +5,8 @@ import '../../../views/authentication/sign_in/sign_in_with_email/sign_in_with_em
 import '../../../views/authentication/sign_in/sign_in_with_organization/sign_in_with_organization.view.dart';
 import '../../../views/authentication/sign_up/sign_up_view.dart';
 import '../../../views/authentication/splash/splash_view.dart';
-import '../../../views/home/drawer/theme/theme_setting_view.dart';
-import '../../../views/home/home_view.dart';
+import '../../../views/bottom_nav_bar/drawer/theme/theme_setting_view.dart';
+import '../../../views/bottom_nav_bar/bottom_nav_bar_view.dart';
 
 class NavigationRoute {
   NavigationRoute._init();
@@ -24,7 +24,7 @@ class NavigationRoute {
       case "/SignUpView":
         return _buildMaterialPageRoute(const SignUpView());
       case "/HomeView":
-        return _buildMaterialPageRoute(const HomeView());
+        return _buildMaterialPageRoute(const BottomNavBarView());
       case "/ThemeSettingView":
         return _buildMaterialPageRoute(const ThemeSettingView());
       case "/CourseDetailView":

@@ -68,7 +68,11 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget> {
             primary: isActiveButtonControl(context)
                 ? ColorConstant.instance.appBlue
                 : ColorConstant.instance.appGrey1,
-            onPressed: isActiveButtonControl(context) ? buttonOnPressed : null,
+            onPressed: isActiveButtonControl(
+              context,
+            )
+                ? buttonOnPressed
+                : null,
             text: widget.isLogin == null ? 'Create an Account' : 'Login',
           ),
         ),
@@ -84,14 +88,15 @@ class _AuthenticationFormWidgetState extends State<AuthenticationFormWidget> {
   }
 
   bool isActiveButtonControl(BuildContext context) {
+    var providerSignUp = SignUpViewModel().of(context);
+    var providerSignIn = SignInWithEmailViewModel().of(context);
+
     return widget.isLogin == null
-        ? (context.watch<SignUpViewModel>().isFormValidateName &&
-            context.watch<SignUpViewModel>().isFormValidateEmail &&
-            context.watch<SignUpViewModel>().isFormValidatePassword)
-        : (context.watch<SignInWithEmailViewModel>().isFormValidateEmail &&
-                context
-                    .watch<SignInWithEmailViewModel>()
-                    .isFormValidatePassword)
+        ? (providerSignUp.isFormValidateName &&
+            providerSignUp.isFormValidateEmail &&
+            providerSignUp.isFormValidatePassword)
+        : (providerSignIn.isFormValidateEmail &&
+                providerSignIn.isFormValidatePassword)
             ? true
             : false;
   }

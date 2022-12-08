@@ -1,4 +1,4 @@
-import '../../../base/base_service.dart';
+import '../../../base/base_retrofit_service.dart';
 import '../../model/topic.dart';
 
 class TopicService extends IRetrofitService<Topic> {

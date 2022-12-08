@@ -10,7 +10,7 @@ class SyllabusListForWeek extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final provider = CourseDetailViewModel.of(context);
+    final provider = CourseDetailViewModel().of(context);
 
     List<String>? week1List = provider.courseDetail.syllabus![0].week1;
     return ListView.separated(

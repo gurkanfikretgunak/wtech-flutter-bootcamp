@@ -1,8 +1,7 @@
 import 'package:coursera/core/components/custom_scaffold.dart';
-import 'package:coursera/views/home/drawer/theme/theme_setting_view_model.dart';
-import 'package:coursera/views/home/drawer/theme/widgets/labeled_radio.dart';
+import 'package:coursera/views/bottom_nav_bar/drawer/theme/theme_setting_view_model.dart';
+import 'package:coursera/views/bottom_nav_bar/drawer/theme/widgets/labeled_radio.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:kartal/kartal.dart';
 import '../../../../core/components/custom_app_bar.dart';
 
@@ -16,7 +15,7 @@ class ThemeSettingView extends StatefulWidget {
 class _ThemeSettingViewState extends State<ThemeSettingView> {
   @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<ThemeSettingViewModel>(context, listen: false);
+    var provider = ThemeSettingViewModel().of(context);
 
     return CustomScaffold(
       appBar: CustomAppBar.customAppBar(context: context, titleText: 'Theme'),
@@ -27,8 +26,7 @@ class _ThemeSettingViewState extends State<ThemeSettingView> {
           LabeledRadio(
             label: 'Dark Theme',
             value: true,
-            groupValue:
-                Provider.of<ThemeSettingViewModel>(context).isRadioSelected,
+            groupValue: provider.isRadioSelected,
             onChanged: (bool newValue) {
               provider.isRadioSelected = newValue;
               provider.darkTheme = true;
@@ -37,8 +35,7 @@ class _ThemeSettingViewState extends State<ThemeSettingView> {
           LabeledRadio(
             label: 'Light Theme',
             value: false,
-            groupValue:
-                Provider.of<ThemeSettingViewModel>(context).isRadioSelected,
+            groupValue: provider.isRadioSelected,
             onChanged: (bool newValue) {
               provider.isRadioSelected = newValue;
               provider.darkTheme = false;
