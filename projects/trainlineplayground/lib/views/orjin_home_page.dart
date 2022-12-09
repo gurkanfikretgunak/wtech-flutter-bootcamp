@@ -23,15 +23,14 @@ class OriginalHomePageState extends State<OriginalHomePage> {
   late String returnString;
   late TextEditingController _returnpickercontroller;
   late bool? isUserLogIn = false;
-  late bool mainUserAdded=true;
   @override
   void initState() {
+    
     datepickercontroller = TextEditingController();
     outboundString = datepickercontroller.text;
     _returnpickercontroller = TextEditingController();
     returnString = _returnpickercontroller.text;
     isUserLogIn = UserModelState().isuserlogin;
-    mainUserAdded = UserModelState().isPassAddded;
     super.initState();
 
     

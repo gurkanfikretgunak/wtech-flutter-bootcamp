@@ -286,6 +286,44 @@ class AddPassangerWidget extends StatelessWidget {
                     
                       }
                   ),
+                  Consumer<UserModelState>(
+                    builder: (context, value, child) => 
+                    SizedBox(
+                      
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: value.totalPassanger,
+                        itemBuilder:(context, index) => 
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            height: 50,
+                            
+                            child: Consumer<UserModelState>(
+                              builder: (context, value, child) => 
+                              Row(
+                                
+                                children: [
+                                  IconButton(onPressed: () {
+                                    value.changePassangerAdd();
+                                  }, icon: value.isPassAddded ? const Icon(Icons.check_box):const Icon(Icons.check_box_outlined)),
+                                  Text(value.passangerList[index],style: const TextStyle(fontSize: 19),),
+                                  PopupMenuButton(itemBuilder: (context) => [
+                                    PopupMenuItem(value: const Icon(Icons.edit),child: TextButton(onPressed: (){}, child:const Text('add details')),),
+                                    PopupMenuItem(value: const Icon(Icons.edit),child: TextButton(onPressed: (){}, child:const Text('remove')),),
+                                  ]
+                                  
+                                  
+                                  )
+                                ],
+                              ),
+                            )
+                            
+                          )
+                  
+                        ),
+                    ),
+                  ),
+
                   const LiveTicketBottomPadding(),
                   Container(
                     height: 50,
@@ -293,17 +331,109 @@ class AddPassangerWidget extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       border: Border.all()
                       ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      
-                      children:const [
-                        TextFieldPadding(),
-                        Icon(Icons.add),
-                        TextFieldPadding(),
-                        Text("Add a passanger",style: TextStyle(fontSize: 23),),
-                      ],
+                    child: InkWell(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        
+                        children:const [
+                          TextFieldPadding(),
+                          Icon(Icons.add),
+                          TextFieldPadding(),
+                          Text("Add a passanger",style: TextStyle(fontSize: 23),),
+                        ],
+                      ),
+                      onTap:() => showDialog(
+                        
+                        context: context,
+                       builder:(context) =>  AlertDialog(
+                        
+                        title: const Text('Choose Passanger Type',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                        content:                           
+                          Column(
+                            children: [
+                              Consumer<UserModelState>(
+                                builder: (context, passanger, child) {
+                                  return InkWell(
+                                  child: Container(
+                                    height: 50,
+                                    child: Row(
+                                      children: const[
+                                        TextFieldPadding(),
+                                        Text('Youth (0-25 years)'),
+                                      ],
+                                    ),
+                                    
+                                  ),
+                                  onTap: () {
+                                    passanger.incrementYoung();
+                                    passanger.changeType('Youth (0-25 years)');
+                                    Navigator.pop(context);
+                                  },
+                                );
+                                },
+                            
+                              ),
+                              const SavingSimplePadding(),
+                              Consumer<UserModelState>(
+                                builder: (context, passanger, child) => 
+                                InkWell(
+                                  onTap: () {
+                                      passanger.incrementAdult();
+                                      passanger.changeType('Adult (26-59 years)');
+                                      Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    child: Row(
+                                      children: const[
+                                        TextFieldPadding(),
+                                        Text('Adult (26-59 years)'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SavingSimplePadding(),
+                              Consumer<UserModelState>(
+                                builder: (context, passanger, child) => 
+                                InkWell(
+                                  onTap: () {
+                                      passanger.incrementSenior();
+                                      passanger.changeType('Senior (60+ years)');
+                                      Navigator.pop(context);
+                                  },
+                                  child: Container(
+                                    height: 50,
+                                    child: Row(
+                                      children: const[
+                                        TextFieldPadding(),
+                                        Text('Senior (60+ years)'),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              const SavingSimplePadding(),
+                              InkWell(
+                                child: Container(
+                                  height: 50,
+                                  child: Row(
+                                    children: const[
+                                      TextFieldPadding(),
+                                      Text('Create passanger profile'),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        
+                        ),
+                       ),
+                       
+                       )
                     ),  
-                  ),
+                  
                   // Container(
                   //   decoration: BoxDecoration(
                   //     color: Colors.blueGrey[100]

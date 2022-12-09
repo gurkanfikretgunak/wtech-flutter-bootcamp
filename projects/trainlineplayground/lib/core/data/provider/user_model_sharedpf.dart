@@ -6,16 +6,52 @@ import 'package:trainlineplayground/views/register_page.dart';
 
 class UserModelState with ChangeNotifier{
 
-  late bool _isPassAddded=false;
-
-  bool get isPassAddded => _isPassAddded;
-
-  set isPassAddded(bool isPassAddded) {
-    _isPassAddded = isPassAddded;
+  late String choosedType = '';
+  void changeType(String newtype){
+    choosedType = newtype;
+    passangerList.add(choosedType);
+    notifyListeners();
   }
-
+  late bool isPassAddded=true;
+  late int youngpassanger = 0;
+  late int adultpasssanger = 0;
+  late int seniorpassanger = 0;
+  late int totalPassanger =0;
+  late List<String> passangerList = [];
+  
+  
   void changePassangerAdd(){
     isPassAddded = !isPassAddded;
+    notifyListeners();
+  }
+  void incrementYoung(){
+    youngpassanger +=1;
+    totalPassanger +=1;
+    notifyListeners();
+  }
+  void decrementYoung(){
+    youngpassanger -=1;
+    totalPassanger -=1;
+    notifyListeners();
+  }
+  void incrementAdult(){
+    adultpasssanger +=1;
+    totalPassanger +=1;
+    notifyListeners();
+  }
+  void decrementAdult(){
+    adultpasssanger -=1;
+    totalPassanger -=1;
+    notifyListeners();
+  }
+  void incrementSenior(){
+    seniorpassanger +=1;
+    totalPassanger +=1;
+    notifyListeners();
+  }
+  void decrementSenior(){
+    seniorpassanger -=1;
+    totalPassanger -=1;
     notifyListeners();
   }
 
