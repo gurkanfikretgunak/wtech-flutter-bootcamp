@@ -77,8 +77,10 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                 bool isCheck =
                     await SignInWithEmailViewModel().loginControl(context);
                 if (isCheck) {
-                  StorageUtil.setBool(SharedKeys.isLogin,
-                      true); //Token olsa burda cache'e kaydetmeliyim.
+                  StorageUtil.setBool(SharedKeys.isLogin, true);
+                  // UserCourseHiveCache().put("deneme", provider.courseDetail);
+
+                  // print(UserCourseHiveCache().getValues());
                   // ignore: use_build_context_synchronously
                   CustomNavigator.goToScreen(context, '/HomeView');
                 } else {

@@ -4,10 +4,14 @@
 
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
+part 'course.g.dart';
+
 Course courseFromJson(String str) => Course.fromJson(json.decode(str));
 
 String courseToJson(Course data) => json.encode(data.toJson());
 
+@HiveType(typeId: 2)
 class Course {
   Course({
     this.createdAt,
@@ -22,15 +26,25 @@ class Course {
     this.id,
   });
 
+  @HiveField(0)
   DateTime? createdAt;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   String? avatar;
+  @HiveField(3)
   String? about;
+  @HiveField(4)
   List<Syllabus>? syllabus;
+  @HiveField(5)
   String? courseName;
+  @HiveField(6)
   String? courseDescription;
+  @HiveField(7)
   String? coursePoint;
+  @HiveField(8)
   String? courseImage;
+  @HiveField(9)
   String? id;
 
   factory Course.fromJson(Map<String, dynamic> json) => Course(
@@ -61,13 +75,15 @@ class Course {
       };
 }
 
+@HiveType(typeId: 3)
 class Syllabus {
   Syllabus({
     this.week1,
     this.week2,
   });
-
+  @HiveField(0)
   List<String>? week1;
+  @HiveField(1)
   List<String>? week2;
 
   factory Syllabus.fromJson(Map<String, dynamic> json) => Syllabus(

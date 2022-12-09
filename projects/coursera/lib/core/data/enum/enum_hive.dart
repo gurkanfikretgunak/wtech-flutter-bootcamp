@@ -1,0 +1,1 @@
+enum EnumHive { activeUser }

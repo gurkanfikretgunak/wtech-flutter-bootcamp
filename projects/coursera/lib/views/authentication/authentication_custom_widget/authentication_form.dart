@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:logger/logger.dart';
-import 'package:provider/provider.dart';
 
 import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/text/text_libary.dart';
