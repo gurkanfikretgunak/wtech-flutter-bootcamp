@@ -2,12 +2,9 @@ import 'custom_divider.dart';
 import 'custom_viewer_image.dart';
 import 'text/text_libary.dart';
 import '../constants/constant_libary.dart';
-import '../init/cache/shared_manager.dart';
 import '../init/routes/custom_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
-import '../data/enum/shared_prefence_keys.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -56,7 +53,6 @@ class CustomDrawer extends StatelessWidget {
             icon: Icons.logout_outlined,
             text: "Logout",
             onPressed: () {
-              StorageUtil.removeKey(SharedKeys.isLogin);
               CustomNavigator.goToScreen(context, '/SignInView');
             },
           ),

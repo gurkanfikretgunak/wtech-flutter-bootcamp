@@ -1,6 +1,4 @@
-import '../../../../core/data/enum/shared_prefence_keys.dart';
 import '../../../../core/data/network/services/user_service.dart';
-import '../../../../core/init/cache/shared_manager.dart';
 import '../../../../core/init/routes/custom_navigator.dart';
 import 'sign_in_text_form_field_model.dart';
 import 'sign_in_with_email_view_model.dart';
@@ -77,10 +75,8 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                 bool isCheck =
                     await SignInWithEmailViewModel().loginControl(context);
                 if (isCheck) {
-                  StorageUtil.setBool(SharedKeys.isLogin, true);
-                  // UserCourseHiveCache().put("deneme", provider.courseDetail);
+                  //  StorageUtil.setBool(SharedKeys.isLogin, true);
 
-                  // print(UserCourseHiveCache().getValues());
                   // ignore: use_build_context_synchronously
                   CustomNavigator.goToScreen(context, '/HomeView');
                 } else {

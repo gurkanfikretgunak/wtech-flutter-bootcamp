@@ -1,1 +1,1 @@
-enum EnumHive { activeUser }
+enum EnumHive { userBox, activeUser, theme }

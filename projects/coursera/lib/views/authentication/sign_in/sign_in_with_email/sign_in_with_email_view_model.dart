@@ -1,9 +1,11 @@
 import 'package:coursera/core/base/base_view_model.dart';
+import 'package:coursera/core/data/enum/enum_hive.dart';
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
 import '../../../../core/data/model/user.dart';
 import '../../../../core/data/network/services/user_service.dart';
-import '../../../../core/init/cache/user_course_cache_hive.dart';
+import '../../../../core/init/cache/user_cache_manager.dart';
 
 class SignInWithEmailViewModel extends IViewModel<SignInWithEmailViewModel> {
   bool _obscureText = true;
@@ -17,6 +19,7 @@ class SignInWithEmailViewModel extends IViewModel<SignInWithEmailViewModel> {
 
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  Logger logger = Logger();
 
   User _user = User();
   User get user => _user;
@@ -38,8 +41,8 @@ class SignInWithEmailViewModel extends IViewModel<SignInWithEmailViewModel> {
     for (var item in response) {
       if (item.email == provider.emailController.text &&
           item.password == provider.passwordController.text) {
-        UserCourseHiveCache().put("user", item);
-        print("Ekledii---- ${UserCourseHiveCache().getValues()}");
+        UserCacheManager().put(EnumHive.activeUser.toString(), item);
+        logger.i(UserCacheManager().getValues());
 
         return true;
       }

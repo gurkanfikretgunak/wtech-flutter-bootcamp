@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../authentication_view_model.dart';
 import 'sign_in_with_email_view_model.dart';

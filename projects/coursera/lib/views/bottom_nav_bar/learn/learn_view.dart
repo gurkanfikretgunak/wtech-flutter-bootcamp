@@ -1,4 +1,5 @@
 import 'package:coursera/core/components/custom_chip.dart';
+import 'package:coursera/core/data/enum/enum_hive.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -6,7 +7,7 @@ import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 import '../../../core/data/model/user.dart';
-import '../../../core/init/cache/user_course_cache_hive.dart';
+import '../../../core/init/cache/user_cache_manager.dart';
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -16,7 +17,7 @@ class LearnView extends StatefulWidget {
 }
 
 class _LearnViewState extends State<LearnView> {
-  User user = UserCourseHiveCache().get("user");
+  User user = UserCacheManager().get(EnumHive.activeUser.toString());
 
   // @override
   // void initState() {

@@ -1,6 +1,5 @@
 import '../authentication_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'sign_up_view_model.dart';
 

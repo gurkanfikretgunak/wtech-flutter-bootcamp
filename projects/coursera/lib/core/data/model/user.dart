@@ -24,21 +24,21 @@ class User {
     if (json['user_course'] != null) {
       userCourse = <Course>[];
       json['user_course'].forEach((v) {
-        userCourse!.add(new Course.fromJson(v));
+        userCourse!.add(Course.fromJson(v));
       });
     }
     id = json['id'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['email'] = this.email;
-    data['password'] = this.password;
-    if (this.userCourse != null) {
-      data['user_course'] = this.userCourse!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['name'] = name;
+    data['email'] = email;
+    data['password'] = password;
+    if (userCourse != null) {
+      data['user_course'] = userCourse!.map((v) => v.toJson()).toList();
     }
-    data['id'] = this.id;
+    data['id'] = id;
     return data;
   }
 }

@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:coursera/core/data/enum/enum_hive.dart';
+import 'package:coursera/core/init/cache/user_cache_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constants/constant_libary.dart';
 import '../../../core/components/custom_logo.dart';
 import '../../../core/components/custom_scaffold.dart';
-import '../../../core/data/enum/shared_prefence_keys.dart';
-import '../../../core/init/cache/shared_manager.dart';
+
 import '../../../core/init/routes/custom_navigator.dart';
 
 class SplashView extends StatefulWidget {
@@ -23,7 +24,7 @@ class _SplashViewState extends State<SplashView> {
 
     Timer(
       const Duration(seconds: 2),
-      () => StorageUtil.getBool(SharedKeys.isLogin)
+      () => UserCacheManager().get(EnumHive.activeUser.toString()) != null
           ? CustomNavigator.goToScreen(context, "/HomeView")
           : CustomNavigator.goToScreen(context, "/SignInView"),
     );

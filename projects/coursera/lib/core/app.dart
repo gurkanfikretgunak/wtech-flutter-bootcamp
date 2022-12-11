@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import 'package:provider/provider.dart';
 
 import '../views/bottom_nav_bar/drawer/theme/theme_setting_view_model.dart';
@@ -19,7 +20,7 @@ class App extends StatelessWidget {
             onGenerateRoute: NavigationRoute.instance.generateRoute,
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
-            theme: value.darkTheme
+            theme: Hive.box("themedata").get('darkmode', defaultValue: false)
                 ? ThemeData(
                     brightness: Brightness.dark,
                     primarySwatch: Colors.indigo,

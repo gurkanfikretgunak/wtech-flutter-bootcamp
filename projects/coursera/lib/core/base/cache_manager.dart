@@ -1,17 +1,29 @@
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-abstract class ICacheManager<T> {
-  openBox();
+import '../data/model/course.dart';
+import '../data/model/user.dart';
 
-  void registerAdapters();
+abstract class ICacheManager<T> {
+  Future openBox();
+
+  void registerAdapters() {
+    if (!Hive.isAdapterRegistered(0)) {
+      Hive.registerAdapter(CourseAdapter());
+      Hive.registerAdapter(SyllabusAdapter());
+      Hive.registerAdapter(UserAdapter());
+    }
+  }
+
   ValueListenable<Box<dynamic>> listenable();
 
   bool containsKey(String key);
-  delete(String key);
+
+  Future<void> delete(String key);
 
   Iterable<dynamic> getValues();
 
   Future<void> put(String key, T data);
-  get(String key);
+
+  dynamic get(String key);
 }

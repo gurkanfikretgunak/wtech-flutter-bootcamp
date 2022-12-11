@@ -1,15 +1,14 @@
 import 'package:coursera/core/base/base_view_model.dart';
-import 'package:coursera/core/data/enum/shared_prefence_keys.dart';
-
-import '../../../../core/init/cache/shared_manager.dart';
+import 'package:hive/hive.dart';
 
 class ThemeSettingViewModel extends IViewModel<ThemeSettingViewModel> {
-  bool _darkTheme = StorageUtil.getBool(SharedKeys.themeKey);
+  bool _darkTheme = Hive.box("themedata").get('darkmode', defaultValue: false);
   bool get darkTheme => _darkTheme;
 
   set darkTheme(bool value) {
     _darkTheme = value;
-    StorageUtil.setBool(SharedKeys.themeKey, value);
+
+    Hive.box("themedata").put('darkmode', value);
     notifyListeners();
   }
 
