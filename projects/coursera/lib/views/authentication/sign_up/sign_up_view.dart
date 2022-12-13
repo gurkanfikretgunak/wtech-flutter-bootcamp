@@ -70,9 +70,8 @@ class _SignUpViewState extends State<SignUpView> {
     );
   }
 
-//ViewModel sayfasına taşıdığımda hatalar alıyorum. Sonra bak
   void signUpButtonOnPressed() {
-    var provider = SignUpViewModel().of(context);
+    var provider = SignUpViewModel().of(context, listen: false);
 
     if (provider.nameController.text.isNotEmpty &&
         provider.emailController.text.isNotEmpty &&

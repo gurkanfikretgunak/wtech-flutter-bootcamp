@@ -7,6 +7,7 @@ import '../../../views/authentication/sign_up/sign_up_view.dart';
 import '../../../views/authentication/splash/splash_view.dart';
 import '../../../views/bottom_nav_bar/drawer/theme/theme_setting_view.dart';
 import '../../../views/bottom_nav_bar/bottom_nav_bar_view.dart';
+import '../../../views/bottom_nav_bar/explore/explore_view.dart';
 
 class NavigationRoute {
   NavigationRoute._init();
@@ -29,6 +30,8 @@ class NavigationRoute {
         return _buildMaterialPageRoute(const ThemeSettingView());
       case "/CourseDetailView":
         return _buildMaterialPageRoute(const CourseDetailView());
+      case "/ExploreView":
+        return _buildMaterialPageRoute(const ExploreView());
 
       default:
         return _buildMaterialPageRoute(

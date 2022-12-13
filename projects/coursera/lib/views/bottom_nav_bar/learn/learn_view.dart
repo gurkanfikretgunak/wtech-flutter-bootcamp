@@ -1,13 +1,15 @@
-import 'package:coursera/core/components/custom_chip.dart';
+import 'package:coursera/core/constants/constant_libary.dart';
 import 'package:coursera/core/data/enum/enum_hive.dart';
+import 'package:coursera/views/bottom_nav_bar/learn/widgets/my_courses_list.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
 
-import '../../../core/components/button/button_libary.dart';
 import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 import '../../../core/data/model/user.dart';
 import '../../../core/init/cache/user_cache_manager.dart';
+import '../bottom_nav_bar_view_model.dart';
+import 'widgets/empty_learn.dart';
+import 'package:kartal/kartal.dart';
 
 class LearnView extends StatefulWidget {
   const LearnView({super.key});
@@ -19,68 +21,44 @@ class LearnView extends StatefulWidget {
 class _LearnViewState extends State<LearnView> {
   User user = UserCacheManager().get(EnumHive.activeUser.toString());
 
-  // @override
-  // void initState() {
-  //   getActiveUser();
-  //   super.initState();
-  // }
-
-  // getActiveUser() async {
-  //   user = await UserCourseHiveCache().get("user");
-  //   print("Userrrr ->       $user");
-  // }
-
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
-      isDrawer: true,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const CustomText(
-            text: "Learn",
-            fontSize: 28,
-            fontWeight: FontWeight.w600,
-          ),
-          context.emptySizedHeightBoxNormal,
-          Container(
-            color: Colors.pink,
-            height: 200,
-            child: ListView.builder(
-              itemCount: user.userCourse!.length,
-              itemBuilder: (context, index) {
-                return CustomChip(
-                    text: user.userCourse![index].courseName ?? "Boşşş");
-              },
+        isDrawer: true,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Expanded(
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: CustomText(
+                  text: "Learn",
+                  fontSize: 28,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-          ),
-          // const Center(
-          //   child: Image(
-          //     image: AssetImage("assets/learn_page_image_1.png"),
-          //   ),
-          // ),
-          // const CustomText(
-          //   text: "You haven't enrolled in anycourses (yet)",
-          //   maxLines: 3,
-          //   textAlign: TextAlign.center,
-          //   fontWeight: FontWeight.w600,
-          //   fontSize: 20,
-          // ),
-          // const CustomText(
-          //   text: "Start by enrolling in a course and learn something new.",
-          //   maxLines: 3,
-          //   textAlign: TextAlign.center,
-          //   fontSize: 20,
-          // ),
-          // context.emptySizedHeightBoxNormal,
-          CustomElevatedButton(
-            onPressed: () {},
-            text: "Explore courses",
-          ),
-          context.emptySizedHeightBoxNormal,
-        ],
-      ),
-    );
+            context.emptySizedHeightBoxLow3x,
+            Expanded(
+              child: CustomText(
+                text: "My Coursera",
+                color: ColorConstant.instance.appGrey3,
+                fontSize: 20,
+                fontWeight: FontWeight.w600,
+                textAlign: TextAlign.start,
+              ),
+            ),
+            context.emptySizedHeightBoxLow,
+            user.userCourse!.isEmpty
+                ? const Expanded(
+                    flex: 10,
+                    child: EmptyLearnView(),
+                  )
+                : Expanded(
+                    flex: 15,
+                    child: MyCoursesList(myCourseList: user.userCourse!),
+                  )
+          ],
+        ));
   }
 }

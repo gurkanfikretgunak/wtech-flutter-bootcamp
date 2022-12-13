@@ -75,13 +75,12 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
                 bool isCheck =
                     await SignInWithEmailViewModel().loginControl(context);
                 if (isCheck) {
-                  //  StorageUtil.setBool(SharedKeys.isLogin, true);
-
                   // ignore: use_build_context_synchronously
                   CustomNavigator.goToScreen(context, '/HomeView');
                 } else {
                   // ignore: use_build_context_synchronously
-                  CustomNavigator.goToScreen(context, '/SignUpView');
+                  ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                      content: CustomText(text: "User not found")));
                 }
               },
             ),

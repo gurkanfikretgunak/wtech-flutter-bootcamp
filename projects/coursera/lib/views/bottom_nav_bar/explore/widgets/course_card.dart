@@ -14,12 +14,14 @@ class CourseCard extends StatelessWidget {
     super.key,
     required this.course,
     this.isFreeCoursesList,
+    this.isLearnPage,
   });
   final Course course;
   final bool? isFreeCoursesList;
+  final bool? isLearnPage;
   @override
   Widget build(BuildContext context) {
-    return isFreeCoursesList != null
+    return (isFreeCoursesList != null || isLearnPage != null)
         ? GestureDetector(
             onTap: () {
               CustomNavigator.goToScreen(context, '/CourseDetailView');
@@ -28,25 +30,45 @@ class CourseCard extends StatelessWidget {
             child: Padding(
               padding: context.onlyBottomPaddingNormal,
               child: CustomCard(
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    SizedBox(
-                      height: context.dynamicHeight(0.08),
-                      child: CourseInformation(
-                        course: course,
+                child: isLearnPage == null
+                    ? Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: context.dynamicHeight(0.08),
+                            child: CourseInformation(
+                              course: course,
+                            ),
+                          ),
+                          Container(
+                            color: Colors.pink,
+                            width: context.dynamicWidth(0.3),
+                            child: CustomImageViewer(
+                              url: course.courseImage.toString(),
+                            ),
+                          ),
+                        ],
+                      )
+                    : Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            color: Colors.pink,
+                            width: context.dynamicWidth(0.3),
+                            child: CustomImageViewer(
+                              url: course.courseImage.toString(),
+                            ),
+                          ),
+                          SizedBox(
+                            height: context.dynamicHeight(0.08),
+                            child: CourseInformation(
+                              course: course,
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                    Container(
-                      color: Colors.pink,
-                      width: context.dynamicWidth(0.3),
-                      child: CustomImageViewer(
-                        url: course.courseImage.toString(),
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ),
           )
