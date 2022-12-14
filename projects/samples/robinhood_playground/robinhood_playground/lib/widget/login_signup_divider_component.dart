@@ -78,7 +78,9 @@ class _LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LoginSignupButton(
         text: LoginSignupName.login.getName(),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed(NavigateRoutes.login.name);
+        },
         backgroundColor: isBackGroundGreen
             ? bitterDandelion
             : LoginSignupColor.white.getValue(),

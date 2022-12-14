@@ -4,6 +4,7 @@ import 'package:robinhood_playground/core/constant/padding.dart';
 import 'package:robinhood_playground/core/data/model/user.dart';
 import 'package:robinhood_playground/core/data/service/api.service.dart';
 import 'package:robinhood_playground/core/widget/button/general_button.dart';
+import 'package:robinhood_playground/product/navigator/navigator_routes.dart';
 import 'package:robinhood_playground/provider/country_code_provider.dart';
 import 'package:robinhood_playground/user_cache/shared_keys.dart';
 import 'package:robinhood_playground/user_cache/shared_manager.dart';
@@ -111,6 +112,9 @@ class _GetTelephoneNumberViewState extends State<GetTelephoneNumberView> {
     SharedManager.instance.setStringValue(SharedKeys.phoneNumber, phoneNumber);
     UserModel user = getUserInformation();
     await ApiService().postUser(user);
+    if (mounted) {
+      Navigator.of(context).pushReplacementNamed(NavigateRoutes.homepage.name);
+    }
   }
 
   UserModel getUserInformation() {

@@ -10,7 +10,6 @@ class NavigatorCustom {
     switch (routes) {
       case NavigateRoutes.onboarding:
         return _navigateToNormal(const OnBoardingStock());
-
       case NavigateRoutes.enterview:
         return _navigateToNormal(const EnterView());
       case NavigateRoutes.emailsignup:
@@ -21,6 +20,10 @@ class NavigatorCustom {
         return _navigateToNormal(const FirsAndLastNameView());
       case NavigateRoutes.telephonenumber:
         return _navigateToNormal(const GetTelephoneNumberView());
+      case NavigateRoutes.login:
+        return _navigateToNormal(const Login());
+      case NavigateRoutes.homepage:
+        return _navigateToNormal(const HomePage());
     }
   }
 

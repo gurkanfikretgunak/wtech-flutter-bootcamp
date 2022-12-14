@@ -22,7 +22,7 @@ class App extends StatelessWidget {
         theme: CustomTheme.customThemeData(),
         title: appName,
         debugShowCheckedModeBanner: false,
-        home: const Login(),
+        home: const OnBoardingStock(),
         onGenerateRoute: NavigatorCustom().onGenerateRoute,
       ),
     );

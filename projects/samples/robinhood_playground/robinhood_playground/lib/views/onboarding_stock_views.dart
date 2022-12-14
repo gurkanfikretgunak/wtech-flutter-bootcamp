@@ -66,12 +66,17 @@ class _OnBoardingAppBar extends StatelessWidget with PreferredSizeWidget {
       leading: IconButton(
         icon: const Icon(Icons.clear_outlined),
         color: _AppBarItemColor().bitterDandelion,
-        onPressed: () {},
+        onPressed: () {
+          debugPrint('Çıkış');
+        },
       ),
       actions: [
         Padding(
           padding: _PagePadding().lognTextPadding,
-          child: const _LoginText(),
+          child: InkWell(
+              onTap: () =>
+                  Navigator.of(context).pushNamed(NavigateRoutes.login.name),
+              child: const _LoginText()),
         )
       ],
     );

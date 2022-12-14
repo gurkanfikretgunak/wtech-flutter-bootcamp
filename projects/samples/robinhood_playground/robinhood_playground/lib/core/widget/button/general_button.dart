@@ -35,7 +35,7 @@ class _ElevatedButtonPadding {
   final EdgeInsets vertical = const EdgeInsets.symmetric(vertical: 15);
 }
 
-enum GeneralButtonColor { black, white }
+enum GeneralButtonColor { black, white, green }
 
 extension GeneralButtonColorExtension on GeneralButtonColor {
   Color getColor() {
@@ -44,6 +44,8 @@ extension GeneralButtonColorExtension on GeneralButtonColor {
         return Colors.black;
       case GeneralButtonColor.white:
         return Colors.white;
+      case GeneralButtonColor.green:
+        return const Color.fromARGB(255, 96, 196, 60);
     }
   }
 }
