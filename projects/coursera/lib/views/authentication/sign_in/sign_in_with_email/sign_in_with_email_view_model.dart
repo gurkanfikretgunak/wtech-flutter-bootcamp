@@ -1,5 +1,5 @@
-import 'package:coursera/core/base/base_view_model.dart';
-import 'package:coursera/core/data/enum/enum_hive.dart';
+import '../../../../core/base/base_view_model.dart';
+import '../../../../core/data/enum/enum_hive.dart';
 import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 

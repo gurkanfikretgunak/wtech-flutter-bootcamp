@@ -1,9 +1,10 @@
-import 'course_card.dart';
-import '../../../../core/data/network/services/course_service.dart';
-import '../../../../core/components/custom_circular_progress_indicator.dart';
-import '../../../../core/data/model/course.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../../core/components/custom_circular_progress_indicator.dart';
+import '../../../../core/data/model/course.dart';
+import '../../../../core/data/network/services/course_service.dart';
+import 'course_card.dart';
 
 class FreeCoursesList extends StatefulWidget {
   const FreeCoursesList({super.key});
@@ -25,7 +26,7 @@ class _FreeCoursesListState extends State<FreeCoursesList> {
     return Padding(
       padding: context.verticalPaddingNormal,
       child: SizedBox(
-        height: context.dynamicHeight(1.2),
+        height: context.dynamicHeight(2),
         child: FutureBuilder<List<Course>>(
           future: futureCourse,
           builder: (context, snapshot) {

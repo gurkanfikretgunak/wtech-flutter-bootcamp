@@ -1,10 +1,10 @@
-import 'package:coursera/core/components/button/button_libary.dart';
-import 'package:coursera/core/components/custom_app_bar.dart';
-import 'package:coursera/core/components/custom_scaffold.dart';
-import 'package:coursera/core/components/text/custom_auto_size_text.dart';
-import 'package:coursera/views/course_detail/course_detail_view_model.dart';
-import 'package:coursera/views/course_detail/widgets/syllabus_list_for_week.dart';
-import 'package:coursera/views/course_detail/widgets/week_list.dart';
+import '../../core/components/button/button_libary.dart';
+import '../../core/components/custom_app_bar.dart';
+import '../../core/components/custom_scaffold.dart';
+import '../../core/components/text/custom_auto_size_text.dart';
+import 'course_detail_view_model.dart';
+import 'widgets/syllabus_list_for_week.dart';
+import 'widgets/week_list.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../core/components/custom_viewer_image.dart';
@@ -22,9 +22,10 @@ class CourseDetailView extends StatelessWidget {
         titleText: 'Course Detail',
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Expanded(
-            flex: 4,
+            flex: 6,
             child: SizedBox(
               width: context.dynamicWidth(1),
               child: CustomImageViewer(
@@ -33,17 +34,20 @@ class CourseDetailView extends StatelessWidget {
             ),
           ),
           Expanded(
-            flex: 3,
-            child: CustomText(
-              text: provider.courseDetail.about!,
-              maxLines: 1000,
-              textAlign: TextAlign.start,
+            flex: 6,
+            child: Padding(
+              padding: context.verticalPaddingLow,
+              child: CustomText(
+                text: provider.courseDetail.about!,
+                maxLines: 1000,
+                textAlign: TextAlign.start,
+              ),
             ),
           ),
-          const Expanded(
-            flex: 2,
-            child: WeekList(),
-          ),
+          // const Expanded(
+          //   flex: 2,
+          //   child: WeekList(),
+          // ),
           const Expanded(
             flex: 5,
             child: SyllabusListForWeek(),
@@ -51,14 +55,12 @@ class CourseDetailView extends StatelessWidget {
           Expanded(
             child: CustomElevatedButton(
               onPressed: () {
-                CourseDetailViewModel()
-                    .user
-                    .userCourse!
-                    .add(provider.courseDetail);
+                CourseDetailViewModel().enrollCourse(context);
               },
               text: 'Enroll',
             ),
           ),
+          const Spacer(),
         ],
       ),
     );

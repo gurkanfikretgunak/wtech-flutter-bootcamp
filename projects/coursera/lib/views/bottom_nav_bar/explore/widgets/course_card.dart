@@ -1,5 +1,5 @@
-import 'package:coursera/core/init/routes/custom_navigator.dart';
-import 'package:coursera/views/course_detail/course_detail_view_model.dart';
+import '../../../../core/init/routes/custom_navigator.dart';
+import '../../../course_detail/course_detail_view_model.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../core/components/custom_card.dart';
@@ -21,13 +21,13 @@ class CourseCard extends StatelessWidget {
   final bool? isLearnPage;
   @override
   Widget build(BuildContext context) {
-    return (isFreeCoursesList != null || isLearnPage != null)
-        ? GestureDetector(
-            onTap: () {
-              CustomNavigator.goToScreen(context, '/CourseDetailView');
-              context.read<CourseDetailViewModel>().courseDetail = course;
-            },
-            child: Padding(
+    return GestureDetector(
+      onTap: () {
+        CustomNavigator.goToScreen(context, '/CourseDetailView');
+        context.read<CourseDetailViewModel>().courseDetail = course;
+      },
+      child: (isFreeCoursesList != null || isLearnPage != null)
+          ? Padding(
               padding: context.onlyBottomPaddingNormal,
               child: CustomCard(
                 child: isLearnPage == null
@@ -70,22 +70,22 @@ class CourseCard extends StatelessWidget {
                         ],
                       ),
               ),
-            ),
-          )
-        : CustomCard(
-            width: context.dynamicWidth(0.35),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                CustomImageViewer(url: course.courseImage.toString()),
-                SizedBox(
-                  height: context.dynamicHeight(0.12),
-                  child: CourseInformation(
-                    course: course,
+            )
+          : CustomCard(
+              width: context.dynamicWidth(0.35),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomImageViewer(url: course.courseImage.toString()),
+                  SizedBox(
+                    height: context.dynamicHeight(0.12),
+                    child: CourseInformation(
+                      course: course,
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          );
+    );
   }
 }

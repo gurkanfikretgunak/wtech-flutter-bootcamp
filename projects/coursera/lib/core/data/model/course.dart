@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:hive/hive.dart';
+
 part 'course.g.dart';
 
 Course courseFromJson(String str) => Course.fromJson(json.decode(str));

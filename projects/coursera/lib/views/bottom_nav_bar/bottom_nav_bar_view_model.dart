@@ -1,4 +1,4 @@
-import 'package:coursera/core/base/base_view_model.dart';
+import '../../core/base/base_view_model.dart';
 import 'package:flutter/material.dart';
 import '../../views/bottom_nav_bar/explore/explore_view.dart';
 import 'learn/learn_view.dart';

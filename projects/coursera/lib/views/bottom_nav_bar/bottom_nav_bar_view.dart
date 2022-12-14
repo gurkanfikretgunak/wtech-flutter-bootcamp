@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/components/custom_bottom_navigation_bar.dart';
 import 'bottom_nav_bar_view_model.dart';
 

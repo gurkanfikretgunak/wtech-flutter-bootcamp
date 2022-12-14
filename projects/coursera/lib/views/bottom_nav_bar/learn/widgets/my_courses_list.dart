@@ -1,12 +1,7 @@
-import 'package:coursera/core/components/custom_card.dart';
-import 'package:coursera/core/components/custom_chip.dart';
-import 'package:coursera/core/components/custom_viewer_image.dart';
-import 'package:coursera/core/components/text/text_libary.dart';
-import 'package:coursera/core/constants/constant_libary.dart';
-import 'package:coursera/views/bottom_nav_bar/explore/widgets/course_card.dart';
 import 'package:flutter/material.dart';
-import 'package:kartal/kartal.dart';
+
 import '../../../../core/data/model/course.dart';
+import '../../explore/widgets/course_card.dart';
 
 class MyCoursesList extends StatelessWidget {
   const MyCoursesList({
@@ -14,14 +9,14 @@ class MyCoursesList extends StatelessWidget {
     required this.myCourseList,
   });
 
-  final List<Course> myCourseList;
+  final List<Course?>? myCourseList;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: myCourseList.length,
+      itemCount: myCourseList!.length,
       itemBuilder: (context, index) {
         return CourseCard(
-          course: myCourseList[index],
+          course: myCourseList![index]!,
           isLearnPage: true,
         );
         // CustomCard(

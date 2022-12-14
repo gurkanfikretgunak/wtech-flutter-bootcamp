@@ -1,17 +1,17 @@
-import '../../../../core/data/network/services/user_service.dart';
-import '../../../../core/init/routes/custom_navigator.dart';
-import 'sign_in_text_form_field_model.dart';
-import 'sign_in_with_email_view_model.dart';
+import 'package:flutter/material.dart';
 
-import '../../../../core/constants/color_constant.dart';
-import '../../../../core/data/model/user.dart';
-import '../../authentication_custom_widget/authentication_form.dart';
-import '../../authentication_view.dart';
+import '../../../../core/components/button/button_libary.dart';
 import '../../../../core/components/custom_app_bar.dart';
 import '../../../../core/components/custom_or_text.dart';
-import 'package:flutter/material.dart';
-import '../../../../core/components/button/button_libary.dart';
 import '../../../../core/components/text/text_libary.dart';
+import '../../../../core/constants/color_constant.dart';
+import '../../../../core/data/model/user.dart';
+import '../../../../core/data/network/services/user_service.dart';
+import '../../../../core/init/routes/custom_navigator.dart';
+import '../../authentication_custom_widget/authentication_form.dart';
+import '../../authentication_view.dart';
+import 'sign_in_text_form_field_model.dart';
+import 'sign_in_with_email_view_model.dart';
 
 class SignInWithEmailView extends StatefulWidget {
   const SignInWithEmailView({super.key});
@@ -88,11 +88,19 @@ class _SignInWithEmailViewState extends State<SignInWithEmailView> {
           const Expanded(flex: 2, child: CustomOrText()),
           Expanded(
             flex: 2,
-            child: CustomTextButton(
-              onPressed: () {},
-              text: 'Login with your organization',
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const CustomText(text: "Don't have an account?", fontSize: 15),
+                CustomTextButton(
+                  onPressed: () {
+                    CustomNavigator.goToScreen(context, "/SignUpView");
+                  },
+                  text: 'Sign Up',
+                  fontSize: 15,
+                  fontWeight: FontWeight.w600,
+                ),
+              ],
             ),
           ),
           const Spacer(

@@ -1,12 +1,13 @@
-import 'widgets/titles.dart';
+import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../../core/constants/constant_libary.dart';
 import '../../../core/components/custom_scaffold.dart';
+import '../../../core/components/text/text_libary.dart';
 import 'widgets/free_courses_list.dart';
 import 'widgets/most_popular_certificates_list.dart';
+import 'widgets/titles.dart';
 import 'widgets/topic_list.dart';
-import 'package:flutter/material.dart';
-import '../../../../core/constants/constant_libary.dart';
-import '../../../core/components/text/text_libary.dart';
 
 class ExploreView extends StatelessWidget {
   const ExploreView({super.key});
@@ -17,9 +18,8 @@ class ExploreView extends StatelessWidget {
       isDrawer: true,
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: Wrap(
+          direction: Axis.horizontal,
           children: [
             const Titles(
               titleText: 'Explore',
@@ -48,8 +48,6 @@ class ExploreView extends StatelessWidget {
               isSeeAll: true,
             ),
             const MostPopularCertificatesList(),
-            context.emptySizedHeightBoxLow,
-            context.emptySizedHeightBoxLow,
             const Titles(
               titleText: "Get Started with These Free Courses",
               isSeeAll: true,

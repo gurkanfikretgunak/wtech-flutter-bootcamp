@@ -1,3 +1,6 @@
+import 'custom_app_bar.dart';
+import 'text/custom_auto_size_text.dart';
+
 import 'custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
@@ -10,9 +13,11 @@ class CustomScaffold extends StatelessWidget {
     this.backgroundColor,
     this.bottomNavigationBar,
     this.isDrawer,
+    this.appBarTitle,
   });
   final Widget body;
   final PreferredSizeWidget? appBar;
+  final String? appBarTitle;
   final Color? backgroundColor;
   final Widget? bottomNavigationBar;
   final bool? isDrawer;
@@ -20,8 +25,8 @@ class CustomScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        drawer: isDrawer != null ? const CustomDrawer() : const SizedBox(),
-        appBar: appBar ?? AppBar(leadingWidth: context.highValue),
+        appBar: appBar ??
+            AppBar(automaticallyImplyLeading: false, toolbarHeight: 35),
         backgroundColor: backgroundColor,
         bottomNavigationBar: bottomNavigationBar,
         body: Center(

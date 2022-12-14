@@ -21,14 +21,7 @@ class App extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Flutter Demo',
             theme: Hive.box("themedata").get('darkmode', defaultValue: false)
-                ? ThemeData(
-                    brightness: Brightness.dark,
-                    primarySwatch: Colors.indigo,
-                    buttonTheme: const ButtonThemeData(
-                      buttonColor: Colors.red,
-                      textTheme: ButtonTextTheme.primary,
-                    ),
-                  )
+                ? ThemeData(brightness: Brightness.dark)
                 : CustomTheme.customThemeData(context),
           );
         },

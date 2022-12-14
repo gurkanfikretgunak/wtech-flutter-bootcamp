@@ -1,4 +1,4 @@
-import 'package:coursera/core/data/model/course.dart';
+import 'course.dart';
 import 'package:hive/hive.dart';
 part 'user.g.dart';
 
@@ -11,11 +11,29 @@ class User {
   @HiveField(2)
   String? password;
   @HiveField(3)
-  List<Course>? userCourse;
+  List<Course?>? userCourse;
   @HiveField(4)
   String? id;
+  @HiveField(5)
+  String? surname;
+  @HiveField(6)
+  String? country;
+  @HiveField(7)
+  String? birthYear;
+  @HiveField(8)
+  String? profileImage;
 
-  User({this.name, this.email, this.password, this.userCourse, this.id});
+  User({
+    this.name,
+    this.email,
+    this.password,
+    this.userCourse,
+    this.id,
+    this.surname,
+    this.country,
+    this.birthYear,
+    this.profileImage,
+  });
 
   User.fromJson(Map<String, dynamic> json) {
     name = json['name'];
@@ -24,21 +42,29 @@ class User {
     if (json['user_course'] != null) {
       userCourse = <Course>[];
       json['user_course'].forEach((v) {
-        userCourse!.add(Course.fromJson(v));
+        userCourse!.add(new Course.fromJson(v));
       });
     }
     id = json['id'];
+    surname = json['surname'];
+    country = json['country'];
+    birthYear = json['birthYear'];
+    profileImage = json['profileImage'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    data['name'] = name;
-    data['email'] = email;
-    data['password'] = password;
-    if (userCourse != null) {
-      data['user_course'] = userCourse!.map((v) => v.toJson()).toList();
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['name'] = this.name;
+    data['email'] = this.email;
+    data['password'] = this.password;
+    if (this.userCourse != null) {
+      data['user_course'] = this.userCourse!.map((v) => v!.toJson()).toList();
     }
-    data['id'] = id;
+    data['id'] = this.id;
+    data['surname'] = this.surname;
+    data['country'] = this.country;
+    data['birthYear'] = this.birthYear;
+    data['profileImage'] = this.profileImage;
     return data;
   }
 }

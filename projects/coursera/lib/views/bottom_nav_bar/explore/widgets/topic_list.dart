@@ -1,10 +1,12 @@
-import '../../../../core/components/custom_chip.dart';
-import '../../../../core/data/network/services/topic_service.dart';
-import '../../../../core/components/custom_circular_progress_indicator.dart';
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
+
+import '../../../../core/components/custom_chip.dart';
+import '../../../../core/components/custom_circular_progress_indicator.dart';
 import '../../../../core/data/model/topic.dart';
-import 'dart:math' as math;
+import '../../../../core/data/network/services/topic_service.dart';
 
 class TopicList extends StatefulWidget {
   const TopicList({super.key});

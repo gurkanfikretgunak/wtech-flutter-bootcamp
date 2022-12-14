@@ -1,5 +1,6 @@
-import 'package:coursera/core/base/base_view_model.dart';
 import 'package:hive/hive.dart';
+
+import '../../../../core/base/base_view_model.dart';
 
 class ThemeSettingViewModel extends IViewModel<ThemeSettingViewModel> {
   bool _darkTheme = Hive.box("themedata").get('darkmode', defaultValue: false);

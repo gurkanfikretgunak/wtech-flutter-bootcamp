@@ -1,4 +1,4 @@
-import 'package:coursera/core/base/base_view_model.dart';
+import '../../../core/base/base_view_model.dart';
 import 'package:flutter/material.dart';
 
 class SignUpViewModel extends IViewModel<SignUpViewModel> {

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:coursera/core/data/enum/enum_hive.dart';
-import 'package:coursera/core/init/cache/user_cache_manager.dart';
+import '../../../core/data/enum/enum_hive.dart';
+import '../../../core/init/cache/user_cache_manager.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constants/constant_libary.dart';

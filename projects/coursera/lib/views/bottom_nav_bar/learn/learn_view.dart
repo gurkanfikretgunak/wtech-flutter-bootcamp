@@ -1,6 +1,6 @@
-import 'package:coursera/core/constants/constant_libary.dart';
-import 'package:coursera/core/data/enum/enum_hive.dart';
-import 'package:coursera/views/bottom_nav_bar/learn/widgets/my_courses_list.dart';
+import '../../../core/constants/constant_libary.dart';
+import '../../../core/data/enum/enum_hive.dart';
+import 'widgets/my_courses_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../core/components/custom_scaffold.dart';
@@ -56,7 +56,7 @@ class _LearnViewState extends State<LearnView> {
                   )
                 : Expanded(
                     flex: 15,
-                    child: MyCoursesList(myCourseList: user.userCourse!),
+                    child: MyCoursesList(myCourseList: user.userCourse),
                   )
           ],
         ));

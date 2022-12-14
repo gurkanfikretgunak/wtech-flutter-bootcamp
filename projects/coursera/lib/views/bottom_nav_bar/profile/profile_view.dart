@@ -1,7 +1,9 @@
+import 'package:coursera/core/constants/color_constant.dart';
+import 'package:coursera/views/bottom_nav_bar/profile/widgets/settings_card.dart';
+import 'widgets/profile_image.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
-import '../../../core/components/button/button_libary.dart';
+import '../../../core/components/custom_card.dart';
 import '../../../core/components/custom_scaffold.dart';
 import '../../../core/components/text/text_libary.dart';
 
@@ -13,7 +15,7 @@ class ProfileView extends StatelessWidget {
     return CustomScaffold(
       isDrawer: true,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const CustomText(
@@ -21,44 +23,19 @@ class ProfileView extends StatelessWidget {
             fontSize: 28,
             fontWeight: FontWeight.w600,
           ),
-          Wrap(
-            direction: Axis.vertical,
-            spacing: 8,
-            children: const [
-              CustomText(
-                text: "Elif Karagöz",
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
+          context.emptySizedHeightBoxNormal,
+          Stack(
+            children: [
+              Transform(
+                transform:
+                    Matrix4.translationValues(0, context.dynamicHeight(0.1), 0),
+                child: const CustomCard(
+                  child: SettingsCard(),
+                ),
               ),
-              CustomText(
-                text: "eliffkaragoz00@gmail.com",
-                fontSize: 16,
-              ),
+              const ProfileImage(),
             ],
           ),
-          const Center(
-            child: Image(
-              image: AssetImage("assets/profil_page_image_1.png"),
-            ),
-          ),
-          const CustomText(
-            text: "That feeling of completion is just around the corner",
-            maxLines: 3,
-            textAlign: TextAlign.center,
-            fontWeight: FontWeight.w600,
-            fontSize: 20,
-          ),
-          const CustomText(
-            text: "Make some progress to get closer to your goal.",
-            maxLines: 3,
-            textAlign: TextAlign.center,
-            fontSize: 20,
-          ),
-          CustomElevatedButton(
-            onPressed: () {},
-            text: "Continue Learning",
-          ),
-          context.emptySizedHeightBoxNormal,
         ],
       ),
     );

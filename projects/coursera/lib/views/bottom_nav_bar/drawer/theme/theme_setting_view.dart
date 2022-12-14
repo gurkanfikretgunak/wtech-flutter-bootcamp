@@ -1,6 +1,6 @@
-import 'package:coursera/core/components/custom_scaffold.dart';
-import 'package:coursera/views/bottom_nav_bar/drawer/theme/theme_setting_view_model.dart';
-import 'package:coursera/views/bottom_nav_bar/drawer/theme/widgets/labeled_radio.dart';
+import '../../../../core/components/custom_scaffold.dart';
+import 'theme_setting_view_model.dart';
+import 'widgets/labeled_radio.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import '../../../../core/components/custom_app_bar.dart';

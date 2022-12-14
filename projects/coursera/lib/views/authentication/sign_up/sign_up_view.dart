@@ -77,9 +77,15 @@ class _SignUpViewState extends State<SignUpView> {
         provider.emailController.text.isNotEmpty &&
         provider.passwordController.text.isNotEmpty) {
       User user = User(
-          name: provider.nameController.text,
-          email: provider.emailController.text,
-          password: provider.passwordController.text);
+        name: provider.nameController.text,
+        email: provider.emailController.text,
+        password: provider.passwordController.text,
+        birthYear: "",
+        country: "",
+        profileImage: "",
+        surname: "",
+        userCourse: [],
+      );
       UserService().createEntity(user);
       CustomNavigator.goToScreen(context, "/SignInWithEmail");
       logger.i(user);
