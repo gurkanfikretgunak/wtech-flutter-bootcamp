@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tasty_playground/views/splash_view.dart';
+import 'package:tasty_playground/views/login_screen.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
@@ -17,8 +17,8 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Anasayfa()));
+      Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const LoginScreen()));
     });
   }
 
