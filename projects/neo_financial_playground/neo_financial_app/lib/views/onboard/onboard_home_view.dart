@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/provider/onboard_state.dart';
+import 'package:neo_financial_app/widgets/onboard/tabbar_view_child_widget.dart';
 import 'package:provider/provider.dart';
-
-import '../../core/data/constants/text_constants.dart';
-import '../../core/provider/onboard_state.dart';
-import '../../widgets/onboard/tabbar_view_child_widget.dart';
 
 class OnbordHomeView extends StatelessWidget {
   const OnbordHomeView({super.key});

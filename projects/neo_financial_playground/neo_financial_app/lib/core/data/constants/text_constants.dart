@@ -178,4 +178,40 @@ class TextConstants {
   static const String cardMiddleIconText = 'View';
   static const String cardEndIconText = 'Settings';
   static const String cardElevatedButtonText = 'Add to Apple Wallet';
+
+  // CUSTOM
+  static List<String> months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+  ];
+
+  static List<String> monthsShort = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec'
+  ];
+
+  static String errorMessage='Connection Error';
+
+  static String controlChartItemsText = "123456789";
+
 }

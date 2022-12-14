@@ -53,7 +53,6 @@ class CustomTheme {
             color: const Color(0xffc1ab7c),
             fontWeight: FontWeight.bold),
       ),
-      //iconTheme: const IconThemeData(color: Colors.black54),
       tabBarTheme: const TabBarTheme(
           labelColor: Colors.black,
           unselectedLabelColor: Colors.grey,

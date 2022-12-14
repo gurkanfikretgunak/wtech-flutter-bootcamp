@@ -1,31 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/provider/insights_state.dart';
 import 'package:neo_financial_app/widgets/custom_appbar_widget.dart';
 import 'package:neo_financial_app/widgets/insights/chart_widget.dart';
+import 'package:neo_financial_app/widgets/insights/insights_cashback_card_widget.dart';
+import 'package:provider/provider.dart';
 
-import '../core/data/constants/padding_constants.dart';
-import '../core/data/constants/text_constants.dart';
-import '../core/data/models/chart_data.dart';
-import '../widgets/insights/insights_cashback_card_widget.dart';
-
-class InsightsView extends StatelessWidget {
+class InsightsView extends StatefulWidget {
   const InsightsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    late List<ChartData> data = [
-      ChartData(x: 'Oct', y: 15, color: Colors.greenAccent),
-      ChartData(x: 'Now', y: 25, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-      ChartData(x: '', y: 0, color: Colors.green),
-    ];
+  State<InsightsView> createState() => _InsightsViewState();
+}
 
-    const String month = 'November';
-    const double amount = 11.35;
+class _InsightsViewState extends State<InsightsView> {
+  @override
+  void initState() {
+    Provider.of<InsightsState>(context, listen: false)
+        .setChartDataList(context);
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Provider.of<InsightsState>(context, listen: false)
+          .changeMonthInformations(context, null);
+    });
+
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final insightState = Provider.of<InsightsState>(context, listen: true);
     Size dynamicSize = MediaQuery.of(context).size;
+
+    String amount = insightState.totalSpendingAmount.toString();
+    String cashbackTotalAmount = insightState.cashbackTotalAmount.toString();
+    String cashbackPercent = insightState.cashbackPercent.toString();
+    String cashbackAvgPercent = insightState.cashbackPartnetAvg.toString();
+    String month = insightState.monthTitle.toString();
+
     return WillPopScope(
       onWillPop: () async => false,
       child: Scaffold(
@@ -64,16 +76,46 @@ class InsightsView extends StatelessWidget {
                   ],
                 ),
               ),
-              ChartWidget(data: data),
+              SizedBox(
+                height: 200,
+                child: PageView.builder(
+                  itemCount: insightState.getChartDatas.length,
+                  onPageChanged: (value) =>
+                      insightState.changeIsFistPageStatus(),
+                  itemBuilder: (context, index) {
+                    return ChartWidget(data: insightState.getChartDatas[index]);
+                  },
+                ),
+              ),
+              Center(
+                child: Wrap(
+                  spacing: 10,
+                  crossAxisAlignment: WrapCrossAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      backgroundColor: insightState.isFirstPage
+                          ? Colors.black
+                          : Colors.green,
+                      radius: 5,
+                    ),
+                    CircleAvatar(
+                      radius: 5,
+                      backgroundColor: insightState.isFirstPage
+                          ? Colors.green
+                          : Colors.black,
+                    )
+                  ],
+                ),
+              ),
               Padding(
                 padding: PaddingConstants.largeHorizontalPadding,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     InsightsCashbackCardWidget(
-                      totalAmount: '0.00',
-                      minimumAmountPercent: '0.5',
-                      partnerAvgPercent: '- - - ',
+                      totalAmount: cashbackTotalAmount,
+                      minimumAmountPercent: cashbackPercent,
+                      partnerAvgPercent: cashbackAvgPercent,
                       dynamicSize: dynamicSize,
                     ),
                     Text(

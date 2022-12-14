@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/icon_constants.dart';
 import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
-
-import '../core/data/constants/icon_constants.dart';
-import '../core/data/constants/route_constants.dart';
-import '../core/data/constants/text_constants.dart';
-import '../widgets/custom_appbar_widget.dart';
-import '../widgets/custom_card_widget.dart';
-import '../widgets/title_and_button_widget.dart';
+import 'package:neo_financial_app/core/data/constants/route_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/provider/user_state.dart';
+import 'package:neo_financial_app/widgets/custom_appbar_widget.dart';
+import 'package:neo_financial_app/widgets/custom_card_widget.dart';
+import 'package:neo_financial_app/widgets/title_and_button_widget.dart';
+import 'package:provider/provider.dart';
 
 class AccountsView extends StatelessWidget {
   const AccountsView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    String amount = '0.00'; //TODO: Value will come from Mock api
+    final state = Provider.of<UserState>(context, listen: true);
+    String amount = state.user != null
+        ? state.user!.cashBudget!.toDouble().toStringAsFixed(2)
+        : TextConstants.errorMessage;
 
     return WillPopScope(
         onWillPop: () async => false,
@@ -30,7 +34,16 @@ class AccountsView extends StatelessWidget {
                 alignment: WrapAlignment.center,
                 children: [
                   const Icon(IconConstants.accountElevatedButtonIcon),
-                  Text('${TextConstants.accountsElevatedButtonText}$amount'),
+                  amount != TextConstants.errorMessage
+                      ? Text(
+                          '${TextConstants.accountsElevatedButtonText}$amount')
+                      : const SizedBox(
+                          height: 20,
+                          width: 20,
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        ),
                 ],
               ),
               onPressed: () {},

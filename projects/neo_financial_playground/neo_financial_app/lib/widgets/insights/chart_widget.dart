@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/color_constants.dart';
+import 'package:neo_financial_app/core/data/constants/padding_constants.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/data/models/chart_data.dart';
+import 'package:neo_financial_app/core/provider/insights_state.dart';
 import 'package:neo_financial_app/widgets/insights/price_tag_paint_widget.dart';
+import 'package:provider/provider.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
-import '../../core/data/constants/padding_constants.dart';
-import '../../core/data/models/chart_data.dart';
 
 class ChartWidget extends StatefulWidget {
   const ChartWidget({
@@ -56,6 +59,7 @@ class _ChartWidgetState extends State<ChartWidget> {
             ),
           );
         });
+
     super.initState();
   }
 
@@ -63,7 +67,6 @@ class _ChartWidgetState extends State<ChartWidget> {
   Widget build(BuildContext context) {
     return Container(
       margin: PaddingConstants.largeVerticalPadding,
-      height: 200,
       child: SfCartesianChart(
           margin: EdgeInsets.zero,
           plotAreaBorderWidth: 0,
@@ -76,20 +79,34 @@ class _ChartWidgetState extends State<ChartWidget> {
             ),
             maximum: 6,
             isVisible: true,
+            axisLabelFormatter: (AxisLabelRenderDetails args) {
+              late String text;
+              if (TextConstants.controlChartItemsText.contains(args.text)) {
+                text = '';
+              } else {
+                text = args.text;
+              }
+              return ChartAxisLabel(text, args.textStyle);
+            },
             majorGridLines: const MajorGridLines(width: 0),
           ),
-          primaryYAxis: NumericAxis(
-              isVisible: false, minimum: 0, maximum: 30, interval: 10),
+          primaryYAxis: NumericAxis(isVisible: false, minimum: 0, interval: 10),
           tooltipBehavior: _tooltip,
           series: <ChartSeries<ChartData, String>>[
             ColumnSeries<ChartData, String>(
+              onPointDoubleTap: (pointInteractionDetails) {
+                Provider.of<InsightsState>(context, listen: false)
+                    .changeMonthInformations(
+                        context, pointInteractionDetails.pointIndex);
+              },
               width: 0.7,
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(5), topRight: Radius.circular(5)),
               dataSource: widget.data,
               xValueMapper: (ChartData data, _) => data.x,
               yValueMapper: (ChartData data, _) => data.y,
-              pointColorMapper: (ChartData data, _) => data.color,
+              pointColorMapper: (ChartData data, _) =>
+                  ColorConstants.chartColors[data.colorIndex],
             ),
           ]),
     );

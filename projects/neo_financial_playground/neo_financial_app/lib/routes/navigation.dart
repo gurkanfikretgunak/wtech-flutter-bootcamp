@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:neo_financial_app/core/data/constants/route_constants.dart';
+import 'package:neo_financial_app/views/error_view.dart';
+import 'package:neo_financial_app/views/home_template_view.dart';
+import 'package:neo_financial_app/views/onboard/onboard_home_view.dart';
+import 'package:neo_financial_app/views/onboard/onboard_learn_more_view.dart';
 import 'package:neo_financial_app/views/profile_view.dart';
 import 'package:neo_financial_app/views/sign_in_view.dart';
+import 'package:neo_financial_app/views/sign_up_view.dart';
 import 'package:neo_financial_app/views/splash_view.dart';
-
-import '../core/data/constants/route_constants.dart';
-import '../views/error_view.dart';
-import '../views/home_template_view.dart';
-import '../views/onboard/onboard_home_view.dart';
-import '../views/onboard/onboard_learn_more_view.dart';
-import '../views/sign_up_view.dart';
 
 class Navigation {
   static Route<dynamic> navigationGenarator(RouteSettings settings) {

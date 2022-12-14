@@ -53,6 +53,12 @@ class PaddingConstants {
   static const EdgeInsets largeLeftPadding = EdgeInsets.only(left: _large);
   static const EdgeInsets xLargeLeftPadding = EdgeInsets.only(left: _xLarge);
 
+  // Right
+  static const EdgeInsets smallRightPadding = EdgeInsets.only(right: _small);
+  static const EdgeInsets mediumRightPadding = EdgeInsets.only(right: _medium);
+  static const EdgeInsets largeRightPadding = EdgeInsets.only(right: _large);
+  static const EdgeInsets xLargeRightPadding = EdgeInsets.only(right: _xLarge);
+
   // Top
   static const EdgeInsets smallTopPadding = EdgeInsets.only(top: _small);
   static const EdgeInsets mediumTopPadding = EdgeInsets.only(top: _medium);

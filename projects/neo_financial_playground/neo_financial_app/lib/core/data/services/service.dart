@@ -1,12 +1,11 @@
 import 'package:dio/dio.dart';
-
-import '../api/rest_client.dart';
-import '../models/user.dart';
+import 'package:neo_financial_app/core/data/api/rest_client.dart';
+import 'package:neo_financial_app/core/data/models/user.dart';
 
 class UserRetrofit {
   final dio = Dio();
 
-  getUser(String id) {
+  Future<User> getUser(String id) {
     final client = RestClient(dio);
     return client.getUser(id);
   }

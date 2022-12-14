@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
-import '../data/constants/route_constants.dart';
-import '../data/local/shared_preferences.dart';
-import '../data/models/user.dart';
-import '../data/services/service.dart';
+import 'package:neo_financial_app/core/data/constants/route_constants.dart';
+import 'package:neo_financial_app/core/data/local/shared_preferences.dart';
+import 'package:neo_financial_app/core/data/models/user.dart';
+import 'package:neo_financial_app/core/data/services/service.dart';
 
 class UserState with ChangeNotifier {
   String _email = '',
@@ -16,12 +15,14 @@ class UserState with ChangeNotifier {
   Color _firstBar = Colors.grey,
       _secondBar = Colors.grey,
       _thirdBar = Colors.grey;
+  User? _user;
 
   final String _passwordPattern =
       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!.,/"}{:;@#\$&*~]).{10,}$';
   final String _emailPattern =
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+";
 
+  User? get user => _user;
   String get email => _email;
   String get password => _password;
   String get phone => _phone;
@@ -32,6 +33,11 @@ class UserState with ChangeNotifier {
   Color get thirdBar => _thirdBar;
   bool get emailStatus => _emailStatus;
   bool get isHidden => _isHidden;
+
+  setUser() async {
+    _user = await UserRetrofit().getUser(UserSharedPreferences.getUserID()!);
+    notifyListeners();
+  }
 
   setEmail(String email) {
     _email = email;
@@ -97,25 +103,50 @@ class UserState with ChangeNotifier {
     _passwordStatus = '';
   }
 
-  signUp() {
-    UserRetrofit()
+  signUp() async {
+    final now = DateTime.now();
+    await UserRetrofit()
         .register(
             user: User(
-                name: "user",
-                email: _email,
-                password: _password,
-                phone: _phone,
-                id: ''))
-        .then((user) => UserSharedPreferences.setUserID(user!.id));
+      id: "",
+      email: _email,
+      password: _password,
+      phone: _phone,
+      name: "",
+      surname: "",
+      address: "",
+      avatar: "",
+      promoCode: [],
+      cashBudget: 0,
+      recentPayments: [],
+      monthlyOutgoings: [
+        MonthlyOutgoing(
+            monthIndex: now.month - 1,
+            outgoingAvg: 0,
+            cashbackPerent: 0,
+            totalSpending: 0,
+            cashbackTotal: 0,
+            outgoings: [])
+      ],
+      cards: [],
+      favorites: [],
+    ))
+        .then((user) {
+      UserSharedPreferences.setUserID(user!.id!);
+      setUser();
+    });
+    notifyListeners();
   }
 
-  signIn(BuildContext context) {
-    UserRetrofit().login(email: email, password: password).then((user) {
-      UserSharedPreferences.setUserID(user!.id);
+  signIn(BuildContext context) async {
+    await UserRetrofit().login(email: email, password: password).then((user) {
+      UserSharedPreferences.setUserID(user!.id!).then((value) => setUser());
+
       Navigator.pushNamed(
         context,
         RouteConstants.homeRoute,
       );
     });
+    notifyListeners();
   }
 }

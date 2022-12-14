@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:neo_financial_app/core/data/constants/text_constants.dart';
+import 'package:neo_financial_app/core/provider/insights_state.dart';
 import 'package:neo_financial_app/core/provider/navigation_state.dart';
 import 'package:neo_financial_app/core/provider/onboard_state.dart';
 import 'package:neo_financial_app/core/provider/user_state.dart';
 import 'package:neo_financial_app/core/themes/custom_theme_data.dart';
+import 'package:neo_financial_app/routes/navigation.dart';
 import 'package:provider/provider.dart';
-
-import '../routes/navigation.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -21,6 +21,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: ((context) => NavigationState()),
+        ),
+        ChangeNotifierProvider(
+          create: ((context) => InsightsState()),
         )
       ],
       child: MaterialApp(

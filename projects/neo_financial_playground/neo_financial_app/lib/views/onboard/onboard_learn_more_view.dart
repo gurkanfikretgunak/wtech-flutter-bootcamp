@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:neo_financial_app/core/data/constants/text_constants.dart';
 import 'package:neo_financial_app/core/provider/onboard_state.dart';
 import 'package:provider/provider.dart';
-
-import '../../core/data/constants/text_constants.dart';
 
 class OnboardLearnMoreView extends StatelessWidget {
   const OnboardLearnMoreView({super.key});
