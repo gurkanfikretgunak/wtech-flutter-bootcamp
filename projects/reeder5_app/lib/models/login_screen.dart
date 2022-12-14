@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'home_screen.dart';
+import '/screen/home_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   // const LoginScreen({Key? key}) : super(key: key);
@@ -102,10 +101,7 @@ class LoginScreen extends StatelessWidget {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(
-                    builder: (context) => HomeScreen(
-                          index: 1,
-                        )),
+                MaterialPageRoute(builder: (context) => HomeScreen()),
               );
             },
             child: const Text(

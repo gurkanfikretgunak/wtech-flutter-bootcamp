@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'first_screen.dart';
 
-class MyApp extends StatefulWidget {
+import '../models/first_screen.dart';
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
   @override
-  _MyAppState createState() => _MyAppState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
