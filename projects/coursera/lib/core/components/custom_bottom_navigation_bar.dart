@@ -1,7 +1,6 @@
+import 'package:coursera/views/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../views/bottom_nav_bar/bottom_nav_bar_view_model.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   const CustomBottomNavigationBar({super.key});

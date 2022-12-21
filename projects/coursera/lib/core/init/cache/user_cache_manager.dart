@@ -1,9 +1,8 @@
-import '../../base/cache_manager.dart';
-import '../../data/enum/enum_hive.dart';
+import 'package:coursera/core/base/cache_manager.dart';
+import 'package:coursera/core/data/enum/enum_hive.dart';
+import 'package:coursera/core/data/model/user.dart';
 import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/adapters.dart';
-
-import '../../data/model/user.dart';
 
 class UserCacheManager extends ICacheManager<User> {
   @override

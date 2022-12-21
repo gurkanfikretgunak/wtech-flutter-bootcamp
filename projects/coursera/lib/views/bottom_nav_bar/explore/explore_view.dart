@@ -1,3 +1,4 @@
+import 'package:coursera/core/components/custom_divider.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 
@@ -39,6 +40,7 @@ class ExploreView extends StatelessWidget {
               isSeeAll: true,
             ),
             const TopicList(),
+            const CustomDivider(),
             Titles(
               titleText: 'My Coursera',
               titleColor: ColorConstant.instance.appGrey3,
@@ -48,6 +50,7 @@ class ExploreView extends StatelessWidget {
               isSeeAll: true,
             ),
             const MostPopularCertificatesList(),
+            const CustomDivider(),
             const Titles(
               titleText: "Get Started with These Free Courses",
               isSeeAll: true,

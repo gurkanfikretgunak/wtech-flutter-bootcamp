@@ -1,12 +1,11 @@
+import 'package:coursera/core/components/button/custom_button_elevated.dart';
+import 'package:coursera/core/components/text/custom_text_field_form.dart';
+import 'package:coursera/core/constants/constant_libary.dart';
+import 'package:coursera/views/authentication/sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
+import 'package:coursera/views/authentication/sign_up/sign_up_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 import 'package:logger/logger.dart';
-
-import '../../../core/components/button/button_libary.dart';
-import '../../../core/components/text/text_libary.dart';
-import '../../../core/constants/constant_libary.dart';
-import '../sign_in/sign_in_with_email/sign_in_with_email_view_model.dart';
-import '../sign_up/sign_up_view_model.dart';
 
 class AuthenticationFormWidget extends StatefulWidget {
   const AuthenticationFormWidget({

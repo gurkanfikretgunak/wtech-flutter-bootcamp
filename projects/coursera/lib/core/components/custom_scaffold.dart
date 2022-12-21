@@ -1,7 +1,3 @@
-import 'custom_app_bar.dart';
-import 'text/custom_auto_size_text.dart';
-
-import 'custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
 

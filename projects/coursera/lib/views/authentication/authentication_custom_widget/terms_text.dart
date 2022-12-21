@@ -1,7 +1,6 @@
+import 'package:coursera/core/constants/constant_libary.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
-import '../../../core/constants/constant_libary.dart';
 
 class TermsText extends StatelessWidget {
   const TermsText({super.key});

@@ -1,3 +1,5 @@
+import 'package:coursera/core/constants/constant_libary.dart';
+
 import '../../../../core/init/routes/custom_navigator.dart';
 import '../../../course_detail/course_detail_view_model.dart';
 import 'package:provider/provider.dart';
@@ -30,22 +32,30 @@ class CourseCard extends StatelessWidget {
           ? Padding(
               padding: context.onlyBottomPaddingNormal,
               child: CustomCard(
+                color: ColorConstant.instance.appGrey2,
                 child: isLearnPage == null
                     ? Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          SizedBox(
-                            height: context.dynamicHeight(0.08),
-                            child: CourseInformation(
-                              course: course,
+                          Expanded(
+                            flex: 5,
+                            child: Padding(
+                              padding: context.paddingLow,
+                              child: SizedBox(
+                                height: context.dynamicHeight(0.12),
+                                child: CourseInformation(
+                                  course: course,
+                                ),
+                              ),
                             ),
                           ),
-                          Container(
-                            color: Colors.pink,
-                            width: context.dynamicWidth(0.3),
-                            child: CustomImageViewer(
-                              url: course.courseImage.toString(),
+                          Expanded(
+                            flex: 4,
+                            child: Center(
+                              child: CustomImageViewer(
+                                url: course.courseImage.toString(),
+                              ),
                             ),
                           ),
                         ],
@@ -54,17 +64,24 @@ class CourseCard extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            color: Colors.pink,
-                            width: context.dynamicWidth(0.3),
-                            child: CustomImageViewer(
-                              url: course.courseImage.toString(),
+                          Expanded(
+                            flex: 4,
+                            child: Center(
+                              child: CustomImageViewer(
+                                url: course.courseImage.toString(),
+                              ),
                             ),
                           ),
-                          SizedBox(
-                            height: context.dynamicHeight(0.08),
-                            child: CourseInformation(
-                              course: course,
+                          Expanded(
+                            flex: 5,
+                            child: Padding(
+                              padding: context.paddingLow,
+                              child: SizedBox(
+                                height: context.dynamicHeight(0.11),
+                                child: CourseInformation(
+                                  course: course,
+                                ),
+                              ),
                             ),
                           ),
                         ],
@@ -72,18 +89,22 @@ class CourseCard extends StatelessWidget {
               ),
             )
           : CustomCard(
+              color: ColorConstant.instance.appGrey2,
               width: context.dynamicWidth(0.35),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  CustomImageViewer(url: course.courseImage.toString()),
-                  SizedBox(
-                    height: context.dynamicHeight(0.12),
-                    child: CourseInformation(
-                      course: course,
+              child: Padding(
+                padding: context.paddingLow,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CustomImageViewer(url: course.courseImage.toString()),
+                    SizedBox(
+                      height: context.dynamicHeight(0.12),
+                      child: CourseInformation(
+                        course: course,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
     );

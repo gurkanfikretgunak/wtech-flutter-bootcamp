@@ -1,8 +1,9 @@
+import 'package:coursera/core/components/text/custom_auto_size_text.dart';
+import 'package:coursera/core/constants/color_constant.dart';
+import 'package:coursera/core/constants/radius_constant.dart';
+import 'package:coursera/core/constants/size_constant.dart';
 import 'package:flutter/material.dart';
 import 'package:kartal/kartal.dart';
-
-import '../../../../core/constants/constant_libary.dart';
-import '../text/text_libary.dart';
 
 class CustomElevatedButton extends StatelessWidget {
   const CustomElevatedButton({

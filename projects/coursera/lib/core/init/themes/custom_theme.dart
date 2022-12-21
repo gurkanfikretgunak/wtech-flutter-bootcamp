@@ -1,6 +1,6 @@
+import 'package:coursera/core/constants/constant_libary.dart';
 import 'package:flutter/material.dart';
 
-import '../../constants/constant_libary.dart';
 import 'bottom_nav_bar_theme.dart';
 import 'card_theme.dart';
 import 'elevated_button_theme.dart';

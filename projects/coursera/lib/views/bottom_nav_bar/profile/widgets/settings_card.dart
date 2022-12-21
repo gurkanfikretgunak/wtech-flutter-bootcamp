@@ -21,6 +21,11 @@ class SettingsCard extends StatelessWidget {
         children: [
           context.emptySizedHeightBoxHigh,
           context.emptySizedHeightBoxLow3x,
+          const CustomText(
+              text: "Uncle Bob", fontSize: 15, fontWeight: FontWeight.w600),
+          context.emptySizedHeightBoxLow,
+          const CustomText(text: "uncle@gmail.com"),
+          context.emptySizedHeightBoxNormal,
           _buildTextButton(
             context,
             icon: Icons.cloud_queue_outlined,

@@ -1,9 +1,8 @@
+import 'package:coursera/core/data/model/course.dart';
+import 'package:coursera/core/data/model/topic.dart';
+import 'package:coursera/core/data/model/user.dart';
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
-
-import '../../model/course.dart';
-import '../../model/topic.dart';
-import '../../model/user.dart';
 
 part 'api_client.g.dart';
 

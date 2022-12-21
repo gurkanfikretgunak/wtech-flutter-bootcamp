@@ -1,5 +1,5 @@
-import '../../../base/base_retrofit_service.dart';
-import '../../model/course.dart';
+import 'package:coursera/core/base/base_retrofit_service.dart';
+import 'package:coursera/core/data/model/course.dart';
 
 class CourseService extends IRetrofitService {
   @override

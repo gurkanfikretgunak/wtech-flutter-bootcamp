@@ -1,6 +1,6 @@
+import 'package:coursera/core/constants/constant_libary.dart';
 import 'package:flutter/material.dart';
 
-import '../constants/constant_libary.dart';
 import 'text/custom_auto_size_text.dart';
 
 class CustomChip extends StatelessWidget {

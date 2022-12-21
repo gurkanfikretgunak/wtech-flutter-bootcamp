@@ -32,7 +32,7 @@ class CustomCard extends StatelessWidget {
       shadowColor: shadowColor,
       shape: RoundedRectangleBorder(
         side: BorderSide(color: borderSideColor ?? Colors.transparent),
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(5),
       ),
       child: SizedBox(
         width: width,

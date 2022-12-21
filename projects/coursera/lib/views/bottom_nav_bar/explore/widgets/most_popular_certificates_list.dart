@@ -28,12 +28,15 @@ class _MostPopularCertificatesListState
     return Padding(
       padding: context.verticalPaddingNormal,
       child: SizedBox(
-        height: context.dynamicHeight(0.25),
+        height: context.dynamicHeight(0.28),
         child: FutureBuilder<List<Course>>(
           future: futureCourse,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              return ListView.builder(
+              return ListView.separated(
+                separatorBuilder: (context, index) {
+                  return context.emptySizedWidthBoxNormal;
+                },
                 physics: const BouncingScrollPhysics(),
                 scrollDirection: Axis.horizontal,
                 itemCount: snapshot.data!.length,

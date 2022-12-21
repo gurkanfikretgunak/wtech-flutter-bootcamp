@@ -1,13 +1,13 @@
-import '../../../core/constants/constant_libary.dart';
-import '../../../core/data/enum/enum_hive.dart';
+import 'package:coursera/core/components/custom_scaffold.dart';
+import 'package:coursera/core/components/text/custom_auto_size_text.dart';
+import 'package:coursera/core/constants/color_constant.dart';
+import 'package:coursera/core/data/enum/enum_hive.dart';
+import 'package:coursera/core/data/model/user.dart';
+import 'package:coursera/core/init/cache/user_cache_manager.dart';
+
 import 'widgets/my_courses_list.dart';
 import 'package:flutter/material.dart';
 
-import '../../../core/components/custom_scaffold.dart';
-import '../../../core/components/text/text_libary.dart';
-import '../../../core/data/model/user.dart';
-import '../../../core/init/cache/user_cache_manager.dart';
-import '../bottom_nav_bar_view_model.dart';
 import 'widgets/empty_learn.dart';
 import 'package:kartal/kartal.dart';
 

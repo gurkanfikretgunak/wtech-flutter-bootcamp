@@ -1,5 +1,5 @@
-import '../../../base/base_retrofit_service.dart';
-import '../../model/topic.dart';
+import 'package:coursera/core/base/base_retrofit_service.dart';
+import 'package:coursera/core/data/model/topic.dart';
 
 class TopicService extends IRetrofitService<Topic> {
   @override
